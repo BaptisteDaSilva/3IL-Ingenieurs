@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="dataSourceStorageLocal">
+    <data-source name="PostgreSQL - bd_geo@localhost" uuid="89d20413-1e76-42a4-bd54-a78714755ead">
+      <secret-storage>master_key</secret-storage>
+      <user-name>postgres</user-name>
+      <schema-pattern>bd_geo.public</schema-pattern>
+      <default-schemas>bd_geo.public</default-schemas>
+    </data-source>
+  </component>
+</project>

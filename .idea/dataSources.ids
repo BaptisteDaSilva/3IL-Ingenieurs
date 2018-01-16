@@ -1,0 +1,294 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<component name="dataSourceStorage">
+  <data-source name="PostgreSQL - bd_geo@localhost" uuid="89d20413-1e76-42a4-bd54-a78714755ead">
+    <database-info product="PostgreSQL" version="9.4.5" jdbc-version="4.0" driver-name="PostgreSQL Native Driver" driver-version="PostgreSQL 9.4 JDBC4 (build 1201)">
+      <identifier-quote-string>&quot;</identifier-quote-string>
+    </database-info>
+    <case-sensitivity plain-identifiers="lower" quoted-identifiers="exact"/>
+    <database-model serializer="dbm" rdbms="POSTGRES" format-version="2.2">
+      <database id="1" name="bd_geo"/>
+      <schema id="2" parent="1" name="public">
+        <object-id>2200</object-id>
+        <comment>standard public schema</comment>
+        <introspection-state-number>715</introspection-state-number>
+        <introspection-timestamp>2015-11-23.12:38:23.251</introspection-timestamp>
+      </schema>
+      <table id="3" parent="2" name="t_deps">
+        <object-id>32882</object-id>
+        <state-number>690</state-number>
+      </table>
+      <table id="4" parent="2" name="t_photos_deps">
+        <object-id>32888</object-id>
+        <state-number>690</state-number>
+      </table>
+      <table id="5" parent="2" name="t_photos_villes">
+        <object-id>32894</object-id>
+        <state-number>690</state-number>
+      </table>
+      <table id="6" parent="2" name="t_regions">
+        <object-id>32897</object-id>
+        <state-number>690</state-number>
+      </table>
+      <table id="7" parent="2" name="t_utils">
+        <object-id>32903</object-id>
+        <state-number>715</state-number>
+      </table>
+      <table id="8" parent="2" name="t_villes">
+        <object-id>32907</object-id>
+        <state-number>690</state-number>
+      </table>
+      <column id="9" parent="3" name="numdep">
+        <state-number>690</state-number>
+        <mandatory>1</mandatory>
+        <data-type>char(2)</data-type>
+      </column>
+      <column id="10" parent="3" name="nom">
+        <state-number>690</state-number>
+        <mandatory>1</mandatory>
+        <data-type>varchar(50)</data-type>
+      </column>
+      <column id="11" parent="3" name="region">
+        <state-number>690</state-number>
+        <mandatory>1</mandatory>
+        <data-type>char(2)</data-type>
+      </column>
+      <column id="12" parent="3" name="cheflieu">
+        <state-number>690</state-number>
+        <mandatory>1</mandatory>
+        <data-type>char(5)</data-type>
+      </column>
+      <column id="13" parent="3" name="des">
+        <state-number>690</state-number>
+        <data-type>text</data-type>
+      </column>
+      <index id="14" parent="3" name="t_deps_pkey">
+        <object-id>32915</object-id>
+        <columns>numdep</columns>
+        <unique>1</unique>
+      </index>
+      <key id="15" parent="3" name="t_deps_pkey">
+        <columns>numdep</columns>
+        <underlying-index>t_deps_pkey</underlying-index>
+        <primary>1</primary>
+      </key>
+      <foreign-key id="16" parent="3" name="fk_dep_region">
+        <columns>region</columns>
+        <ref-key>t_regions.t_regions_pkey</ref-key>
+        <cascade-update-rule>restrict</cascade-update-rule>
+        <cascade-delete-rule>restrict</cascade-delete-rule>
+      </foreign-key>
+      <foreign-key id="17" parent="3" name="fk_dep_chefLieu">
+        <columns>cheflieu</columns>
+        <ref-key>t_villes.t_villes_pkey</ref-key>
+        <cascade-update-rule>restrict</cascade-update-rule>
+        <cascade-delete-rule>restrict</cascade-delete-rule>
+      </foreign-key>
+      <column id="18" parent="4" name="idphoto">
+        <state-number>690</state-number>
+        <mandatory>1</mandatory>
+        <data-type>char(4)</data-type>
+      </column>
+      <column id="19" parent="4" name="nom">
+        <state-number>690</state-number>
+        <mandatory>1</mandatory>
+        <data-type>varchar(50)</data-type>
+      </column>
+      <column id="20" parent="4" name="dep">
+        <state-number>690</state-number>
+        <mandatory>1</mandatory>
+        <data-type>char(2)</data-type>
+      </column>
+      <column id="21" parent="4" name="valeur">
+        <state-number>690</state-number>
+        <mandatory>1</mandatory>
+        <data-type>numeric(2)</data-type>
+      </column>
+      <index id="22" parent="4" name="t_photos_deps_pkey">
+        <object-id>32917</object-id>
+        <columns>idphoto</columns>
+        <unique>1</unique>
+      </index>
+      <key id="23" parent="4" name="t_photos_deps_pkey">
+        <columns>idphoto</columns>
+        <underlying-index>t_photos_deps_pkey</underlying-index>
+        <primary>1</primary>
+      </key>
+      <foreign-key id="24" parent="4" name="fk_photos_dep">
+        <columns>dep</columns>
+        <ref-key>t_deps.t_deps_pkey</ref-key>
+        <cascade-update-rule>restrict</cascade-update-rule>
+        <cascade-delete-rule>restrict</cascade-delete-rule>
+      </foreign-key>
+      <column id="25" parent="5" name="idphoto">
+        <state-number>690</state-number>
+        <mandatory>1</mandatory>
+        <data-type>char(7)</data-type>
+      </column>
+      <column id="26" parent="5" name="nom">
+        <state-number>690</state-number>
+        <mandatory>1</mandatory>
+        <data-type>varchar(50)</data-type>
+      </column>
+      <column id="27" parent="5" name="ville">
+        <state-number>690</state-number>
+        <mandatory>1</mandatory>
+        <data-type>char(5)</data-type>
+      </column>
+      <column id="28" parent="5" name="valeur">
+        <state-number>690</state-number>
+        <mandatory>1</mandatory>
+        <data-type>numeric(2)</data-type>
+      </column>
+      <index id="29" parent="5" name="t_photos_villes_pkey">
+        <object-id>32921</object-id>
+        <columns>idphoto</columns>
+        <unique>1</unique>
+      </index>
+      <key id="30" parent="5" name="t_photos_villes_pkey">
+        <columns>idphoto</columns>
+        <underlying-index>t_photos_villes_pkey</underlying-index>
+        <primary>1</primary>
+      </key>
+      <foreign-key id="31" parent="5" name="fk_photos_ville">
+        <columns>ville</columns>
+        <ref-key>t_villes.t_villes_pkey</ref-key>
+        <cascade-update-rule>restrict</cascade-update-rule>
+        <cascade-delete-rule>restrict</cascade-delete-rule>
+      </foreign-key>
+      <column id="32" parent="6" name="numreg">
+        <state-number>690</state-number>
+        <mandatory>1</mandatory>
+        <data-type>char(2)</data-type>
+      </column>
+      <column id="33" parent="6" name="nom">
+        <state-number>690</state-number>
+        <mandatory>1</mandatory>
+        <data-type>varchar(50)</data-type>
+      </column>
+      <column id="34" parent="6" name="cheflieu">
+        <state-number>690</state-number>
+        <mandatory>1</mandatory>
+        <data-type>char(5)</data-type>
+      </column>
+      <column id="35" parent="6" name="des">
+        <state-number>690</state-number>
+        <data-type>text</data-type>
+      </column>
+      <index id="36" parent="6" name="t_regions_pkey">
+        <object-id>32923</object-id>
+        <columns>numreg</columns>
+        <unique>1</unique>
+      </index>
+      <key id="37" parent="6" name="t_regions_pkey">
+        <columns>numreg</columns>
+        <underlying-index>t_regions_pkey</underlying-index>
+        <primary>1</primary>
+      </key>
+      <foreign-key id="38" parent="6" name="fk_region_chefLieu">
+        <columns>cheflieu</columns>
+        <ref-key>t_villes.t_villes_pkey</ref-key>
+        <cascade-update-rule>restrict</cascade-update-rule>
+        <cascade-delete-rule>restrict</cascade-delete-rule>
+      </foreign-key>
+      <column id="39" parent="7" name="login">
+        <state-number>690</state-number>
+        <mandatory>1</mandatory>
+        <data-type>varchar(20)</data-type>
+      </column>
+      <column id="40" parent="7" name="mdp">
+        <state-number>690</state-number>
+        <data-type>varchar(64)</data-type>
+      </column>
+      <column id="41" parent="7" name="email">
+        <state-number>702</state-number>
+        <data-type>varchar(50)</data-type>
+      </column>
+      <column id="42" parent="7" name="type">
+        <state-number>690</state-number>
+        <data-type>char</data-type>
+      </column>
+      <index id="43" parent="7" name="pk_t_utils">
+        <object-id>32913</object-id>
+        <columns>login</columns>
+        <unique>1</unique>
+      </index>
+      <key id="44" parent="7" name="pk_t_utils">
+        <columns>login</columns>
+        <underlying-index>pk_t_utils</underlying-index>
+        <primary>1</primary>
+      </key>
+      <check id="45" parent="7" name="ck_type">
+        <columns>type</columns>
+        <predicate>(type = &apos;A&apos;::bpchar) OR (type = &apos;C&apos;::bpchar)</predicate>
+      </check>
+      <column id="46" parent="8" name="numinsee">
+        <state-number>690</state-number>
+        <mandatory>1</mandatory>
+        <data-type>char(5)</data-type>
+      </column>
+      <column id="47" parent="8" name="dep">
+        <state-number>690</state-number>
+        <mandatory>1</mandatory>
+        <data-type>char(2)</data-type>
+      </column>
+      <column id="48" parent="8" name="nom">
+        <state-number>690</state-number>
+        <mandatory>1</mandatory>
+        <data-type>varchar(50)</data-type>
+      </column>
+      <column id="49" parent="8" name="cp">
+        <state-number>690</state-number>
+        <mandatory>1</mandatory>
+        <data-type>char(5)</data-type>
+      </column>
+      <column id="50" parent="8" name="population">
+        <state-number>690</state-number>
+        <data-type>numeric(7)</data-type>
+      </column>
+      <column id="51" parent="8" name="densite">
+        <state-number>690</state-number>
+        <data-type>numeric(6)</data-type>
+      </column>
+      <column id="52" parent="8" name="superficie">
+        <state-number>690</state-number>
+        <data-type>numeric(5,2)</data-type>
+      </column>
+      <column id="53" parent="8" name="altmax">
+        <state-number>690</state-number>
+        <data-type>numeric(4)</data-type>
+      </column>
+      <column id="54" parent="8" name="altmin">
+        <state-number>690</state-number>
+        <data-type>numeric(4)</data-type>
+      </column>
+      <column id="55" parent="8" name="latitude">
+        <state-number>690</state-number>
+        <data-type>numeric(7,5)</data-type>
+      </column>
+      <column id="56" parent="8" name="longitude">
+        <state-number>690</state-number>
+        <data-type>numeric(7,5)</data-type>
+      </column>
+      <column id="57" parent="8" name="des">
+        <state-number>690</state-number>
+        <data-type>text</data-type>
+      </column>
+      <index id="58" parent="8" name="t_villes_pkey">
+        <object-id>32925</object-id>
+        <columns>numinsee</columns>
+        <unique>1</unique>
+      </index>
+      <key id="59" parent="8" name="t_villes_pkey">
+        <columns>numinsee</columns>
+        <underlying-index>t_villes_pkey</underlying-index>
+        <primary>1</primary>
+      </key>
+      <foreign-key id="60" parent="8" name="fk_ville_dep">
+        <columns>dep</columns>
+        <ref-key>t_deps.t_deps_pkey</ref-key>
+        <cascade-update-rule>restrict</cascade-update-rule>
+        <cascade-delete-rule>restrict</cascade-delete-rule>
+      </foreign-key>
+    </database-model>
+  </data-source>
+</component>
