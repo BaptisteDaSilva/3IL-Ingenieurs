@@ -36,7 +36,7 @@ require_once TEMPLATES . 'menu.php';
 								</div>
 								<div class="panel-body">
 									<a
-										href="Region/details/<?=$this->dep->getRegion()->getNumReg()?>"><?= $this->dep->getRegion()->getNomReg() ?></a>
+										href="/Region/details/<?=$this->dep->getRegion()->getNumReg()?>"><?= $this->dep->getRegion()->getNomReg() ?></a>
 								</div>
 							</div>
 						</div>

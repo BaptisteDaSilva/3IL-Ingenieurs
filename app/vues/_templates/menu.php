@@ -9,7 +9,7 @@
 					class="icon-bar"></span> <span class="icon-bar"></span> <span
 					class="icon-bar"></span>
 			</button>
-			<a class="navbar-brand" href=""> <img
+			<a class="navbar-brand" href="/"> <img
 				src="<?= IMAGES . 'ico.png' ?>">&nbsp;&nbsp;&nbsp;<?= self::getTitreSite() ?>
 			</a>
 		</div>
@@ -17,13 +17,13 @@
 		<div class="collapse navbar-collapse"
 			id="bs-example-navbar-collapse-1">
 			<ul class="nav navbar-nav">
-				<li class="active"><a href=""> <i
+				<li class="active"><a href="/"> <i
 						class="fa fa-home"></i>&nbsp;&nbsp;Accueil <span class="sr-only">
 							(current)</span></a></li>
-				<li><a href="Region/carte/"> <i
+				<li><a href="/Region/carte/"> <i
 						class="fa fa-map"></i>&nbsp;&nbsp;Carte des Régions
 				</a></li>
-				<li><a href="Departement/liste/"> <i
+				<li><a href="/Departement/liste/"> <i
 						class="fa fa-list"></i>&nbsp;&nbsp;Liste des Départements
 				</a></li>
 			</ul>
@@ -40,9 +40,9 @@
                        <b>' . $_SESSION['util']->getLogin() . '
                         </b><span class="caret"></span></a>
                     <ul class="dropdown-menu">
-                        <li><a href="MonCompte/"><i
+                        <li><a href="/MonCompte/"><i
                         class="fa fa-gears"></i>&nbsp;&nbsp;Mon Compte</a></li>
-                        <li><a href="Deconnexion/"><i
+                        <li><a href="/Deconnexion/"><i
                         class="fa fa-power-off"></i>&nbsp;&nbsp;Se
                         Déconnecter</a></li>
                     </ul>
