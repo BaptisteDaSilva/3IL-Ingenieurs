@@ -25,7 +25,7 @@ $(function () {
             $.ajax({
                 
                 // URL de la fonction PHP à questionner
-                url: "/GeoVilles/inscription/testPseudo/" + $input.val(),
+                url: "/Rodez_3IL_Ingenieurs/inscription/testPseudo/" + $input.val(),
                 
                 // Avant d'envoyer la requête
                 beforeSend: function() {

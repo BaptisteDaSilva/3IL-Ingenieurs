@@ -1,12 +1,12 @@
 <?php
-    require_once TEMPLATES . 'enTete.php';
-    require_once TEMPLATES . 'menu.php';
+require_once TEMPLATES . 'enTete.php';
+require_once TEMPLATES . 'menu.php';
 ?>
 
 <div class="container-fluid">
-    <div class="row">
-        <div class="col-md-2"></div>
-        <div class="col-md-8">
+	<div class="row">
+		<div class="col-md-2"></div>
+		<div class="col-md-8">
             <?php
             if ($this->inscriptionOK) {
                 echo '<div class="panel panel-success bigPanel">
@@ -34,6 +34,6 @@
             }
             ?>
         </div>
-        <div class="col-md-2"></div>
-    </div>
+		<div class="col-md-2"></div>
+	</div>
 </div>

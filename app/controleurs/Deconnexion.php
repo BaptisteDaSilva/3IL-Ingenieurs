@@ -1,19 +1,22 @@
 <?php
-    namespace GeoVilles\controleurs;
-    use GeoVilles\Core\Controleur;
+namespace Rodez_3IL_Ingenieurs\controleurs;
 
-    class Deconnexion extends Controleur{
+use Rodez_3IL_Ingenieurs\Core\Controleur;
 
-        /**
-         * Méthode lancée par défaut sur un contrôleur.
-         */
-        public function index() {
-            // Détruit la session courante.
-            session_unset();
-            session_destroy();
+class Deconnexion extends Controleur
+{
 
-            $this->setTitre("Déconnexion");
-
-            require_once VUES . 'Deconnexion/VueDeconnexion.php';
-        }
+    /**
+     * Méthode lancée par défaut sur un contrôleur.
+     */
+    public function index()
+    {
+        // Détruit la session courante.
+        session_unset();
+        session_destroy();
+        
+        $this->setTitre("Déconnexion");
+        
+        require_once VUES . 'Deconnexion/VueDeconnexion.php';
     }
+}

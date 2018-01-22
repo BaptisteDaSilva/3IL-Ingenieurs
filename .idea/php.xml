@@ -1,9 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<project version="4">
-  <component name="PhpProjectServersManager">
-    <servers>
-      <server host="localhost" id="e4d4eb27-4532-4e6c-82bd-b87997b14b1d" name="Wamp" />
-    </servers>
-  </component>
-  <component name="PhpProjectSharedConfiguration" php_language_level="5.5.0" />
-</project>

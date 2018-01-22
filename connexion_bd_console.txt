@@ -1,0 +1,12 @@
+mysql -h 127.0.0.1 -P 3306 -uroot -proot
+
+CREATE DATABASE 3il_ingenieurs CHARACTER SET 'utf8';
+GRANT ALL PRIVILEGES ON 3il_ingenieurs.* TO admin;
+
+
+mysql -h 127.0.0.1 -P 3306 -uadmin -padmin
+USE 3il_ingenieurs;
+
+CREATE TABLE Message(idMessage varchar(50) NOT NULL PRIMARY KEY, leMessage text NOT NULL) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+
+INSERT INTO Message (idMessage, leMessage) VALUES ('NomSite', '3IL-Ingénieurs');  

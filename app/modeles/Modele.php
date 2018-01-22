@@ -1,25 +1,28 @@
 <?php
+namespace Rodez_3IL_Ingenieurs\Modeles;
 
-    namespace GeoVilles\Modeles;
+use Rodez_3IL_Ingenieurs\Libs\BaseDeDonnees;
 
-    use GeoVilles\Libs\BaseDeDonnees;
+abstract class Modele
+{
 
-    abstract class Modele {
+    /** @var BaseDeDonnees la connexion à la base de données. */
+    private static $baseDeDonnees;
 
-        /** @var BaseDeDonnees la connexion à la base de données. */
-        private static $baseDeDonnees;
-
-        /**
-         * Se connecte à la base de données.
-         */
-        protected static function connexionBD() {
-            self::$baseDeDonnees = new BaseDeDonnees();
-        }
-
-        /**
-         * @return BaseDeDonnees la connexion à la base de données.
-         */
-        protected static function getBaseDeDonnees() {
-            return self::$baseDeDonnees;
-        }
+    /**
+     * Se connecte à la base de données.
+     */
+    protected static function connexionBD()
+    {
+        self::$baseDeDonnees = new BaseDeDonnees();
     }
+
+    /**
+     *
+     * @return BaseDeDonnees la connexion à la base de données.
+     */
+    protected static function getBaseDeDonnees()
+    {
+        return self::$baseDeDonnees;
+    }
+}
