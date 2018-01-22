@@ -19,6 +19,8 @@ class BaseDeDonnees
 
     /** @var \PDO la connexion à la base de données. */
     private $cnxBD;
+    
+    
 
     public function __construct()
     {
@@ -28,7 +30,7 @@ class BaseDeDonnees
         
         // Connexion à la base
         try {
-            $this->cnxBD = new \PDO($config['type'] . ':host=' . $config['host'] . ';port=' . $config['port'] . ';dbname=' . $config['nom_bd'], $config['login'], $config['mdp'], self::$OPTIONS_DB);
+            $this->cnxBD = new \PDO($config['type'] . ':host=' . DB_HOST . ';dbname=' . $config['nom_bd'] . ';charset=utf8', $config['login'], $config['mdp'], self::$OPTIONS_DB);
         } catch (\PDOException $e) {
             echo $e->getMessage();
         }
