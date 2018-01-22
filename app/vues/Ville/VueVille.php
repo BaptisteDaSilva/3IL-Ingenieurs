@@ -36,8 +36,7 @@ require_once TEMPLATES . 'menu.php';
 					<h3 class="panel-title"><?= $this->ville->getNom() ?>
                         <?php
                         if (isset($_SESSION['util'])) {
-                            echo '<a
-                                href="Ville/modifier/' . $this->ville->getNumInsee() . '/" class="btn
+                            echo '<a href="/Ville/modifier/' . $this->ville->getNumInsee() . '/" class="btn
                                      mon-btn"><span class="fa fa-pencil-square-o"></span>&nbsp;&nbsp;Modifier</a>';
                         }
                         ?>
@@ -71,8 +70,7 @@ require_once TEMPLATES . 'menu.php';
 									<h3 class="panel-title">Département</h3>
 								</div>
 								<div class="panel-body">
-									<a
-										href="Departement/details/<?=$this->ville->getDep()->getNumDep()?>"><?=$this->ville->getDep()->getNom()?></a>
+									<a href="/Departement/details/<?=$this->ville->getDep()->getNumDep()?>"><?=$this->ville->getDep()->getNom()?></a>
 								</div>
 							</div>
 						</div>

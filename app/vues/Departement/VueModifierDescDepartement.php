@@ -29,8 +29,7 @@ require_once TEMPLATES . 'menu.php';
 									<h3 class="panel-title">Région</h3>
 								</div>
 								<div class="panel-body">
-									<a
-										href="/Region/details/<?=$this->dep->getRegion()->getNumReg()?>"><?= $this->dep->getRegion()->getNomReg() ?></a>
+									<a href="/Region/details/<?=$this->dep->getRegion()->getNumReg()?>"><?= $this->dep->getRegion()->getNomReg() ?></a>
 								</div>
 							</div>
 						</div>
@@ -40,8 +39,7 @@ require_once TEMPLATES . 'menu.php';
 									<h3 class="panel-title">Chef-lieu</h3>
 								</div>
 								<div class="panel-body">
-									<a
-										href="Ville/details/<?=$this->dep->getChefLieu()->getNumInsee()?>"><?= $this->dep->getChefLieu()->getNom() ?></a>
+									<a href="/Ville/details/<?=$this->dep->getChefLieu()->getNumInsee()?>"><?= $this->dep->getChefLieu()->getNom() ?></a>
 								</div>
 							</div>
 						</div>
@@ -91,8 +89,7 @@ require_once TEMPLATES . 'menu.php';
                                         for ($i = 0; $i < count($this->dep->getVilles()); $i ++) {
                                             echo '<tr>';
                                             echo '<td>' . $this->dep->getVilles()[$i]->getNumInsee() . '</td>';
-                                            echo '<td><a
-                                                href="Ville/details/' . $this->dep->getVilles()[$i]->getNumInsee() . '">' . $this->dep->getVilles()[$i]->getNom() . '</a></td>';
+                                            echo '<td><a href="/Ville/details/' . $this->dep->getVilles()[$i]->getNumInsee() . '">' . $this->dep->getVilles()[$i]->getNom() . '</a></td>';
                                             echo '</tr>';
                                         }
                                         ?>

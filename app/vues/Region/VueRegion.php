@@ -29,8 +29,7 @@ require_once TEMPLATES . 'menu.php';
 									<h3 class="panel-title">Chef-lieu</h3>
 								</div>
 								<div class="panel-body">
-									<a
-										href="Ville/details/<?=$this->region->getChefLieu()->getNumInsee()?>"><?= $this->region->getChefLieu()->getNom() ?></a>
+									<a href="/Ville/details/<?=$this->region->getChefLieu()->getNumInsee()?>"><?= $this->region->getChefLieu()->getNom() ?></a>
 								</div>
 							</div>
 						</div>
@@ -72,8 +71,7 @@ require_once TEMPLATES . 'menu.php';
                                         for ($i = 0; $i < count($this->region->getDeps()); $i ++) {
                                             echo '<tr>';
                                             echo '<td>' . $this->region->getDeps()[$i]->getNumDep() . '</td>';
-                                            echo '<td><a
-                                                href="Departement/details/' . $this->region->getDeps()[$i]->getNumDep() . '">' . $this->region->getDeps()[$i]->getNom() . '</a></td>';
+                                            echo '<td><a href="/Departement/details/' . $this->region->getDeps()[$i]->getNumDep() . '">' . $this->region->getDeps()[$i]->getNom() . '</a></td>';
                                             echo '</tr>';
                                         }
                                         ?>

@@ -26,8 +26,7 @@ require_once TEMPLATES . 'menu.php';
                             for ($i = 0; $i < count($this->villesRech); $i ++) {
                                 echo '<tr>';
                                 echo '<td>' . $this->villesRech[$i]->getNumInsee() . '</td>';
-                                echo '<td><a
-                                                href="Ville/details/' . $this->villesRech[$i]->getNumInsee() . '">' . $this->villesRech[$i]->getNom() . '</a></td>';
+                                echo '<td><a href="/Ville/details/' . $this->villesRech[$i]->getNumInsee() . '">' . $this->villesRech[$i]->getNom() . '</a></td>';
                                 echo '</tr>';
                             }
                             ?>

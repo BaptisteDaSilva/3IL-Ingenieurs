@@ -24,8 +24,7 @@ require_once TEMPLATES . 'menu.php';
                         for ($i = 0; $i < count($this->listeDeps); $i ++) {
                             echo '<tr>';
                             echo '<td>' . $this->listeDeps[$i]->getNumDep() . '</td>';
-                            echo '<td><a
-                                href="Departement/details/' . $this->listeDeps[$i]->getNumDep() . '">' . $this->listeDeps[$i]->getNom() . '</a></td>';
+                            echo '<td><a href="/Departement/details/' . $this->listeDeps[$i]->getNumDep() . '">' . $this->listeDeps[$i]->getNom() . '</a></td>';
                             echo '</tr>';
                         }
                         ?>
