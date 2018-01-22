@@ -32,10 +32,5 @@ define('PHOTOS', IMAGES . 'photos/');
 define('CSS', URL . 'css/');
 define('JS', URL . 'js/');
 
-define('DB_NAME', getenv('OPENSHIFT_APP_NAME'));
-define('DB_USER', getenv('OPENSHIFT_MYSQL_DB_USERNAME'));
-define('DB_PASSWORD', getenv('OPENSHIFT_MYSQL_DB_PASSWORD'));
-define('DB_HOST', getenv('OPENSHIFT_MYSQL_DB_HOST') . ':' . getenv('OPENSHIFT_MYSQL_DB_PORT'));
-
 // Lance le routage
 $app = new Application();
