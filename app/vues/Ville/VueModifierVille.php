@@ -52,7 +52,7 @@ require_once TEMPLATES . 'menu.php';
 									</div>
 									<div class="panel-body">
 										<a
-											href="/3IL-Ingenieurs/departement/details/<?=$this->ville->getDep()->getNumDep()?>"><?=$this->ville->getDep()->getNom()?></a>
+											href="Departement/details/<?=$this->ville->getDep()->getNumDep()?>"><?=$this->ville->getDep()->getNom()?></a>
 									</div>
 								</div>
 							</div>

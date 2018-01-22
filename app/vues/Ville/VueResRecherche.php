@@ -27,7 +27,7 @@ require_once TEMPLATES . 'menu.php';
                                 echo '<tr>';
                                 echo '<td>' . $this->villesRech[$i]->getNumInsee() . '</td>';
                                 echo '<td><a
-                                                href="/3IL-Ingenieurs/ville/details/' . $this->villesRech[$i]->getNumInsee() . '">' . $this->villesRech[$i]->getNom() . '</a></td>';
+                                                href="Ville/details/' . $this->villesRech[$i]->getNumInsee() . '">' . $this->villesRech[$i]->getNom() . '</a></td>';
                                 echo '</tr>';
                             }
                             ?>

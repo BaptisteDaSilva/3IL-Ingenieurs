@@ -30,7 +30,7 @@ require_once TEMPLATES . 'menu.php';
 								</div>
 								<div class="panel-body">
 									<a
-										href="/3IL-Ingenieurs/ville/details/<?=$this->region->getChefLieu()->getNumInsee()?>"><?= $this->region->getChefLieu()->getNom() ?></a>
+										href="Ville/details/<?=$this->region->getChefLieu()->getNumInsee()?>"><?= $this->region->getChefLieu()->getNom() ?></a>
 								</div>
 							</div>
 						</div>
@@ -73,7 +73,7 @@ require_once TEMPLATES . 'menu.php';
                                             echo '<tr>';
                                             echo '<td>' . $this->region->getDeps()[$i]->getNumDep() . '</td>';
                                             echo '<td><a
-                                                href="/3IL-Ingenieurs/departement/details/' . $this->region->getDeps()[$i]->getNumDep() . '">' . $this->region->getDeps()[$i]->getNom() . '</a></td>';
+                                                href="Departement/details/' . $this->region->getDeps()[$i]->getNumDep() . '">' . $this->region->getDeps()[$i]->getNom() . '</a></td>';
                                             echo '</tr>';
                                         }
                                         ?>

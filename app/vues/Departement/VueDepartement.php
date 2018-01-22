@@ -13,7 +13,7 @@ require_once TEMPLATES . 'menu.php';
                         <?php
                         if (isset($_SESSION['util'])) {
                             echo '<a
-                                href="/3IL-Ingenieurs/departement/modifierDes/' . $this->dep->getNumDep() . '/" class="btn mon-btn"><span class="fa fa-pencil-square-o"></span>&nbsp;&nbsp;Modifier</a>';
+                                href="Departement/modifierDes/' . $this->dep->getNumDep() . '/" class="btn mon-btn"><span class="fa fa-pencil-square-o"></span>&nbsp;&nbsp;Modifier</a>';
                         }
                         ?></h3>
 				</div>
@@ -36,7 +36,7 @@ require_once TEMPLATES . 'menu.php';
 								</div>
 								<div class="panel-body">
 									<a
-										href="/3IL-Ingenieurs/region/details/<?=$this->dep->getRegion()->getNumReg()?>"><?= $this->dep->getRegion()->getNomReg() ?></a>
+										href="Region/details/<?=$this->dep->getRegion()->getNumReg()?>"><?= $this->dep->getRegion()->getNomReg() ?></a>
 								</div>
 							</div>
 						</div>
@@ -47,7 +47,7 @@ require_once TEMPLATES . 'menu.php';
 								</div>
 								<div class="panel-body">
 									<a
-										href="/3IL-Ingenieurs/ville/details/<?=$this->dep->getChefLieu()->getNumInsee()?>"><?= $this->dep->getChefLieu()->getNom() ?></a>
+										href="Ville/details/<?=$this->dep->getChefLieu()->getNumInsee()?>"><?= $this->dep->getChefLieu()->getNom() ?></a>
 								</div>
 							</div>
 						</div>
@@ -90,7 +90,7 @@ require_once TEMPLATES . 'menu.php';
                                             echo '<tr>';
                                             echo '<td>' . $this->dep->getVilles()[$i]->getNumInsee() . '</td>';
                                             echo '<td><a
-                                                href="/3IL-Ingenieurs/ville/details/' . $this->dep->getVilles()[$i]->getNumInsee() . '">' . $this->dep->getVilles()[$i]->getNom() . '</a></td>';
+                                                href="Ville/details/' . $this->dep->getVilles()[$i]->getNumInsee() . '">' . $this->dep->getVilles()[$i]->getNom() . '</a></td>';
                                             echo '</tr>';
                                         }
                                         ?>

@@ -21,7 +21,7 @@ require_once TEMPLATES . 'menu.php';
                         <?php
                         for ($i = 0; $i < count($this->villesProches); $i ++) {
                             echo '<tr>';
-                            echo '<td><a href="/3IL-Ingenieurs/ville/details/' . $this->villesProches[$i]->getNumInsee() . '">' . $this->villesProches[$i]->getNom() . '</a></td>';
+                            echo '<td><a href="Ville/details/' . $this->villesProches[$i]->getNumInsee() . '">' . $this->villesProches[$i]->getNom() . '</a></td>';
                             echo '</tr>';
                         }
                         ?>
@@ -37,7 +37,7 @@ require_once TEMPLATES . 'menu.php';
                         <?php
                         if (isset($_SESSION['util'])) {
                             echo '<a
-                                href="/3IL-Ingenieurs/ville/modifier/' . $this->ville->getNumInsee() . '/" class="btn
+                                href="Ville/modifier/' . $this->ville->getNumInsee() . '/" class="btn
                                      mon-btn"><span class="fa fa-pencil-square-o"></span>&nbsp;&nbsp;Modifier</a>';
                         }
                         ?>
@@ -72,7 +72,7 @@ require_once TEMPLATES . 'menu.php';
 								</div>
 								<div class="panel-body">
 									<a
-										href="/3IL-Ingenieurs/departement/details/<?=$this->ville->getDep()->getNumDep()?>"><?=$this->ville->getDep()->getNom()?></a>
+										href="Departement/details/<?=$this->ville->getDep()->getNumDep()?>"><?=$this->ville->getDep()->getNom()?></a>
 								</div>
 							</div>
 						</div>
