@@ -3,18 +3,13 @@ namespace Rodez_3IL_Ingenieurs\Controleurs;
 
 use Rodez_3IL_Ingenieurs\Core\Controleur;
 
-use Rodez_3IL_Ingenieurs\Modeles;
-require_once MODELES . 'Message.php';
-
 /**
  * Contrôleur de la page d'accueil du site.
  * 
  * @package Rodez_3IL_Ingenieurs\Controleurs
  */
-class Accueil extends Controleur
-{    
-    private $lesMess;
-
+class Apprentissage extends Controleur
+{
     /**
      * Créé un nouveau contrôleur de la page d'accueil.
      */
@@ -22,7 +17,7 @@ class Accueil extends Controleur
     {
         parent::__construct();
         
-        $this->setActivePage('Accueil');
+        $this->setActivePage('Apprentissage');
     }
 
     /**
@@ -30,10 +25,8 @@ class Accueil extends Controleur
      */
     public function index()
     {
-        $this->setTitre('Accueil');
+        $this->setTitre('Apprentissage');
         
-        $this->lesMess = Modeles\Message::getMessages();
-        
-        require_once VUES . 'VueAccueil.php';
+        require_once VUES . 'Apprentissage/VueApprentissage.php';
     }
 }

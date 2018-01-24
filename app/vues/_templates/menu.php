@@ -17,15 +17,31 @@
 		<div class="collapse navbar-collapse"
 			id="bs-example-navbar-collapse-1">
 			<ul class="nav navbar-nav">
-				<li class="active"><a href="/"> <i
+				<li <?php if ($this->getActivePage() == 'Accueil') { echo 'class="active"'; } ?>><a href="/"> <i
 						class="fa fa-home"></i>&nbsp;&nbsp;Accueil <span class="sr-only">
-							(current)</span></a></li>
-				<li><a href="/Region/carte/"> <i
-						class="fa fa-map"></i>&nbsp;&nbsp;Carte des Régions
+							(current)</span></a>
+				</li>
+				<li class="dropdown <?php if ($this->getActivePage() == 'Formation') { echo 'active'; } ?>">
+                    <a href="#" class="dropdown-toggle"
+                       data-toggle="dropdown" role="button"
+                       aria-haspopup="true" aria-expanded="false">
+                       <i class="fa fa-list"></i>&nbsp;&nbsp;Formation
+                        <span class="caret"></span></a>
+                    <ul class="dropdown-menu">                        
+                        <li><a href="/Formation/annee1"><i class="fa fa-plus"></i>&nbsp;&nbsp;Année 1</a></li>
+                        <li><a href="/Formation/annee2"><i class="fa fa-plus"></i>&nbsp;&nbsp;Année 2</a></li>
+                        <li><a href="/Formation/annee3"><i class="fa fa-plus"></i>&nbsp;&nbsp;Année 3</a></li> 
+                    </ul>
+                </li>
+				<li <?php if ($this->getActivePage() == 'Apprentissage') { echo 'class="active"'; } ?>><a href="/Apprentissage"><i
+						class="fa fa-file"></i>&nbsp;&nbsp;Apprentissage
 				</a></li>
-				<li><a href="/Departement/liste/"> <i
-						class="fa fa-list"></i>&nbsp;&nbsp;Liste des Départements
+				<li <?php if ($this->getActivePage() == 'Rodez') { echo 'class="active"'; } ?>><a href="/Rodez"><i
+						class="fa fa-flag"></i>&nbsp;&nbsp;Rodez
 				</a></li>
+				<li <?php if ($this->getActivePage() == 'Contact') { echo 'class="active"'; } ?>><a href="/Contact"><i
+						class="fa fa-pencil"></i>&nbsp;&nbsp;Contact
+				</a></li>				
 			</ul>
 			<ul class="nav navbar-nav navbar-right">
                 <?php

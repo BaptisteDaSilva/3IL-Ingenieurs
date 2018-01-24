@@ -24,6 +24,8 @@ class Erreur404 extends Controleur
      */
     public function index()
     {
-        echo 'Erreur404';
+        $this->setTitre('Erreur 404');
+        
+        require_once VUES . 'VueErreur404.php';
     }
 }

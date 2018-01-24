@@ -8,7 +8,7 @@ namespace Rodez_3IL_Ingenieurs\Core;
  * @package Rodez_3IL_Ingenieurs\Core
  */
 abstract class Controleur
-{
+{    
     /** @var string le titre du site. */
     private static $TITRE_SITE = '3IL-Ingénieurs';
 
@@ -59,6 +59,15 @@ abstract class Controleur
     protected function setTitre($titre)
     {
         $this->titre .= ' - ' . $titre;
+    }
+    
+    /**
+     *
+     * @return string le titre de la page.
+     */
+    public function getActivePage()
+    {
+        return $this->active;
     }
 
     /**

@@ -6,6 +6,10 @@ html, body {
 	background-size: cover;
 }
 
+.erreur404 img {
+	width : 100%;
+}
+
 .navbar-brand {
 	padding-top: 4px;
 }
