@@ -11,7 +11,7 @@ require_once TEMPLATES . 'menu.php';
 	<?php
 	
 	
-	if($dossier = opendir(PHOTOS))
+	if($dossier = opendir('../public/img/photos'))
 	{	
 	    echo '<div id="wrapper"><div class="rslides_container"><ul class="rslides" id="slider1">';
 	    
