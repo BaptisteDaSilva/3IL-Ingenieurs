@@ -6,7 +6,6 @@ use Rodez_3IL_Ingenieurs\Modeles\Utilisateur;
 
 class MonCompte extends Controleur
 {
-
     /** @var bool */
     private $modifOK;
 

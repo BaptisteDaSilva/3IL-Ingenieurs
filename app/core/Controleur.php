@@ -8,7 +8,7 @@ namespace Rodez_3IL_Ingenieurs\Core;
  * @package Rodez_3IL_Ingenieurs\Core
  */
 abstract class Controleur
-{    
+{
     /** @var string le titre du site. */
     private static $TITRE_SITE = '3IL-Ingénieurs';
 

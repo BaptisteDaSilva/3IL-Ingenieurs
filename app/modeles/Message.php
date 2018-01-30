@@ -27,7 +27,7 @@ class Message extends Modele
      * TODO ecrire
      *
      * @param string $idMessage TODO ecrire
-     * @param Departement $leMessage TODO ecrire
+     * @param String $leMessage TODO ecrire
      */
     public function __construct($idMessage, $leMessage)
     {
@@ -39,7 +39,7 @@ class Message extends Modele
      * TODO ecrire
      *
      * @param $numInsee string TODO ecrire
-     * @return Ville|null TODO ecrire
+     * @return Message|null TODO ecrire
      */
     public static function getMessages()
     {        

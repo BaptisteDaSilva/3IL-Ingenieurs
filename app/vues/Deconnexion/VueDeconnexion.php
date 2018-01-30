@@ -13,7 +13,7 @@ require_once TEMPLATES . 'menu.php';
 				</div>
 				<div class="panel-body">
 					Vous avez été déconnecté avec succès !<br> Merci de votre visite et
-					à binetôt sur GéoVilles !.
+					à bientôt sur <?= self::getTitreSite() ?> !
 				</div>
 			</div>
 		</div>

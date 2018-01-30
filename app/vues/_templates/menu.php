@@ -28,6 +28,7 @@
                        <i class="fa fa-list"></i>&nbsp;&nbsp;Formation
                         <span class="caret"></span></a>
                     <ul class="dropdown-menu">                        
+                        <li><a href="/Formation"><i class="fa fa-plus"></i>&nbsp;&nbsp;Présentation</a></li>
                         <li><a href="/Formation/annee1"><i class="fa fa-plus"></i>&nbsp;&nbsp;Année 1</a></li>
                         <li><a href="/Formation/annee2"><i class="fa fa-plus"></i>&nbsp;&nbsp;Année 2</a></li>
                         <li><a href="/Formation/annee3"><i class="fa fa-plus"></i>&nbsp;&nbsp;Année 3</a></li> 
@@ -44,93 +45,92 @@
 				</a></li>				
 			</ul>
 			<ul class="nav navbar-nav navbar-right">
-                <?php
-                if (isset($_SESSION['util'])) {
-                    echo '<li class="dropdown">
-                    <a href="#" class="dropdown-toggle login"
-                       data-toggle="dropdown" role="button"
-                       aria-haspopup="true"
-                       aria-expanded="false">
-                       <img class="profil"
-                       src="' . IMAGES . 'util-defaut.png">&nbsp;&nbsp;
-                       <b>' . $_SESSION['util']->getLogin() . '
-                        </b><span class="caret"></span></a>
-                    <ul class="dropdown-menu">
-                        <li><a href="/MonCompte/"><i
-                        class="fa fa-gears"></i>&nbsp;&nbsp;Mon Compte</a></li>
-                        <li><a href="/Deconnexion/"><i
-                        class="fa fa-power-off"></i>&nbsp;&nbsp;Se
-                        Déconnecter</a></li>
-                    </ul>
-                </li>';
-                } else {
-                    echo '<li class="dropdown">
-                    <a href="#" class="dropdown-toggle"
-                       data-toggle="dropdown" role="button"
-                       aria-haspopup="true" aria-expanded="false">
-                       <i class="fa fa-plus"></i>&nbsp;&nbsp;S\'Inscrire
-                        <span class="caret"></span></a>
-                    <ul class="dropdown-menu">
-                        <li>
-                            <form id="form-inscrire" class="form-inscrire" method="post"
-                                       action="/Inscription/">
-                                <div class="form-group">
-                                    <input type="text" name="login"
-                                           class="form-control" placeholder="Login"
-                                           required="">
-                                </div>
-                                <div class="form-group">
-                                    <input type="password" name="mdp"
-                                           class="form-control"
-                                           placeholder="Mot de Passe"
-                                           required="">
-                                </div>
-                                <div class="form-group">
-                                    <input type="email" name="email"
-                                           class="form-control" placeholder="Email"
-                                           required="">
-                                </div>
-                                <input type="submit" name="submit" class="btn
-                                mon-btn" disabled="" value="S\'Inscrire">
-                            </form>
-                        </li>
-                    </ul>
-                </li>';
-                    echo '<li class="dropdown">
-                    <a href="#" class="dropdown-toggle"
-                       data-toggle="dropdown" role="button"
-                       aria-haspopup="true" aria-expanded="false">
-                       <i class="fa fa-user"></i>&nbsp;&nbsp;Se Connecter
-                        <span class="caret"></span></a>
-                    <ul class="dropdown-menu">
-                        <form class="form-connect" method="post"
-                              action="/Rodez_3IL_Ingenieurs/connexion/">
+			
+                <?php if (isset($_SESSION['util'])) { ?>
+                
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle login"
+                           data-toggle="dropdown" role="button"
+                           aria-haspopup="true"
+                           aria-expanded="false">
+                           <img class="profil"
+                           src="<?= $_SESSION['util']->getAvatar() ?>">&nbsp;&nbsp;
+                           <b><?= $_SESSION['util']->getLogin() ?>
+                            </b><span class="caret"></span></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="/MonCompte"><i
+                            class="fa fa-gears"></i>&nbsp;&nbsp;Mon Compte</a></li>
+                            <li><a href="/Deconnexion"><i
+                            class="fa fa-power-off"></i>&nbsp;&nbsp;Se
+                            Déconnecter</a></li>
+                        </ul>
+                    </li>
+                <?php } else { ?>
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle"
+                           data-toggle="dropdown" role="button"
+                           aria-haspopup="true" aria-expanded="false">
+                           <i class="fa fa-plus"></i>&nbsp;&nbsp;S'Inscrire
+                            <span class="caret"></span></a>
+                        <ul class="dropdown-menu">
                             <li>
-                                <div class="form-group">
-                                    <input type="text" name="login"
-                                           class="form-control"
-                                           placeholder="Login" required="">
-                                </div>
-                                <div class="form-group">
-                                    <input type="password" class="form-control"
-                                           name="mdp"
-                                           placeholder="Mot de Passe" required="">
-                                </div>
-                                <div class="form-group">
-                                    <input id="remember" type="checkbox"
-                                           name="remember"
-                                           class="checkbox-inline"
-                                           placeholder="remember">
-                                    <label for="remember">Se Souvenir de moi</label>
-                                </div>
-                                <input type="submit" name="submit" class="btn
-                                mon-btn" value="Se Connecter">
+                                <form id="form-inscrire" class="form-inscrire" method="post"
+                                           action="/Inscription">
+                                    <div class="form-group">
+                                        <input type="text" name="login"
+                                               class="form-control" placeholder="Login"
+                                               required>
+                                    </div>
+                                    <div class="form-group">
+                                        <input type="password" name="mdp"
+                                               class="form-control"
+                                               placeholder="Mot de Passe"
+                                               required>
+                                    </div>
+                                    <div class="form-group">
+                                        <input type="email" name="email"
+                                               class="form-control" placeholder="Email"
+                                               required>
+                                    </div>
+                                    <input type="submit" name="submit" class="btn
+                                    mon-btn" disabled value="S\'Inscrire">
+                                </form>
                             </li>
-                        </form>
-                    </ul>
-                </li>';
-                }
-                ?>
+                        </ul>
+                    </li>
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle"
+                           data-toggle="dropdown" role="button"
+                           aria-haspopup="true" aria-expanded="false">
+                            <i class="fa fa-user"></i>&nbsp;&nbsp;Se Connecter<span class="caret"></span></a>
+                            <ul class="dropdown-menu">
+                                <li>
+                                <form class="form-connect" method="post"
+                                  action="/Connexion">
+                                    <div class="form-group">
+                                        <input type="text" name="login"
+                                               class="form-control"
+                                               placeholder="Login" required>
+                                    </div>
+                                    <div class="form-group">
+                                        <input type="password" class="form-control"
+                                               name="mdp"
+                                               placeholder="Mot de Passe" required>
+                                    </div>
+                                    <div class="form-group">
+                                        <input id="remember" type="checkbox"
+                                               name="remember"
+                                               class="checkbox-inline"
+                                               placeholder="remember">
+                                        <label for="remember">Se Souvenir de moi</label>
+                                    </div>
+                                    <input type="submit" name="submit" class="btn
+                                    mon-btn" value="Se Connecter">
+                                </form>
+                            </li>
+                        </ul>
+                    </li>
+                <?php } ?>
             </ul>
 		</div>
 	</div>

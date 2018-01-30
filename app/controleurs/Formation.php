@@ -4,7 +4,7 @@ namespace Rodez_3IL_Ingenieurs\Controleurs;
 use Rodez_3IL_Ingenieurs\Core\Controleur;
 
 /**
- * Contrôleur de la page d'accueil du site.
+ * Contrôleur de la page de présentation de la formation.
  * 
  * @package Rodez_3IL_Ingenieurs\Controleurs
  */
@@ -31,7 +31,7 @@ class Formation extends Controleur
     }
     
     /**
-     * Méthode lancée par défaut sur un contrôleur.
+     * Méthode lancée pour la page de présentation de la formation - Année 1.
      */
     public function annee1()
     {
@@ -41,7 +41,7 @@ class Formation extends Controleur
     }
     
     /**
-     * Méthode lancée par défaut sur un contrôleur.
+     * Méthode lancée pour la page de présentation de la formation - Année 2.
      */
     public function annee2()
     {
@@ -51,7 +51,7 @@ class Formation extends Controleur
     }
     
     /**
-     * Méthode lancée par défaut sur un contrôleur.
+     * Méthode lancée pour la page de présentation de la formation - Année 3.
      */
     public function annee3()
     {

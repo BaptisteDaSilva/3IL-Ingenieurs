@@ -2,8 +2,8 @@
 namespace Rodez_3IL_Ingenieurs\Controleurs;
 
 use Rodez_3IL_Ingenieurs\Core\Controleur;
-
 use Rodez_3IL_Ingenieurs\Modeles;
+
 require_once MODELES . 'Message.php';
 
 /**

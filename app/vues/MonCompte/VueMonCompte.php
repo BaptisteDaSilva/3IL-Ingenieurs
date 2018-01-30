@@ -16,7 +16,7 @@ require_once TEMPLATES . 'menu.php';
 						<div class="col-md-2"></div>
 						<div class="col-md-8">
 							<form method="post"
-								action="/Rodez_3IL_Ingenieurs/monCompte/modifier/">
+								action="/MonCompte/modifier/">
 								<div class="form-group">
 									<label for="login">Login :</label> <input id="login"
 										type="text" class="form-control" name="login"
