@@ -1,8 +1,6 @@
 <?php
 namespace Rodez_3IL_Ingenieurs\Modeles;
 
-require_once '..\app\modeles\Avatar.php';
-
 /**
  * Représente un utilisateur du site connecté.
  * 
