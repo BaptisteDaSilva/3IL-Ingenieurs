@@ -5,7 +5,7 @@ require_once TEMPLATES . 'menu.php';
 
 <div class="container">
 	<div class="jumbotron">
-		<h1>Bienvenue sur 3il-Ingénieurs !</h1>
+		<h1>Bienvenue sur <?= self::getTitreSite() ?> !</h1>
 		<p>Ecole d'ingénieurs en informatique à Rodez</p>
 	</div>
 	<?php if($dossier = opendir('../public/img/photos')) { ?>

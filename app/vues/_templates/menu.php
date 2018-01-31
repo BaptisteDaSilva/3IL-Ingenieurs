@@ -91,7 +91,7 @@
                                                required>
                                     </div>
                                     <input type="submit" name="submit" class="btn
-                                    mon-btn" disabled value="S\'Inscrire">
+                                    mon-btn" disabled value="S'Inscrire">
                                 </form>
                             </li>
                         </ul>
