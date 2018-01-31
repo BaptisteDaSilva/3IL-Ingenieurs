@@ -10,7 +10,7 @@ namespace Rodez_3IL_Ingenieurs\Core;
 abstract class Controleur
 {
     /** @var string le titre du site. */
-    private static $TITRE_SITE = '3IL-Ingénieurs';
+    private static $TITRE_SITE = '3il-Ingénieurs';
 
     /** @var string le titre de la page. */
     private $titre;

@@ -6,7 +6,6 @@ use Rodez_3IL_Ingenieurs\Modeles\Utilisateur;
 
 class Connexion extends Controleur
 {
-
     /**
      * Méthode lancée par défaut sur un contrôleur.
      */

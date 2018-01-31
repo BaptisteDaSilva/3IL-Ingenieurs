@@ -2,9 +2,6 @@
 namespace Rodez_3IL_Ingenieurs\Controleurs;
 
 use Rodez_3IL_Ingenieurs\Core\Controleur;
-use Rodez_3IL_Ingenieurs\Modeles;
-
-require_once MODELES . 'Message.php';
 
 /**
  * Contrôleur de la page d'accueil du site.
@@ -12,9 +9,7 @@ require_once MODELES . 'Message.php';
  * @package Rodez_3IL_Ingenieurs\Controleurs
  */
 class Accueil extends Controleur
-{    
-    private $lesMess;
-
+{
     /**
      * Créé un nouveau contrôleur de la page d'accueil.
      */
@@ -31,8 +26,6 @@ class Accueil extends Controleur
     public function index()
     {
         $this->setTitre('Accueil');
-        
-        $this->lesMess = Modeles\Message::getMessages();
         
         require_once VUES . 'VueAccueil.php';
     }
