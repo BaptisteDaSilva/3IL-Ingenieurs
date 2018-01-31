@@ -2,10 +2,60 @@ var slideWidth;
 var sliderUlWidth;
 var slideRatio;
 
+var autoPlay;
+var timeOut;
+
+var auto = true;
+
+var timeAutoPlay = 3000;
+var timeTimeOut= 5000;
+
+function startAutoPlay() {
+	autoPlay = setInterval(moveRight, timeAutoPlay);
+	
+	auto = true;
+};
+
+function stopAutoPlay() {
+	clearInterval(autoPlay);
+	
+	auto = false;
+};
+
+function moveLeftUtil() {	
+	stopAutoPlay();
+	clearTimeout(timeOut);
+	
+    $('#slider ul').animate({
+        left: + slideWidth
+    }, 50, function () {
+        $('#slider ul li:last-child').prependTo('#slider ul');
+        $('#slider ul').css('left', '');
+    });
+    
+    timeOut = setTimeout(startAutoPlay, timeTimeOut);
+};
+
+function moveRightUtil() {
+	stopAutoPlay();
+	clearTimeout(timeOut);
+	
+	moveRight();
+    
+    timeOut = setTimeout(startAutoPlay, timeTimeOut);
+};
+
+function moveRight() {	
+    $('#slider ul').animate({
+        left: - slideWidth
+    }, 200, function () {
+        $('#slider ul li:first-child').appendTo('#slider ul');
+        $('#slider ul').css('left', '');
+    });
+};
+
 jQuery(document).ready(function ($) {
-    setInterval(function () {
-        moveRight();
-    }, 1000);
+	startAutoPlay();
 	
 	slideCount = $('#slider ul li').length;
 	slideWidth = $('#slider').width();
@@ -18,30 +68,12 @@ jQuery(document).ready(function ($) {
 	
     $('#slider ul li:last-child').prependTo('#slider ul');
 
-    function moveLeft() {    	
-        $('#slider ul').animate({
-            left: + slideWidth
-        }, 50, function () {
-            $('#slider ul li:last-child').prependTo('#slider ul');
-            $('#slider ul').css('left', '');
-        });
-    };
-
-    function moveRight() {
-        $('#slider ul').animate({
-            left: - slideWidth
-        }, 200, function () {
-            $('#slider ul li:first-child').appendTo('#slider ul');
-            $('#slider ul').css('left', '');
-        });
-    };
-
     $('a.control_prev').click(function () {
-        moveLeft();
+        moveLeftUtil();
     });
 
     $('a.control_next').click(function () {
-        moveRight();
+    	moveRightUtil();
     });
 });
 
