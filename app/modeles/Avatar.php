@@ -19,6 +19,12 @@ class Avatar extends Modele
     const RQT_NOM_AVATAR = 'SELECT nom
                             FROM t_avatar
                             WHERE idAvatar = :idAvatar';
+    /**
+     * Requête SQL permettant de vérifier qu'un utilisateur existe.
+     */
+    const RQT_ID_AVATAR = 'SELECT idAvatar
+                            FROM t_avatar
+                            WHERE nom = :nom';
 
     /** @var int l'identifiant de l'image. */
     private $idAvatar;
@@ -61,6 +67,27 @@ class Avatar extends Modele
         
         // Retourne la listes des départements.
         return isset($avatars) ? $avatars : null;
+    }
+    
+    public static function getIdAvatar($nomAvatar)
+    {
+        // Connexion à la base
+        self::connexionBD();
+        
+        // Prépare la requête
+        $requete = self::getBaseDeDonnees()->getCnxBD()->prepare(self::RQT_ID_AVATAR);
+        
+        // Ajout des variables
+        $requete->bindParam(':nom', $nomAvatar, \PDO::PARAM_STR);
+        
+        // Exécute la requête
+        $requete->execute();
+        
+        // Sauvegarde les lignes retournées.
+        $avatar = $requete->fetch();
+        
+        // Retourne l'utilisateur ou null s'il n'existe pas.
+        return $avatar ? $avatar->idAvatar : null;
     }
     
     public static function getNomAvatar($idAvatar)

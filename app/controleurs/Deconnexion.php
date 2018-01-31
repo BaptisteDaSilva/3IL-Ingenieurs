@@ -19,6 +19,8 @@ class Deconnexion extends Controleur
         session_unset();
         session_destroy();
         
+        header("refresh:5;url=/");
+        
         $this->setTitre("Déconnexion");
         
         require_once VUES . 'Deconnexion/VueDeconnexion.php';

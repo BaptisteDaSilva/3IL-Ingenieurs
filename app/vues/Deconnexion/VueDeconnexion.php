@@ -12,8 +12,7 @@ require_once TEMPLATES . 'menu.php';
 					<h3 class="panel-title">Déconnexion Réussie !</h3>
 				</div>
 				<div class="panel-body">
-					Vous avez été déconnecté avec succès !<br> Merci de votre visite et
-					à bientôt sur <?= self::getTitreSite() ?> !
+					Vous avez été déconnecté avec succès !<br> Redirection sur la page d'accueil dans 5 secondes !
 				</div>
 			</div>
 		</div>

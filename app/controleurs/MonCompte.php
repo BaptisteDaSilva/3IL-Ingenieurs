@@ -26,10 +26,7 @@ class MonCompte extends Controleur
 
     public function modifier()
     {
-        if (isset($_POST['email']) && isset($_POST['mdp'])) {
-            
-            $this->setTitre($this->modifOK ? "Modification Réussie !" : "Un Problème est survenue");
-            
+        if (isset($_POST['email']) && isset($_POST['mdp'])) {            
             $email = $_POST['email'];
             $mdp = $_POST['mdp'];
             
@@ -41,13 +38,26 @@ class MonCompte extends Controleur
             
             $this->modifOK = $_SESSION['util']->modifierUtil($email, $mdp);
             
-            $login = $_SESSION['util']->getLogin();
-            
-            $_SESSION['util'] = Utilisateur::getUtilisateur($login, $mdp);
+            $this->setTitre($this->modifOK ? "Modification Réussie !" : "Un Problème est survenue");
             
             require_once VUES . 'MonCompte/VueCompteModifie.php';
         } else {
-            header('Location: /Rodez_3IL_Ingenieurs/monCompte/');
+            header('Location: /MonCompte/');
+        }
+    }
+    
+    public function modifierAvatar()
+    {
+        if (isset($_POST['nomAvatar'])) {            
+            $nomAvatar = $_POST['nomAvatar'];
+            
+            $this->modifOK = $_SESSION['util']->modifierAvatar($nomAvatar);
+            
+            $this->setTitre($this->modifOK ? "Modification Réussie !" : "Un Problème est survenue");
+            
+            require_once VUES . 'MonCompte/VueCompteModifie.php';
+        } else {
+            header('Location: /MonCompte/');
         }
     }
 }

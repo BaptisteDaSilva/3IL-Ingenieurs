@@ -26,6 +26,9 @@ class Utilisateur extends Modele
     const RQT_MODIFIER_UTIL = 'UPDATE t_utils SET email = :email,
                                    mdp = :mdp
                                    WHERE login = :login';
+    
+    const RQT_MODIFIER_AVATAR_UTIL = 'UPDATE t_utils SET idAvatar = :idAvatar
+                                   WHERE login = :login';
 
     /** @var string le login de l'utilisateur. */
     private $login;
@@ -76,20 +79,19 @@ class Utilisateur extends Modele
     {
         // Connexion à la base
         self::connexionBD();
-        
         // Prépare la requête
         $requete = self::getBaseDeDonnees()->getCnxBD()->prepare(self::RQT_CONNEXION_UTIL);
-        
+                
         // Ajout des variables
         $requete->bindParam(':login', $login, \PDO::PARAM_STR);
         $requete->bindParam(':mdp', $mdp, \PDO::PARAM_STR);
-        
+                
         // Exécute la requête
         $requete->execute();
-        
+                
         // Sauvegarde la ligne retournée.
         $util = $requete->fetch();
-        
+                
         // Retourne l'utilisateur ou null s'il n'existe pas.
         return $util ? new Utilisateur($util->login, $util->mdp, $util->email, $util->type, $util->idAvatar) : null;
     }
@@ -153,11 +155,42 @@ class Utilisateur extends Modele
         // Prépare la requête
         $requete = self::getBaseDeDonnees()->getCnxBD()->prepare(self::RQT_MODIFIER_UTIL);
         
-        return $requete->execute(array(
+        $ok = $requete->execute(array(
             ':login' => $this->login,
             ':mdp' => $mdp,
             ':email' => $email
         ));
+        
+        if ($ok)
+        {
+            $this->mdp = $mdp;
+            $this->email = $email;
+        }
+        
+        return $ok;
+    }
+    
+    public function modifierAvatar($nomAvatar)
+    {
+        // Connexion à la base
+        self::connexionBD();
+        
+        // Prépare la requête
+        $requete = self::getBaseDeDonnees()->getCnxBD()->prepare(self::RQT_MODIFIER_AVATAR_UTIL);
+        
+        $idAvatar = Avatar::getIdAvatar($nomAvatar);
+        
+        $ok = $requete->execute(array(
+            ':login' => $this->login,
+            ':idAvatar' => $idAvatar
+        ));
+        
+        if ($ok)
+        {
+            $this->idAvatar = $idAvatar;
+        }
+        
+        return $ok;
     }
 
     /**
@@ -205,10 +238,10 @@ class Utilisateur extends Modele
      *
      * @return string l'avatar de l'utilisateur.
      */
-    public function getAvatar()
+    public function getNomAvatar() 
     {
         $avatar = Avatar::getNomAvatar($this->idAvatar);
                 
-        return AVATAR . (isset($avatar) ? $avatar : self::$AVATAR_DEFAUT);
+        return isset($avatar) ? $avatar : self::$AVATAR_DEFAUT;
     }
 }
