@@ -10,6 +10,7 @@ require_once '../app/libs/BaseDeDonnees.php';
 require_once '../app/modeles/Modele.php';
 require_once '../app/modeles/Utilisateur.php';
 require_once '../app/modeles/Avatar.php';
+require_once '../app/modeles/Langue.php';
 
 // Définitions des constantes pour l'ensemble des pages.
 define('URL_PUBLIC_FOLDER', 'public');
@@ -30,10 +31,12 @@ define('CONFIG', '../app/configs/config.ini');
 define('IMAGES', URL . 'img/');
 define('PHOTOS', IMAGES . 'photos/');
 define('AVATAR', IMAGES . 'avatar/');
+define('DRAPEAU', IMAGES . 'drapeau/');
 
 // Les ressources.
 define('CSS', URL . 'css/');
 define('JS', URL . 'js/');
+define('PROPERTIES', URL . 'properties/');
 
 // Lance le routage
 $app = new Application();

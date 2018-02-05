@@ -9,9 +9,6 @@ namespace Rodez_3IL_Ingenieurs\Core;
  */
 abstract class Controleur
 {
-    /** @var string le titre du site. */
-    private static $TITRE_SITE = '3iL-Ingénieurs';
-
     /** @var string le titre de la page. */
     private $titre;
 
@@ -24,22 +21,12 @@ abstract class Controleur
     public function __construct()
     {
         session_start();
-        $this->titre = self::$TITRE_SITE;
     }
 
     /**
      * Méthode lancée par défaut sur un contrôleur.
      */
     public abstract function index();
-    
-    /**
-     *
-     * @return string le titre du site.
-     */
-    public static function getTitreSite()
-    {
-        return self::$TITRE_SITE;
-    }
 
     /**
      *
@@ -47,7 +34,7 @@ abstract class Controleur
      */
     public function getTitre()
     {
-        return $this->titre;
+        return Application::$site->{'Titre'} . ' - ' . $this->titre;
     }
 
     /**
@@ -58,7 +45,7 @@ abstract class Controleur
      */
     protected function setTitre($titre)
     {
-        $this->titre .= ' - ' . $titre;
+        $this->titre .= $titre;
     }
     
     /**

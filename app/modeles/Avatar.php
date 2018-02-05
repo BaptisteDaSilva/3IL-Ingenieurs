@@ -12,18 +12,18 @@ class Avatar extends Modele
      * Requête SQL permettant de vérifier qu'un utilisateur existe.
      */
     const RQT_LIST_AVATAR = 'SELECT idAvatar, nom
-                             FROM t_avatar';
+                             FROM t_avatars';
     /**
      * Requête SQL permettant de vérifier qu'un utilisateur existe.
      */
     const RQT_NOM_AVATAR = 'SELECT nom
-                            FROM t_avatar
+                            FROM t_avatars
                             WHERE idAvatar = :idAvatar';
     /**
      * Requête SQL permettant de vérifier qu'un utilisateur existe.
      */
     const RQT_ID_AVATAR = 'SELECT idAvatar
-                            FROM t_avatar
+                            FROM t_avatars
                             WHERE nom = :nom';
 
     /** @var int l'identifiant de l'image. */
@@ -31,6 +31,8 @@ class Avatar extends Modele
 
     /** @var string le nom de l'image. */
     private $nom;
+    
+    private static $AVATAR_DEFAUT = "defaut.png";
     
     /**
      * Créé une nouvelle avatar.

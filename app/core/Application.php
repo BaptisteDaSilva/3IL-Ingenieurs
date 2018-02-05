@@ -10,8 +10,7 @@ use Rodez_3IL_Ingenieurs\Controleurs;
  * @package Rodez_3IL_Ingenieurs\Core
  */
 class Application
-{
-
+{   
     /** @var Controleur le contrôleur de la page. */
     private $controleur;
 
@@ -20,6 +19,9 @@ class Application
 
     /** @var array les paramètres de la méthode. */
     private $params;
+    
+    public static $site;
+    public static $PROPERTIES_DEFAUT = "FR.json";
 
     /**
      * Donne le contrôle de la page au contrôleur passé en argument dans l'URL
@@ -29,8 +31,7 @@ class Application
      * affiche une page d'erreur.
      */
     public function __construct()
-    {
-        
+    {        
         // Par défaut
         $this->methode = 'index';
         $this->params = array();
@@ -42,8 +43,7 @@ class Application
         $controleur = isset($url) ? $url[0] : 'Accueil';
         
         // Vérifie si le contrôleur existe
-        if (file_exists(CONTROLEURS . $controleur . '.php')) {
-            
+        if (file_exists(CONTROLEURS . $controleur . '.php')) {            
             /*
              * Si oui on passe la 1ere lettre du contrôleur de l'URL
              * en majuscule pour correspondre au nom du contrôleur dans
@@ -63,8 +63,11 @@ class Application
             // Ajout du namespace
             $controleur = 'Rodez_3IL_Ingenieurs\Controleurs\\' . $controleur;
             
+            
             // Créé le contrôleur
             $this->controleur = new $controleur();
+            
+            self::setPropertiesFile();
             
             // Vérifie que le contrôleur a appeler est bien un contrôleur.
             if (! ($this->controleur instanceof Controleur)) {
@@ -140,5 +143,21 @@ class Application
         }
         // else
         return null;
+    }
+    
+    /**
+     * Affiche la page d'erreur 404.
+     */
+    public static function setPropertiesFile()
+    {        
+        if ($_SESSION['util'] != null) {
+            $properties = $_SESSION['util']->getLangue()->getNomProperties();
+        }
+        else
+        {
+            $properties = self::$PROPERTIES_DEFAUT;
+        }
+            
+        self::$site = json_decode(file_get_contents( PROPERTIES . $properties ));
     }
 }

@@ -1,6 +1,8 @@
 <?php
 namespace Rodez_3IL_Ingenieurs\Modeles;
 
+use Rodez_3IL_Ingenieurs\Core\Application;
+
 /**
  * Représente un utilisateur du site connecté.
  * 
@@ -11,7 +13,7 @@ class Utilisateur extends Modele
     /**
      * Requête SQL permettant de vérifier qu'un utilisateur existe.
      */
-    const RQT_CONNEXION_UTIL = 'SELECT login, mdp, email, type, idAvatar
+    const RQT_CONNEXION_UTIL = 'SELECT login, mdp, email, type, idAvatar, idLangue
                                     FROM t_utils
                                     WHERE login = :login
                                     AND mdp = :mdp';
@@ -23,11 +25,16 @@ class Utilisateur extends Modele
     const RQT_AJOUTER_UTIL = 'INSERT INTO t_utils (login, mdp, email, type)
                                   VALUES (:login, :mdp, :email, :type)';
 
-    const RQT_MODIFIER_UTIL = 'UPDATE t_utils SET email = :email,
-                                   mdp = :mdp
+    const RQT_MODIFIER_MAIL_UTIL = 'UPDATE t_utils SET email = :email
+                                   WHERE login = :login';
+    
+    const RQT_MODIFIER_MDP_UTIL = 'UPDATE t_utils SET mdp = :mdp
                                    WHERE login = :login';
     
     const RQT_MODIFIER_AVATAR_UTIL = 'UPDATE t_utils SET idAvatar = :idAvatar
+                                   WHERE login = :login';
+    
+    const RQT_MODIFIER_LANGUE_UTIL = 'UPDATE t_utils SET idLangue = :idLangue
                                    WHERE login = :login';
 
     /** @var string le login de l'utilisateur. */
@@ -38,6 +45,13 @@ class Utilisateur extends Modele
 
     /** @var string l'eamil de l'utilisateur. */
     private $email;
+    
+    /**
+     *
+     * @var string le type de l'utilisateur 'A' pour administrateur, 'U'
+     *      pour les autres.
+     */
+    private $type;
 
     /**
      * @var string le type de l'utilisateur 'A' pour administrateur, 'U'
@@ -46,15 +60,13 @@ class Utilisateur extends Modele
     private $idAvatar;
     
     /**
-     *
      * @var string le type de l'utilisateur 'A' pour administrateur, 'U'
      *      pour les autres.
      */
-    private $type;
+    private $idLangue;
     
     private static $TYPE_ADMIN = 'A';
     private static $TYPE_USER = 'U';
-    private static $AVATAR_DEFAUT = "defaut.png";
     
     /**
      * Créé un nouvel utilisateur.
@@ -66,13 +78,14 @@ class Utilisateur extends Modele
      * @param string $email
      *            l'email de l'utilisateur.
      */
-    public function __construct($login, $mdp, $email, $type = "User", $idAvatar = null)
+    public function __construct($login, $mdp, $email, $type = "User", $idAvatar = null, $idLangue = null)
     {
         $this->login = $login;
         $this->mdp = self::hashMdp($mdp);
         $this->email = $email;
         $this->type = ($type = "User" ? self::$TYPE_USER : $type);   
         $this->idAvatar = $idAvatar;
+        $this->idLangue = $idLangue;
     }
 
     public static function getUtilisateur($login, $mdp)
@@ -93,7 +106,7 @@ class Utilisateur extends Modele
         $util = $requete->fetch();
                 
         // Retourne l'utilisateur ou null s'il n'existe pas.
-        return $util ? new Utilisateur($util->login, $util->mdp, $util->email, $util->type, $util->idAvatar) : null;
+        return $util ? new Utilisateur($util->login, $util->mdp, $util->email, $util->type, $util->idAvatar, $util->idLangue) : null;
     }
 
     public static function getPseudoUtil($login)
@@ -146,7 +159,49 @@ class Utilisateur extends Modele
             ':type' => $this->type
         ));
     }
-
+    
+    public function modifierEMail($email)
+    {
+        // Connexion à la base
+        self::connexionBD();
+        
+        // Prépare la requête
+        $requete = self::getBaseDeDonnees()->getCnxBD()->prepare(self::RQT_MODIFIER_MAIL_UTIL);
+        
+        $ok = $requete->execute(array(
+            ':login' => $this->login,
+            ':email' => $email
+        ));
+        
+        if ($ok)
+        {
+            $this->email = $email;
+        }
+        
+        return $ok;
+    }
+    
+    public function modifierMDP($mdp)
+    {
+        // Connexion à la base
+        self::connexionBD();
+        
+        // Prépare la requête
+        $requete = self::getBaseDeDonnees()->getCnxBD()->prepare(self::RQT_MODIFIER_MDP_UTIL);
+        
+        $ok = $requete->execute(array(
+            ':login' => $this->login,
+            ':mdp' => $mdp
+        ));
+        
+        if ($ok)
+        {
+            $this->mdp = $mdp;
+        }
+        
+        return $ok;
+    }
+    
     public function modifierUtil($email, $mdp)
     {
         // Connexion à la base
@@ -188,6 +243,31 @@ class Utilisateur extends Modele
         if ($ok)
         {
             $this->idAvatar = $idAvatar;
+        }
+        
+        return $ok;
+    }
+    
+    public function modifierLangue($nomLangue)
+    {
+        // Connexion à la base
+        self::connexionBD();
+        
+        // Prépare la requête
+        $requete = self::getBaseDeDonnees()->getCnxBD()->prepare(self::RQT_MODIFIER_LANGUE_UTIL);
+        
+        $langue = Langue::getIdLangue($nomLangue);
+                
+        $ok = $requete->execute(array(
+            ':login' => $this->login,
+            ':idLangue' => $langue
+        ));
+        
+        if ($ok)
+        {
+            $this->idLangue = $langue;
+            
+            Application::setPropertiesFile($nomLangue);
         }
         
         return $ok;
@@ -242,6 +322,17 @@ class Utilisateur extends Modele
     {
         $avatar = Avatar::getNomAvatar($this->idAvatar);
                 
-        return isset($avatar) ? $avatar : self::$AVATAR_DEFAUT;
+        return isset($avatar) ? $avatar : Avatar::$AVATAR_DEFAUT;
+    }
+    
+    /**
+     *
+     * @return string l'avatar de l'utilisateur.
+     */
+    public function getLangue()
+    {
+        $langue = Langue::getLangue($this->idLangue);
+        
+        return isset($langue) ? $langue : null;
     }
 }

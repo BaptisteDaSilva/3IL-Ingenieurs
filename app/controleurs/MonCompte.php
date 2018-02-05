@@ -2,19 +2,23 @@
 namespace Rodez_3IL_Ingenieurs\controleurs;
 
 use Rodez_3IL_Ingenieurs\Core\Controleur;
+use Rodez_3IL_Ingenieurs\Modeles\Langue;
 use Rodez_3IL_Ingenieurs\Modeles\Utilisateur;
 
 class MonCompte extends Controleur
 {
     /** @var bool */
     private $modifOK;
+    
+    public $langues;
 
     /**
      * Méthode lancée par défaut sur un contrôleur.
      */
     public function index()
-    {
-        if (isset($_SESSION['util'])) {
+    {        
+        if (isset($_SESSION['util'])) {            
+            $langues = Langue::getLangues();
             
             $this->setTitre("Mon Compte");
             
@@ -25,18 +29,26 @@ class MonCompte extends Controleur
     }
 
     public function modifier()
-    {
-        if (isset($_POST['email']) && isset($_POST['mdp'])) {            
+    {        
+        if (isset($_POST['email']) && isset($_POST['mdp'])) {
+            $this->modifOK = true;
+            
             $email = $_POST['email'];
             $mdp = $_POST['mdp'];
             
-            if (empty($mdp)) {
-                $mdp = $_SESSION['util']->getMdp();
-            } else {
+            if (!empty($mdp)) {
                 $mdp = Utilisateur::hashMdp($mdp);
+                
+                if ($_SESSION['util']->getMdp() != $mdp)
+                {
+                    $this->modifOK = $_SESSION['util']->modifierMDP($mdp);
+                }
             }
             
-            $this->modifOK = $_SESSION['util']->modifierUtil($email, $mdp);
+            if (!empty($email) && $_SESSION['util']->getEmail() != $email)
+            {
+                $this->modifOK = $_SESSION['util']->modifierEMail($email);
+            }
             
             $this->setTitre($this->modifOK ? "Modification Réussie !" : "Un Problème est survenue");
             
@@ -52,6 +64,21 @@ class MonCompte extends Controleur
             $nomAvatar = $_POST['nomAvatar'];
             
             $this->modifOK = $_SESSION['util']->modifierAvatar($nomAvatar);
+            
+            $this->setTitre($this->modifOK ? "Modification Réussie !" : "Un Problème est survenue");
+            
+            require_once VUES . 'MonCompte/VueCompteModifie.php';
+        } else {
+            header('Location: /MonCompte/');
+        }
+    }
+    
+    public function modifierLangue()
+    {        
+        if (isset($_POST['nomLangue'])) {
+            $maLangue = $_POST['nomLangue'];
+            
+            $this->modifOK = $_SESSION['util']->modifierLangue($maLangue);
             
             $this->setTitre($this->modifOK ? "Modification Réussie !" : "Un Problème est survenue");
             

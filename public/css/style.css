@@ -169,16 +169,40 @@ textarea {
 }
 
 #panel_monAvatar img{
-	margin:10px
+	margin: 1%;
+	border-radius: 20%;
+}
+
+#panel_maLangue .selected{
+   box-shadow:0px 12px 22px 1px #333;
+}
+
+#panel_maLangue img{
+	margin: 2%;
+	width: 45%;
+	height: 20%;
+}
+
+#panel_maLangue p{
+	font-size: 20px;
+	color: #555;
 }
 
 .panel_monCompte input[type="button"]{
      font-size: 20px;
-     width: 40%;
+     width: 33%;
      text-align: center;
      color: #555;
      background: #e7e7e7;
-     border-radius: 5px;
+     border-radius: 10px;
 }
 
-a:active {outline-style:none;}
+.drapeau {
+	width: 50%;
+	float: left;
+}
+
+.drapeaux
+{
+	display: inline-block;
+}

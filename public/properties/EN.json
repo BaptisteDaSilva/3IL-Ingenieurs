@@ -1,0 +1,21 @@
+{
+	"Titre": "3iL-Ingénieurs",
+    "Menu": {
+    	"Accueil": "Home",
+    	"Form": {
+    		"Formation": "Training",
+    		"Presentation": "Presentation",
+    		"Annee1": "Year 1",
+    		"Annee2": "Year 2",
+    		"Annee3": "Year 3"
+    	},
+    	"Apprentissage": "Learning",
+    	"Rodez": "Rodez",
+    	"Contact": "Contact",
+    	"SInscrire": "Register",
+    	"SeConnecter": "Connect",
+    	"MonCompte": "My account",
+    	"SeDeconnecter": "Disconnect",
+    	"SeSouvenirDeMoi": "Remember me"
+    }
+}
