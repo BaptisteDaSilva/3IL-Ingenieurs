@@ -12,7 +12,6 @@ $('#panel_maLangue img').click(function(){
         <div class="col-md-2"></div>
         <div class="col-md-8">
             <form method="post" action="/MonCompte/modifierLangue/">
-                <input type="hidden" name="lala" id="lala" value="<?= var_dump($_SESSION['util']->getLangue()) ?>" />
                 <input type="hidden" name="nomLangue" id="nomLangue" value="<?= $_SESSION['util']->getLangue()->getNom() ?>" />
                 <div class="drapeaux">								
         		<?php
