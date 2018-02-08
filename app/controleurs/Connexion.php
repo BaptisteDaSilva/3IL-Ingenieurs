@@ -6,6 +6,7 @@ use Rodez_3IL_Ingenieurs\Modeles\Utilisateur;
 
 class Connexion extends Controleur
 {
+
     /**
      * Méthode lancée par défaut sur un contrôleur.
      */
@@ -27,8 +28,12 @@ class Connexion extends Controleur
                 // Créé la variable de session de l'utilisateur.
                 $_SESSION['util'] = $util;
                 
-                // Rafraîchi la page
-                header('Location: ' . $_SERVER['HTTP_REFERER']);
+                if (substr($_SERVER['HTTP_REFERER'], - strlen("Deconnexion")) === "Deconnexion") {
+                    header('Location: /');
+                } else {
+                    // Rafraîchi la page
+                    header('Location: ' . $_SERVER['HTTP_REFERER']);
+                }
             } else {
                 
                 // Edition du titre de la page

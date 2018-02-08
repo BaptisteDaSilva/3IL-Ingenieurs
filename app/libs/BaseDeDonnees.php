@@ -3,7 +3,7 @@ namespace Rodez_3IL_Ingenieurs\Libs;
 
 /**
  * Classe représentant la connexion à la base de données.
- * 
+ *
  * @package Rodez_3IL_Ingenieurs\Libs
  */
 class BaseDeDonnees
@@ -23,7 +23,6 @@ class BaseDeDonnees
 
     public function __construct()
     {
-        
         // Importe la configuration de la connexion à la base
         $config = parse_ini_file(CONFIG);
         

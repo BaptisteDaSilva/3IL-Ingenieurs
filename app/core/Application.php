@@ -6,11 +6,12 @@ use Rodez_3IL_Ingenieurs\Controleurs;
 /**
  * Classe permettant de router chaque page vers le contrôleur
  * et d'appeler la méthode du contrôleur selon l'URL.
- * 
+ *
  * @package Rodez_3IL_Ingenieurs\Core
  */
 class Application
-{   
+{
+
     /** @var Controleur le contrôleur de la page. */
     private $controleur;
 
@@ -19,8 +20,9 @@ class Application
 
     /** @var array les paramètres de la méthode. */
     private $params;
-    
+
     public static $site;
+
     public static $PROPERTIES_DEFAUT = "FR.json";
 
     /**
@@ -31,7 +33,7 @@ class Application
      * affiche une page d'erreur.
      */
     public function __construct()
-    {        
+    {
         // Par défaut
         $this->methode = 'index';
         $this->params = array();
@@ -43,7 +45,7 @@ class Application
         $controleur = isset($url) ? $url[0] : 'Accueil';
         
         // Vérifie si le contrôleur existe
-        if (file_exists(CONTROLEURS . $controleur . '.php')) {            
+        if (file_exists(CONTROLEURS . $controleur . '.php')) {
             /*
              * Si oui on passe la 1ere lettre du contrôleur de l'URL
              * en majuscule pour correspondre au nom du contrôleur dans
@@ -62,7 +64,6 @@ class Application
             
             // Ajout du namespace
             $controleur = 'Rodez_3IL_Ingenieurs\Controleurs\\' . $controleur;
-            
             
             // Créé le contrôleur
             $this->controleur = new $controleur();
@@ -118,13 +119,16 @@ class Application
     {
         require_once CONTROLEURS . 'Erreur404.php';
         $this->controleur = new Controleurs\Erreur404();
+        
+        self::setPropertiesFile();
+        
         $this->controleur->index();
     }
 
     /**
      * Découpe l'URL en plusieurs chaînes de caractères par rapport
      * au caractère '/' et les placent dans un tableau.
-     * 
+     *
      * @return array le tableau contenant l'URL découpée,
      *         ou null si aucune URL est présente.
      */
@@ -144,20 +148,18 @@ class Application
         // else
         return null;
     }
-    
+
     /**
      * Affiche la page d'erreur 404.
      */
     public static function setPropertiesFile()
-    {        
-        if ($_SESSION['util'] != null) {
+    {
+        if ($_SESSION != null && $_SESSION['util'] != null) {
             $properties = $_SESSION['util']->getLangue()->getNomProperties();
-        }
-        else
-        {
+        } else {
             $properties = self::$PROPERTIES_DEFAUT;
         }
-            
-        self::$site = json_decode(file_get_contents( PROPERTIES . $properties ));
+        
+        self::$site = json_decode(file_get_contents(PROPERTIES . $properties));
     }
 }

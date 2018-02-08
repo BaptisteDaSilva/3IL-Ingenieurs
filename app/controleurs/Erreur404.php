@@ -5,7 +5,7 @@ use Rodez_3IL_Ingenieurs\Core\Controleur;
 
 /**
  * Contrôleur de la page d'erreur 404.
- * 
+ *
  * @package Rodez_3IL_Ingenieurs\Controleurs
  */
 class Erreur404 extends Controleur

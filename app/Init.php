@@ -1,7 +1,7 @@
 <?php
 use Rodez_3IL_Ingenieurs\Core\Application;
 
-//error_reporting(0);
+// error_reporting(0);
 
 // Les fichiers à charger pour toutes les pages
 require_once '../app/core/Application.php';

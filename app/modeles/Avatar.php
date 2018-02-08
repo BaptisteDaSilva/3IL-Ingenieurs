@@ -3,22 +3,25 @@ namespace Rodez_3IL_Ingenieurs\Modeles;
 
 /**
  * Représente un avatar.
- * 
+ *
  * @package Rodez_3IL_Ingenieurs\Modeles
  */
 class Avatar extends Modele
 {
+
     /**
      * Requête SQL permettant de vérifier qu'un utilisateur existe.
      */
     const RQT_LIST_AVATAR = 'SELECT idAvatar, nom
                              FROM t_avatars';
+
     /**
      * Requête SQL permettant de vérifier qu'un utilisateur existe.
      */
     const RQT_NOM_AVATAR = 'SELECT nom
                             FROM t_avatars
                             WHERE idAvatar = :idAvatar';
+
     /**
      * Requête SQL permettant de vérifier qu'un utilisateur existe.
      */
@@ -31,9 +34,9 @@ class Avatar extends Modele
 
     /** @var string le nom de l'image. */
     private $nom;
-    
+
     private static $AVATAR_DEFAUT = "defaut.png";
-    
+
     /**
      * Créé une nouvelle avatar.
      *
@@ -70,7 +73,7 @@ class Avatar extends Modele
         // Retourne la listes des départements.
         return isset($avatars) ? $avatars : null;
     }
-    
+
     public static function getIdAvatar($nomAvatar)
     {
         // Connexion à la base
@@ -91,7 +94,7 @@ class Avatar extends Modele
         // Retourne l'utilisateur ou null s'il n'existe pas.
         return $avatar ? $avatar->idAvatar : null;
     }
-    
+
     public static function getNomAvatar($idAvatar)
     {
         // Connexion à la base

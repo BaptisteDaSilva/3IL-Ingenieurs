@@ -4,11 +4,12 @@ namespace Rodez_3IL_Ingenieurs\Core;
 /**
  * Classe du contrôleur par défaut, tous les contrôleurs doivent hériter
  * de cette classe.
- * 
+ *
  * @package Rodez_3IL_Ingenieurs\Core
  */
 abstract class Controleur
 {
+
     /** @var string le titre de la page. */
     private $titre;
 
@@ -39,7 +40,7 @@ abstract class Controleur
 
     /**
      * Modifie le titre de la page.
-     * 
+     *
      * @param $titre string
      *            le titre de la page.
      */
@@ -47,7 +48,7 @@ abstract class Controleur
     {
         $this->titre .= $titre;
     }
-    
+
     /**
      *
      * @return string le titre de la page.
@@ -59,7 +60,7 @@ abstract class Controleur
 
     /**
      * Modifie la page active dans le menu.
-     * 
+     *
      * @param $activePage string
      *            la page active.
      */

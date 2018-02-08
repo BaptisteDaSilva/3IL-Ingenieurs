@@ -5,11 +5,12 @@ use Rodez_3IL_Ingenieurs\Core\Controleur;
 
 /**
  * Contrôleur de la page de présentation de la formation.
- * 
+ *
  * @package Rodez_3IL_Ingenieurs\Controleurs
  */
 class Formation extends Controleur
 {
+
     /**
      * Créé un nouveau contrôleur de la page d'accueil.
      */
@@ -29,7 +30,7 @@ class Formation extends Controleur
         
         require_once VUES . 'Formation/VueFormation.php';
     }
-    
+
     /**
      * Méthode lancée pour la page de présentation de la formation - Année 1.
      */
@@ -39,7 +40,7 @@ class Formation extends Controleur
         
         require_once VUES . 'Formation/VueAnnee1.php';
     }
-    
+
     /**
      * Méthode lancée pour la page de présentation de la formation - Année 2.
      */
@@ -49,7 +50,7 @@ class Formation extends Controleur
         
         require_once VUES . 'Formation/VueAnnee2.php';
     }
-    
+
     /**
      * Méthode lancée pour la page de présentation de la formation - Année 3.
      */
