@@ -1,0 +1,21 @@
+{
+	"Titre": "3iL-Ingénieurs",
+	"Menu": {
+		"Accueil": "",
+		"Form": {
+			"Formation": "",
+			"Presentation": "",
+			"Annee1": "",
+			"Annee2": "",
+			"Annee3": ""
+		},
+		"Apprentissage": "",
+		"Rodez": "",
+		"Contact": "",
+		"SInscrire": "",
+		"SeConnecter": "",
+		"MonCompte": "",
+		"SeDeconnecter": "",
+		"SeSouvenirDeMoi": ""
+	}
+}

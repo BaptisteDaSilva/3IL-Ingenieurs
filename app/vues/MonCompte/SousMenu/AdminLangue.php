@@ -48,11 +48,13 @@ $("#drapeau").change(function() {
                     <input id="nom" type="text" class="form-control" name="nom" placeholder="Nom de la langue">
                 </div>
                 <div class="form-group">
-                    <img id="drapeauView" src="<?= DRAPEAU . Langue::$DEFAUT_DRAPEAU ?>" alt="Default image" class="drapeauView"/>
+                    <div class="drapeauView">
+                        <img id="drapeauView" src="<?= DRAPEAU . Langue::$DEFAUT_DRAPEAU ?>" alt="Default image" class="drapeauView"/>
+                    </div>
                     <input id="drapeau" type="file" class="form-control" name="drapeau" accept="image/*">
                 </div>
                 <div class="form-group">
-                    <label for="propertie">Fichier properties :</label>
+                    <label for="propertie">Fichier properties : <a href="/Administration/defaultProperties" target="_blank">A remplir</a></label>
                     <input id="propertie" type="file" class="form-control" name="propertie" accept=".json">
                 </div>
                 <input type="submit" name="submit" value="Ajouter" class="btn mon-btn">

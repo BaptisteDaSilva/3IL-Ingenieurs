@@ -62,5 +62,20 @@ class Administration extends Controleur
         }
         
         // header('Location: /MonCompte/');
+    }       
+    
+    public function defaultProperties()
+    {
+        $file = '../public/properties/XX.json';
+        
+        $size = filesize($file);
+        header("Content-Type: application/force-download; name=XX.json");
+        header("Content-Transfer-Encoding: binary");
+        header("Content-Length: $size");
+        header("Content-Disposition: attachment; filename=XX.json");
+        header("Expires: 0");
+        header("Cache-Control: no-cache, must-revalidate");
+        header("Pragma: no-cache");
+        readfile($file);
     }
 }

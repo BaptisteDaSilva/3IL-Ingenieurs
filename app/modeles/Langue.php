@@ -165,7 +165,6 @@ class Langue extends Modele
         move_uploaded_file($properties, '../public/properties/' . $this->nomProperties);
     }
 
-    // TODO a tester
     public function supprimer()
     {
         $err = self::supprimerBD();
