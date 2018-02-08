@@ -155,7 +155,14 @@ class Application
     public static function setPropertiesFile()
     {
         if ($_SESSION != null && $_SESSION['util'] != null) {
-            $properties = $_SESSION['util']->getLangue()->getNomProperties();
+            $properties = $_SESSION['util']->getLangue();
+            
+            if ($properties != null)
+            {
+                $properties = $properties->getNomProperties();
+            } else {
+                $properties = self::$PROPERTIES_DEFAUT;
+            }
         } else {
             $properties = self::$PROPERTIES_DEFAUT;
         }
