@@ -20,7 +20,7 @@ class Connexion extends Controleur
             $mdp = Utilisateur::hashMdp($_POST['mdp']);
             
             // Connexion à la base de donnée et vérifcation de l'utilisateur.
-            $util = Utilisateur::getUtilisateur($login, $mdp);
+            $util = Utilisateur::getConnexion($login, $mdp);
             
             // Si l'utilisateur est correct.
             if ($util != null) {

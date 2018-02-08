@@ -19,7 +19,6 @@ $("#drapeau").change(function() {
   readURL(this);
 });
 </script>
-
 <div id="panel_adminLangue" class="panel-body panel-langue">
     <div class="row">
         <div class="col-md-2"></div>
@@ -30,7 +29,9 @@ $("#drapeau").change(function() {
                     <div class="drapeau">
                         <img src="<?= DRAPEAU . $langue->getNomDrapeau() ?>" alt="<?= $langue->getNom() ?>" />
                         <p>
-                            <input type="checkbox" name="aSupp[]" value="<?= $langue->getId() ?>"> <?= $langue->getNom() ?></p>
+                            <input id="supp<?= $langue->getId() ?>" type="checkbox" name="aSupp[]" value="<?= $langue->getId() ?>">
+                            <label for="supp<?= $langue->getId() ?>"><?= $langue->getNom() ?></label>
+                        </p>
                     </div>
                 <?php } ?>        
                 </div>                             
@@ -49,12 +50,16 @@ $("#drapeau").change(function() {
                 </div>
                 <div class="form-group">
                     <div class="drapeauView">
-                        <img id="drapeauView" src="<?= DRAPEAU . Langue::$DEFAUT_DRAPEAU ?>" alt="Default image" class="drapeauView"/>
+                        <img id="drapeauView" src="<?= DRAPEAU . Langue::$DEFAUT_DRAPEAU ?>" alt="Default image"
+                            class="drapeauView" />
                     </div>
                     <input id="drapeau" type="file" class="form-control" name="drapeau" accept="image/*">
                 </div>
                 <div class="form-group">
-                    <label for="propertie">Fichier properties : <a href="/Administration/defaultProperties" target="_blank">A remplir</a></label>
+                    <label for="propertie">
+                        Fichier properties :
+                        <a href="/Administration/defaultProperties" target="_blank">A remplir</a>
+                    </label>
                     <input id="propertie" type="file" class="form-control" name="propertie" accept=".json">
                 </div>
                 <input type="submit" name="submit" value="Ajouter" class="btn mon-btn">

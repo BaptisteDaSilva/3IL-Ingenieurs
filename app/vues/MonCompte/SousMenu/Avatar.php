@@ -12,23 +12,18 @@ $('#panel_monAvatar img').click(function(){
         <div class="col-md-2"></div>
         <div class="col-md-8">
             <form method="post" action="/MonCompte/modifierAvatar/">
-                <input type="hidden" name="nomAvatar" id="nomAvatar" value="<?= $_SESSION['util']->getNomAvatar() ?>" />			
-        		<?php
-        if ($dossier = opendir('../public/img/avatar')) {
-            while (false !== ($avatar = readdir($dossier))) {
-                if ($avatar != '.' && $avatar != '..' && $avatar != 'defaut.png') {
-                    if ($avatar == $_SESSION['util']->getNomAvatar()) {
-                        echo '<img class="selected" src="' . AVATAR . $avatar . '" alt="' . $avatar . '"/>';
-                    } else {
-                        echo '<img src="' . AVATAR . $avatar . '" alt="' . $avatar . '"/>';
-                    }
-                }
-            }
-        }
-        ?>
+                <div class="avatars">                            
+                <?php foreach ($avatars as &$avatar) { ?>
+                    <div class="avatar">
+                        <img src="<?= AVATAR . $avatar->getNom() ?>" alt="<?= $avatar->getNom() ?>" />
+                    </div>
+                <?php } ?>        
+                </div>                      
+                <?php if ($avatars != null) { ?>
                 <div>
                     <input type="submit" name="submitAvatar" value="Enregistrer" class="btn mon-btn">
                 </div>
+                <?php } ?> 
             </form>
         </div>
     </div>

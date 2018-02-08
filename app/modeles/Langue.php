@@ -170,7 +170,7 @@ class Langue extends Modele
         $err = self::supprimerBD();
         
         if ($err == null) {
-            // supprimerFichiers();
+            self::supprimerFichiers();
         } else {
             echo "\nPDO::errorInfo():\n";
             print_r($err->errorInfo());

@@ -62,13 +62,17 @@ html, body {
 
 
 
+
+
 :not
 
 
 
 
 
+
  
+
 
 
 
@@ -81,7 +85,9 @@ html, body {
 
 
 
+
  
+
 
 
 
@@ -100,13 +106,17 @@ box-shadow
 
 
 
+
+
 :
 
 
 
 
 
+
  
+
 
 
 
@@ -119,7 +129,9 @@ px
 
 
 
+
  
+
 
 
 
@@ -132,7 +144,9 @@ px
 
 
 
+
  
+
 
 
 
@@ -145,13 +159,17 @@ px
 
 
 
+
  
+
 
 
 
 
 
 #c8c8c8
+
+
 
 
 
@@ -287,6 +305,8 @@ textarea {
 .panel-avatar img {
 	margin: 1%;
 	border-radius: 20%;
+	width: 100%;
+	height: 7vw;
 }
 
 .panel-langue img {
@@ -322,4 +342,20 @@ textarea {
 .drapeauView img {
 	width: 50%;
 	height: 12vw;
+}
+
+.avatar {
+	width: 18%;
+	float: left;
+	margin: 1%;
+}
+
+.avatars {
+	display: inline-block;
+	width: 100%;
+}
+
+.avatarView img {
+	width: 20%;
+	height: 8vw;
 }

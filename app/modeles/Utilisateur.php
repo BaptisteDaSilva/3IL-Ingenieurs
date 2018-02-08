@@ -11,6 +11,14 @@ use Rodez_3IL_Ingenieurs\Core\Application;
 class Utilisateur extends Modele
 {
 
+    const RQT_UTIL = 'SELECT login, mdp, email, type, idAvatar, idLangue
+                       FROM t_utils
+                       WHERE login = :login';
+
+    const RQT_UTIL_TYPE = 'SELECT login, mdp, email, type, idAvatar, idLangue
+                       FROM t_utils
+                       WHERE type = :type';
+
     /**
      * Requête SQL permettant de vérifier qu'un utilisateur existe.
      */
@@ -36,6 +44,9 @@ class Utilisateur extends Modele
                                    WHERE login = :login';
 
     const RQT_MODIFIER_LANGUE_UTIL = 'UPDATE t_utils SET idLangue = :idLangue
+                                   WHERE login = :login';
+
+    const RQT_MODIFIER_TYPE_UTIL = 'UPDATE t_utils SET type = :type
                                    WHERE login = :login';
 
     /** @var string le login de l'utilisateur. */
@@ -92,7 +103,79 @@ class Utilisateur extends Modele
         $this->idLangue = $idLangue;
     }
 
-    public static function getUtilisateur($login, $mdp)
+    public static function getUtilisateurs()
+    {
+        // Connexion à la base
+        self::connexionBD();
+        
+        // Prépare la requête
+        $requete = self::getBaseDeDonnees()->getCnxBD()->prepare(self::RQT_UTIL_TYPE);
+        
+        // Ajout des variables
+        $requete->bindParam(':type', self::$TYPE_USER, \PDO::PARAM_STR);
+        
+        // Exécute la requête
+        $requete->execute();
+        
+        // Sauvegarde les lignes retournées.
+        $utilBD = $requete->fetchAll();
+        
+        // Créé la liste des départements.
+        for ($i = 0; $i < count($utilBD); $i ++) {
+            $utils[$i] = new Utilisateur($utilBD[$i]->login, $utilBD[$i]->mdp, $utilBD[$i]->email, $utilBD[$i]->type, $utilBD[$i]->idAvatar, $utilBD[$i]->idLangue);
+        }
+        
+        // Retourne la listes des départements.
+        return isset($utils) ? $utils : null;
+    }
+
+    public static function getAdministateurs()
+    {
+        // Connexion à la base
+        self::connexionBD();
+        
+        // Prépare la requête
+        $requete = self::getBaseDeDonnees()->getCnxBD()->prepare(self::RQT_UTIL_TYPE);
+        
+        // Ajout des variables
+        $requete->bindParam(':type', self::$TYPE_ADMIN, \PDO::PARAM_STR);
+        
+        // Exécute la requête
+        $requete->execute();
+        
+        // Sauvegarde les lignes retournées.
+        $adminBD = $requete->fetchAll();
+        
+        // Créé la liste des départements.
+        for ($i = 0; $i < count($adminBD); $i ++) {
+            $admins[$i] = new Utilisateur($adminBD[$i]->login, $adminBD[$i]->mdp, $adminBD[$i]->email, $adminBD[$i]->type, $adminBD[$i]->idAvatar, $adminBD[$i]->idLangue);
+        }
+        
+        // Retourne la listes des départements.
+        return isset($admins) ? $admins : null;
+    }
+
+    public static function getUtilisateur($idUtil)
+    {
+        // Connexion à la base
+        self::connexionBD();
+        // Prépare la requête
+        $requete = self::getBaseDeDonnees()->getCnxBD()->prepare(self::RQT_UTIL);
+        
+        // Ajout des variables
+        $requete->bindParam(':login', $idUtil, \PDO::PARAM_STR);
+        
+        // Exécute la requête
+        $requete->execute();
+        
+        // Sauvegarde la ligne retournée.
+        $util = $requete->fetch();
+        
+        // Retourne l'utilisateur ou null s'il n'existe pas.
+        return $util ? new Utilisateur($idUtil, $util->mdp, $util->email, $util->type, $util->idAvatar, $util->idLangue) : null;
+    }
+
+    public static function getConnexion($login, $mdp)
     {
         // Connexion à la base
         self::connexionBD();
@@ -272,6 +355,26 @@ class Utilisateur extends Modele
         return $ok;
     }
 
+    public function modifierType($type)
+    {
+        // Connexion à la base
+        self::connexionBD();
+        
+        // Prépare la requête
+        $requete = self::getBaseDeDonnees()->getCnxBD()->prepare(self::RQT_MODIFIER_TYPE_UTIL);
+        
+        $ok = $requete->execute(array(
+            ':login' => $this->login,
+            ':type' => ($type == 'A' ? self::$TYPE_ADMIN : self::$TYPE_USER)
+        ));
+        
+        if ($ok) {
+            $this->type = $type;
+        }
+        
+        return $ok;
+    }
+
     /**
      *
      * @return string le login de l'utilisateur.
@@ -306,22 +409,25 @@ class Utilisateur extends Modele
     }
 
     /**
-     * Créé un nouvel administrateur.
+     *
+     * @return string l'avatar de l'utilisateur.
      */
-    public function setAdministrateur()
+    public function getNomAvatar()
     {
-        $this->type = self::$TYPE_ADMIN;
+        $avatar = Avatar::getAvatar($this->idAvatar);
+        
+        return isset($avatar) ? $avatar->getNom() : Avatar::$AVATAR_DEFAUT;
     }
 
     /**
      *
      * @return string l'avatar de l'utilisateur.
      */
-    public function getNomAvatar()
+    public function getNomLangue()
     {
-        $avatar = Avatar::getNomAvatar($this->idAvatar);
+        $langue = Langue::getLangue($this->idLangue);
         
-        return isset($avatar) ? $avatar : Avatar::$AVATAR_DEFAUT;
+        return isset($langue) ? $langue->getNom() : null;
     }
 
     /**
@@ -342,5 +448,10 @@ class Utilisateur extends Modele
     public function isAdmin()
     {
         return $this->type == self::$TYPE_ADMIN;
+    }
+
+    public function getId()
+    {
+        return $this->login;
     }
 }

@@ -4,6 +4,7 @@ namespace Rodez_3IL_Ingenieurs\controleurs;
 use Rodez_3IL_Ingenieurs\Core\Controleur;
 use Rodez_3IL_Ingenieurs\Modeles\Langue;
 use Rodez_3IL_Ingenieurs\Modeles\Utilisateur;
+use Rodez_3IL_Ingenieurs\Modeles\Avatar;
 
 class MonCompte extends Controleur
 {
@@ -12,6 +13,12 @@ class MonCompte extends Controleur
     private $modifOK;
 
     public $langues;
+
+    public $avatars;
+
+    public $utilisateurs;
+
+    public $administrateurs;
 
     /**
      * Méthode lancée par défaut sur un contrôleur.
@@ -89,6 +96,11 @@ class MonCompte extends Controleur
     {
         if ($nom == "Langue" || $nom == "AdminLangue") {
             $langues = Langue::getLangues();
+        } else if ($nom == "Avatar" || $nom == "AdminAvatar") {
+            $avatars = Avatar::getAvatars();
+        } else if ($nom == "AdminMembre") {
+            $administrateurs = Utilisateur::getAdministateurs();
+            $utilisateurs = Utilisateur::getUtilisateurs();
         }
         
         if (substr($nom, 0, 5 === "Admin")) {

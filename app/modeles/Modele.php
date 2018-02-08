@@ -25,4 +25,6 @@ abstract class Modele
     {
         return self::$baseDeDonnees;
     }
+
+    abstract public function getId();
 }

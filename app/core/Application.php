@@ -157,8 +157,7 @@ class Application
         if ($_SESSION != null && $_SESSION['util'] != null) {
             $properties = $_SESSION['util']->getLangue();
             
-            if ($properties != null)
-            {
+            if ($properties != null) {
                 $properties = $properties->getNomProperties();
             } else {
                 $properties = self::$PROPERTIES_DEFAUT;

@@ -29,13 +29,17 @@ class Avatar extends Modele
                             FROM t_avatars
                             WHERE nom = :nom';
 
+    const RQT_AJOUTER_AVATAR = 'INSERT INTO t_avatars (nom) VALUES (:nom)';
+
+    const RQT_SUPPRIMER_AVATAR = 'DELETE FROM t_avatars WHERE idAvatar = :idAvatar';
+
     /** @var int l'identifiant de l'image. */
     private $idAvatar;
 
     /** @var string le nom de l'image. */
     private $nom;
 
-    private static $AVATAR_DEFAUT = "defaut.png";
+    public static $AVATAR_DEFAUT = "defaut.png";
 
     /**
      * Créé une nouvelle avatar.
@@ -95,7 +99,7 @@ class Avatar extends Modele
         return $avatar ? $avatar->idAvatar : null;
     }
 
-    public static function getNomAvatar($idAvatar)
+    public static function getAvatar($idAvatar)
     {
         // Connexion à la base
         self::connexionBD();
@@ -113,6 +117,82 @@ class Avatar extends Modele
         $avatar = $requete->fetch();
         
         // Retourne l'utilisateur ou null s'il n'existe pas.
-        return $avatar ? $avatar->nom : null;
+        return $avatar ? new Avatar($idAvatar, $avatar->nom) : null;
+    }
+
+    public function ajouter($avatar)
+    {
+        if (self::insererBD()) {
+            var_dump(true);
+            
+            self::ajouterFichiers($avatar);
+        }
+    }
+
+    private function insererBD()
+    {
+        // Connexion à la base
+        self::connexionBD();
+        
+        // Prépare la requête
+        $requete = self::getBaseDeDonnees()->getCnxBD()->prepare(self::RQT_AJOUTER_AVATAR);
+        var_dump($requete);
+        
+        // Ajout des variables
+        $requete->bindParam(':nom', $this->nom, \PDO::PARAM_STR);
+        
+        // Exécution de la requête avec les paramètres.
+        return $requete->execute();
+    }
+
+    private function ajouterFichiers($avatar)
+    {
+        move_uploaded_file($avatar, '../public/img/avatar/' . $this->nom);
+    }
+
+    public function supprimer()
+    {
+        $err = self::supprimerBD();
+        
+        if ($err == null) {
+            self::supprimerFichiers();
+        } else {
+            echo "\nPDO::errorInfo():\n";
+            print_r($err->errorInfo());
+        }
+    }
+
+    private function supprimerBD()
+    {
+        // Connexion à la base
+        self::connexionBD();
+        
+        // Prépare la requête
+        $requete = self::getBaseDeDonnees()->getCnxBD()->prepare(self::RQT_SUPPRIMER_AVATAR);
+        
+        var_dump($this);
+        
+        // Ajout des variables
+        $requete->bindParam(':idAvatar', $this->idAvatar, \PDO::PARAM_INT);
+        
+        // Exécution de la requête.
+        if (! $requete->execute()) {
+            return $requete->errorInfo();
+        }
+    }
+
+    private function supprimerFichiers()
+    {
+        unlink(AVATAR . $this->nom);
+    }
+
+    public function getNom()
+    {
+        return $this->nom;
+    }
+
+    public function getId()
+    {
+        return $this->idAvatar;
     }
 }

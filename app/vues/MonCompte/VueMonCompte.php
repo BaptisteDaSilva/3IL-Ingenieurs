@@ -41,6 +41,7 @@ $(function(){
 					<?php if($_SESSION['util']->isAdmin()) { ?>
     					<input type="button" value="Admin avatar" onclick="loadMenu('AdminAvatar')" />
                     <input type="button" value="Admin langue" onclick="loadMenu('AdminLangue')" />
+                    <input type="button" value="Admin membre" onclick="loadMenu('AdminMembre')" />
 					<?php } ?>
 				</div>
                 <div id="contentMonCompte"></div>
