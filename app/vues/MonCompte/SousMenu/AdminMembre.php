@@ -5,10 +5,10 @@
             <div class="panel-heading">
                 <h3 class="panel-title">Administrateur :</h3>
             </div>
-            <?php if ($administrateurs != null) { ?>
+            <?php if ($this->administrateurs != null) { ?>
             <form method="post" action="/Administration/supprimerAdmin/">
                 <div class="avatars">                            
-                <?php foreach ($administrateurs as &$admin) { ?>
+                <?php foreach ($this->administrateurs as &$admin) { ?>
                     <div class="avatar">
                         <img src="<?= AVATAR . $admin->getNomAvatar() ?>" alt="<?= $admin->getNomAvatar() ?>" />
                         <p>
@@ -26,10 +26,10 @@
             <div class="panel-heading">
                 <h3 class="panel-title">Utilisateurs :</h3>
             </div>                             
-            <?php if ($utilisateurs != null) { ?>
+            <?php if ($this->utilisateurs != null) { ?>
             <form method="post" action="/Administration/ajouterAdmin/" enctype="multipart/form-data">
                 <div class="avatars">                            
-                <?php foreach ($utilisateurs as &$util) { ?>
+                <?php foreach ($this->utilisateurs as &$util) { ?>
                     <div class="avatar">
                         <img src="<?= AVATAR . $util->getNomAvatar() ?>" alt="<?= $util->getNomAvatar() ?>" />
                         <p>

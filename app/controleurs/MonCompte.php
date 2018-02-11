@@ -5,6 +5,7 @@ use Rodez_3IL_Ingenieurs\Core\Controleur;
 use Rodez_3IL_Ingenieurs\Modeles\Langue;
 use Rodez_3IL_Ingenieurs\Modeles\Utilisateur;
 use Rodez_3IL_Ingenieurs\Modeles\Avatar;
+use DOMDocument;
 
 class MonCompte extends Controleur
 {
@@ -19,6 +20,8 @@ class MonCompte extends Controleur
     public $utilisateurs;
 
     public $administrateurs;
+    
+    public $photos;
 
     /**
      * Méthode lancée par défaut sur un contrôleur.
@@ -95,12 +98,23 @@ class MonCompte extends Controleur
     public function SousMenu($nom)
     {
         if ($nom == "Langue" || $nom == "AdminLangue") {
-            $langues = Langue::getLangues();
+            $this->langues = Langue::getLangues();
         } else if ($nom == "Avatar" || $nom == "AdminAvatar") {
-            $avatars = Avatar::getAvatars();
+            $this->avatars = Avatar::getAvatars();
         } else if ($nom == "AdminMembre") {
-            $administrateurs = Utilisateur::getAdministateurs();
-            $utilisateurs = Utilisateur::getUtilisateurs();
+            $this->administrateurs = Utilisateur::getAdministateurs();
+            $this->utilisateurs = Utilisateur::getUtilisateurs();
+        } else if ($nom == "AdminPhoto") {
+            $doc = new DOMDocument;
+            $doc->load(XML_SLIDER);
+            
+            $this->photos = $doc->getElementsByTagName('name');
+        } else if ($nom == "AdminDescriptionPhoto") {
+            $doc = new DOMDocument;
+            $doc->load(XML_SLIDER);
+            
+            $this->photos = $doc->getElementsByTagName('name');
+            $this->langues = Langue::getLangues();
         }
         
         if (substr($nom, 0, 5 === "Admin")) {

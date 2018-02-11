@@ -153,7 +153,7 @@ class Application
      * Affiche la page d'erreur 404.
      */
     public static function setPropertiesFile()
-    {
+    {        
         if ($_SESSION != null && $_SESSION['util'] != null) {
             $properties = $_SESSION['util']->getLangue();
             

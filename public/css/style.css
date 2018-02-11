@@ -47,141 +47,19 @@ html, body {
 	text-align: center;
 }
 
+.panel-body p {
+    font-size: 16px;
+    color: #555;
+}
+
 .panel {
 	background-color: rgba(255, 255, 255, 0.9);
 }
 
-.panel
-
-
-
-
-
-
-
-
-
-
-
-
-:not
-
-
-
-
-
-
- 
-
-
-
-
-
-
-(
-.bigPanel
-
-
-
-
-
-
- 
-
-
-
-
-
-
-)
-{
-box-shadow
-
-
-
-
-
-
-
-
-
-
-
-
-:
-
-
-
-
-
-
- 
-
-
-
-
-
-
-1
-px
-
-
-
-
-
-
- 
-
-
-
-
-
-
-1
-px
-
-
-
-
-
-
- 
-
-
-
-
-
-
-1
-px
-
-
-
-
-
-
- 
-
-
-
-
-
-
-#c8c8c8
-
-
-
-
-
-
-
-
-
-
-
-
-;
+.panel :not (.bigPanel ){
+	box-shadow: 1 px 1 px 1 px #c8c8c8;
 }
+
 .panel .panel-heading {
 	background-color: rgba(231, 231, 231, 0.8);
 	text-align: center;
@@ -315,9 +193,10 @@ textarea {
 	height: 10vw;
 }
 
-.panel-langue p {
-	font-size: 20px;
-	color: #555;
+.panel-photo img {
+	padding: 2%;
+	width: 90%;
+	height: 10vw;
 }
 
 .panel-navigation input[type="button"] {
@@ -358,4 +237,15 @@ textarea {
 .avatarView img {
 	width: 20%;
 	height: 8vw;
+}
+
+.photo {
+	width: 48%;
+	float: left;
+	margin: 1%;
+}
+
+.photos {
+	display: inline-block;
+	width: 100%;
 }

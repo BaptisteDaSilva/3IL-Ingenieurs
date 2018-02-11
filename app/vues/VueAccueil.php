@@ -8,25 +8,19 @@ require_once TEMPLATES . 'menu.php';
     <div class="jumbotron">
         <h1>Bienvenue sur <?= Application::$site->{'Titre'}  ?> !</h1>
         <p>Ecole d'ingénieurs en informatique à Rodez</p>
-    </div>
-	<?php if($dossier = opendir('../public/img/photos')) { ?>
-		<div id="slider">
+    </div>    
+    <?php if($photos != null) { ?>
+    <div id="slider">
         <a href="#slider" class="control_next">&gt;</a>
         <a href="#slider" class="control_prev">&lt;</a>
         <ul>
-			<?php
-    while (false !== ($photos = readdir($dossier))) {
-        if ($photos != '.' && $photos != '..') {
-            ?>
-                <li>
-                <img src="<?= PHOTOS . $photos ?>" alt="">
-                <p class="caption"><?= substr($photos, 0, stripos($photos, '.')) ?></p>
+        <?php foreach ($photos as $photo) {?>
+            <li>
+                <img src="<?= PHOTOS . $photo->nodeValue ?>" alt="<?= $photo->nodeValue ?>">
+                <p class="caption"><?= $doc->getElementById($idSangueUtil . '_' . $photo->nodeValue)->nodeValue ?></p>
             </li>
-            <?php
-        }
-    }
-    ?>
-			</ul>
+        <?php } ?>
+        </ul>
     </div>
-	<?php } ?>
+    <?php } ?>
 </div>

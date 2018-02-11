@@ -12,13 +12,13 @@ class Langue extends Modele
     /**
      * Requête SQL permettant de vérifier qu'un utilisateur existe.
      */
-    const RQT_LANGUES = 'SELECT idLangue, nom, nomDrapeau, nomProperties
+    const RQT_LANGUES = 'SELECT idLangue, nom
                             FROM t_langues';
 
     /**
      * Requête SQL permettant de vérifier qu'un utilisateur existe.
      */
-    const RQT_LANGUE = 'SELECT idLangue, nom, nomDrapeau, nomProperties
+    const RQT_LANGUE = 'SELECT idLangue, nom
                             FROM t_langues
                             WHERE idLangue = :idLangue';
 
@@ -33,8 +33,8 @@ class Langue extends Modele
                             FROM t_langues
                             WHERE idLangue = :idLangue';
 
-    const RQT_AJOUTER_LANGUE = 'INSERT INTO t_langues (nom, nomDrapeau, nomProperties)
-                                  VALUES (:nom, :nomDrapeau, :nomProperties)';
+    const RQT_AJOUTER_LANGUE = 'INSERT INTO t_langues (idLangue, nom)
+                                  VALUES (:idLangue, :nom)';
 
     const RQT_SUPPRIMER_LANGUE = 'DELETE FROM t_langues WHERE idLangue = :idLangue';
 
@@ -44,13 +44,10 @@ class Langue extends Modele
     /** @var string le mot de passe de l'utilisateur. */
     private $nom;
 
-    /** @var string l'eamil de l'utilisateur. */
-    private $nomDrapeau;
-
-    /** @var string l'eamil de l'utilisateur. */
-    private $nomProperties;
-
     public static $DEFAUT_DRAPEAU = "XX.png";
+    public static $EXTENSION_DRAPEAU = ".png";
+    public static $EXTENSION_PROPERTIES = ".json";
+    public static $EXTENSION_XML_PHOTOS = ".xml";
 
     /**
      * Créé un nouvel utilisateur.
@@ -62,12 +59,10 @@ class Langue extends Modele
      * @param string $email
      *            l'email de l'utilisateur.
      */
-    public function __construct($idLangue, $nom, $nomDrapeau, $nomProperties)
+    public function __construct($idLangue, $nom)
     {
         $this->idLangue = $idLangue;
         $this->nom = $nom;
-        $this->nomDrapeau = $nomDrapeau;
-        $this->nomProperties = $nomProperties;
     }
 
     public static function getLangues()
@@ -86,7 +81,7 @@ class Langue extends Modele
         
         // Créé la liste des départements.
         for ($i = 0; $i < count($langueBD); $i ++) {
-            $langues[$i] = new Langue($langueBD[$i]->idLangue, $langueBD[$i]->nom, $langueBD[$i]->nomDrapeau, $langueBD[$i]->nomProperties);
+            $langues[$i] = new Langue($langueBD[$i]->idLangue, $langueBD[$i]->nom);
         }
         
         // Retourne la listes des départements.
@@ -132,7 +127,7 @@ class Langue extends Modele
         $langueBD = $requete->fetch();
         
         // Retourne l'utilisateur ou null s'il n'existe pas.
-        return $langueBD ? new Langue($idLangue, $langueBD->nom, $langueBD->nomDrapeau, $langueBD->nomProperties) : null;
+        return $langueBD ? new Langue($idLangue, $langueBD->nom) : null;
     }
 
     public function ajouter($drapeau, $properties)
@@ -152,17 +147,18 @@ class Langue extends Modele
         
         // Exécution de la requête avec les paramètres.
         return $requete->execute(array(
-            ':nom' => $this->nom,
-            ':nomDrapeau' => $this->nomDrapeau,
-            ':nomProperties' => $this->nomProperties
+            ':idLangue' => $this->idLangue,
+            ':nom' => $this->nom
         ));
     }
 
-    private function ajouterFichiers($drapeau, $properties)
+    private function ajouterFichiers($drapeau, $properties, $xmlPhotos)
     {
-        move_uploaded_file($drapeau, '../public/img/drapeau/' . $this->nomDrapeau);
+        move_uploaded_file($drapeau, '../public/img/drapeau/' . $this->idLangue . self::$EXTENSION_DRAPEAU);
         
-        move_uploaded_file($properties, '../public/properties/' . $this->nomProperties);
+        move_uploaded_file($properties, '../public/properties/' . $this->idLangue . self::$EXTENSION_PROPERTIES);
+        
+        move_uploaded_file($xmlPhotos, '../public/xml/' . $this->idLangue . self::$EXTENSION_XML_PHOTOS);
     }
 
     public function supprimer()
@@ -198,8 +194,8 @@ class Langue extends Modele
 
     private function supprimerFichiers()
     {
-        unlink(DRAPEAU . $this->nomDrapeau);
-        unlink(PROPERTIES . $this->nomProperties);
+        unlink('../public/img/drapeau/'  . $this->idLangue . self::$EXTENSION_DRAPEAU);
+        unlink('../public/properties/'  . $this->idLangue . self::$EXTENSION_PROPERTIES);
     }
 
     /**
@@ -222,11 +218,11 @@ class Langue extends Modele
 
     public function getNomDrapeau()
     {
-        return $this->nomDrapeau;
+        return $this->idLangue . self::$EXTENSION_DRAPEAU;
     }
 
     public function getNomProperties()
     {
-        return $this->nomProperties;
+        return $this->idLangue . self::$EXTENSION_PROPERTIES;
     }
 }

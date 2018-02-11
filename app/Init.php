@@ -39,5 +39,8 @@ define('CSS', URL . 'css/');
 define('JS', URL . 'js/');
 define('PROPERTIES', URL . 'properties/');
 
+
+define('XML_SLIDER', URL . 'slider.xml');
+
 // Lance le routage
 $app = new Application();

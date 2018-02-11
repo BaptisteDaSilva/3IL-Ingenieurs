@@ -22,10 +22,11 @@ $("#drapeau").change(function() {
 <div id="panel_adminLangue" class="panel-body panel-langue">
     <div class="row">
         <div class="col-md-2"></div>
-        <div class="col-md-8">
+        <div class="col-md-8">                             
+            <?php if ($this->langues != null) { ?>
             <form method="post" action="/Administration/supprimerLangue/">
                 <div class="drapeaux">                              
-                <?php foreach ($langues as &$langue) { ?>
+                <?php foreach ($this->langues as &$langue) { ?>
                     <div class="drapeau">
                         <img src="<?= DRAPEAU . $langue->getNomDrapeau() ?>" alt="<?= $langue->getNom() ?>" />
                         <p>
@@ -34,33 +35,28 @@ $("#drapeau").change(function() {
                         </p>
                     </div>
                 <?php } ?>        
-                </div>                             
-                <?php if ($langues != null) { ?>
+                </div>
                 <div>
                     <input type="submit" name="submitLangue" value="Supprimer" class="btn mon-btn">
                 </div>
-                <?php } ?> 
             </form>
+            <?php } ?> 
             <div class="panel-heading">
                 <h3 class="panel-title">Ajouter :</h3>
             </div>
             <form method="post" action="/Administration/ajouterLangue/" enctype="multipart/form-data">
                 <div class="form-group">
-                    <input id="nom" type="text" class="form-control" name="nom" placeholder="Nom de la langue">
+                    <input id="id" type="text" class="form-control" name="id" placeholder="Code de la langue (Ex : FR)" maxlength="2" required>
+                </div>
+                <div class="form-group">
+                    <input id="nom" type="text" class="form-control" name="nom" placeholder="Nom de la langue" maxlength="20" required>
                 </div>
                 <div class="form-group">
                     <div class="drapeauView">
                         <img id="drapeauView" src="<?= DRAPEAU . Langue::$DEFAUT_DRAPEAU ?>" alt="Default image"
-                            class="drapeauView" />
+                            class="drapeauView"/>
                     </div>
-                    <input id="drapeau" type="file" class="form-control" name="drapeau" accept="image/*">
-                </div>
-                <div class="form-group">
-                    <label for="propertie">
-                        Fichier properties :
-                        <a href="/Administration/defaultProperties" target="_blank">A remplir</a>
-                    </label>
-                    <input id="propertie" type="file" class="form-control" name="propertie" accept=".json">
+                    <input id="drapeau" type="file" class="form-control" name="drapeau" accept="image/*" required>
                 </div>
                 <input type="submit" name="submit" value="Ajouter" class="btn mon-btn">
             </form>

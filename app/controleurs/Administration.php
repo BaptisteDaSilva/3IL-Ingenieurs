@@ -5,12 +5,12 @@ use Rodez_3IL_Ingenieurs\Core\Controleur;
 use Rodez_3IL_Ingenieurs\Modeles\Langue;
 use Rodez_3IL_Ingenieurs\Modeles\Avatar;
 use Rodez_3IL_Ingenieurs\Modeles\Utilisateur;
+use DOMDocument;
 
 class Administration extends Controleur
 {
-
-    private static $file = '../public/properties/XX.json';
-
+    private static $properties = '../public/properties/XX.json';
+    
     /** @var bool */
     private $modifOK;
 
@@ -53,9 +53,9 @@ class Administration extends Controleur
     public function ajouterLangue()
     {
         if ($_SESSION['util']->isAdmin()) {
-            $langue = new Langue(null, $_POST['nom'], $_FILES['drapeau']['name'], $_FILES['propertie']['name']);
+            $langue = new Langue($_POST['id'], $_POST['nom']);
             
-            $langue->ajouter($_FILES['drapeau']['tmp_name'], $_FILES['propertie']['tmp_name']);
+            $langue->ajouter($_FILES['drapeau']['tmp_name'], $_FILES['propertie']['tmp_name'], $_FILES['xmlPhotos']['tmp_name']);
         }
         
         header('Location: /MonCompte/');
@@ -98,7 +98,7 @@ class Administration extends Controleur
 
     public function defaultProperties()
     {
-        $size = filesize(self::$file);
+        $size = filesize(self::$properties);
         header("Content-Type: application/force-download; name=XX.json");
         header("Content-Transfer-Encoding: binary");
         header("Content-Length: $size");
@@ -106,6 +106,89 @@ class Administration extends Controleur
         header("Expires: 0");
         header("Cache-Control: no-cache, must-revalidate");
         header("Pragma: no-cache");
-        readfile(self::$file);
+        readfile(self::$properties);
+    }
+    
+    public function defaultXMLPhotos()
+    {
+        $size = filesize(self::$XML);
+        header("Content-Type: application/force-download; name=XX.xml");
+        header("Content-Transfer-Encoding: binary");
+        header("Content-Length: $size");
+        header("Content-Disposition: attachment; filename=XX.xml");
+        header("Expires: 0");
+        header("Cache-Control: no-cache, must-revalidate");
+        header("Pragma: no-cache");
+        readfile(self::$XML);
+    }
+    
+    public function ajouterPhoto()
+    {
+        if ($_SESSION['util']->isAdmin()) {
+            $name = str_replace(' ', '', $_FILES['photo']['name']);
+            
+            move_uploaded_file($_FILES['photo']['tmp_name'], '../public/img/photos/' . $name);
+                             
+            $doc = new DOMDocument;
+            $doc->load(XML_SLIDER);
+            
+            $ePhoto = $doc->createElement('photo');      
+            $ePhoto->appendChild($doc->createElement('name', $name));
+                        
+            foreach (Langue::getLangues() as $langue)
+            {
+                $eDesc = $doc->createElement('description');
+                $eDesc->setAttribute('id', $langue->getId() . '_' . $name);
+                
+                $ePhoto->appendChild($eDesc);
+            }           
+            
+            $doc->getElementsByTagName('slider')[0]->appendChild($ePhoto);
+                        
+            $doc->save('../public/slider.xml');
+        }
+        
+        header('Location: /MonCompte/');
+    }
+    
+    public function supprimerPhoto()
+    {
+        if ($_SESSION['util']->isAdmin()) {
+            
+            $doc = new DOMDocument;
+            $doc->load(XML_SLIDER);
+            
+            foreach ($_POST['aSupp'] as $aSupp) {                
+                unlink('../public/img/photos/' . $aSupp);
+                                
+                foreach ($doc->getElementsByTagName('photo') as $photo)
+                {                                        
+                    if (strpos($photo->nodeValue, $aSupp) !== false){                        
+                        $doc->getElementsByTagName('slider')[0]->removeChild($photo);
+                    }
+                } 
+            }
+            
+            $doc->save('../public/slider.xml');
+        }
+        
+        header('Location: /MonCompte/');
+    }
+    
+    public function modifierDescriptionPhoto()
+    {
+        if ($_SESSION['util']->isAdmin()) {            
+            $doc = new DOMDocument;
+            $doc->load(XML_SLIDER);
+            
+            foreach( $_POST['photos'] as $cle=>$value )
+            {                
+                $doc->getElementById($_POST['idLangue'] . '_' . $cle)->nodeValue = $value;
+            }
+            
+            $doc->save('../public/slider.xml');
+        }
+    
+        header('Location: /MonCompte/');
     }
 }

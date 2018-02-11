@@ -2,6 +2,7 @@
 namespace Rodez_3IL_Ingenieurs\Controleurs;
 
 use Rodez_3IL_Ingenieurs\Core\Controleur;
+use DOMDocument;
 
 /**
  * Contrôleur de la page d'accueil du site.
@@ -9,8 +10,9 @@ use Rodez_3IL_Ingenieurs\Core\Controleur;
  * @package Rodez_3IL_Ingenieurs\Controleurs
  */
 class Accueil extends Controleur
-{
-
+{    
+    private static $ID_DEFAUT = "FR";
+    
     /**
      * Créé un nouveau contrôleur de la page d'accueil.
      */
@@ -26,8 +28,23 @@ class Accueil extends Controleur
      */
     public function index()
     {
-        $this->setTitre('Accueil');
+        $this->setTitre('Accueil');        
         
+        $idSangueUtil = self::$ID_DEFAUT;
+        
+        if ($_SESSION != null && $_SESSION['util'] != null) {
+            $langueUtil = $_SESSION['util']->getLangue();
+            
+            if ($langueUtil != null) {
+                $idSangueUtil = $langueUtil->getId();
+            }
+        }
+        
+        $doc = new DOMDocument;
+        $doc->load(XML_SLIDER);
+        
+        $photos = $doc->getElementsByTagName('name');
+                
         require_once VUES . 'VueAccueil.php';
     }
 }

@@ -22,9 +22,10 @@ $("#avatar").change(function() {
     <div class="row">
         <div class="col-md-2"></div>
         <div class="col-md-8">
+            <?php if ($this->avatars != null) { ?>
             <form method="post" action="/Administration/supprimerAvatar/">
                 <div class="avatars">                            
-                <?php foreach ($avatars as &$avatar) { ?>
+                <?php foreach ($this->avatars as &$avatar) { ?>
                     <div class="avatar">
                         <img src="<?= AVATAR . $avatar->getNom() ?>" alt="<?= $avatar->getNom() ?>" />
                         <p>
@@ -34,12 +35,11 @@ $("#avatar").change(function() {
                     </div>
                 <?php } ?>        
                 </div>                             
-                <?php if ($avatars != null) { ?>
                 <div>
                     <input type="submit" name="submitLangue" value="Supprimer" class="btn mon-btn">
                 </div>
-                <?php } ?> 
             </form>
+            <?php } ?> 
             <div class="panel-heading">
                 <h3 class="panel-title">Ajouter :</h3>
             </div>
@@ -48,7 +48,7 @@ $("#avatar").change(function() {
                     <div class="avatarView">
                         <img id="avatarView" src="<?= AVATAR . Avatar::$AVATAR_DEFAUT ?>" alt="Default image" class="avatarView" />
                     </div>
-                    <input id="avatar" type="file" class="form-control" name="avatar" accept="image/*">
+                    <input id="avatar" type="file" class="form-control" name="avatar" accept="image/*" required>
                 </div>
                 <input type="submit" name="submit" value="Ajouter" class="btn mon-btn">
             </form>
