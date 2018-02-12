@@ -71,7 +71,7 @@ use Rodez_3IL_Ingenieurs\Core\Application;
                     <a href="#" class="dropdown-toggle login" data-toggle="dropdown" role="button" aria-haspopup="true"
                         aria-expanded="false">
                         <img class="profil <?php if ($_SESSION['util']->isAdmin()) { echo 'admin'; } ?>"
-                            src="<?= AVATAR . $_SESSION['util']->getNomAvatar() ?>">
+                            src="<?= $_SESSION['util']->getLienAvatar() ?>">
                         &nbsp;&nbsp;
                         <b><?= $_SESSION['util']->getLogin() ?>
                             </b>

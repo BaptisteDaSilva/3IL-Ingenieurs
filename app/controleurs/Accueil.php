@@ -2,7 +2,7 @@
 namespace Rodez_3IL_Ingenieurs\Controleurs;
 
 use Rodez_3IL_Ingenieurs\Core\Controleur;
-use DOMDocument;
+use Rodez_3IL_Ingenieurs\Libs\Photo;
 
 /**
  * Contrôleur de la page d'accueil du site.
@@ -10,9 +10,11 @@ use DOMDocument;
  * @package Rodez_3IL_Ingenieurs\Controleurs
  */
 class Accueil extends Controleur
-{    
-    private static $ID_DEFAUT = "FR";
-    
+{
+
+    /** @var resource Photos afichiés dans le slider */
+    private static $photos;
+
     /**
      * Créé un nouveau contrôleur de la page d'accueil.
      */
@@ -28,9 +30,9 @@ class Accueil extends Controleur
      */
     public function index()
     {
-        $this->setTitre('Accueil');        
+        $this->setTitre('Accueil');
         
-        $idSangueUtil = self::$ID_DEFAUT;
+        $idSangueUtil = DEFAUT_ID_LANGUE;
         
         if ($_SESSION != null && $_SESSION['util'] != null) {
             $langueUtil = $_SESSION['util']->getLangue();
@@ -40,11 +42,8 @@ class Accueil extends Controleur
             }
         }
         
-        $doc = new DOMDocument;
-        $doc->load(XML_SLIDER);
+        self::$photos = Photo::getPhotos();
         
-        $photos = $doc->getElementsByTagName('photo');
-                
-        require_once VUES . 'VueAccueil.php';
+        require_once VUES . 'Accueil/VueAccueil.php';
     }
 }

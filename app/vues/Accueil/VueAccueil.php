@@ -1,5 +1,6 @@
 <?php
 use Rodez_3IL_Ingenieurs\Core\Application;
+use Rodez_3IL_Ingenieurs\Libs\Photo;
 
 require_once TEMPLATES . 'enTete.php';
 require_once TEMPLATES . 'menu.php';
@@ -9,15 +10,15 @@ require_once TEMPLATES . 'menu.php';
         <h1>Bienvenue sur <?= Application::$site->{'Titre'}  ?> !</h1>
         <p>Ecole d'ingénieurs en informatique à Rodez</p>
     </div>    
-    <?php if($photos != null) { ?>
+    <?php if(self::$photos != null) { ?>
     <div id="slider">
         <a href="#slider" class="control_next">&gt;</a>
         <a href="#slider" class="control_prev">&lt;</a>
         <ul>
-        <?php foreach ($photos as $photo) { $pName = $photo->getAttribute('name'); ?>
+        <?php foreach (self::$photos as $photo) { $pName = Photo::getName($photo);?>
             <li>
                 <img src="<?= PHOTOS . $pName ?>" alt="<?= $pName ?>">
-                <p class="caption"><?= $doc->getElementById($idSangueUtil . '_' . $pName)->nodeValue ?></p>
+                <p class="caption"><?= Photo::getDescription($pName, $idSangueUtil) ?></p>
             </li>
         <?php } ?>
         </ul>

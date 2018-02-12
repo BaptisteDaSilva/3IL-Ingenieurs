@@ -18,7 +18,7 @@ abstract class Modele
     }
 
     /**
-     *
+     * TODO ecrire
      * @return BaseDeDonnees la connexion à la base de données.
      */
     protected static function getBaseDeDonnees()
@@ -26,5 +26,8 @@ abstract class Modele
         return self::$baseDeDonnees;
     }
 
+    /**
+     * Retourne l'identifiant de l'objet
+     */
     abstract public function getId();
 }

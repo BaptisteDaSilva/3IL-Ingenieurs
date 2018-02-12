@@ -18,22 +18,20 @@ $('#panel_monAvatar img').click(function(){
                 <input type="hidden" name="nomAvatar" id="nomAvatar" value="<?= $_SESSION['util']->getNomAvatar() ?>" />
                 <div class="avatars">                            
                 <?php
-                foreach ($this->avatars as &$avatar) {
-                    if ($avatar->getNom() == $_SESSION['util']->getNomAvatar()) {
-                ?>
-                    <div class="avatar">
+            foreach ($this->avatars as &$avatar) {
+                if ($avatar->getNom() == $_SESSION['util']->getNomAvatar()) {
+                    ?>
+                        <div class="avatar">
                         <img class="selected" src="<?= AVATAR . $avatar->getNom() ?>" alt="<?= $avatar->getNom() ?>" />
                     </div>
-                <?php
-                    } else {
-                ?>                
-                    <div class="avatar">
+                    <?php } else { ?>                
+                        <div class="avatar">
                         <img src="<?= AVATAR . $avatar->getNom() ?>" alt="<?= $avatar->getNom() ?>" />
                     </div>
                 <?php
-                    }
                 }
-                ?>   
+            }
+            ?>   
                 </div>
                 <div>
                     <input type="submit" name="submitAvatar" value="Enregistrer" class="btn mon-btn">

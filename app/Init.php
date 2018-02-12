@@ -8,6 +8,7 @@ error_reporting(E_ALL);
 require_once '../app/core/Application.php';
 require_once '../app/core/Controleur.php';
 require_once '../app/libs/BaseDeDonnees.php';
+require_once '../app/libs/Photo.php';
 require_once '../app/modeles/Modele.php';
 require_once '../app/modeles/Utilisateur.php';
 require_once '../app/modeles/Avatar.php';
@@ -26,6 +27,8 @@ define('VUES', '../app/vues/');
 define('TEMPLATES', '../app/vues/_templates/');
 define('MODELES', '../app/modeles/');
 
+define('XML_SLIDER', VUES . 'Accueil/slider.xml');
+
 // Le fichier de configuration.
 define('CONFIG', '../app/configs/config.ini');
 
@@ -39,8 +42,14 @@ define('CSS', URL . 'css/');
 define('JS', URL . 'js/');
 define('PROPERTIES', URL . 'properties/');
 
+define('DEFAUT_IMAGE', IMAGES . 'XX.png');
+define('DEFAUT_AVATAR', AVATAR . 'defaut.png');
+define('DEFAUT_PROPERTIES', PROPERTIES . 'XX.json');
 
-define('XML_SLIDER', URL . 'slider.xml');
+define('EXTENSION_DRAPEAU', '.png');
+define('EXTENSION_PROPERTIES', '.json');
+
+define('DEFAUT_ID_LANGUE', 'FR');
 
 // Lance le routage
 $app = new Application();

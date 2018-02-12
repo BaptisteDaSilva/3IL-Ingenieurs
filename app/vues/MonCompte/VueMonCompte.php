@@ -35,8 +35,8 @@ $(function(){
         <div class="col-md-8">
             <div class="panel panel-default bigPanel">
                 <div class="panel-heading panel-navigation">
-                    <input type="button" value="Mon Compte" onclick="loadMenu('Compte')" />                     
-                    <input type="button" value="Mon avatar" onclick="loadMenu('Avatar')" />  
+                    <input type="button" value="Mon Compte" onclick="loadMenu('Compte')" />
+                    <input type="button" value="Mon avatar" onclick="loadMenu('Avatar')" />
                     <input type="button" value="Ma langue" onclick="loadMenu('Langue')" />
 					<?php if($_SESSION['util']->isAdmin()) { ?>
     				<input type="button" value="Admin avatar" onclick="loadMenu('AdminAvatar')" />

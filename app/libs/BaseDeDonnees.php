@@ -35,6 +35,7 @@ class BaseDeDonnees
     }
 
     /**
+     * TODO ecrire
      *
      * @return \PDO la connexion à la base de données.
      */

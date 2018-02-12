@@ -5,22 +5,32 @@ use Rodez_3IL_Ingenieurs\Core\Controleur;
 use Rodez_3IL_Ingenieurs\Modeles\Langue;
 use Rodez_3IL_Ingenieurs\Modeles\Utilisateur;
 use Rodez_3IL_Ingenieurs\Modeles\Avatar;
-use DOMDocument;
+use Rodez_3IL_Ingenieurs\Libs\Photo;
 
+/**
+ * Contrôleur des pages de gestion de son compte du site.
+ *
+ * @package Rodez_3IL_Ingenieurs\Controleurs
+ */
 class MonCompte extends Controleur
 {
 
     /** @var bool */
     private $modifOK;
 
+    /** @var resource TODO ecrire */
     public $langues;
 
+    /** @var resource TODO ecrire */
     public $avatars;
 
+    /** @var resource TODO ecrire */
     public $utilisateurs;
 
+    /** @var resource TODO ecrire */
     public $administrateurs;
-    
+
+    /** @var resource TODO ecrire */
     public $photos;
 
     /**
@@ -37,6 +47,9 @@ class MonCompte extends Controleur
         }
     }
 
+    /**
+     * TODO ecrire
+     */
     public function modifier()
     {
         if (isset($_POST['email']) && isset($_POST['mdp'])) {
@@ -65,6 +78,9 @@ class MonCompte extends Controleur
         }
     }
 
+    /**
+     * TODO ecrire
+     */
     public function modifierAvatar()
     {
         if (isset($_POST['nomAvatar'])) {
@@ -80,6 +96,9 @@ class MonCompte extends Controleur
         }
     }
 
+    /**
+     * TODO ecrire
+     */
     public function modifierLangue()
     {
         if (isset($_POST['nomLangue'])) {
@@ -95,6 +114,12 @@ class MonCompte extends Controleur
         }
     }
 
+    /**
+     * TODO ecrire
+     *
+     * @param string $nom
+     *            TODO ecrire
+     */
     public function SousMenu($nom)
     {
         if ($nom == "Langue" || $nom == "AdminLangue") {
@@ -105,15 +130,9 @@ class MonCompte extends Controleur
             $this->administrateurs = Utilisateur::getAdministateurs();
             $this->utilisateurs = Utilisateur::getUtilisateurs();
         } else if ($nom == "AdminPhoto") {
-            $doc = new DOMDocument;
-            $doc->load(XML_SLIDER);
-            
-            $this->photos = $doc->getElementsByTagName('photo');
+            $this->photos = Photo::getPhotos();
         } else if ($nom == "AdminDescriptionPhoto") {
-            $doc = new DOMDocument;
-            $doc->load(XML_SLIDER);
-            
-            $this->photos = $doc->getElementsByTagName('photo');
+            $this->photos = Photo::getPhotos();
             $this->langues = Langue::getLangues();
         }
         

@@ -1,7 +1,7 @@
 <?php
 namespace Rodez_3IL_Ingenieurs\Modeles;
 
-use DOMDocument;
+use Rodez_3IL_Ingenieurs\Libs\Photo;
 
 /**
  * Représente un utilisateur du site connecté.
@@ -46,11 +46,6 @@ class Langue extends Modele
     /** @var string le mot de passe de l'utilisateur. */
     private $nom;
 
-    public static $DEFAUT_DRAPEAU = "XX.png";
-    public static $EXTENSION_DRAPEAU = ".png";
-    public static $EXTENSION_PROPERTIES = ".json";
-    public static $EXTENSION_XML_PHOTOS = ".xml";
-
     /**
      * Créé un nouvel utilisateur.
      *
@@ -67,6 +62,10 @@ class Langue extends Modele
         $this->nom = $nom;
     }
 
+    /**
+     *  TODO ecrire
+     * @return NULL|Langue TODO ecrire
+     */
     public static function getLangues()
     {
         // Connexion à la base
@@ -90,6 +89,11 @@ class Langue extends Modele
         return isset($langues) ? $langues : null;
     }
 
+    /**
+     *  TODO ecrire
+     * @param string $nomLangue TODO ecrire
+     * @return NULL|string TODO ecrire
+     */
     public static function getIdLangue($nomLangue)
     {
         // Connexion à la base
@@ -111,6 +115,11 @@ class Langue extends Modele
         return $langue ? $langue->idLangue : null;
     }
 
+    /**
+     *  TODO ecrire
+     * @param string $idLangue TODO ecrire
+     * @return NULL|Langue TODO ecrire
+     */
     public static function getLangue($idLangue)
     {
         // Connexion à la base
@@ -132,28 +141,24 @@ class Langue extends Modele
         return $langueBD ? new Langue($idLangue, $langueBD->nom) : null;
     }
 
+    /**
+     *  TODO ecrire
+     * @param string $drapeau TODO ecrire
+     * @param string $properties TODO ecrire
+     */
     public function ajouter($drapeau, $properties)
     {
         if (self::insererBD()) {
             self::ajouterFichiers($drapeau, $properties);
             
-            $doc = new DOMDocument;
-            $doc->load(XML_SLIDER);
-            
-            foreach ($doc->getElementsByTagName('photo') as $ePhoto)
-            {
-                $name = $ePhoto->getAttribute('name');
-                
-                $eDesc = $doc->createElement('description');
-                $eDesc->setAttribute('id', $this->getId() . '_' . $name);
-                
-                $ePhoto->appendChild($eDesc);                    
-            }
-            
-            $doc->save('../public/slider.xml');
+            Photo::addDescription($this->getId());
         }
     }
 
+    /**
+     *  TODO ecrire
+     * @return boolean TODO ecrire
+     */
     private function insererBD()
     {
         // Connexion à la base
@@ -169,25 +174,39 @@ class Langue extends Modele
         ));
     }
 
+    /**
+     *  TODO ecrire
+     * @param string $drapeau TODO ecrire
+     * @param string $properties TODO ecrire
+     */
     private function ajouterFichiers($drapeau, $properties)
     {
-        move_uploaded_file($drapeau, '../public/img/drapeau/' . $this->idLangue . self::$EXTENSION_DRAPEAU);
+        move_uploaded_file($drapeau, '../public/img/drapeau/' . $this->idLangue . EXTENSION_DRAPEAU);
         
-        move_uploaded_file($properties, '../public/properties/' . $this->idLangue . self::$EXTENSION_PROPERTIES);
+        move_uploaded_file($properties, '../public/properties/' . $this->idLangue . EXTENSION_PROPERTIES);
     }
 
+    /**
+     *  TODO ecrire
+     */
     public function supprimer()
     {
         $err = self::supprimerBD();
         
         if ($err == null) {
             self::supprimerFichiers();
+            
+            Photo::deleteDescription($this->getId());
         } else {
             echo "\nPDO::errorInfo():\n";
             print_r($err->errorInfo());
         }
     }
 
+    /**
+     *  TODO ecrire
+     * @return array|NULL TODO ecrire
+     */
     private function supprimerBD()
     {
         // Connexion à la base
@@ -196,8 +215,6 @@ class Langue extends Modele
         // Prépare la requête
         $requete = self::getBaseDeDonnees()->getCnxBD()->prepare(self::RQT_SUPPRIMER_LANGUE);
         
-        var_dump($this);
-        
         // Ajout des variables
         $requete->bindParam(':idLangue', $this->idLangue, \PDO::PARAM_INT);
         
@@ -205,17 +222,22 @@ class Langue extends Modele
         if (! $requete->execute()) {
             return $requete->errorInfo();
         }
-    }
-
-    private function supprimerFichiers()
-    {
-        unlink('../public/img/drapeau/'  . $this->idLangue . self::$EXTENSION_DRAPEAU);
-        unlink('../public/properties/'  . $this->idLangue . self::$EXTENSION_PROPERTIES);
+        
+        return null;
     }
 
     /**
-     *
-     * @return string le login de l'utilisateur.
+     *  TODO ecrire
+     */
+    private function supprimerFichiers()
+    {
+        unlink('../public/img/drapeau/' . $this->idLangue . EXTENSION_DRAPEAU);
+        unlink('../public/properties/' . $this->idLangue . EXTENSION_PROPERTIES);
+    }
+
+    /**
+     * {@inheritDoc}
+     * @see \Rodez_3IL_Ingenieurs\Modeles\Modele::getId()
      */
     public function getId()
     {
@@ -223,7 +245,7 @@ class Langue extends Modele
     }
 
     /**
-     *
+     * TODO ecrire
      * @return string le login de l'utilisateur.
      */
     public function getNom()
@@ -231,13 +253,21 @@ class Langue extends Modele
         return $this->nom;
     }
 
+    /**
+     *  TODO ecrire
+     * @return string TODO ecrire
+     */
     public function getNomDrapeau()
     {
-        return $this->idLangue . self::$EXTENSION_DRAPEAU;
+        return $this->idLangue . EXTENSION_DRAPEAU;
     }
 
+    /**
+     *  TODO ecrire
+     * @return string TODO ecrire
+     */
     public function getNomProperties()
     {
-        return $this->idLangue . self::$EXTENSION_PROPERTIES;
+        return $this->idLangue . EXTENSION_PROPERTIES;
     }
 }

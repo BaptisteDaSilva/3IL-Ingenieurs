@@ -1,6 +1,3 @@
-<?php
-use Rodez_3IL_Ingenieurs\Modeles\Avatar;
-?>
 <script type="text/javascript">
 function readURL(input) {
   if (input.files && input.files[0]) {
@@ -34,7 +31,7 @@ $("#avatar").change(function() {
                         </p>
                     </div>
                 <?php } ?>        
-                </div>                             
+                </div>
                 <div>
                     <input type="submit" name="submitLangue" value="Supprimer" class="btn mon-btn">
                 </div>
@@ -46,7 +43,7 @@ $("#avatar").change(function() {
             <form method="post" action="/Administration/ajouterAvatar/" enctype="multipart/form-data">
                 <div class="form-group">
                     <div class="avatarView">
-                        <img id="avatarView" src="<?= AVATAR . Avatar::$AVATAR_DEFAUT ?>" alt="Default image" class="avatarView" />
+                        <img id="avatarView" src="<?= DEFAUT_AVATAR ?>" alt="Default image" class="avatarView" />
                     </div>
                     <input id="avatar" type="file" class="form-control" name="avatar" accept="image/*" required>
                 </div>

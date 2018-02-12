@@ -4,7 +4,7 @@ namespace Rodez_3IL_Ingenieurs\Controleurs;
 use Rodez_3IL_Ingenieurs\Core\Controleur;
 
 /**
- * Contrôleur de la page d'accueil du site.
+ * Contrôleur de la page apprentissage du site.
  *
  * @package Rodez_3IL_Ingenieurs\Controleurs
  */

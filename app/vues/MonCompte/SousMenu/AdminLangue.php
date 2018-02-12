@@ -1,6 +1,3 @@
-<?php
-use Rodez_3IL_Ingenieurs\Modeles\Langue;
-?>
 <script type="text/javascript">
 
 function readURL(input) {
@@ -46,20 +43,24 @@ $("#drapeau").change(function() {
             </div>
             <form method="post" action="/Administration/ajouterLangue/" enctype="multipart/form-data">
                 <div class="form-group">
-                    <input id="id" type="text" class="form-control" name="id" placeholder="Code de la langue (Ex : FR)" maxlength="2" required>
+                    <input id="id" type="text" class="form-control" name="id" placeholder="Code de la langue (Ex : FR)"
+                        maxlength="2" required>
                 </div>
                 <div class="form-group">
-                    <input id="nom" type="text" class="form-control" name="nom" placeholder="Nom de la langue" maxlength="20" required>
+                    <input id="nom" type="text" class="form-control" name="nom" placeholder="Nom de la langue" maxlength="20"
+                        required>
                 </div>
                 <div class="form-group">
                     <div class="drapeauView">
-                        <img id="drapeauView" src="<?= DRAPEAU . Langue::$DEFAUT_DRAPEAU ?>" alt="Default image"
-                            class="drapeauView"/>
+                        <img id="drapeauView" src="<?= DEFAUT_IMAGE ?>" alt="Default image" class="drapeauView" />
                     </div>
-                    <input id="drapeau" type="file" class="form-control" name="drapeau" accept="image/*" required>
+                    <input id="drapeau" type="file" class="form-control" name="drapeau" accept="image/png" required>
                 </div>
                 <div class="form-group">
-                    <label for="propertie">Fichier properties : <a href="/Administration/defaultProperties/">A Remplir</a></label>
+                    <label for="propertie">
+                        Fichier properties :
+                        <a href="/Administration/defaultProperties/">A Remplir</a>
+                    </label>
                     <input id="propertie" type="file" class="form-control" name="propertie" accept=".json">
                 </div>
                 <input type="submit" name="submit" value="Ajouter" class="btn mon-btn">

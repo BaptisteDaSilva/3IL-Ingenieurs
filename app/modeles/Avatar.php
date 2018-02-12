@@ -39,8 +39,6 @@ class Avatar extends Modele
     /** @var string le nom de l'image. */
     private $nom;
 
-    public static $AVATAR_DEFAUT = "defaut.png";
-
     /**
      * Créé une nouvelle avatar.
      *
@@ -55,6 +53,11 @@ class Avatar extends Modele
         $this->nom = $nom;
     }
 
+    /**
+     * TODO ecrire
+     * 
+     * @return NULL|Avatar TODO ecrire
+     */
     public static function getAvatars()
     {
         // Connexion à la base
@@ -78,6 +81,13 @@ class Avatar extends Modele
         return isset($avatars) ? $avatars : null;
     }
 
+    /**
+     * TODO ecrire
+     * 
+     * @param string $nomAvatar
+     *            TODO ecrire
+     * @return NULL|string TODO ecrire
+     */
     public static function getIdAvatar($nomAvatar)
     {
         // Connexion à la base
@@ -99,6 +109,11 @@ class Avatar extends Modele
         return $avatar ? $avatar->idAvatar : null;
     }
 
+    /**
+     *  TODO ecrire
+     * @param string $idAvatar TODO ecrire
+     * @return NULL|Avatar TODO ecrire
+     */
     public static function getAvatar($idAvatar)
     {
         // Connexion à la base
@@ -120,15 +135,21 @@ class Avatar extends Modele
         return $avatar ? new Avatar($idAvatar, $avatar->nom) : null;
     }
 
+    /**
+     *  TODO ecrire
+     * @param Avatar $avatar TODO ecrire
+     */
     public function ajouter($avatar)
     {
         if (self::insererBD()) {
-            var_dump(true);
-            
             self::ajouterFichiers($avatar);
         }
     }
 
+    /**
+     *  TODO ecrire
+     * @return boolean TODO ecrire
+     */
     private function insererBD()
     {
         // Connexion à la base
@@ -145,11 +166,18 @@ class Avatar extends Modele
         return $requete->execute();
     }
 
+    /**
+     *  TODO ecrire
+     * @param string $avatar TODO ecrire
+     */
     private function ajouterFichiers($avatar)
     {
         move_uploaded_file($avatar, '../public/img/avatar/' . $this->nom);
     }
 
+    /**
+     *  TODO ecrire
+     */
     public function supprimer()
     {
         $err = self::supprimerBD();
@@ -162,6 +190,10 @@ class Avatar extends Modele
         }
     }
 
+    /**
+     *  TODO ecrire
+     * @return NULL|array TODO ecrire
+     */
     private function supprimerBD()
     {
         // Connexion à la base
@@ -179,18 +211,31 @@ class Avatar extends Modele
         if (! $requete->execute()) {
             return $requete->errorInfo();
         }
+        
+        return null;
     }
 
+    /**
+     *  TODO ecrire
+     */
     private function supprimerFichiers()
     {
         unlink(AVATAR . $this->nom);
     }
 
+    /**
+     *  TODO ecrire
+     * @return string TODO ecrire
+     */
     public function getNom()
     {
         return $this->nom;
     }
 
+    /**
+     * {@inheritDoc}
+     * @see \Rodez_3IL_Ingenieurs\Modeles\Modele::getId()
+     */
     public function getId()
     {
         return $this->idAvatar;

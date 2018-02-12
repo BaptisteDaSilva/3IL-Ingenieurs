@@ -4,6 +4,11 @@ namespace Rodez_3IL_Ingenieurs\controleurs;
 use Rodez_3IL_Ingenieurs\Core\Controleur;
 use Rodez_3IL_Ingenieurs\Modeles\Utilisateur;
 
+/**
+ * Contrôleur de la page de connexion du site.
+ *
+ * @package Rodez_3IL_Ingenieurs\Controleurs
+ */
 class Connexion extends Controleur
 {
 

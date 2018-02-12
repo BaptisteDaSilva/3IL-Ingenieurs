@@ -1,7 +1,7 @@
 html, body {
 	width: 100%;
 	padding-top: 50px;
-	background: url("img/back.jpg") no-repeat center center fixed;
+	background: url("../img/back.jpg") no-repeat center center fixed;
 	background-size: cover;
 }
 
@@ -48,18 +48,91 @@ html, body {
 }
 
 .panel-body p {
-    font-size: 16px;
-    color: #555;
+	font-size: 16px;
+	color: #555;
 }
 
 .panel {
 	background-color: rgba(255, 255, 255, 0.9);
 }
 
-.panel :not (.bigPanel ){
-	box-shadow: 1 px 1 px 1 px #c8c8c8;
-}
+.panel
 
+
+
+ 
+
+
+
+:not
+
+
+
+ 
+
+
+
+(
+.bigPanel
+
+
+
+ 
+
+
+
+){
+box-shadow
+
+
+
+
+
+
+:
+
+
+
+ 
+
+
+
+1
+px
+
+
+
+ 
+
+
+
+1
+px
+
+
+
+ 
+
+
+
+1
+px
+
+
+
+ 
+
+
+
+#c8c8c8
+
+
+
+
+
+
+;
+}
 .panel .panel-heading {
 	background-color: rgba(231, 231, 231, 0.8);
 	text-align: center;
@@ -248,4 +321,9 @@ textarea {
 .photos {
 	display: inline-block;
 	width: 100%;
+}
+
+.photoView img {
+	width: 48%;
+	height: 10.5vw;
 }

@@ -129,6 +129,10 @@ class Utilisateur extends Modele
         return isset($utils) ? $utils : null;
     }
 
+    /**
+     *  TODO ecrire
+     * @return NULL|Utilisateur TODO ecrire
+     */
     public static function getAdministateurs()
     {
         // Connexion à la base
@@ -155,6 +159,11 @@ class Utilisateur extends Modele
         return isset($admins) ? $admins : null;
     }
 
+    /**
+     *  TODO ecrire
+     * @param string $idUtil TODO ecrire
+     * @return NULL|Utilisateur TODO ecrire
+     */
     public static function getUtilisateur($idUtil)
     {
         // Connexion à la base
@@ -175,6 +184,12 @@ class Utilisateur extends Modele
         return $util ? new Utilisateur($idUtil, $util->mdp, $util->email, $util->type, $util->idAvatar, $util->idLangue) : null;
     }
 
+    /**
+     *  TODO ecrire
+     * @param string $login TODO ecrire
+     * @param string $mdp TODO ecrire
+     * @return NULL|Utilisateur TODO ecrire
+     */
     public static function getConnexion($login, $mdp)
     {
         // Connexion à la base
@@ -196,6 +211,11 @@ class Utilisateur extends Modele
         return $util ? new Utilisateur($util->login, $util->mdp, $util->email, $util->type, $util->idAvatar, $util->idLangue) : null;
     }
 
+    /**
+     *  TODO ecrire
+     * @param string $login TODO ecrire
+     * @return string TODO ecrire
+     */
     public static function getPseudoUtil($login)
     {
         // Connexion à la base
@@ -247,6 +267,11 @@ class Utilisateur extends Modele
         ));
     }
 
+    /**
+     *  TODO ecrire
+     * @param string $email TODO ecrire
+     * @return boolean TODO ecrire
+     */
     public function modifierEMail($email)
     {
         // Connexion à la base
@@ -267,6 +292,11 @@ class Utilisateur extends Modele
         return $ok;
     }
 
+    /**
+     *  TODO ecrire
+     * @param string $mdp TODO ecrire
+     * @return boolean TODO ecrire
+     */
     public function modifierMDP($mdp)
     {
         // Connexion à la base
@@ -287,6 +317,12 @@ class Utilisateur extends Modele
         return $ok;
     }
 
+    /**
+     *  TODO ecrire
+     * @param string $email TODO ecrire
+     * @param string $mdp TODO ecrire
+     * @return boolean TODO ecrire
+     */
     public function modifierUtil($email, $mdp)
     {
         // Connexion à la base
@@ -309,6 +345,11 @@ class Utilisateur extends Modele
         return $ok;
     }
 
+    /**
+     *  TODO ecrire
+     * @param string $nomAvatar TODO ecrire
+     * @return boolean TODO ecrire
+     */
     public function modifierAvatar($nomAvatar)
     {
         // Connexion à la base
@@ -331,6 +372,11 @@ class Utilisateur extends Modele
         return $ok;
     }
 
+    /**
+     *  TODO ecrire
+     * @param string $nomLangue TODO ecrire
+     * @return boolean TODO ecrire
+     */
     public function modifierLangue($nomLangue)
     {
         // Connexion à la base
@@ -355,6 +401,11 @@ class Utilisateur extends Modele
         return $ok;
     }
 
+    /**
+     *  TODO ecrire
+     * @param string $type TODO ecrire
+     * @return boolean TODO ecrire
+     */
     public function modifierType($type)
     {
         // Connexion à la base
@@ -376,7 +427,7 @@ class Utilisateur extends Modele
     }
 
     /**
-     *
+     * TODO ecrire
      * @return string le login de l'utilisateur.
      */
     public function getLogin()
@@ -384,13 +435,17 @@ class Utilisateur extends Modele
         return $this->login;
     }
 
+    /**
+     *  TODO ecrire
+     * @return string TODO ecrire
+     */
     public function getMdp()
     {
         return $this->mdp;
     }
 
     /**
-     *
+     * TODO ecrire
      * @return string l'email de l'utilisateur.
      */
     public function getEmail()
@@ -399,7 +454,7 @@ class Utilisateur extends Modele
     }
 
     /**
-     *
+     * TODO ecrire
      * @return string le type de l'utilisateur 'A' pour administrateur, 'C'
      *         pour les autres.
      */
@@ -409,19 +464,30 @@ class Utilisateur extends Modele
     }
 
     /**
-     *
-     * @return string l'avatar de l'utilisateur.
+     * TODO ecrire
+     * @return string  TODO ecrire.
+     */
+    public function getLienAvatar()
+    {
+        $avatar = Avatar::getAvatar($this->idAvatar);
+        
+        return isset($avatar) ? AVATAR . $avatar->getNom() : DEFAUT_AVATAR;
+    }
+
+    /**
+     * TODO ecrire
+     * @return string  TODO ecrire
      */
     public function getNomAvatar()
     {
         $avatar = Avatar::getAvatar($this->idAvatar);
         
-        return isset($avatar) ? $avatar->getNom() : Avatar::$AVATAR_DEFAUT;
+        return isset($avatar) ? $avatar->getNom() : null;
     }
 
     /**
-     *
-     * @return string l'avatar de l'utilisateur.
+     * TODO ecrire
+     * @return string  TODO ecrire
      */
     public function getNomLangue()
     {
@@ -431,8 +497,8 @@ class Utilisateur extends Modele
     }
 
     /**
-     *
-     * @return string l'avatar de l'utilisateur.
+     * TODO ecrire
+     * @return string  TODO ecrire
      */
     public function getLangue()
     {
@@ -442,14 +508,18 @@ class Utilisateur extends Modele
     }
 
     /**
-     *
-     * @return string l'avatar de l'utilisateur.
+     * TODO ecrire
+     * @return string  TODO ecrire
      */
     public function isAdmin()
     {
         return $this->type == self::$TYPE_ADMIN;
     }
 
+    /**
+     * {@inheritDoc}
+     * @see \Rodez_3IL_Ingenieurs\Modeles\Modele::getId()
+     */
     public function getId()
     {
         return $this->login;

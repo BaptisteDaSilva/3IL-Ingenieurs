@@ -5,12 +5,16 @@ use Rodez_3IL_Ingenieurs\Core\Controleur;
 use Rodez_3IL_Ingenieurs\Modeles\Langue;
 use Rodez_3IL_Ingenieurs\Modeles\Avatar;
 use Rodez_3IL_Ingenieurs\Modeles\Utilisateur;
-use DOMDocument;
+use Rodez_3IL_Ingenieurs\Libs\Photo;
 
+/**
+ * Contrôleur de la page des pages d'administration du site.
+ *
+ * @package Rodez_3IL_Ingenieurs\Controleurs
+ */
 class Administration extends Controleur
 {
-    private static $properties = '../public/properties/XX.json';
-    
+
     /** @var bool */
     private $modifOK;
 
@@ -19,18 +23,19 @@ class Administration extends Controleur
      */
     public function index()
     {
-        // if (isset($_SESSION['util'])) {
-        // $this->setTitre("Mon Compte");
-        
-        // require_once VUES . 'MonCompte/VueMonCompte.php';
-        // } else {
-        // header('Location: /Rodez_3IL_Ingenieurs/');
-        // }
+        if (self::isAdminConnect()) {
+            header('Location: /MonCompte/');
+        } else {
+            header('Location: /');
+        }
     }
 
+    /**
+     * TODO ecrire
+     */
     public function ajouterAvatar()
     {
-        if ($_SESSION['util']->isAdmin()) {
+        if (self::isAdminConnect()) {
             $avatar = new Avatar(null, $_FILES['avatar']['name']);
             
             $avatar->ajouter($_FILES['avatar']['tmp_name']);
@@ -39,9 +44,12 @@ class Administration extends Controleur
         header('Location: /MonCompte/');
     }
 
+    /**
+     * TODO ecrire
+     */
     public function supprimerAvatar()
     {
-        if ($_SESSION['util']->isAdmin()) {
+        if (self::isAdminConnect()) {
             foreach ($_POST['aSupp'] as $aSupp) {
                 Avatar::getAvatar($aSupp)->supprimer();
             }
@@ -50,9 +58,12 @@ class Administration extends Controleur
         header('Location: /MonCompte/');
     }
 
+    /**
+     * TODO ecrire
+     */
     public function ajouterLangue()
     {
-        if ($_SESSION['util']->isAdmin()) {
+        if (self::isAdminConnect()) {
             $langue = new Langue($_POST['id'], $_POST['nom']);
             
             $langue->ajouter($_FILES['drapeau']['tmp_name'], $_FILES['propertie']['tmp_name']);
@@ -61,9 +72,12 @@ class Administration extends Controleur
         header('Location: /MonCompte/');
     }
 
+    /**
+     * TODO ecrire
+     */
     public function supprimerLangue()
     {
-        if ($_SESSION['util']->isAdmin()) {
+        if (self::isAdminConnect()) {
             foreach ($_POST['aSupp'] as $aSupp) {
                 Langue::getLangue($aSupp)->supprimer();
             }
@@ -72,11 +86,12 @@ class Administration extends Controleur
         header('Location: /MonCompte/');
     }
 
+    /**
+     * TODO ecrire
+     */
     public function ajouterAdmin()
     {
-        if ($_SESSION['util']->isAdmin()) {
-            var_dump(Utilisateur::getUtilisateur($_POST['aUp'][0]));
-            
+        if (self::isAdminConnect()) {
             foreach ($_POST['aUp'] as $aUp) {
                 Utilisateur::getUtilisateur($aUp)->modifierType('A');
             }
@@ -85,9 +100,12 @@ class Administration extends Controleur
         header('Location: /MonCompte/');
     }
 
+    /**
+     * TODO ecrire
+     */
     public function supprimerAdmin()
     {
-        if ($_SESSION['util']->isAdmin()) {
+        if (self::isAdminConnect()) {
             foreach ($_POST['aDown'] as $aDown) {
                 Utilisateur::getUtilisateur($aDown)->modifierType('U');
             }
@@ -96,86 +114,78 @@ class Administration extends Controleur
         header('Location: /MonCompte/');
     }
 
+    /**
+     * TODO ecrire
+     */
     public function defaultProperties()
     {
-        $size = filesize(self::$properties);
-        header("Content-Type: application/force-download; name=XX.json");
-        header("Content-Transfer-Encoding: binary");
-        header("Content-Length: $size");
-        header("Content-Disposition: attachment; filename=XX.json");
-        header("Expires: 0");
-        header("Cache-Control: no-cache, must-revalidate");
-        header("Pragma: no-cache");
-        readfile(self::$properties);
+        if (self::isAdminConnect()) {
+            $size = filesize(DEFAUT_PROPERTIES);
+            header("Content-Type: application/force-download; name=XX.json");
+            header("Content-Transfer-Encoding: binary");
+            header("Content-Length: $size");
+            header("Content-Disposition: attachment; filename=XX.json");
+            header("Expires: 0");
+            header("Cache-Control: no-cache, must-revalidate");
+            header("Pragma: no-cache");
+            readfile(DEFAUT_PROPERTIES);
+        } else {
+            header('Location: /');
+        }
     }
-    
+
+    /**
+     * TODO ecrire
+     */
     public function ajouterPhoto()
     {
-        if ($_SESSION['util']->isAdmin()) {
+        if (self::isAdminConnect()) {
             $name = str_replace(' ', '', $_FILES['photo']['name']);
             
             move_uploaded_file($_FILES['photo']['tmp_name'], '../public/img/photos/' . $name);
-                             
-            $doc = new DOMDocument;
-            $doc->load(XML_SLIDER);
             
-            $ePhoto = $doc->createElement('photo');      
-            $ePhoto->appendChild($doc->createAttribute('name', $name));
-                        
-            foreach (Langue::getLangues() as $langue)
-            {
-                $eDesc = $doc->createElement('description');
-                $eDesc->setAttribute('id', $langue->getId() . '_' . $name);
-                
-                $ePhoto->appendChild($eDesc);
-            }           
-            
-            $doc->getElementsByTagName('slider')[0]->appendChild($ePhoto);
-                        
-            $doc->save('../public/slider.xml');
+            Photo::addPhoto($name);
         }
         
         header('Location: /MonCompte/');
     }
-    
+
+    /**
+     * TODO ecrire
+     */
     public function supprimerPhoto()
     {
-        if ($_SESSION['util']->isAdmin()) {
+        if (self::isAdminConnect()) {
             
-            $doc = new DOMDocument;
-            $doc->load(XML_SLIDER);
-            
-            foreach ($_POST['aSupp'] as $aSupp) {                
+            foreach ($_POST['aSupp'] as $aSupp) {
                 unlink('../public/img/photos/' . $aSupp);
-                                
-                foreach ($doc->getElementsByTagName('photo') as $photo)
-                {                                        
-                    if ($photo->getAttribute('name') == $aSupp){                        
-                        $doc->getElementsByTagName('slider')[0]->removeChild($photo);
-                    }
-                } 
+                
+                Photo::deletePhoto($aSupp);
             }
-            
-            $doc->save('../public/slider.xml');
         }
         
         header('Location: /MonCompte/');
     }
-    
+
+    /**
+     * TODO ecrire
+     */
     public function modifierDescriptionPhoto()
     {
-        if ($_SESSION['util']->isAdmin()) {            
-            $doc = new DOMDocument;
-            $doc->load(XML_SLIDER);
-            
-            foreach($_POST['photos'] as $cle=>$value )
-            {                
-                $doc->getElementById($_POST['idLangue'] . '_' . $cle)->nodeValue = $value;
+        if (self::isAdminConnect()) {
+            foreach ($_POST['photos'] as $cle => $value) {
+                Photo::updateDescription($cle, $_POST['idLangue'], $value);
             }
-            
-            $doc->save('../public/slider.xml');
         }
-    
+        
         header('Location: /MonCompte/');
+    }
+
+    /**
+     * TODO ecrire
+     */
+    private static function isAdminConnect()
+    {
+        return isset($_SESSION['util']) && $_SESSION['util']->isAdmin();
     }
 }

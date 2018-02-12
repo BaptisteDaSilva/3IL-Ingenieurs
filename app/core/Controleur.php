@@ -9,7 +9,6 @@ namespace Rodez_3IL_Ingenieurs\Core;
  */
 abstract class Controleur
 {
-    private static $XML_SLIDER = 'slider.xml';
 
     /** @var string le titre de la page. */
     private $titre;

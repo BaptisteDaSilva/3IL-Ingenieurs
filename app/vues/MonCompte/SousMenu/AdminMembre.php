@@ -10,7 +10,7 @@
                 <div class="avatars">                            
                 <?php foreach ($this->administrateurs as &$admin) { ?>
                     <div class="avatar">
-                        <img src="<?= AVATAR . $admin->getNomAvatar() ?>" alt="<?= $admin->getNomAvatar() ?>" />
+                        <img src="<?= $admin->getLienAvatar() ?>" alt="<?= $admin->getNomAvatar() ?>" />
                         <p>
                             <input id="down<?= $admin->getId() ?>" type="checkbox" name="aDown[]" value="<?= $admin->getId() ?>">
                             <label for="down<?= $admin->getId() ?>"><?= $admin->getLogin() ?></label>
@@ -31,7 +31,7 @@
                 <div class="avatars">                            
                 <?php foreach ($this->utilisateurs as &$util) { ?>
                     <div class="avatar">
-                        <img src="<?= AVATAR . $util->getNomAvatar() ?>" alt="<?= $util->getNomAvatar() ?>" />
+                        <img src="<?= $util->getLienAvatar() ?>" alt="<?= $util->getNomAvatar() ?>" />
                         <p>
                             <input id="up<?= $util->getId() ?>" type="checkbox" name="aUp[]" value="<?= $util->getId() ?>">
                             <label for="up<?= $util->getId() ?>"><?= $util->getLogin() ?></label>

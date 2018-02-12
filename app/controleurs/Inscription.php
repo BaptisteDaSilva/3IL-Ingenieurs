@@ -33,6 +33,12 @@ class Inscription extends Controleur
         require_once VUES . 'Inscription/VueInscription.php';
     }
 
+    /**
+     * TODO ecrire
+     *
+     * @param string $login
+     *            TODO ecrire
+     */
     public function testPseudo($login)
     {
         if (isset($login)) {

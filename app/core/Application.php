@@ -23,8 +23,6 @@ class Application
 
     public static $site;
 
-    public static $PROPERTIES_DEFAUT = "FR.json";
-
     /**
      * Donne le contrôle de la page au contrôleur passé en argument dans l'URL
      * et exécute la méthode du contrôleur avec les arguments passés
@@ -150,20 +148,19 @@ class Application
     }
 
     /**
-     * Affiche la page d'erreur 404.
+     * Choisi le fichier de propriété à lire en fonction de l'utilisteur connecté.
+     * DEFAUT_ID_LANGUE par défaut
      */
     public static function setPropertiesFile()
-    {        
+    {
+        $properties = DEFAUT_ID_LANGUE . EXTENSION_PROPERTIES;
+        
         if ($_SESSION != null && $_SESSION['util'] != null) {
-            $properties = $_SESSION['util']->getLangue();
+            $langue = $_SESSION['util']->getLangue();
             
-            if ($properties != null) {
-                $properties = $properties->getNomProperties();
-            } else {
-                $properties = self::$PROPERTIES_DEFAUT;
+            if ($langue != null) {
+                $properties = $langue->getNomProperties();
             }
-        } else {
-            $properties = self::$PROPERTIES_DEFAUT;
         }
         
         self::$site = json_decode(file_get_contents(PROPERTIES . $properties));
