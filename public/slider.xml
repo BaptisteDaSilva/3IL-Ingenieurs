@@ -1,26 +1,22 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE slider [
 <!ELEMENT photos (photo)+>
-<!ELEMENT photo (name , description+)>
+<!ELEMENT photo (description)+>
 <!ELEMENT description (#PCDATA)>
-<!ELEMENT name (#PCDATA)>
+<!ATTLIST photo name CDATA #REQUIRED>
 <!ATTLIST description id ID #REQUIRED>
 ]>
 <slider>
-	<photo>
-		<name>3iL-30Ans.png</name>
+	<photo name="3iL-30Ans.png">
 		<description id="FR_3iL-30Ans.png">3iL - 30 Ans</description>
-		<description id="EN_3iL-30Ans.png">3iL - 30 Ans</description>
-	</photo>
-	<photo>
-		<name>3iLGroupe.jpg</name>
+		<description id="EN_3iL-30Ans.png">3iL - 30 Years</description>
+	<description id="SP_3iL-30Ans.png"/></photo>
+	<photo name="3iLGroupe.jpg">
 		<description id="FR_3iLGroupe.jpg">3il Groupe</description>
 		<description id="EN_3iLGroupe.jpg">3il Groupe</description>
-	</photo>
-	<photo>
-		<name>Plaquette.jpg</name>
+	<description id="SP_3iLGroupe.jpg"/></photo>
+	<photo name="Plaquette.jpg">
 		<description id="FR_Plaquette.jpg">Plaquette 3il</description>
-		<description id="EN_Plaquette.jpg">Plaquette 3il</description>
-	</photo>
-	
+		<description id="EN_Plaquette.jpg">3il Plate</description>
+	<description id="SP_Plaquette.jpg"/></photo>
 </slider>

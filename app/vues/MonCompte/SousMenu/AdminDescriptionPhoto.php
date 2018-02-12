@@ -21,7 +21,8 @@ $("#avatar").change(function() {
         <div class="col-md-8">
             <?php
             if ($this->photos != null) {
-                foreach ($this->langues as $langue) {
+                if ($this->langues != null) {
+                    foreach ($this->langues as $langue) {
             ?>
             <div class="panel-heading">
                 <h3 class="panel-title"><?= $langue->getNom() ?></h3>
@@ -29,10 +30,10 @@ $("#avatar").change(function() {
             <form method="post" action="/Administration/modifierDescriptionPhoto/">
                 <input type="hidden" name="idLangue" value="<?= $langue->getId() ?>"/>
                 <div class="photos">                            
-                <?php foreach ($this->photos as $photo) { ?>
+                <?php foreach ($this->photos as $photo) { $pName = $photo->getAttribute('name'); ?>
                     <div class="photo">
-                        <img src="<?= PHOTOS . $photo->nodeValue ?>" alt="<?= $photo->nodeValue ?>" />
-                        <input class="form-control" id="<?= $photo->nodeValue ?>" type="text" name="photos[<?= $photo->nodeValue ?>]" placeholder="Description" value="<?= $doc->getElementById($langue->getId() . '_' . $photo->nodeValue)->nodeValue ?>"/>
+                        <img src="<?= PHOTOS . $pName ?>" alt="<?= $pName ?>" />
+                        <input class="form-control" id="<?= $pName ?>" type="text" name="photos[<?= $pName ?>]" placeholder="Description" value="<?= $doc->getElementById($langue->getId() . '_' . $pName)->nodeValue ?>"/>
                     </div>
                 <?php } ?>        
                 </div>                             
@@ -41,7 +42,12 @@ $("#avatar").change(function() {
                 </div>
             </form>
             <?php
+                    }
+                } else {
+                    echo "<p>Aucune langue n'est définis</p>";
                 }
+            } else {
+                echo "<p>Aucune photo</p>";
             }
             ?>
         </div>

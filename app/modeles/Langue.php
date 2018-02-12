@@ -1,6 +1,8 @@
 <?php
 namespace Rodez_3IL_Ingenieurs\Modeles;
 
+use DOMDocument;
+
 /**
  * Représente un utilisateur du site connecté.
  *
@@ -134,6 +136,21 @@ class Langue extends Modele
     {
         if (self::insererBD()) {
             self::ajouterFichiers($drapeau, $properties);
+            
+            $doc = new DOMDocument;
+            $doc->load(XML_SLIDER);
+            
+            foreach ($doc->getElementsByTagName('photo') as $ePhoto)
+            {
+                $name = $ePhoto->getAttribute('name');
+                
+                $eDesc = $doc->createElement('description');
+                $eDesc->setAttribute('id', $this->getId() . '_' . $name);
+                
+                $ePhoto->appendChild($eDesc);                    
+            }
+            
+            $doc->save('../public/slider.xml');
         }
     }
 
@@ -152,13 +169,11 @@ class Langue extends Modele
         ));
     }
 
-    private function ajouterFichiers($drapeau, $properties, $xmlPhotos)
+    private function ajouterFichiers($drapeau, $properties)
     {
         move_uploaded_file($drapeau, '../public/img/drapeau/' . $this->idLangue . self::$EXTENSION_DRAPEAU);
         
         move_uploaded_file($properties, '../public/properties/' . $this->idLangue . self::$EXTENSION_PROPERTIES);
-        
-        move_uploaded_file($xmlPhotos, '../public/xml/' . $this->idLangue . self::$EXTENSION_XML_PHOTOS);
     }
 
     public function supprimer()

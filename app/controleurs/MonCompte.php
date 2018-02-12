@@ -108,12 +108,12 @@ class MonCompte extends Controleur
             $doc = new DOMDocument;
             $doc->load(XML_SLIDER);
             
-            $this->photos = $doc->getElementsByTagName('name');
+            $this->photos = $doc->getElementsByTagName('photo');
         } else if ($nom == "AdminDescriptionPhoto") {
             $doc = new DOMDocument;
             $doc->load(XML_SLIDER);
             
-            $this->photos = $doc->getElementsByTagName('name');
+            $this->photos = $doc->getElementsByTagName('photo');
             $this->langues = Langue::getLangues();
         }
         

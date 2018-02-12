@@ -22,12 +22,12 @@ $("#avatar").change(function() {
             <?php if ($this->photos != null) { ?>
             <form method="post" action="/Administration/supprimerPhoto/">
                 <div class="photos">                            
-                <?php foreach ($this->photos as $photo) { ?>
+                <?php foreach ($this->photos as $photo) { $pName = $photo->getAttribute('name'); ?>
                     <div class="photo">
-                        <img src="<?= PHOTOS . $photo->nodeValue ?>" alt="<?= $photo->nodeValue ?>" />
+                        <img src="<?= PHOTOS . $pName ?>" alt="<?= $pName?>" />
                         <p>
-                            <input id="supp<?= $photo->nodeValue ?>" type="checkbox" name="aSupp[]" value="<?= $photo->nodeValue ?>">
-                            <label for="supp<?= $photo->nodeValue ?>"><?= $photo->nodeValue ?></label>
+                            <input id="supp<?= $pName ?>" type="checkbox" name="aSupp[]" value="<?= $pName ?>">
+                            <label for="supp<?= $pName ?>"><?= $pName ?></label>
                         </p>
                     </div>
                 <?php } ?>        

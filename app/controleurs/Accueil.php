@@ -43,7 +43,7 @@ class Accueil extends Controleur
         $doc = new DOMDocument;
         $doc->load(XML_SLIDER);
         
-        $photos = $doc->getElementsByTagName('name');
+        $photos = $doc->getElementsByTagName('photo');
                 
         require_once VUES . 'VueAccueil.php';
     }

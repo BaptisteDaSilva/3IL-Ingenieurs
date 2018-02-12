@@ -58,6 +58,10 @@ $("#drapeau").change(function() {
                     </div>
                     <input id="drapeau" type="file" class="form-control" name="drapeau" accept="image/*" required>
                 </div>
+                <div class="form-group">
+                    <label for="propertie">Fichier properties : <a href="/Administration/defaultProperties/">A Remplir</a></label>
+                    <input id="propertie" type="file" class="form-control" name="propertie" accept=".json">
+                </div>
                 <input type="submit" name="submit" value="Ajouter" class="btn mon-btn">
             </form>
         </div>

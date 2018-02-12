@@ -55,7 +55,7 @@ class Administration extends Controleur
         if ($_SESSION['util']->isAdmin()) {
             $langue = new Langue($_POST['id'], $_POST['nom']);
             
-            $langue->ajouter($_FILES['drapeau']['tmp_name'], $_FILES['propertie']['tmp_name'], $_FILES['xmlPhotos']['tmp_name']);
+            $langue->ajouter($_FILES['drapeau']['tmp_name'], $_FILES['propertie']['tmp_name']);
         }
         
         header('Location: /MonCompte/');
@@ -109,19 +109,6 @@ class Administration extends Controleur
         readfile(self::$properties);
     }
     
-    public function defaultXMLPhotos()
-    {
-        $size = filesize(self::$XML);
-        header("Content-Type: application/force-download; name=XX.xml");
-        header("Content-Transfer-Encoding: binary");
-        header("Content-Length: $size");
-        header("Content-Disposition: attachment; filename=XX.xml");
-        header("Expires: 0");
-        header("Cache-Control: no-cache, must-revalidate");
-        header("Pragma: no-cache");
-        readfile(self::$XML);
-    }
-    
     public function ajouterPhoto()
     {
         if ($_SESSION['util']->isAdmin()) {
@@ -133,7 +120,7 @@ class Administration extends Controleur
             $doc->load(XML_SLIDER);
             
             $ePhoto = $doc->createElement('photo');      
-            $ePhoto->appendChild($doc->createElement('name', $name));
+            $ePhoto->appendChild($doc->createAttribute('name', $name));
                         
             foreach (Langue::getLangues() as $langue)
             {
@@ -163,7 +150,7 @@ class Administration extends Controleur
                                 
                 foreach ($doc->getElementsByTagName('photo') as $photo)
                 {                                        
-                    if (strpos($photo->nodeValue, $aSupp) !== false){                        
+                    if ($photo->getAttribute('name') == $aSupp){                        
                         $doc->getElementsByTagName('slider')[0]->removeChild($photo);
                     }
                 } 
@@ -181,7 +168,7 @@ class Administration extends Controleur
             $doc = new DOMDocument;
             $doc->load(XML_SLIDER);
             
-            foreach( $_POST['photos'] as $cle=>$value )
+            foreach($_POST['photos'] as $cle=>$value )
             {                
                 $doc->getElementById($_POST['idLangue'] . '_' . $cle)->nodeValue = $value;
             }

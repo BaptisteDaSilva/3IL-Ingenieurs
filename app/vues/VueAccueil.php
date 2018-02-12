@@ -14,10 +14,10 @@ require_once TEMPLATES . 'menu.php';
         <a href="#slider" class="control_next">&gt;</a>
         <a href="#slider" class="control_prev">&lt;</a>
         <ul>
-        <?php foreach ($photos as $photo) {?>
+        <?php foreach ($photos as $photo) { $pName = $photo->getAttribute('name'); ?>
             <li>
-                <img src="<?= PHOTOS . $photo->nodeValue ?>" alt="<?= $photo->nodeValue ?>">
-                <p class="caption"><?= $doc->getElementById($idSangueUtil . '_' . $photo->nodeValue)->nodeValue ?></p>
+                <img src="<?= PHOTOS . $pName ?>" alt="<?= $pName ?>">
+                <p class="caption"><?= $doc->getElementById($idSangueUtil . '_' . $pName)->nodeValue ?></p>
             </li>
         <?php } ?>
         </ul>
