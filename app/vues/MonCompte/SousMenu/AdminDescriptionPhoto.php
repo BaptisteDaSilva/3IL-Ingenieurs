@@ -22,7 +22,7 @@ $("#avatar").change(function() {
             <?php
             if ($this->photos != null) {
                 if ($this->langues != null) {
-                  foreach ($this->langues as $langue) {
+                    foreach ($this->langues as $langue) {
             ?>
             <div class="panel-heading">
                 <h3 class="panel-title"><?= $langue->getNom() ?></h3>
@@ -42,12 +42,12 @@ $("#avatar").change(function() {
                 </div>
             </form>
             <?php
+                    }
                 } else {
                     echo "<p>Aucune langue n'est définis</p>";
                 }
-              } else {
-                    echo "<p>Aucune photo</p>";
-                }
+            } else {
+                echo "<p>Aucune photo</p>";
             }
             ?>
         </div>
