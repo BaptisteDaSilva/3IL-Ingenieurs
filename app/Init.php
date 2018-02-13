@@ -45,7 +45,6 @@ define ( 'PROPERTIES', URL . 'properties/' );
 
 define ( 'DEFAUT_IMAGE', IMAGES . 'XX.png' );
 define ( 'DEFAUT_AVATAR', AVATAR . 'defaut.png' );
-define ( 'DEFAUT_PROPERTIES', PROPERTIES . 'XX.json' );
 
 define ( 'EXTENSION_DRAPEAU', '.png' );
 define ( 'EXTENSION_PROPERTIES', '.json' );

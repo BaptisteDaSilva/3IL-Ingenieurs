@@ -21,7 +21,7 @@ class Photo {
 	private static $docXML;
 	
 	/**
-	 * Charge le socument XML qui contient les informations pour le slider
+	 * Charge le document XML qui contient les informations pour le slider
 	 *
 	 * @return \DOMDocument Document XML
 	 */

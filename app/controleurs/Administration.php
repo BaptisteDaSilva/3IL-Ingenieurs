@@ -14,6 +14,8 @@ use Rodez_3IL_Ingenieurs\Libs\Photo;
  * @package Rodez_3IL_Ingenieurs\Controleurs
  */
 class Administration extends Controleur {
+	private static $DEFAUT_PROPERTIES_PATH = '../public/properties/';
+	private static $DEFAUT_PROPERTIES_NAME = 'XX.json';
 	
 	/** @var bool */
 	private $modifOK;
@@ -124,15 +126,15 @@ class Administration extends Controleur {
 	 */
 	public function defaultProperties() {
 		if (self::isAdminConnect ()) {
-			$size = filesize ( DEFAUT_PROPERTIES );
-			header ( "Content-Type: application/force-download; name=XX.json" );
+			$size = filesize ( self::$DEFAUT_PROPERTIES_PATH . self::$DEFAUT_PROPERTIES_NAME );
+			header ( "Content-Type: application/force-download; name=" . self::$DEFAUT_PROPERTIES_NAME );
 			header ( "Content-Transfer-Encoding: binary" );
 			header ( "Content-Length: $size" );
-			header ( "Content-Disposition: attachment; filename=XX.json" );
+			header ( "Content-Disposition: attachment; filename=" . self::$DEFAUT_PROPERTIES_NAME );
 			header ( "Expires: 0" );
 			header ( "Cache-Control: no-cache, must-revalidate" );
 			header ( "Pragma: no-cache" );
-			readfile ( DEFAUT_PROPERTIES );
+			readfile ( self::$DEFAUT_PROPERTIES_PATH . self::$DEFAUT_PROPERTIES_NAME );
 		} else {
 			header ( 'Location: /MonCompte/' );
 		}
