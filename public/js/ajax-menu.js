@@ -7,7 +7,7 @@ $(function () {
     
     // Dès que le texte du pseudo change.
     $('#form-inscrire > .form-group > input[name="login"]').on('input', function () {
-        
+    	   	
         // L'obejt HTML <input> du pseudo 
         $input = $(this);
         
@@ -19,17 +19,14 @@ $(function () {
         
         btnInscription($btn, false);
 
-        if ($input.val() !== "") {
-            
+        if ($input.val() !== "") {        	
             // Requête AJAX
-            $.ajax({
-                
+            $.ajax({                
                 // URL de la fonction PHP à questionner
-                url: "/Rodez_3IL_Ingenieurs/Inscription/testPseudo/" + $input.val(),
+                url: "/Inscription/testPseudo/" + $input.val(),
                 
                 // Avant d'envoyer la requête
-                beforeSend: function() {
-                    
+                beforeSend: function() {                    
                     // On enlève toute mise en forme d'une requête AJAX précédente.
                     removeInfo($input);
                     
@@ -42,8 +39,7 @@ $(function () {
                 },
                 
                 // Si la fonction PHP n'a pas retournée d'erreurs
-                success: function () {
-                    
+                success: function () {                    
                     // On enlève toute mise en forme d'une requête AJAX précédente.
                     removeInfo($input);
                     
@@ -60,7 +56,6 @@ $(function () {
                 
                 // Si une erreur est survenu lors de la fonction PHP
                 error: function () {
-                    
                     // On enlève toute mise en forme d'une requête AJAX précédente.
                     removeInfo($input);
                     
@@ -72,7 +67,7 @@ $(function () {
                         
                         // On désactive le bouton d'inscription
                         btnInscription($btn, false);
-                    }
+                    }                	
                 }
             });
         }
@@ -106,6 +101,7 @@ function pseudoValide($input, $valide) {
  * @param {type} $input l'objet HTML <input> ou est contenu le pseudo
  */
 function pseudoAttente($input) {
+    $input.parent().addClass('has-error');
     $input.parent().append("<span class='fa fa-lg fa-refresh fa-spin form-control-feedback' aria-hidden='true'></span>");
 }
 

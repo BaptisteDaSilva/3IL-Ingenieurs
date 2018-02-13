@@ -3,8 +3,8 @@ require_once TEMPLATES . 'enTete.php';
 require_once TEMPLATES . 'menu.php';
 ?>
 <script>
-window.onload = function() {
-	loadMenu('Compte');
+window.onload = function() {	
+	loadMenu('<?= $this->menu; ?>');
 };
 
 function loadMenu(Page) {	
@@ -30,24 +30,28 @@ $(function(){
 });
 </script>
 <div class="container-fluid">
-    <div class="row">
-        <div class="col-md-2"></div>
-        <div class="col-md-8">
-            <div class="panel panel-default bigPanel">
-                <div class="panel-heading panel-navigation">
-                    <input type="button" value="Mon Compte" onclick="loadMenu('Compte')" />
-                    <input type="button" value="Mon avatar" onclick="loadMenu('Avatar')" />
-                    <input type="button" value="Ma langue" onclick="loadMenu('Langue')" />
+	<div class="row">
+		<div class="col-md-2"></div>
+		<div class="col-md-8">
+			<div class="panel panel-default bigPanel">
+				<div class="panel-heading panel-navigation">
+					<input type="button" value="Mon Compte"
+						onclick="loadMenu('Compte')" /> <input type="button"
+						value="Mon avatar" onclick="loadMenu('Avatar')" /> <input
+						type="button" value="Ma langue" onclick="loadMenu('Langue')" />
 					<?php if($_SESSION['util']->isAdmin()) { ?>
-    				<input type="button" value="Admin avatar" onclick="loadMenu('AdminAvatar')" />
-                    <input type="button" value="Admin langue" onclick="loadMenu('AdminLangue')" />
-                    <input type="button" value="Admin membre" onclick="loadMenu('AdminMembre')" />
-                    <input type="button" value="Admin photo" onclick="loadMenu('AdminPhoto')" />
-                    <input type="button" value="Admin description photo" onclick="loadMenu('AdminDescriptionPhoto')" />
+    				<input type="button" value="Admin avatar"
+						onclick="loadMenu('AdminAvatar')" /> <input type="button"
+						value="Admin langue" onclick="loadMenu('AdminLangue')" /> <input
+						type="button" value="Admin membre"
+						onclick="loadMenu('AdminMembre')" /> <input type="button"
+						value="Admin photo" onclick="loadMenu('AdminPhoto')" /> <input
+						type="button" value="Admin description photo"
+						onclick="loadMenu('AdminDescriptionPhoto')" />
 					<?php } ?>
 				</div>
-                <div id="contentMonCompte"></div>
-            </div>
-        </div>
-    </div>
+				<div id="contentMonCompte"></div>
+			</div>
+		</div>
+	</div>
 </div>
