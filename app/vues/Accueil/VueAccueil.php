@@ -1,13 +1,13 @@
 <?php
-use Rodez_3IL_Ingenieurs\Core\Application;
 use Rodez_3IL_Ingenieurs\Libs\Photo;
+use Rodez_3IL_Ingenieurs\Libs\Properties;
 
 require_once TEMPLATES . 'enTete.php';
 require_once TEMPLATES . 'menu.php';
 ?>
 <div class="container">
     <div class="jumbotron">
-        <h1>Bienvenue sur <?= Application::$site->{'Titre'}  ?> !</h1>
+        <h1>Bienvenue sur <?= Properties::get('Titre')  ?> !</h1>
         <p>Ecole d'ingénieurs en informatique à Rodez</p>
     </div>    
     <?php if(self::$photos != null) { ?>

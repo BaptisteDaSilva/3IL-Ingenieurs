@@ -2,6 +2,8 @@
 
 namespace Rodez_3IL_Ingenieurs\Core;
 
+use Rodez_3IL_Ingenieurs\Libs\Properties;
+
 /**
  * Classe du contrôleur par défaut, tous les contrôleurs doivent hériter
  * de cette classe.
@@ -33,7 +35,7 @@ abstract class Controleur {
 	 * @return string le titre de la page.
 	 */
 	public function getTitre() {
-		return Application::$site->{'Titre'} . ' - ' . $this->titre;
+	    return Properties::get('Titre') . ' - ' . $this->titre;
 	}
 	
 	/**

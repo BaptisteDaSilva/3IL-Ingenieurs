@@ -10,6 +10,7 @@ require_once '../app/core/Controleur.php';
 require_once '../app/libs/BaseDeDonnees.php';
 require_once '../app/libs/Photo.php';
 require_once '../app/libs/GestionFichier.php';
+require_once '../app/libs/Properties.php';
 require_once '../app/modeles/Modele.php';
 require_once '../app/modeles/Utilisateur.php';
 require_once '../app/modeles/Avatar.php';

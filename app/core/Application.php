@@ -3,6 +3,7 @@
 namespace Rodez_3IL_Ingenieurs\Core;
 
 use Rodez_3IL_Ingenieurs\Controleurs;
+use Rodez_3IL_Ingenieurs\Libs\Properties;
 
 /**
  * Classe permettant de router chaque page vers le contrôleur
@@ -20,7 +21,6 @@ class Application {
 	
 	/** @var array les paramètres de la méthode. */
 	private $params;
-	public static $site;
 	
 	/**
 	 * Donne le contrôle de la page au contrôleur passé en argument dans l'URL
@@ -64,7 +64,7 @@ class Application {
 			// Créé le contrôleur
 			$this->controleur = new $controleur ();
 			
-			self::setPropertiesFile ();
+			Properties::setFile ();
 			
 			// Vérifie que le contrôleur a appeler est bien un contrôleur.
 			if (! ($this->controleur instanceof Controleur)) {
@@ -141,23 +141,5 @@ class Application {
 		}
 		// else
 		return null;
-	}
-	
-	/**
-	 * Choisi le fichier de propriété à lire en fonction de l'utilisteur connecté.
-	 * DEFAUT_ID_LANGUE par défaut
-	 */
-	public static function setPropertiesFile() {
-		$properties = DEFAUT_ID_LANGUE . EXTENSION_PROPERTIES;
-		
-		if ($_SESSION != null && $_SESSION ['util'] != null) {
-			$langue = $_SESSION ['util']->getLangue ();
-			
-			if ($langue != null) {
-				$properties = $langue->getNomProperties ();
-			}
-		}
-		
-		self::$site = json_decode ( file_get_contents ( PROPERTIES . $properties ) );
 	}
 }

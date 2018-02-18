@@ -21,7 +21,7 @@ class Properties {
 	 * Charge le fichier des propriétés en fonction de l'utilisteur connecté.
 	 * DEFAUT_ID_LANGUE par défaut
 	 */
-	public static function setPropertiesFile() {
+	public static function setFile() {
 	    $properties = DEFAUT_ID_LANGUE . EXTENSION_PROPERTIES;
 	    
 	    if ($_SESSION != null && $_SESSION ['util'] != null) {
