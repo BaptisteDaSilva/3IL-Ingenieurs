@@ -16,13 +16,16 @@ class GestionFichier {
 	
 	/** @var string Fichier de type properties */
 	public static $TYPE_PROPERTIES = '../public/properties/';
-
+	
 	/**
 	 * Télécharge un fichier sur le serveur
-	 * 
-	 * @param string $type Type de fichier
-	 * @param string $oldName Ancien nom du fichier
-	 * @param string $newName Nouveau nom du fichier
+	 *
+	 * @param string $type
+	 *        	Type de fichier
+	 * @param string $oldName
+	 *        	Ancien nom du fichier
+	 * @param string $newName
+	 *        	Nouveau nom du fichier
 	 */
 	public static function telecharger($type, $oldName, $newName) {
 		move_uploaded_file ( $oldName, $type . $newName );
@@ -31,10 +34,12 @@ class GestionFichier {
 	/**
 	 * Supprime un fichier du serveur
 	 *
-	 * @param string $type Type de fichier
-	 * @param string $name Nom du fichier
+	 * @param string $type
+	 *        	Type de fichier
+	 * @param string $name
+	 *        	Nom du fichier
 	 */
-	public static function supprimer($type, $name) {		
+	public static function supprimer($type, $name) {
 		unlink ( $type . $name );
 	}
 }

@@ -14,20 +14,71 @@ use Rodez_3IL_Ingenieurs\Libs\Photo;
  * @package Rodez_3IL_Ingenieurs\Controleurs
  */
 class Administration extends Controleur {
-	private static $DEFAUT_PROPERTIES_PATH = '../public/properties/';
-	private static $DEFAUT_PROPERTIES_NAME = 'XX.json';
+	/** @var string Chemin du fichier de properties */
+	private static $PROPERTIES_PATH = '../public/properties/';
+	
+	/** @var string Nom du fichier de properties */
+	private static $PROPERTIES_NAME = 'XX.json';
 	
 	/** @var bool */
 	private $modifOK;
+	
+	/** @var resource Listes des langues du site */
+	public $langues;
+	
+	/** @var resource Listes des avatars du site */
+	public $avatars;
+	
+	/** @var resource Liste des utilisateurs du site */
+	public $utilisateurs;
+	
+	/** @var resource Liste des administrateurs du site */
+	public $administrateurs;
+	
+	/** @var resource Liste des photos du site */
+	public $photos;
+	
+	/** @var string Menu a affiché dans mon compte */
+	public $menu = 'Avatar'; // TODO marche mais change pas
 	
 	/**
 	 * Méthode lancée par défaut sur un contrôleur.
 	 */
 	public function index() {
 		if (self::isAdminConnect ()) {
-			header ( 'Location: /MonCompte/' );
+			$this->setTitre ( "Administration" );
+			
+			require_once VUES . 'Administration/VueAdministration.php';
 		} else {
-			header ( 'Location: /' );
+			header ( 'Location: /MonCompte/' );
+		}
+	}
+	
+	/**
+	 * Méthode lancée pour afficher un des sous-menu de l'administration
+	 *
+	 * @param string $nom
+	 *        	Nom du menu a affiché
+	 */
+	public function SousMenu($nom) {
+		if (self::isAdminConnect ()) {
+			if ($nom == "Langue") {
+				$this->langues = Langue::getLangues ();
+			} else if ($nom == "Avatar") {
+				$this->avatars = Avatar::getAvatars ();
+			} else if ($nom == "Membre") {
+				$this->administrateurs = Utilisateur::getAdministateurs ();
+				$this->utilisateurs = Utilisateur::getUtilisateurs ();
+			} else if ($nom == "Photo") {
+				$this->photos = Photo::getPhotos ();
+			} else if ($nom == "DescriptionPhoto") {
+				$this->photos = Photo::getPhotos ();
+				$this->langues = Langue::getLangues ();
+			}
+			
+			require VUES . 'Administration/SousMenu/' . $nom . '.php';
+		} else {
+			header ( 'Location: /MonCompte/' );
 		}
 	}
 	
@@ -43,7 +94,7 @@ class Administration extends Controleur {
 		
 		$this->menu = 'AdminAvatar'; // TODO inutile
 		
-		header ( 'Location: /MonCompte/' );
+		header ( 'Location: /Administration/' );
 	}
 	
 	/**
@@ -58,7 +109,7 @@ class Administration extends Controleur {
 		
 		$this->menu = 'AdminAvatar'; // TODO inutile
 		
-		header ( 'Location: /MonCompte/' );
+		header ( 'Location: /Administration/' );
 	}
 	
 	/**
@@ -73,7 +124,7 @@ class Administration extends Controleur {
 		
 		$this->menu = 'AdminLangue'; // TODO inutile
 		
-		header ( 'Location: /MonCompte/' );
+		header ( 'Location: /Administration/' );
 	}
 	
 	/**
@@ -88,7 +139,7 @@ class Administration extends Controleur {
 		
 		$this->menu = 'AdminLangue'; // TODO inutile
 		
-		header ( 'Location: /MonCompte/' );
+		header ( 'Location: /Administration/' );
 	}
 	
 	/**
@@ -103,7 +154,7 @@ class Administration extends Controleur {
 		
 		$this->menu = 'AdminMembre'; // TODO inutile
 		
-		header ( 'Location: /MonCompte/' );
+		header ( 'Location: /Administration/' );
 	}
 	
 	/**
@@ -118,7 +169,7 @@ class Administration extends Controleur {
 		
 		$this->menu = 'AdminMembre'; // TODO inutile
 		
-		header ( 'Location: /MonCompte/' );
+		header ( 'Location: /Administration/' );
 	}
 	
 	/**
@@ -136,7 +187,7 @@ class Administration extends Controleur {
 			header ( "Pragma: no-cache" );
 			readfile ( self::$DEFAUT_PROPERTIES_PATH . self::$DEFAUT_PROPERTIES_NAME );
 		} else {
-			header ( 'Location: /MonCompte/' );
+			header ( 'Location: /Administration/' );
 		}
 	}
 	
@@ -154,7 +205,7 @@ class Administration extends Controleur {
 		
 		$this->menu = 'AdminPhoto'; // TODO inutile
 		
-		header ( 'Location: /MonCompte/' );
+		header ( 'Location: /Administration/' );
 	}
 	
 	/**
@@ -172,7 +223,7 @@ class Administration extends Controleur {
 		
 		$this->menu = 'AdminPhoto'; // TODO inutile
 		
-		header ( 'Location: /MonCompte/' );
+		header ( 'Location: /Administration/' );
 	}
 	
 	/**
@@ -187,7 +238,7 @@ class Administration extends Controleur {
 		
 		$this->menu = 'AdminDescriptionPhoto'; // TODO inutile
 		
-		header ( 'Location: /MonCompte/' );
+		header ( 'Location: /Administration/' );
 	}
 	
 	/**

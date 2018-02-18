@@ -6,7 +6,6 @@ use Rodez_3IL_Ingenieurs\Core\Controleur;
 use Rodez_3IL_Ingenieurs\Modeles\Langue;
 use Rodez_3IL_Ingenieurs\Modeles\Utilisateur;
 use Rodez_3IL_Ingenieurs\Modeles\Avatar;
-use Rodez_3IL_Ingenieurs\Libs\Photo;
 
 /**
  * Contrôleur des pages de gestion de son compte du site.
@@ -24,15 +23,6 @@ class MonCompte extends Controleur {
 	/** @var resource Listes des avatars du site */
 	public $avatars;
 	
-	/** @var resource Liste des utilisateurs du site */
-	public $utilisateurs;
-	
-	/** @var resource Liste des administrateurs du site */
-	public $administrateurs;
-	
-	/** @var resource Liste des photos du site */
-	public $photos;
-	
 	/** @var string Menu a affiché dans mon compte */
 	public $menu = 'Compte'; // TODO marche mais change pas
 	
@@ -45,8 +35,24 @@ class MonCompte extends Controleur {
 			
 			require_once VUES . 'MonCompte/VueMonCompte.php';
 		} else {
-			header ( 'Location: /Rodez_3IL_Ingenieurs/' );
+			header ( 'Location: /' );
 		}
+	}
+	
+	/**
+	 * Méthode lancée pour afficher un des sous-menu de mon compte
+	 *
+	 * @param string $nom
+	 *        	Nom du menu a affiché
+	 */
+	public function SousMenu($nom) {
+		if ($nom == "Langue") {
+			$this->langues = Langue::getLangues ();
+		} else if ($nom == "Avatar") {
+			$this->avatars = Avatar::getAvatars ();
+		}
+		
+		require VUES . 'MonCompte/SousMenu/' . $nom . '.php';
 	}
 	
 	/**
@@ -111,37 +117,5 @@ class MonCompte extends Controleur {
 		} else {
 			header ( 'Location: /MonCompte/' );
 		}
-	}
-	
-	/**
-	 * Méthode lancée pour afficher un des sous-menu de mon compte
-	 *
-	 * @param string $nom
-	 *        	Nom du menu a affiché
-	 */
-	public function SousMenu($nom) {
-		if ($nom == "Langue" || $nom == "AdminLangue") {
-			$this->langues = Langue::getLangues ();
-		} else if ($nom == "Avatar" || $nom == "AdminAvatar") {
-			$this->avatars = Avatar::getAvatars ();
-		} else if ($nom == "AdminMembre") {
-			$this->administrateurs = Utilisateur::getAdministateurs ();
-			$this->utilisateurs = Utilisateur::getUtilisateurs ();
-		} else if ($nom == "AdminPhoto") {
-			$this->photos = Photo::getPhotos ();
-		} else if ($nom == "AdminDescriptionPhoto") {
-			$this->photos = Photo::getPhotos ();
-			$this->langues = Langue::getLangues ();
-		}
-		
-		if (substr ( $nom, 0, 5 === "Admin" )) {
-			if ($_SESSION ['util']->isAdmin ()) {
-				header ( 'Location: /MonCompte/' );
-				
-				return;
-			}
-		}
-		
-		require VUES . 'MonCompte/SousMenu/' . $nom . '.php';
 	}
 }

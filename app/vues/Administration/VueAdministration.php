@@ -8,7 +8,7 @@ window.onload = function() {
 };
 
 function loadMenu(Page) {	
-    $('#contentMonCompte').load("/MonCompte/SousMenu/" + Page);           
+    $('#contentAdministration').load("/Administration/SousMenu/" + Page);           
 }
 
 $(function(){
@@ -35,11 +35,13 @@ $(function(){
         <div class="col-md-8">
             <div class="panel panel-default bigPanel">
                 <div class="panel-heading panel-navigation">
-                    <input type="button" value="Mon Compte" onclick="loadMenu('Compte')" />
-                    <input type="button" value="Mon avatar" onclick="loadMenu('Avatar')" />
-                    <input type="button" value="Ma langue" onclick="loadMenu('Langue')" />
+                    <input type="button" value="Admin avatar" onclick="loadMenu('Avatar')" />
+                    <input type="button" value="Admin langue" onclick="loadMenu('Langue')" />
+                    <input type="button" value="Admin membre" onclick="loadMenu('Membre')" />
+                    <input type="button" value="Admin photo" onclick="loadMenu('Photo')" />
+                    <input type="button" value="Admin description photo" onclick="loadMenu('DescriptionPhoto')" />
                 </div>
-                <div id="contentMonCompte"></div>
+                <div id="contentAdministration"></div>
             </div>
         </div>
     </div>

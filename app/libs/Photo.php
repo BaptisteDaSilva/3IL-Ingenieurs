@@ -181,10 +181,9 @@ class Photo {
 		$attName->value = $name;
 		$ePhoto->appendChild ( $attName );
 		
-		foreach (Langue::getLangues() as $langue)
-		{
+		foreach ( Langue::getLangues () as $langue ) {
 			$eDesc = $doc->createElement ( 'description' );
-			$eDesc->setAttribute ( 'id', $langue->getId() . '_' . $name );		
+			$eDesc->setAttribute ( 'id', $langue->getId () . '_' . $name );
 			$ePhoto->appendChild ( $eDesc );
 		}
 		

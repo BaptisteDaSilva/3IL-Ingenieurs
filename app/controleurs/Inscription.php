@@ -39,7 +39,7 @@ class Inscription extends Controleur {
 	 *        	Pseudo de l'utilisateur
 	 */
 	public function testPseudo($login) {
-		if (isset ( $login )) {			
+		if (isset ( $login )) {
 			if (Utilisateur::getPseudoUtil ( $login )) {
 				header ( 'HTTP/1.0 404 Not Found' );
 			}
