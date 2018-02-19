@@ -86,7 +86,7 @@ class Utilisateur extends Modele
     public function __construct($login, $mdp, $email, $type = "User", $idAvatar = null, $idLangue = null)
     {
         $this->login = $login;
-        $this->mdp = self::hashMdp($mdp);
+        $this->mdp = $mdp;
         $this->email = $email;
         $this->type = ($type == "User" ? self::$TYPE_USER : $type);
         $this->idAvatar = $idAvatar;
@@ -197,7 +197,7 @@ class Utilisateur extends Modele
         self::connexionBD();
         // Prépare la requête
         $requete = self::getBaseDeDonnees()->getCnxBD()->prepare(self::RQT_CONNEXION_UTIL);
-        
+                
         // Ajout des variables
         $requete->bindParam(':login', $login, \PDO::PARAM_STR);
         $requete->bindParam(':mdp', $mdp, \PDO::PARAM_STR);

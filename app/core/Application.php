@@ -3,6 +3,7 @@ namespace Rodez_3IL_Ingenieurs\Core;
 
 use Rodez_3IL_Ingenieurs\Controleurs;
 use Rodez_3IL_Ingenieurs\Libs\Properties;
+use Rodez_3IL_Ingenieurs\Modeles\Utilisateur;
 
 /**
  * Classe permettant de router chaque page vers le contrôleur
@@ -29,7 +30,7 @@ class Application
      * affiche une page d'erreur.
      */
     public function __construct()
-    {
+    {        
         // Par défaut
         $this->methode = 'index';
         $this->params = array();
@@ -65,6 +66,8 @@ class Application
             $this->controleur = new $controleur();
             
             Properties::getFile();
+            
+            self::connexionUtilCookie();
             
             // Vérifie que le contrôleur a appeler est bien un contrôleur.
             if (! ($this->controleur instanceof Controleur)) {
@@ -143,5 +146,22 @@ class Application
         }
         // else
         return null;
+    }
+    
+    /**
+     * Connecte un utilisateur à partir des cookies
+     */
+    private function connexionUtilCookie()
+    {    
+        if (!isset($_SESSION['util']) && isset($_COOKIE['3il-Ingenieurs-Util-nom']) && isset($_COOKIE['3il-Ingenieurs-Util-mdp']))
+        {            
+            $util = Utilisateur::getConnexion($_COOKIE['3il-Ingenieurs-Util-nom'], $_COOKIE['3il-Ingenieurs-Util-mdp']);
+            
+            // Si l'utilisateur est correct.
+            if ($util != null) {                
+                // Créé la variable de session de l'utilisateur.
+                $_SESSION['util'] = $util;
+            }
+        }
     }
 }

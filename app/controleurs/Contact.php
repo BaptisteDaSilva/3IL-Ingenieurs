@@ -34,8 +34,8 @@ class Contact extends Controleur
         $to      = 'baptiste-da-silva@hotmail.fr';
         $subject = $_POST['objet'];
         $message = $_POST['message'];
-        $headers = 'From: 3iL_Ingénieurs <' . $_SESSION['util']->getEmail() . '>' . "\r\n";
+        $headers = 'From: ' . $_SESSION['util']->getEmail() . "\r\n";
                 
-        var_dump(mail ($to, $subject , $message ,$headers ));
+        var_dump(mail ($to, $subject, $message, $headers ));
     }
 }

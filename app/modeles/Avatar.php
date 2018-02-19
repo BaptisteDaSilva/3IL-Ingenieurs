@@ -206,9 +206,7 @@ class Avatar extends Modele
         
         // Prépare la requête
         $requete = self::getBaseDeDonnees()->getCnxBD()->prepare(self::RQT_SUPPRIMER_AVATAR);
-        
-        var_dump($this);
-        
+                
         // Ajout des variables
         $requete->bindParam(':idAvatar', $this->idAvatar, \PDO::PARAM_INT);
         

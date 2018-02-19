@@ -188,8 +188,6 @@ class Photo
         foreach (self::getPhotos() as $photo) {
             $name = self::getName($photo);
             
-            var_dump($name . ' - ' . $idSangue);
-            
             $descriptionE = self::getDescriptionE($name, $idSangue);
             
             self::getPhotoE($name)->removeChild($descriptionE);

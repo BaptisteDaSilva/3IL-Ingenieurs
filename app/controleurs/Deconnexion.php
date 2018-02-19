@@ -19,6 +19,12 @@ class Deconnexion extends Controleur
         session_unset();
         session_destroy();
         
+        setcookie('3il-Ingenieurs-Util-nom', NULL, time() - 3600, null, null, false, true);
+        setcookie('3il-Ingenieurs-Util-mdp', NULL, time() - 3600, null, null, false, true);
+        
+        unset($_COOKIE['3il-Ingenieurs-Util-nom']);
+        unset($_COOKIE['3il-Ingenieurs-Util-mdp']);
+        
         header("refresh:5;url=/");
         
         $this->setTitre($this->get('Deconnexion', 'Titre'));
