@@ -41,7 +41,7 @@ class Connexion extends Controleur
             } else {
                 
                 // Edition du titre de la page
-                $this->setTitre($this->get('Formation', 'TitreKO'));
+                $this->setTitre($this->get('SeConnecter', 'TitreKO'));
                 
                 /*
                  * Si l'utilisateur n'existe pas dans la base de donnée,
