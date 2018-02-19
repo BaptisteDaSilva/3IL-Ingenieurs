@@ -33,7 +33,7 @@
 	},
 	"Contact": {
 		"Titre": "Contact",
-		"Texte": "TODO ecrire contact",
+		"Texte": "Afin de pouvoir nous contacter, veuiller vous identifier.",
 		"Libelle": {
 			"Expediteur": "Expediteur :",
 			"Objet": "Objet :",
@@ -42,6 +42,9 @@
 		"Placeholder": {
 			"Objet": "Objet du message",
 			"Message": "Message a envoyer"
+		},
+		"Bouton": {
+			"Envoyer": "Envoyer"
 		}
 	},
 	"SInscrire": {

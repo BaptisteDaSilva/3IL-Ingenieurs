@@ -12,6 +12,7 @@ require_once TEMPLATES . 'menu.php';
                 </div>
                 <div class="panel-body">
                     <div class="row">
+                        <?php if (!isset($_SESSION['util'])) { ?>
                         <div class="col-md-12">
                             <?php if (self::isAdminConnect()) { ?>
                             <form method="post" action="/Administration/modifierTexte/Contact/Texte">
@@ -19,10 +20,11 @@ require_once TEMPLATES . 'menu.php';
                                     <textarea name="new" class="form-control" onchange="this.form.submit();"><?= self::get('Contact', 'Texte') ?></textarea>
                                 </div>
                             </form>
-                        <?php } else { ?>
-                        <?= self::get('Contact', 'Texte') ?>
-                        <?php }?>
+                            <?php } else { ?>
+                            <?= self::get('Contact', 'Texte') ?>
+                            <?php }?>
                         </div>
+                        <?php } else { ?>
                         <div id="panel_contact" class="panel-body panel_contact">
                             <div class="col-md-2"></div>
                             <div class="col-md-8">
@@ -41,12 +43,12 @@ require_once TEMPLATES . 'menu.php';
                                         <textarea id="message" class="form-control" name="message" required><?= self::get('Contact', 'Placeholder', 'Message') ?></textarea>
                                     </div>
                                     <div>
-                                        <input type="submit" name="submit" value="<?= self::get('MonCompte', 'Bouton', 'Modifier') ?>" class="btn mon-btn">
-                                        <input type="submit" name="submitMail" value="Envoyer" class="btn mon-btn">
+                                        <input type="submit" name="submit" value="<?= self::get('Contact', 'Bouton', 'Envoyer') ?>" class="btn mon-btn">
                                     </div>
                                 </form>
                             </div>
-                        </div>
+                        </div>                        
+                        <?php } ?>
                     </div>
                 </div>
             </div>
