@@ -1,19 +1,18 @@
-<?php use Rodez_3IL_Ingenieurs\Libs\Photo; ?>
 <script type="text/javascript">
 function readURL(input) {
-  if (input.files && input.files[0]) {
-    var reader = new FileReader();
+    if (input.files && input.files[0]) {
+        var reader = new FileReader();
 
-    reader.onload = function(e) {
-      $('#photoView').attr('src', e.target.result);
+        reader.onload = function(e) {
+            $('#photoView').attr('src', e.target.result);
+        }
+
+        reader.readAsDataURL(input.files[0]);
     }
-
-    reader.readAsDataURL(input.files[0]);
-  }
 }
 
 $("#photo").change(function() {
-  readURL(this);
+    readURL(this);
 });
 </script>
 <div id="panel_adminPhoto" class="panel-body panel-photo">
@@ -22,24 +21,24 @@ $("#photo").change(function() {
         <div class="col-md-8">
             <?php if ($this->photos != null) { ?>
             <form method="post" action="/Administration/supprimerPhoto/">
-                <div class="photos">                            
-                <?php foreach ($this->photos as $photo) { $pName = Photo::getName($photo); ?>
+                <div class="photos"> 
+                    <?php foreach ($this->photos as $photo) { ?>
                     <div class="photo">
-                        <img src="<?= PHOTOS . $pName ?>" alt="<?= $pName?>" />
-                        <p>
-                            <input id="supp<?= $pName ?>" type="checkbox" name="aSupp[]" value="<?= $pName ?>">
-                            <label for="supp<?= $pName ?>"><?= $pName ?></label>
-                        </p>
+                        <img src="<?= PHOTOS . $photo ?>" alt="<?= $photo?>" />
+                    <p>
+                        <input id="supp<?= $photo ?>" type="checkbox" name="aSupp[]" value="<?= $photo ?>">
+                        <label for="supp<?= $photo ?>"><?= $photo ?></label>
+                    </p>
                     </div>
-                <?php } ?>        
+                    <?php } ?> 
                 </div>
                 <div>
-                    <input type="submit" name="submitLangue" value="Supprimer" class="btn mon-btn">
+                    <input type="submit" name="submitLangue" value="<?= self::get('Administration', 'Bouton', 'Supprimer') ?>" class="btn mon-btn">
                 </div>
             </form>
             <?php } ?> 
             <div class="panel-heading">
-                <h3 class="panel-title">Ajouter :</h3>
+                <h3 class="panel-title"><?= self::get('Administration', 'Libelle', 'Ajouter') ?></h3>
             </div>
             <form method="post" action="/Administration/ajouterPhoto/" enctype="multipart/form-data">
                 <div class="form-group">
@@ -48,7 +47,7 @@ $("#photo").change(function() {
                     </div>
                     <input id="photo" type="file" class="form-control" name="photo" accept="image/*" required>
                 </div>
-                <input type="submit" name="submit" value="Ajouter" class="btn mon-btn">
+                <input type="submit" name="submit" value="<?= self::get('Administration', 'Bouton', 'Ajouter') ?>" class="btn mon-btn">
             </form>
         </div>
     </div>

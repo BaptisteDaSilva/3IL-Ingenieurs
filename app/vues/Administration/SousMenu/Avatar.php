@@ -1,18 +1,18 @@
 <script type="text/javascript">
 function readURL(input) {
-  if (input.files && input.files[0]) {
-    var reader = new FileReader();
+    if (input.files && input.files[0]) {
+        var reader = new FileReader();
 
-    reader.onload = function(e) {
-      $('#avatarView').attr('src', e.target.result);
+        reader.onload = function(e) {
+            $('#avatarView').attr('src', e.target.result);
+        }
+
+        reader.readAsDataURL(input.files[0]);
     }
-
-    reader.readAsDataURL(input.files[0]);
-  }
 }
 
 $("#avatar").change(function() {
-  readURL(this);
+    readURL(this);
 });
 </script>
 <div id="panel_adminAvatar" class="panel-body panel-avatar">
@@ -21,8 +21,8 @@ $("#avatar").change(function() {
         <div class="col-md-8">
             <?php if ($this->avatars != null) { ?>
             <form method="post" action="/Administration/supprimerAvatar/">
-                <div class="avatars">                            
-                <?php foreach ($this->avatars as &$avatar) { ?>
+                <div class="avatars"> 
+                    <?php foreach ($this->avatars as $avatar) { ?>
                     <div class="avatar">
                         <img src="<?= AVATAR . $avatar->getNom() ?>" alt="<?= $avatar->getNom() ?>" />
                         <p>
@@ -30,15 +30,15 @@ $("#avatar").change(function() {
                             <label for="supp<?= $avatar->getId() ?>"><?= $avatar->getNom() ?></label>
                         </p>
                     </div>
-                <?php } ?>        
+                    <?php } ?> 
                 </div>
                 <div>
-                    <input type="submit" name="submitLangue" value="Supprimer" class="btn mon-btn">
+                    <input type="submit" name="submitLangue" value="<?= self::get('Administration', 'Bouton', 'Supprimer') ?>" class="btn mon-btn">
                 </div>
             </form>
             <?php } ?> 
             <div class="panel-heading">
-                <h3 class="panel-title">Ajouter :</h3>
+                <h3 class="panel-title"><?= self::get('Administration', 'Libelle', 'Ajouter') ?></h3>
             </div>
             <form method="post" action="/Administration/ajouterAvatar/" enctype="multipart/form-data">
                 <div class="form-group">
@@ -47,7 +47,7 @@ $("#avatar").change(function() {
                     </div>
                     <input id="avatar" type="file" class="form-control" name="avatar" accept="image/*" required>
                 </div>
-                <input type="submit" name="submit" value="Ajouter" class="btn mon-btn">
+                <input type="submit" name="submit" value="<?= self::get('Administration', 'Bouton', 'Ajouter') ?>" class="btn mon-btn">
             </form>
         </div>
     </div>

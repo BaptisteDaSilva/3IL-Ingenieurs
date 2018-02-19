@@ -4,18 +4,18 @@
         <div class="col-md-8">
             <form method="post" action="/MonCompte/modifier/">
                 <div class="form-group">
-                    <label for="login">Login :</label>
+                    <label for="login"><?= self::get('MonCompte', 'Libelle', 'NomDeCompte') ?></label>
                     <input id="login" type="text" class="form-control" name="login" value="<?=$_SESSION['util']->getLogin()?>" disabled>
                 </div>
                 <div class="form-group">
-                    <label for="mdp">Mot de passe :</label>
-                    <input id="mdp" type="password" class="form-control" name="mdp" placeholder="Nouveau Mot de Passe">
+                    <label for="mdp"><?= self::get('MonCompte', 'Libelle', 'MotDePasse') ?></label> <input id="mdp" type="password" class="form-control" name="mdp"
+                        placeholder="<?= self::get('MonCompte', 'Placeholder', 'NewMotDePasse') ?>">
                 </div>
                 <div class="form-group">
-                    <label for="email">Email :</label>
-                    <input id="email" type="email" class="form-control" name="email" value="<?=$_SESSION['util']->getEmail()?>">
+                    <label for="email"><?= self::get('MonCompte', 'Libelle', 'EMail') ?></label> <input id="email" type="email" class="form-control" name="email"
+                        value="<?=$_SESSION['util']->getEmail()?>">
                 </div>
-                <input type="submit" name="submit" value="Modifier" class="btn mon-btn">
+                <input type="submit" name="submit" value="<?= self::get('MonCompte', 'Bouton', 'Modifier') ?>" class="btn mon-btn">
             </form>
         </div>
     </div>

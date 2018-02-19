@@ -7,31 +7,25 @@ require_once TEMPLATES . 'menu.php';
         <div class="col-md-2"></div>
         <div class="col-md-8">
             <?php if ($this->inscriptionOK) { ?>
-                <div class="panel panel-success bigPanel">
+            <div class="panel panel-success bigPanel">
                 <div class="panel-heading">
-                    <h3 class="panel-title">Inscription : Réussie !</h3>
+                    <h3 class="panel-title"><?= self::get('SInscrire', 'TitreOK') ?></h3>
                 </div>
                 <div class="panel-body">
-                    Votre inscription s'est déroulée avec succès.
-                    <br>
-                    Vous pouvez maintenant vous connecter avec vos identifiants.
-                    <br>
-                    Merci.
+                    <?= self::get('SInscrire', 'TexteOK') ?>
                 </div>
             </div>
             <?php } else { ?>
-                <div class="panel panel-danger bigPanel">
+            <div class="panel panel-danger bigPanel">
                 <div class="panel-heading">
-                    <h3 class="panel-title">Inscription : Echoué !</h3>
+                    <h3 class="panel-title"><?= self::get('SInscrire', 'TitreKO') ?></h3>
                 </div>
-                <div class="panel-body">
-                    Un problème est survenu lors de votre inscription.
-                    <br>
-                    Merci de réessayer de vous inscrire avec des identifiants différents.
+                <div class="panel-body">                    
+                    <?= self::get('SInscrire', 'TexteKO') ?>
                 </div>
             </div>
             <?php } ?>
-        </div>
+            </div>
         <div class="col-md-2"></div>
     </div>
 </div>

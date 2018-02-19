@@ -8,12 +8,10 @@ require_once TEMPLATES . 'menu.php';
         <div class="col-md-8">
             <div class="panel panel-danger bigPanel">
                 <div class="panel-heading">
-                    <h3 class="panel-title">Erreur lors de la connexion !</h3>
+                    <h3 class="panel-title"><?= self::get('SeConnecter', 'TitreKO') ?></h3>
                 </div>
                 <div class="panel-body">
-                    Les identifiants que vous avez fournis ne permettent pas de vous connecter.
-                    <br>
-                    Merci de réessayer de vous connecter avec de bon identifiants.
+                    <?= self::get('SeConnecter', 'TexteKO') ?>
                 </div>
             </div>
         </div>

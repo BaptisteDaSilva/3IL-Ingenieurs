@@ -26,14 +26,14 @@ function moveLeftUtil() {
 	stopAutoPlay();
 	clearTimeout(timeOut);
 	
-    $('#slider ul').animate({
-        left: + slideWidth
-    }, 50, function () {
-        $('#slider ul li:last-child').prependTo('#slider ul');
-        $('#slider ul').css('left', '');
-    });
-    
-    timeOut = setTimeout(startAutoPlay, timeTimeOut);
+ $('#slider ul').animate({
+ left: + slideWidth
+ }, 50, function () {
+ $('#slider ul li:last-child').prependTo('#slider ul');
+ $('#slider ul').css('left', '');
+ });
+ 
+ timeOut = setTimeout(startAutoPlay, timeTimeOut);
 };
 
 function moveRightUtil() {
@@ -41,17 +41,17 @@ function moveRightUtil() {
 	clearTimeout(timeOut);
 	
 	moveRight();
-    
-    timeOut = setTimeout(startAutoPlay, timeTimeOut);
+ 
+ timeOut = setTimeout(startAutoPlay, timeTimeOut);
 };
 
 function moveRight() {	
-    $('#slider ul').animate({
-        left: - slideWidth
-    }, 200, function () {
-        $('#slider ul li:first-child').appendTo('#slider ul');
-        $('#slider ul').css('left', '');
-    });
+ $('#slider ul').animate({
+ left: - slideWidth
+ }, 200, function () {
+ $('#slider ul li:first-child').appendTo('#slider ul');
+ $('#slider ul').css('left', '');
+ });
 };
 
 jQuery(document).ready(function ($) {
@@ -66,15 +66,15 @@ jQuery(document).ready(function ($) {
 	
 	$('#slider ul li').css({ width: sliderUlWidth/slideCount });
 	
-    $('#slider ul li:last-child').prependTo('#slider ul');
+ $('#slider ul li:last-child').prependTo('#slider ul');
 
-    $('a.control_prev').click(function () {
-        moveLeftUtil();
-    });
+ $('a.control_prev').click(function () {
+ moveLeftUtil();
+ });
 
-    $('a.control_next').click(function () {
-    	moveRightUtil();
-    });
+ $('a.control_next').click(function () {
+ 	moveRightUtil();
+ });
 });
 
 window.onresize = function()

@@ -1,22 +1,128 @@
 {
-	"Titre": "3iL-Ingénieurs",
-	"Menu": {
-		"Accueil": "Home",
-		"Form": {
-			"Formation": "Training",
-			"Presentation": "Presentation",
-			"Annee1": "Year 1",
-			"Annee2": "Year 2",
-			"Annee3": "Year 3"
+	"Titre": "",
+	"Accueil": {
+		"Titre": "",
+		"Presentation": {
+			"Titre": "",
+			"Texte": ""
+		}
+	},
+	"Apprentissage": {
+		"Titre": "",
+		"Texte": ""
+	},
+	"Formation": {
+		"Titre": "",
+		"Texte": "",
+		"Annee1": {
+			"Titre": "",
+			"Texte": ""
 		},
-		"Apprentissage": "Learning",
-		"Rodez": "Rodez",
-		"Contact": "Contact",
-		"SInscrire": "Register",
-		"SeConnecter": "Connect",
-		"MonCompte": "My account",
-		"Administration": "Administration",
-		"SeDeconnecter": "Disconnect",
-		"SeSouvenirDeMoi": "Remember me"
+		"Annee2": {
+			"Titre": "",
+			"Texte": ""
+		},
+		"Annee3": {
+			"Titre": "",
+			"Texte": ""
+		}
+	},
+	"Rodez": {
+		"Titre": "",
+		"Texte": ""
+	},
+	"Contact": {
+		"Titre": "",
+		"Texte": ""
+	},
+	"MonCompte": {
+		"Titre": "",
+		"TitreOK": "",
+		"TitreKO": "",
+		"TexteOK": "",
+		"TexteKO": "",
+		"Menu": {
+			"Avatar": "",
+			"Langue": "",
+			"Compte": ""
+		},
+		"Libelle": {
+			"NomDeCompte": "",
+			"MotDePasse": "",
+			"EMail": ""
+		},
+		"Placeholder": {
+			"NomDeCompte": "",
+			"MotDePasse": "",
+			"EMail": "",
+			"NewMotDePasse": ""
+		},
+		"Bouton": {
+			"Modifier": ""
+		},
+		"Erreur": {
+			"AucunAvatar": "",
+			"AucuneLangue": ""
+		}
+	},
+	"Administration": {
+		"Titre": "",
+		"Menu": {
+			"Avatar": "",
+			"Langue": "",
+			"Membre": "",
+			"Photo": "",
+			"DescriptionPhoto": ""
+		},
+		"Libelle": {
+			"Administrateurs": "",
+			"Utilisateurs": "",
+			"FichierProperties": "",
+			"ARemplir": "",
+			"Ajouter": ""
+		},
+		"Placeholder": {
+			"CodeLangue": "",
+			"NomLangue": "",
+			"AjouterDescription": ""
+		},
+		"Bouton": {
+			"Modifier": "",
+			"Ajouter": "",
+			"Supprimer": "",
+			"Retrograder": "",
+			"Upgrader": ""
+		}
+	},
+	"SeConnecter": {
+		"Titre": "",
+		"TitreKO": "",
+		"TexteKO": "",
+		"Bouton": "",
+		"SeSouvenirDeMoi": "",
+		"TitreOk": "",
+		"Texte": ""
+	},
+	"SInscrire": {
+		"Titre": "",
+		"TitreOK": "",
+		"TitreKO": "",
+		"TexteOK": "",
+		"TexteKO": "",
+		"Bouton": "",
+		"Texte": ""
+	},
+	"Deconnexion": {
+		"Titre": "",
+		"TitreOk": "",
+		"Texte": ""
+	},
+	"Footer": {
+		"Phrase1": "",
+		"Phrase2": "",
+		"Phrase3": ""
+	},
+	"Erreur404": {
+		"Titre": ""
 	}
 }

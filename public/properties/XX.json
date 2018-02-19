@@ -1,22 +1,128 @@
 {
 	"Titre": "3iL-Ingénieurs",
-	"Menu": {
-		"Accueil": "",
-		"Form": {
-			"Formation": "",
-			"Presentation": "",
-			"Annee1": "",
-			"Annee2": "",
-			"Annee3": ""
+	"Accueil": {
+		"Titre": "Accueil",
+		"Presentation": {
+			"Titre": "Bienvenue sur 3iL-Ingénieurs !",
+			"Texte": "Ecole d'ingénieurs en informatique à Rodez"
+		}
+	},
+	"Apprentissage": {
+		"Titre": "Apprentissage",
+		"Texte": "TODO ecrire apprentissage"
+	},
+	"Formation": {
+		"Titre": "Formation",
+		"Texte": "Texte lalalalalalalaalalr",
+		"Annee1": {
+			"Titre": "Année 1",
+			"Texte": "TODO ecrire année 1"
 		},
-		"Apprentissage": "",
-		"Rodez": "",
-		"Contact": "",
-		"SInscrire": "",
-		"SeConnecter": "",
-		"MonCompte": "",
-		"Administration": "Administration",
-		"SeDeconnecter": "",
-		"SeSouvenirDeMoi": ""
+		"Annee2": {
+			"Titre": "Année 2",
+			"Texte": "TODO ecrire année 2"
+		},
+		"Annee3": {
+			"Titre": "Année 3",
+			"Texte": "TODO ecrire année 3"
+		}
+	},
+	"Rodez": {
+		"Titre": "Rodez",
+		"Texte": "TODO ecrire rodez"
+	},
+	"Contact": {
+		"Titre": "Contact",
+		"Texte": "TODO ecrire contact"
+	},
+	"MonCompte": {
+		"Titre": "Mon compte",
+		"TitreOK": "Modification Réussie !",
+		"TitreKO": "Un Problème est survenue",
+		"TexteOK": "Les modifications que vos avez effectué sur votre compte ont bien été prises en compte.",
+		"TexteKO": "Un problème est survenu lors de la modification de vos données. <br> Merci de réessayer.",
+		"Menu": {
+			"Avatar": "Mon avatar",
+			"Langue": "Ma langue",
+			"Compte": "Mon compte"
+		},
+		"Libelle": {
+			"NomDeCompte": "Nom de compte :",
+			"MotDePasse": "Mot de passe :",
+			"EMail": "E-mail :"
+		},
+		"Placeholder": {
+			"NomDeCompte": "Nom de compte",
+			"MotDePasse": "Mot de passe",
+			"EMail": "E-mail",
+			"NewMotDePasse": "Nouveau mot de passe"
+		},
+		"Bouton": {
+			"Modifier": "Modifier"
+		},
+		"Erreur": {
+			"AucunAvatar": "Aucun avatar n'a été définis",
+			"AucuneLangue": "Aucune langue n'a été définis"
+		}
+	},
+	"Administration": {
+		"Titre": "Administration",
+		"Menu": {
+			"Avatar": "Admin avatar",
+			"Langue": "Admin langue",
+			"Membre": "Admin membre",
+			"Photo": "Admin photo",
+			"DescriptionPhoto": "Admin description photo"
+		},
+		"Libelle": {
+			"Administrateurs": "Administrateurs :",
+			"Utilisateurs": "Utilisateurs :",
+			"FichierProperties": "Fichier properties :",
+			"ARemplir": "A remplir",
+			"Ajouter": "Ajouter :"
+		},
+		"Placeholder": {
+			"CodeLangue": "Code de la langue (Ex : FR)",
+			"NomLangue": "Nom de la langue",
+			"AjouterDescription": "Ajouter description"
+		},
+		"Bouton": {
+			"Modifier": "Modifier",
+			"Ajouter": "Ajouter",
+			"Supprimer": "Supprimer",
+			"Retrograder": "Retrograder",
+			"Upgrader": "Upgrader"
+		}
+	},
+	"SeConnecter": {
+		"Titre": "Se connecter",
+		"TitreKO": "Erreur lors de la connexion !",
+		"TexteKO": "Les identifiants que vous avez fournis ne permettent pas de vous connecter. <br> Merci de réessayer de vous connecter avec de bon identifiants.",
+		"Bouton": "Se connecter",
+		"SeSouvenirDeMoi": "Se souvenir de moi",
+		"TitreOk": "Déconnexion Réussie !",
+		"Texte": "Vous avez été déconnecté avec succès ! <br> Redirection sur la page d'accueil dans 5 secondes !"
+	},
+	"SInscrire": {
+		"Titre": "S'inscrire",
+		"TitreOK": "Inscription : Réussie !",
+		"TitreKO": "Inscription : Echoué !",
+		"TexteOK": "Votre inscription s'est déroulée avec succès. <br> Vous pouvez maintenant vous connecter avec vos identifiants. <br> Merci.",
+		"TexteKO": "Un problème est survenu lors de votre inscription. <br> Merci de réessayer de vous inscrire avec des identifiants différents.",
+		"Bouton": "S'inscrire",
+		"Texte": "Vous avez été déconnecté avec succès ! <br> Redirection sur la page d'accueil dans 5 secondes !"
+	},
+	"Deconnexion": {
+		"Titre": "Se déconnecter",
+		"TitreOk": "Déconnexion Réussie !",
+		"Texte": "Vous avez été déconnecté avec succès ! <br> Redirection sur la page d'accueil dans 5 secondes !"
+	},
+	"Footer": {
+		"Phrase1": "Nathan RIBAS et Baptiste RIBEIRO DA SILVA",
+		"Phrase2": "3IL Rodez",
+		"Phrase3": "Rue de Bruxelles 12000 BOURRAN"
+	},
+	"Erreur404": {
+		"Titre": "Erreur 404"
 	}
 }

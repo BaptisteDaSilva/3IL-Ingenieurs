@@ -1,6 +1,4 @@
 <?php
-use Rodez_3IL_Ingenieurs\Core\Application;
-
 require_once TEMPLATES . 'enTete.php';
 require_once TEMPLATES . 'menu.php';
 ?>
@@ -9,22 +7,70 @@ require_once TEMPLATES . 'menu.php';
         <div class="col-md-2"></div>
         <div class="col-md-8">
             <div class="panel panel-default bigPanel">
-                <div class="panel-heading panel-navigation">
-                    <h3 class="panel-title">Formation</h3>
+                <div class="panel-heading">
+                    <h3 class="panel-title"><?= self::get('Formation', 'Annee1', 'Titre') ?></h3>
                 </div>
-                <div style="text-align: center">
-                	<a href="/Formation/annee1">
-                    	&nbsp;&nbsp;<?= Application::$site->{'Menu'}->{'Form'}->{'Annee1'} ?>&nbsp;&nbsp;
-                    </a>
-                                           
-                    <a href="/Formation/annee2">
-                    	&nbsp;&nbsp;<?= Application::$site->{'Menu'}->{'Form'}->{'Annee2'} ?>&nbsp;&nbsp;
-                    </a>
-                    
-                    <a href="/Formation/annee3">
-                    	&nbsp;&nbsp;<?= Application::$site->{'Menu'}->{'Form'}->{'Annee3'} ?>&nbsp;&nbsp;
-                    </a>
-                 </div>
+                <div class="panel-body">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <?php if (self::isAdminConnect()) { ?>
+                            <form method="post" action="/Administration/modifierTexte/Formation/Annee1/Texte">
+                                <div class="form-group">
+                                    <textarea name="new" class="form-control" onchange="this.form.submit();"><?= self::get('Formation', 'Annee1', 'Texte') ?></textarea>
+                                </div>
+                            </form>
+                            <?php } else { ?>
+                            <div class="modif-texte vue-table">
+                            <?= self::get('Formation', 'Annee1', 'Texte') ?>
+                            </div>
+                            <?php }?>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="panel panel-default bigPanel">
+                <div class="panel-heading">
+                    <h3 class="panel-title"><?= self::get('Formation', 'Annee2', 'Titre') ?></h3>
+                </div>
+                <div class="panel-body">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <?php if (self::isAdminConnect()) { ?>
+                            <form method="post" action="/Administration/modifierTexte/Formation/Annee2/Texte">
+                                <div class="form-group">
+                                    <textarea name="new" class="form-control" onchange="this.form.submit();"><?= self::get('Formation', 'Annee2', 'Texte') ?></textarea>
+                                </div>
+                            </form>
+                            <?php } else { ?>
+                            <div class="modif-texte vue-table">
+                            <?= self::get('Formation', 'Annee2', 'Texte') ?>
+                            </div>
+                            <?php }?>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="panel panel-default bigPanel">
+                <div class="panel-heading">
+                    <h3 class="panel-title"><?= self::get('Formation', 'Annee3', 'Titre') ?></h3>
+                </div>
+                <div class="panel-body">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <?php if (self::isAdminConnect()) { ?>
+                            <form method="post" action="/Administration/modifierTexte/Formation/Annee3/Texte">
+                                <div class="form-group">
+                                    <textarea name="new" class="form-control" onchange="this.form.submit();"><?= self::get('Formation', 'Annee3', 'Texte') ?></textarea>
+                                </div>
+                            </form>
+                            <?php } else { ?>
+                            <div class="modif-texte vue-table">
+                            <?= self::get('Formation', 'Annee3', 'Texte') ?>
+                            </div>
+                            <?php }?>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
         <div class="col-md-2"></div>

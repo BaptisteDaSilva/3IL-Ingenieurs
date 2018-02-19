@@ -8,21 +8,21 @@ window.onload = function() {
 };
 
 function loadMenu(Page) {	
-    $('#contentMonCompte').load("/MonCompte/SousMenu/" + Page);           
+ $('#contentMonCompte').load("/MonCompte/SousMenu/" + Page); 
 }
 
 $(function(){
 	$('#panel_monAvatar img').click(function(){
-		   $('.selected').removeClass('selected'); // removes the previous selected class
-		   $(this).addClass('selected'); // adds the class to the clicked image
+		 $('.selected').removeClass('selected'); // removes the previous selected class
+		 $(this).addClass('selected'); // adds the class to the clicked image
 
 
 		document.getElementById("nomAvatar").value = $('.selected')[0].alt;
 	});
 	
 	$('#panel_maLangue img').click(function(){
-		   $('.selected').removeClass('selected'); // removes the previous selected class
-		   $(this).addClass('selected'); // adds the class to the clicked image
+		 $('.selected').removeClass('selected'); // removes the previous selected class
+		 $(this).addClass('selected'); // adds the class to the clicked image
 
 
 		document.getElementById("nomLangue").value = $('.selected')[0].alt;
@@ -34,10 +34,13 @@ $(function(){
         <div class="col-md-2"></div>
         <div class="col-md-8">
             <div class="panel panel-default bigPanel">
+                <div class="panel-heading">
+                    <h3 class="panel-title"><?= self::get('MonCompte', 'Titre') ?></h3>
+                </div>
                 <div class="panel-heading panel-navigation">
-                    <input type="button" value="Mon Compte" onclick="loadMenu('Compte')" />
-                    <input type="button" value="Mon avatar" onclick="loadMenu('Avatar')" />
-                    <input type="button" value="Ma langue" onclick="loadMenu('Langue')" />
+                    <input type="button" value="<?= self::get('MonCompte', 'Menu', 'Compte') ?>" onclick="loadMenu('Compte')" />
+                    <input type="button" value="<?= self::get('MonCompte', 'Menu', 'Avatar') ?>" onclick="loadMenu('Avatar')" />
+                    <input type="button" value="<?= self::get('MonCompte', 'Menu', 'Langue') ?>" onclick="loadMenu('Langue')" />
                 </div>
                 <div id="contentMonCompte"></div>
             </div>

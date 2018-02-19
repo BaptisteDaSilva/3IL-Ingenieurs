@@ -1,9 +1,7 @@
 <footer class="navbar-default navbar-bottom">
-	<div class="container">
-	    Nathan RIBAS et Baptiste RIBEIRO DA SILVA
-	    <br />
-	    3IL Rodez
-	    <br />
-	    Rue de Bruxelles 12000 BOURRAN - RODEZ
-    </div>
+    <div class="container"> 
+         <?= self::get('Footer', 'Phrase1') ?><br>
+         <?= self::get('Footer', 'Phrase2') ?><br>
+         <?= self::get('Footer', 'Phrase3') ?>
+     </div>
 </footer>
