@@ -30,14 +30,12 @@ class Contact extends Controleur
         require_once VUES . 'Contact/VueContact.php';
     }
     
-    public function sendMail() {
+    public function sendMail() {        
         $to      = 'baptiste-da-silva@hotmail.fr';
-        $subject = 'le sujet';
-        $message = 'Bonjour !';
-        $headers = 'From: 3iL_Ingénieurs <test@3il.com>' . "\r\n";
-        
-        ini_set($varname, $newvalue);
-        
+        $subject = $_POST['objet'];
+        $message = $_POST['message'];
+        $headers = 'From: 3iL_Ingénieurs <' . $_SESSION['util']->getEmail() . '>' . "\r\n";
+                
         mail ($to, $subject , $message ,$headers );
     }
 }

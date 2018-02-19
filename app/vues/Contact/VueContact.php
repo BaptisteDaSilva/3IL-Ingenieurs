@@ -23,14 +23,30 @@ require_once TEMPLATES . 'menu.php';
                         <?= self::get('Contact', 'Texte') ?>
                         <?php }?>
                         </div>
-                        <form method="post" action="Contact/sendMail">
-                            <div class="form-group">
-                                <textarea name="new" class="form-control" ><?= self::get('Contact', 'Texte') ?></textarea>
+                        <div id="panel_contact" class="panel-body panel_contact">
+                            <div class="col-md-2"></div>
+                            <div class="col-md-8">
+                                <form method="post" action="Contact/sendMail">
+                                    <div class="form-group">
+                                        <label for="login"><?= self::get('Contact', 'Libelle', 'Expediteur') ?></label>
+                                        <input id="login" type="text" class="form-control" name="login" value="<?=$_SESSION['util']->getEmail()?>" disabled required>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="objet"><?= self::get('Contact', 'Libelle', 'Objet') ?></label>
+                                        <input id="objet" type="text" class="form-control" name="objet"
+                                            placeholder="<?= self::get('Contact', 'Placeholder', 'Objet') ?>" required>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="message"><?= self::get('Contact', 'Libelle', 'Message') ?></label>
+                                        <textarea id="message" class="form-control" name="message" required><?= self::get('Contact', 'Placeholder', 'Message') ?></textarea>
+                                    </div>
+                                    <div>
+                                        <input type="submit" name="submit" value="<?= self::get('MonCompte', 'Bouton', 'Modifier') ?>" class="btn mon-btn">
+                                        <input type="submit" name="submitMail" value="Envoyer" class="btn mon-btn">
+                                    </div>
+                                </form>
                             </div>
-                            <div>
-                                <input type="submit" name="submitMail" value="Envoyer" class="btn mon-btn">
-                            </div>
-                        </form>
+                        </div>
                     </div>
                 </div>
             </div>

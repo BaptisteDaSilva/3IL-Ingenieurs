@@ -20,7 +20,7 @@ require_once TEMPLATES . 'menu.php';
                                 </div>
                             </form>
                             <?php } else { ?>
-                            <div class="modif-texte vue-table">
+                            <div class="modif-texte">
                             <?= self::get('Formation', 'Annee1', 'Texte') ?>
                             </div>
                             <?php }?>
@@ -42,7 +42,7 @@ require_once TEMPLATES . 'menu.php';
                                 </div>
                             </form>
                             <?php } else { ?>
-                            <div class="modif-texte vue-table">
+                            <div class="modif-texte">
                             <?= self::get('Formation', 'Annee2', 'Texte') ?>
                             </div>
                             <?php }?>
@@ -64,7 +64,7 @@ require_once TEMPLATES . 'menu.php';
                                 </div>
                             </form>
                             <?php } else { ?>
-                            <div class="modif-texte vue-table">
+                            <div class="modif-texte">
                             <?= self::get('Formation', 'Annee3', 'Texte') ?>
                             </div>
                             <?php }?>
