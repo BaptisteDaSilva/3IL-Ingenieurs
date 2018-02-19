@@ -33,7 +33,19 @@
 	},
 	"Contact": {
 		"Titre": "",
-		"Texte": ""
+		"Texte": "",
+		"Libelle": {
+			"Expediteur": "",
+			"Objet": "",
+			"Message": ""
+		},
+		"Placeholder": {
+			"Objet": "",
+			"Message": ""
+		},
+		"Bouton": {
+			"Envoyer": ""
+		}
 	},
 	"MonCompte": {
 		"Titre": "",

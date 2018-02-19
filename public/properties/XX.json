@@ -33,7 +33,19 @@
 	},
 	"Contact": {
 		"Titre": "Contact",
-		"Texte": "TODO ecrire contact"
+		"Texte": "Afin de pouvoir nous contacter, veuiller vous identifier.",
+		"Libelle": {
+			"Expediteur": "Expediteur :",
+			"Objet": "Objet :",
+			"Message": "Message :"
+		},
+		"Placeholder": {
+			"Objet": "Objet du message",
+			"Message": "Message a envoyer"
+		},
+		"Bouton": {
+			"Envoyer": "Send"
+		}
 	},
 	"MonCompte": {
 		"Titre": "Mon compte",

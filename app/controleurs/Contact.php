@@ -36,6 +36,6 @@ class Contact extends Controleur
         $message = $_POST['message'];
         $headers = 'From: 3iL_Ingénieurs <' . $_SESSION['util']->getEmail() . '>' . "\r\n";
                 
-        mail ($to, $subject , $message ,$headers );
+        var_dump(mail ($to, $subject , $message ,$headers ));
     }
 }

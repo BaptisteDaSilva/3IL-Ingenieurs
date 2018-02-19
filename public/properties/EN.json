@@ -33,7 +33,7 @@
 	},
 	"Contact": {
 		"Titre": "Contact",
-		"Texte": "TODO write contact",
+		"Texte": "In order to contact us, please identify yourself.",
 		"Libelle": {
 			"Expediteur": "Expediteur :",
 			"Objet": "Objet :",
@@ -42,6 +42,9 @@
 		"Placeholder": {
 			"Objet": "Objet du message",
 			"Message": "Message a envoyer"
+		},
+		"Bouton": {
+			"Envoyer": "Send"
 		}
 	},
 	"SInscrire": {
