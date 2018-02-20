@@ -10,6 +10,7 @@ use Rodez_3IL_Ingenieurs\Core\Controleur;
  */
 class Formation extends Controleur
 {
+
     /**
      * Créé un nouveau contrôleur de la page d'accueil.
      */

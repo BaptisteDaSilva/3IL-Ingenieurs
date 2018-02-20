@@ -8,6 +8,7 @@ namespace Rodez_3IL_Ingenieurs\Libs;
  */
 class GestionFichier
 {
+
     /** @var string Fichier de type image d'avatar */
     public static $TYPE_AVATAR = '../public/img/avatar/';
 

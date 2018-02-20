@@ -8,6 +8,7 @@ namespace Rodez_3IL_Ingenieurs\Libs;
  */
 class Properties
 {
+
     /** @var string Chemin du fichier de properties */
     public static $PROPERTIES_PATH = '../public/properties/';
 
@@ -42,8 +43,7 @@ class Properties
      */
     public static function getFile($idLangue = null)
     {
-        if ($idLangue != null)
-        {
+        if ($idLangue != null) {
             $name = $idLangue . EXTENSION_PROPERTIES;
         } else {
             $name = self::getFileName();

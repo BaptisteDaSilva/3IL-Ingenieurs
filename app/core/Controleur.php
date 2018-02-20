@@ -11,6 +11,7 @@ use Rodez_3IL_Ingenieurs\Libs\Properties;
  */
 abstract class Controleur
 {
+
     /** @var string le titre de la page. */
     private $titre;
 

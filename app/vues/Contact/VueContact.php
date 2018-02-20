@@ -17,10 +17,10 @@ require_once TEMPLATES . 'menu.php';
                             <div class="col-md-12">
                                 <?php if (self::isAdminConnect()) { ?>
                                 <form method="post" action="/Administration/modifierTexte/Contact/EnvoieOK">
-                                    <div class="form-group">
-                                        <textarea name="new" class="form-control" onchange="this.form.submit();"><?= self::get('Contact', 'EnvoieOK') ?></textarea>
-                                    </div>
-                                </form>
+                                <div class="form-group">
+                                    <textarea name="new" class="form-control" onchange="this.form.submit();"><?= self::get('Contact', 'EnvoieOK') ?></textarea>
+                                </div>
+                            </form>
                                 <?php } else { ?>
                                 <?= self::get('Contact', 'EnvoieOK') ?>
                                 <?php }?>
@@ -29,10 +29,10 @@ require_once TEMPLATES . 'menu.php';
                                 <div class="col-md-12">
                                     <?php if (self::isAdminConnect()) { ?>
                                     <form method="post" action="/Administration/modifierTexte/Contact/EnvoieKO">
-                                        <div class="form-group">
-                                            <textarea name="new" class="form-control" onchange="this.form.submit();"><?= self::get('Contact', 'EnvoieKO') ?></textarea>
-                                        </div>
-                                    </form>
+                                <div class="form-group">
+                                    <textarea name="new" class="form-control" onchange="this.form.submit();"><?= self::get('Contact', 'EnvoieKO') ?></textarea>
+                                </div>
+                            </form>
                                     <?php } else { ?>
                                     <?= self::get('Contact', 'EnvoieKO') ?>
                                     <?php }?>
@@ -58,7 +58,8 @@ require_once TEMPLATES . 'menu.php';
                                 <form method="post" action="Contact/sendMail">
                                     <div class="form-group">
                                         <label for="login"><?= self::get('Contact', 'Libelle', 'Expediteur') ?></label>
-                                        <input id="login" type="text" class="form-control" name="login" value="<?=$_SESSION['util']->getEmail()?>" disabled required>
+                                        <input id="login" type="text" class="form-control" name="login" value="<?=$_SESSION['util']->getEmail()?>"
+                                            disabled required>
                                     </div>
                                     <div class="form-group">
                                         <label for="objet"><?= self::get('Contact', 'Libelle', 'Objet') ?></label>
@@ -70,7 +71,8 @@ require_once TEMPLATES . 'menu.php';
                                         <textarea id="message" class="form-control" name="message" required><?= self::get('Contact', 'Placeholder', 'Message') ?></textarea>
                                     </div>
                                     <div>
-                                        <input type="submit" name="submit" value="<?= self::get('Contact', 'Bouton', 'Envoyer') ?>" class="btn mon-btn">
+                                        <input type="submit" name="submit" value="<?= self::get('Contact', 'Bouton', 'Envoyer') ?>"
+                                            class="btn mon-btn">
                                     </div>
                                 </form>
                             </div>

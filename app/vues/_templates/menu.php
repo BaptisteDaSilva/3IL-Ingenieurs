@@ -8,7 +8,8 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand" href="/"><img src="<?= IMAGES . 'ico.png' ?>"> <?= self::get('Titre') ?></a>
+            <a class="navbar-brand" href="/">
+                <img src="<?= IMAGES . 'ico.png' ?>"> <?= self::get('Titre') ?></a>
         </div>
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
             <ul class="nav navbar-nav">
@@ -16,7 +17,7 @@
                     <a href="/">
                         <i class="fa fa-home"></i><?= self::get('Accueil', 'Titre') ?><span class="sr-only"> (current)</span>
                     </a>
-                </li>                
+                </li>
                 <li <?php if ($this->getActivePage() == 'Formation') { echo 'class="active"'; } ?>>
                     <a href="/Formation">
                         <i class="fa fa-file"></i><?= self::get('Formation', 'Titre') ?>
@@ -42,7 +43,8 @@
                 <?php if (isset($_SESSION['util'])) { ?>
                 <li class="dropdown">
                     <a href="#" class="dropdown-toggle login" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
-                        <img class="profil <?php if ($_SESSION['util']->isAdmin()) { echo 'admin'; } ?>" src="<?= $_SESSION['util']->getLienAvatar() ?>">
+                        <img class="profil <?php if ($_SESSION['util']->isAdmin()) { echo 'admin'; } ?>"
+                            src="<?= $_SESSION['util']->getLienAvatar() ?>">
                         <b><?= $_SESSION['util']->getLogin() ?></b>
                         <span class="caret"></span>
                     </a>
@@ -74,13 +76,16 @@
                         <li>
                             <form id="form-inscrire" class="form-inscrire" method="post" action="/Inscription">
                                 <div class="form-group">
-                                    <input type="text" name="login" class="form-control" placeholder="<?= self::get('MonCompte', 'Placeholder', 'NomDeCompte') ?>" required>
+                                    <input type="text" name="login" class="form-control"
+                                        placeholder="<?= self::get('MonCompte', 'Placeholder', 'NomDeCompte') ?>" required>
                                 </div>
                                 <div class="form-group">
-                                    <input type="password" name="mdp" class="form-control" placeholder="<?= self::get('MonCompte', 'Placeholder', 'MotDePasse') ?>" required>
+                                    <input type="password" name="mdp" class="form-control"
+                                        placeholder="<?= self::get('MonCompte', 'Placeholder', 'MotDePasse') ?>" required>
                                 </div>
                                 <div class="form-group">
-                                    <input type="email" name="email" class="form-control" placeholder="<?= self::get('MonCompte', 'Placeholder', 'EMail') ?>" required>
+                                    <input type="email" name="email" class="form-control"
+                                        placeholder="<?= self::get('MonCompte', 'Placeholder', 'EMail') ?>" required>
                                 </div>
                                 <input type="submit" name="submit" class="btn mon-btn" disabled value="<?= self::get('SInscrire', 'Bouton') ?>">
                             </form>
@@ -95,10 +100,12 @@
                         <li>
                             <form class="form-connect" method="post" action="/Connexion">
                                 <div class="form-group">
-                                    <input type="text" name="login" class="form-control" placeholder="<?= self::get('MonCompte', 'Placeholder', 'NomDeCompte') ?>" required>
+                                    <input type="text" name="login" class="form-control"
+                                        placeholder="<?= self::get('MonCompte', 'Placeholder', 'NomDeCompte') ?>" required>
                                 </div>
                                 <div class="form-group">
-                                    <input type="password" class="form-control" name="mdp" placeholder="<?= self::get('MonCompte', 'Placeholder', 'MotDePasse') ?>" required>
+                                    <input type="password" class="form-control" name="mdp"
+                                        placeholder="<?= self::get('MonCompte', 'Placeholder', 'MotDePasse') ?>" required>
                                 </div>
                                 <div class="form-group">
                                     <input id="remember" type="checkbox" name="remember" class="checkbox-inline">

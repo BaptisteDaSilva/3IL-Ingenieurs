@@ -11,6 +11,7 @@ use Rodez_3IL_Ingenieurs\Modeles\Utilisateur;
  */
 class Inscription extends Controleur
 {
+
     /** @var bool */
     private $inscriptionOK;
 

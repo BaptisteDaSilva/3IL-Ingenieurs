@@ -7,29 +7,28 @@
 			"Texte": "Ecole d'ingénieurs en informatique à Rodez"
 		}
 	},
-	"Apprentissage": {
-		"Titre": "Apprentissage",
-		"Texte": "TODO ecrire apprentissage"
-	},
 	"Formation": {
 		"Titre": "Formation",
-		"Texte": "Texte lalalalalalalaalalr",
 		"Annee1": {
 			"Titre": "Année 1",
-			"Texte": "TODO ecrire année 1"
+			"Texte": "<div class=\"vue-table\">\r\n    <div class=\"cell\">\r\n        <h4>INFORMATIQUE<\/h4>\r\n        <ul>\r\n            <li>Architecture des ordinateurs<\/li>\r\n            <li>Base Système<\/li>\r\n            <li>Algorithmique (java)<\/li>\r\n            <li>Projet ACSI - Bases de données<\/li>\r\n            <li>Réseaux : normes et protocoles<\/li>\r\n            <li>Langage C<\/li>\r\n        <\/ul>\r\n    <\/div>\r\n    <div class=\"cell\">\r\n        <h4>SCIENCES HUMAINES, ÉCONOMIQUES ET SOCIALES<\/h4>\r\n        <ul>\r\n            <li>Gestion de projet<\/li>\r\n            <li>Communication \/ Anglais<\/li>\r\n            <li>Gestion économique et financière<\/li>\r\n            <li>Culture internationale (chinois)<\/li>\r\n            <li>Engagement personnel<\/li>\r\n        <\/ul>\r\n    <\/div>\r\n    <div class=\"cell\">\r\n        <h4>SCIENCES DE L’INGÉNIEUR<\/h4>\r\n        <ul>\r\n            <li>Mathématiques du signal<\/li>\r\n            <li>Programmation linéaire<\/li>\r\n            <li>Electricité<\/li>\r\n            <li>Electronique<\/li>\r\n            <li>Probabilités et statistiques<\/li>\r\n        <\/ul>\r\n    <\/div>\r\n<\/div>"
 		},
 		"Annee2": {
 			"Titre": "Année 2",
-			"Texte": "TODO ecrire année 2"
+			"Texte": "\r\n<div class=\"vue-table\">\r\n    <div class=\"row\">\r\n        <div class=\"cell\">\r\n            <h4>INFORMATIQUE<\/h4>\r\n            <ul>\r\n                <li>Sécurité informatique<\/li>\r\n                <li>Programmation système<\/li>\r\n                <li>Unix<\/li>\r\n                <li>Réseaux : normes et protocoles<\/li>\r\n                <li>Réseaux : mise en œuvre<\/li>\r\n            <\/ul>\r\n        <\/div>\r\n        <div class=\"cell\">\r\n            <h4>DEVELOPPEMENT<\/h4>\r\n            <ul>\r\n                <li>Analyse orientée objet<\/li>\r\n                <li>Java Avancé<\/li>\r\n                <li>Bases de données<\/li>\r\n                <li>Développement Web<\/li>\r\n            <\/ul>\r\n        <\/div>\r\n        <div class=\"cell\">\r\n            <h4>SCIENCES DE L’INGÉNIEUR<\/h4>\r\n            <ul>\r\n                <li>Analyse numérique<\/li>\r\n                <li>Théorie des graphes<\/li>\r\n                <li>Modélisation \/ Analyse des systèmes<\/li>\r\n                <li>Traitement du signal<\/li>\r\n                <li>Propagation \/ Modulation<\/li>\r\n                <li>Modulation<\/li>\r\n            <\/ul>\r\n        <\/div>\r\n    <\/div>\r\n    <div class=\"row\">\r\n        <div class=\"cell\">\r\n            <h4>SCIENCES HUMAINES, ÉCONOMIQUES ET SOCIALES<\/h4>\r\n            <ul>\r\n                <li>Anglais<\/li>\r\n                <li>Culture internationale (chinois)<\/li>\r\n                <li>Conduite de projet<\/li>\r\n            <\/ul>\r\n        <\/div>\r\n        <div class=\"cell\">\r\n            <h4>PROJETS<\/h4>\r\n            <ul>\r\n                <li>Projet technologique<\/li>\r\n                <li>Travail de recherche en gestion<\/li>\r\n            <\/ul>\r\n        <\/div>\r\n    <\/div>\r\n<\/div>"
 		},
 		"Annee3": {
 			"Titre": "Année 3",
-			"Texte": "TODO ecrire année 3"
+			"Texte": "<h4>Réaliser une mobilité internationale<\/h4>\r\n<p>Liste non exhaustive des partenaires :<\/p>\r\n<ul>\r\n    <li>\r\n        Canada :\r\n        <ul>\r\n            <li>UQO (Ottawa)<\/li>\r\n            <li>UQAC (Chicoutimie)<\/li>\r\n            <li>Laval<\/li>\r\n        <\/ul>\r\n    <\/li>\r\n    <li>Bulgarie<\/li>\r\n    <li>Erasmus +<\/li>\r\n    <li>...<\/li>\r\n<\/ul>"
 		}
+	},
+	"Apprentissage": {
+		"Titre": "Apprentissage",
+		"Texte": "L’apprenti ingénieur alterne les périodes en entreprise et au sein de l’école. Chaque mission en entreprise est rapprochée d’un domaine d’enseignement qu’elle permet de valider. Si le rythme des études en apprentissage est différent de celui d’un étudiant en formation classique, le diplôme délivré à la fin du cursus est le même. Il est habilité par la <a href=\"https:\/\/www.cti-commission.fr\/\" target=\"_blank\">Commission des Titres d’Ingénieur<\/a> et confère un grade Master. Les obligations inhérentes au diplôme d’ingénieur sont également les mêmes : l’apprenti doit obtenir son TOEIC avec 785 points minimum et doit réaliser une mobilité internationale obligatoire. Cette dernière est aménagée pour tenir compte du rythme professionnel imposé à l’apprenti. Cette obligation est prévue dans le cadre du contrat d’apprentissage signé en début de cursus. Le projet pédagogique est identique à celui de la formation initiale. Le programme suivi à l’école est le même que les élèves ingénieurs en formation classique. Le nombre d’heures et de crédits attribués à chaque matière est différent pour respecter le rythme de l’alternance école\/entreprise. La validation des matières suit les mêmes procédures. Les options de spécialisation à choisir pour la 3ème année sont accessibles à tous les apprentis.\r\n<br>\r\n<img src=\"http:\/\/www.3il-ingenieurs.fr\/ingenieurs\/wp-content\/uploads\/2015\/12\/tableau-apprentissage.jpg\" alt=\"\">"
 	},
 	"Rodez": {
 		"Titre": "Rodez",
-		"Texte": "TODO ecrire rodez"
+		"Texte": "<h3>Infrastructures et moyens à Rodez<\/h3>\r\nL’école d’ingénieurs 3iL Rodez est hébergée dans les locaux récents du centre de formation de la Chambre de Commerce et d’Industrie de Rodez, Villefranche, Espalion. Au sein d’un bâtiment de 6 800 m2, le centre de formation dispose d’un étage dédié à l’école d’ingénieurs équipé d’un centre de 6 serveurs NT\/UNIX. Les élèves ingénieurs étudient en amphi, salles de TD ou de TP (plus de 150 PC disponibles). Ils ont également accès à :\r\n<ul>\r\n    <li>un centre de documentation<\/li>\r\n    <li>deux salles de projets<\/li>\r\n    <li>un laboratoire multimedia<\/li>\r\n    <li>un centre d’études des langues<\/li>\r\n    <li>un foyer étudiant…<\/li>\r\n<\/ul>"
 	},
 	"Contact": {
 		"Titre": "Contact",
@@ -46,8 +45,26 @@
 			"Message": "Message a envoyer"
 		},
 		"Bouton": {
-			"Envoyer": "Send"
+			"Envoyer": "Envoyer"
 		}
+	},
+	"SInscrire": {
+		"Titre": "S'inscrire",
+		"TitreOK": "Inscription : Réussie !",
+		"TitreKO": "Inscription : Echoué !",
+		"TexteOK": "Votre inscription s'est déroulée avec succès. <br> Vous pouvez maintenant vous connecter avec vos identifiants. <br> Merci.",
+		"TexteKO": "Un problème est survenu lors de votre inscription. <br> Merci de réessayer de vous inscrire avec des identifiants différents.",
+		"Bouton": "S'inscrire",
+		"Texte": "Vous avez été déconnecté avec succès ! <br> Redirection sur la page d'accueil dans 5 secondes !"
+	},
+	"SeConnecter": {
+		"Titre": "Se connecter",
+		"TitreKO": "Erreur lors de la connexion !",
+		"TexteKO": "Les identifiants que vous avez fournis ne permettent pas de vous connecter. <br> Merci de réessayer de vous connecter avec de bon identifiants.",
+		"Bouton": "Se connecter",
+		"SeSouvenirDeMoi": "Se souvenir de moi",
+		"TitreOk": "Déconnexion Réussie !",
+		"Texte": "Vous avez été déconnecté avec succès ! <br> Redirection sur la page d'accueil dans 5 secondes !"
 	},
 	"MonCompte": {
 		"Titre": "Mon compte",
@@ -108,24 +125,6 @@
 			"Upgrader": "Upgrader"
 		}
 	},
-	"SeConnecter": {
-		"Titre": "Se connecter",
-		"TitreKO": "Erreur lors de la connexion !",
-		"TexteKO": "Les identifiants que vous avez fournis ne permettent pas de vous connecter. <br> Merci de réessayer de vous connecter avec de bon identifiants.",
-		"Bouton": "Se connecter",
-		"SeSouvenirDeMoi": "Se souvenir de moi",
-		"TitreOk": "Déconnexion Réussie !",
-		"Texte": "Vous avez été déconnecté avec succès ! <br> Redirection sur la page d'accueil dans 5 secondes !"
-	},
-	"SInscrire": {
-		"Titre": "S'inscrire",
-		"TitreOK": "Inscription : Réussie !",
-		"TitreKO": "Inscription : Echoué !",
-		"TexteOK": "Votre inscription s'est déroulée avec succès. <br> Vous pouvez maintenant vous connecter avec vos identifiants. <br> Merci.",
-		"TexteKO": "Un problème est survenu lors de votre inscription. <br> Merci de réessayer de vous inscrire avec des identifiants différents.",
-		"Bouton": "S'inscrire",
-		"Texte": "Vous avez été déconnecté avec succès ! <br> Redirection sur la page d'accueil dans 5 secondes !"
-	},
 	"Deconnexion": {
 		"Titre": "Se déconnecter",
 		"TitreOk": "Déconnexion Réussie !",
@@ -133,8 +132,8 @@
 	},
 	"Footer": {
 		"Phrase1": "Nathan RIBAS et Baptiste RIBEIRO DA SILVA",
-		"Phrase2": "3IL Rodez",
-		"Phrase3": "Rue de Bruxelles 12000 BOURRAN"
+		"Phrase2": "3iL Rodez",
+		"Phrase3": "Rue de Bruxelles 12000 Rodez BOURRAN"
 	},
 	"Erreur404": {
 		"Titre": "Erreur 404"

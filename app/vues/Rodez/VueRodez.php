@@ -30,7 +30,6 @@ service.getDetails({
 });
 }
 </script>
-
 <div class="container-fluid">
     <div class="row">
         <div class="col-md-2"></div>
@@ -43,7 +42,8 @@ service.getDetails({
                     <div class="row">
                         <div class="col-md-12">
                             <div id="map"></div>
-                            <script async defer src="https://maps.googleapis.com/maps/api/js?key= AIzaSyBh1og4fND2nSzGd_zg1YOY6EubODBmdAI&libraries=places&callback=initMap"></script>
+                            <script async defer
+                                src="https://maps.googleapis.com/maps/api/js?key= AIzaSyBh1og4fND2nSzGd_zg1YOY6EubODBmdAI&libraries=places&callback=initMap"></script>
                             <?php if (self::isAdminConnect()) { ?>
                             <form method="post" action="/Administration/modifierTexte/Rodez/Texte">
                                 <div class="form-group">

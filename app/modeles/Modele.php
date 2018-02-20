@@ -5,6 +5,7 @@ use Rodez_3IL_Ingenieurs\Libs\BaseDeDonnees;
 
 abstract class Modele
 {
+
     /** @var BaseDeDonnees la connexion à la base de données. */
     private static $baseDeDonnees;
 

@@ -10,6 +10,7 @@ use Rodez_3IL_Ingenieurs\Core\Controleur;
  */
 class Rodez extends Controleur
 {
+
     /**
      * Créé un nouveau contrôleur de la page de présentation de Rodez.
      */

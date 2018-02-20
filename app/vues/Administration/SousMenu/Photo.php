@@ -25,10 +25,10 @@ $("#photo").change(function() {
                     <?php foreach ($this->photos as $photo) { ?>
                     <div class="photo">
                         <img src="<?= PHOTOS . $photo ?>" alt="<?= $photo?>" />
-                    <p>
-                        <input id="supp<?= $photo ?>" type="checkbox" name="aSupp[]" value="<?= $photo ?>">
-                        <label for="supp<?= $photo ?>"><?= $photo ?></label>
-                    </p>
+                        <p>
+                            <input id="supp<?= $photo ?>" type="checkbox" name="aSupp[]" value="<?= $photo ?>">
+                            <label for="supp<?= $photo ?>"><?= $photo ?></label>
+                        </p>
                     </div>
                     <?php } ?> 
                 </div>

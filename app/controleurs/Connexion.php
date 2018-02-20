@@ -11,6 +11,7 @@ use Rodez_3IL_Ingenieurs\Modeles\Utilisateur;
  */
 class Connexion extends Controleur
 {
+
     /**
      * Méthode lancée par défaut sur un contrôleur.
      */
@@ -27,13 +28,13 @@ class Connexion extends Controleur
             $util = Utilisateur::getConnexion($login, $mdp);
             
             // Si l'utilisateur est correct.
-            if ($util != null) {                
+            if ($util != null) {
                 // Créé la variable de session de l'utilisateur.
                 $_SESSION['util'] = $util;
                 
-                if(isset($_POST['remember'])) {
-                    setcookie('3il-Ingenieurs-Util-nom', $util->getLogin(), time() + 24*3600, null, null, false, true);
-                    setcookie('3il-Ingenieurs-Util-mdp', $util->getMdp(), time() + 24*3600, null, null, false, true);
+                if (isset($_POST['remember'])) {
+                    setcookie('3il-Ingenieurs-Util-nom', $util->getLogin(), time() + 24 * 3600, null, null, false, true);
+                    setcookie('3il-Ingenieurs-Util-mdp', $util->getMdp(), time() + 24 * 3600, null, null, false, true);
                 }
                 
                 if (substr($_SERVER['HTTP_REFERER'], - strlen("Deconnexion")) === "Deconnexion") {

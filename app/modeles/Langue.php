@@ -11,6 +11,7 @@ use Rodez_3IL_Ingenieurs\Libs\Photo;
  */
 class Langue extends Modele
 {
+
     /** @var string Requête SQL permettant de rechercher tous les langues */
     const RQT_LANGUES = 'SELECT idLangue, nom
                          FROM t_langues';

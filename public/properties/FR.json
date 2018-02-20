@@ -9,7 +9,6 @@
 	},
 	"Formation": {
 		"Titre": "Formation",
-		"Texte": "Texte lalalalalalalaalalr",
 		"Annee1": {
 			"Titre": "Année 1",
 			"Texte": "<div class=\"vue-table\">\r\n    <div class=\"cell\">\r\n        <h4>INFORMATIQUE<\/h4>\r\n        <ul>\r\n            <li>Architecture des ordinateurs<\/li>\r\n            <li>Base Système<\/li>\r\n            <li>Algorithmique (java)<\/li>\r\n            <li>Projet ACSI - Bases de données<\/li>\r\n            <li>Réseaux : normes et protocoles<\/li>\r\n            <li>Langage C<\/li>\r\n        <\/ul>\r\n    <\/div>\r\n    <div class=\"cell\">\r\n        <h4>SCIENCES HUMAINES, ÉCONOMIQUES ET SOCIALES<\/h4>\r\n        <ul>\r\n            <li>Gestion de projet<\/li>\r\n            <li>Communication \/ Anglais<\/li>\r\n            <li>Gestion économique et financière<\/li>\r\n            <li>Culture internationale (chinois)<\/li>\r\n            <li>Engagement personnel<\/li>\r\n        <\/ul>\r\n    <\/div>\r\n    <div class=\"cell\">\r\n        <h4>SCIENCES DE L’INGÉNIEUR<\/h4>\r\n        <ul>\r\n            <li>Mathématiques du signal<\/li>\r\n            <li>Programmation linéaire<\/li>\r\n            <li>Electricité<\/li>\r\n            <li>Electronique<\/li>\r\n            <li>Probabilités et statistiques<\/li>\r\n        <\/ul>\r\n    <\/div>\r\n<\/div>"

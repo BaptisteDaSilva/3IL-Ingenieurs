@@ -10,6 +10,7 @@ use Rodez_3IL_Ingenieurs\Core\Controleur;
  */
 class Deconnexion extends Controleur
 {
+
     /**
      * Méthode lancée par défaut sur un contrôleur.
      */

@@ -1,5 +1,4 @@
 <?php
-
 namespace Psr\Log;
 
 /**
@@ -7,6 +6,7 @@ namespace Psr\Log;
  */
 trait LoggerAwareTrait
 {
+
     /**
      * The logger instance.
      *

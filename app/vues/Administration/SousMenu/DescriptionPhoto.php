@@ -12,7 +12,8 @@
                     <?php foreach ($description['photos'] as $photo) { ?>
                     <div class="photo">
                         <img src="<?= PHOTOS . $photo['name'] ?>" alt="<?= $photo['name'] ?>" />
-                        <input class="form-control" id="<?= $photo['name'] ?>" type="text" name="photos[<?= $photo['name'] ?>]" placeholder="<?= self::get('Administration', 'Placeholder', 'AjouterDescription') ?>" value="<?= $photo['desc'] ?>" />
+                        <input class="form-control" id="<?= $photo['name'] ?>" type="text" name="photos[<?= $photo['name'] ?>]"
+                            placeholder="<?= self::get('Administration', 'Placeholder', 'AjouterDescription') ?>" value="<?= $photo['desc'] ?>" />
                     </div>
                     <?php } ?> 
                 </div>

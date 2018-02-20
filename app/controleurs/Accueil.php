@@ -11,6 +11,7 @@ use Rodez_3IL_Ingenieurs\Libs\Photo;
  */
 class Accueil extends Controleur
 {
+
     /** @var resource Photos afichiés dans le slider */
     private static $photos;
 

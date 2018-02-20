@@ -15,6 +15,7 @@ use Rodez_3IL_Ingenieurs\Libs\Properties;
  */
 class Administration extends Controleur
 {
+
     /** @var bool */
     private $modifOK;
 
@@ -34,7 +35,8 @@ class Administration extends Controleur
     public $descriptions;
 
     /** @var string Menu a affiché dans mon compte */
-    public $menu = 'Avatar'; // TODO marche mais change pas
+    public $menu = 'Avatar';
+ // TODO marche mais change pas
     
     /**
      * Méthode lancée par défaut sur un contrôleur.

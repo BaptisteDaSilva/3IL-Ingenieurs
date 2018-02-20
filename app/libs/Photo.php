@@ -10,6 +10,7 @@ use Rodez_3IL_Ingenieurs\Modeles\Langue;
  */
 class Photo
 {
+
     /**
      * Chemin vers le fichier XML qui contient les photos du slider
      */

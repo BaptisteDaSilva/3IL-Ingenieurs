@@ -13,6 +13,7 @@ use Rodez_3IL_Ingenieurs\Modeles\Avatar;
  */
 class MonCompte extends Controleur
 {
+
     /** @var bool */
     private $modifOK;
 

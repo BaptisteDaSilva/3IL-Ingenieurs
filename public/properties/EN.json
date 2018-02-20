@@ -9,18 +9,17 @@
 	},
 	"Formation": {
 		"Titre": "Training",
-		"Texte": "Text lalalalalalalaalalr",
 		"Annee1": {
 			"Titre": "Year 1",
-			"Texte": "TODO write year 1"
+			"Texte": "<div class=\"vue-table\">\r\n    <div class=\"cell\">\r\n        <h4>COMPUTER<\/h4>\r\n        <ul>\r\n            <li>Computer Architecture<\/li>\r\n            <li>System Base<\/li>\r\n            <li>Algorithms (java)<\/li>\r\n            <li>ACSI Project - Databases<\/li>\r\n            <li>Networks: standards and protocols<\/li>\r\n            <li>Language C<\/li>\r\n        <\/ul>\r\n    <\/div>\r\n    <div class=\"cell\">\r\n        <h4>HUMAN, ECONOMIC AND SOCIAL SCIENCES<\/h4>\r\n        <ul>\r\n            <li>Project Management<\/li>\r\n            <li>Communication \/ English<\/li>\r\n            <li>Economic and financial management<\/li>\r\n            <li>International culture (Chinese)<\/li>\r\n            <li>Personal commitment<\/li>\r\n        <\/ul>\r\n    <\/div>\r\n    <div class=\"cell\">\r\n        <h4>ENGINEERING SCIENCE<\/h4>\r\n        <ul>\r\n            <li>Signal Mathematics<\/li>\r\n            <li>Linear programming<\/li>\r\n            <li>Electricity<\/li>\r\n            <li>Electronics<\/li>\r\n            <li>Probability and Statistics<\/li>\r\n        <\/ul>\r\n    <\/div>\r\n<\/div>"
 		},
 		"Annee2": {
 			"Titre": "Year 2",
-			"Texte": "TODO write year 2"
+			"Texte": "<div class=\"vue-table\">\r\n    <div class=\"row\">\r\n        <div class=\"cell\">\r\n            <h4>COMPUTER<\/h4>\r\n            <ul>\r\n                <li>Computer Security<\/li>\r\n                <li>System programming<\/li>\r\n                <li>Unix<\/li>\r\n                <li>Networks: standards and protocols<\/li>\r\n                <li>Networks: implementation<\/li>\r\n            <\/ul>\r\n        <\/div>\r\n        <div class=\"cell\">\r\n            <h4>DEVELOPMENT<\/h4>\r\n            <ul>\r\n                <li>Object-oriented analysis<\/li>\r\n                <li>Advanced Java<\/li>\r\n                <li>Databases<\/li>\r\n                <li>Web Development<\/li>\r\n            <\/ul>\r\n        <\/div>\r\n        <div class=\"cell\">\r\n            <h4>ENGINEERING SCIENCE<\/h4>\r\n            <ul>\r\n                <li>Numerical Analysis<\/li>\r\n                <li>Graph Theory<\/li>\r\n                <li>Modeling \/ Systems Analysis<\/li>\r\n                <li>Signal processing<\/li>\r\n                <li>Propagation \/ Modulation<\/li>\r\n                <li>Modulation<\/li>\r\n            <\/ul>\r\n        <\/div>\r\n    <\/div>\r\n    <div class=\"row\">\r\n        <div class=\"cell\">\r\n            <h4>HUMAN, ECONOMIC AND SOCIAL SCIENCES<\/h4>\r\n            <ul>\r\n                <li>English<\/li>\r\n                <li>International culture (Chinese)<\/li>\r\n                <li>Project management<\/li>\r\n            <\/ul>\r\n        <\/div>\r\n        <div class=\"cell\">\r\n            <h4>PROJECTS<\/h4>\r\n            <ul>\r\n                <li>Technological Project<\/li>\r\n                <li>Management Research Work<\/li>\r\n            <\/ul>\r\n        <\/div>\r\n    <\/div>\r\n<\/div>"
 		},
 		"Annee3": {
 			"Titre": "Year 3",
-			"Texte": "TODO write year 3"
+			"Texte": "<h4>Achieve international mobility<\/h4>\r\n<p>Non-exhaustive list of partners:<\/p>\r\n<ul>\r\n     <li>\r\n         Canada:\r\n         <ul>\r\n             <li>UQO (Ottawa)<\/li>\r\n             <li>UQAC (Chicoutimie)<\/li>\r\n             <li>Laval<\/li>\r\n         <\/ul>\r\n    <\/li>\r\n     <li>Bulgaria<\/li>\r\n     <li>Erasmus +<\/li>\r\n     <li>...<\/li>\r\n<\/ul>"
 		}
 	},
 	"Apprentissage": {
@@ -35,15 +34,15 @@
 		"Titre": "Contact",
 		"Texte": "In order to contact us, please identify yourself.",
 		"EnvoieOK": "The message has been sent.",
-		"EnvoieKO": "Error while sending the message, you can contact us at the following address: <a href='mailto:'site.3il.ingenieurs@gmail.com'>site.3il.ingenieurs@gmail.com</a>",
+		"EnvoieKO": "Error while sending the message, you can contact us at the following address: <a href='mailto:'site.3il.ingenieurs@gmail.com'>site.3il.ingenieurs@gmail.com<\/a>",
 		"Libelle": {
-			"Expediteur": "Expediteur :",
-			"Objet": "Objet :",
+			"Expediteur": "Sender :",
+			"Objet": "Object :",
 			"Message": "Message :"
 		},
 		"Placeholder": {
-			"Objet": "Objet du message",
-			"Message": "Message a envoyer"
+			"Objet": "Object of the message",
+			"Message": "Message to send"
 		},
 		"Bouton": {
 			"Envoyer": "Send"

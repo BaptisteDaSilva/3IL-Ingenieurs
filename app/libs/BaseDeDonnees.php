@@ -8,6 +8,7 @@ namespace Rodez_3IL_Ingenieurs\Libs;
  */
 class BaseDeDonnees
 {
+
     /**
      * Les options pour toutes les requêtes à la base de donnée.
      */

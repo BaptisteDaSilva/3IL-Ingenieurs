@@ -10,6 +10,7 @@ use Rodez_3IL_Ingenieurs\Libs\Properties;
  */
 class Utilisateur extends Modele
 {
+
     /** @var string Requête SQL permettant de rechercher un utilisateur a partir de son login */
     const RQT_UTIL = 'SELECT login, mdp, email, type, idAvatar, idLangue
                       FROM t_utils
@@ -197,7 +198,7 @@ class Utilisateur extends Modele
         self::connexionBD();
         // Prépare la requête
         $requete = self::getBaseDeDonnees()->getCnxBD()->prepare(self::RQT_CONNEXION_UTIL);
-                
+        
         // Ajout des variables
         $requete->bindParam(':login', $login, \PDO::PARAM_STR);
         $requete->bindParam(':mdp', $mdp, \PDO::PARAM_STR);

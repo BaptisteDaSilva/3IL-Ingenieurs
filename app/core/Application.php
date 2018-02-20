@@ -13,6 +13,7 @@ use Rodez_3IL_Ingenieurs\Modeles\Utilisateur;
  */
 class Application
 {
+
     /** @var Controleur le contrôleur de la page. */
     private $controleur;
 
@@ -30,7 +31,7 @@ class Application
      * affiche une page d'erreur.
      */
     public function __construct()
-    {        
+    {
         // Par défaut
         $this->methode = 'index';
         $this->params = array();
@@ -147,18 +148,17 @@ class Application
         // else
         return null;
     }
-    
+
     /**
      * Connecte un utilisateur à partir des cookies
      */
     private function connexionUtilCookie()
-    {    
-        if (!isset($_SESSION['util']) && isset($_COOKIE['3il-Ingenieurs-Util-nom']) && isset($_COOKIE['3il-Ingenieurs-Util-mdp']))
-        {            
+    {
+        if (! isset($_SESSION['util']) && isset($_COOKIE['3il-Ingenieurs-Util-nom']) && isset($_COOKIE['3il-Ingenieurs-Util-mdp'])) {
             $util = Utilisateur::getConnexion($_COOKIE['3il-Ingenieurs-Util-nom'], $_COOKIE['3il-Ingenieurs-Util-mdp']);
             
             // Si l'utilisateur est correct.
-            if ($util != null) {                
+            if ($util != null) {
                 // Créé la variable de session de l'utilisateur.
                 $_SESSION['util'] = $util;
             }
