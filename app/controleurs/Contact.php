@@ -31,7 +31,9 @@ class Contact extends Controleur
         require_once VUES . 'Contact/VueContact.php';
     }
     
-    public function sendMail() {        
+    public function sendMail() { 
+        $this->setTitre($this->get('Contact', 'Titre'));
+        
         $mail = new PHPMailer(true);                              // Passing `true` enables exceptions
 
         //Server settings
