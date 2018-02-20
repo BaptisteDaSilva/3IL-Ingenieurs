@@ -49,6 +49,9 @@ class Utilisateur extends Modele
 
     /** @var string Requête SQL permettant de modifier le type d'un utilisateur */
     const RQT_MODIFIER_TYPE_UTIL = 'UPDATE t_utils SET type = :type WHERE login = :login';
+    
+    /** @var string Requête SQL permettant de modifier le type d'un utilisateur */
+    const RQT_DELETE_UTIL = 'DELETE FROM t_utils WHERE login = :login';
 
     /** @var string Login de l'utilisateur */
     private $login;
@@ -272,6 +275,25 @@ class Utilisateur extends Modele
             ':mdp' => $this->mdp,
             ':email' => $this->email,
             ':type' => $this->type
+        ));
+    }
+    
+    /**
+     * Ajoute un nouvelle utilisateur dans la BD
+     *
+     * @return boolean True si insertion OK, false sinon
+     */
+    public function deleteBD()
+    {
+        // Connexion à la base
+        self::connexionBD();
+        
+        // Prépare la requête
+        $requete = self::getBaseDeDonnees()->getCnxBD()->prepare(self::RQT_DELETE_UTIL);
+        
+        // Exécution de la requête avec les paramètres.
+        return $requete->execute(array(
+            ':login' => $this->login
         ));
     }
 

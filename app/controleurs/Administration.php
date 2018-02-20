@@ -164,6 +164,22 @@ class Administration extends Controleur
         
         header('Location: /Administration/');
     }
+    
+    /**
+     * Méthode lancée pour supprimer un administrateur
+     */
+    public function supprimerMembre()
+    {
+        if (self::isAdminConnect()) {
+            foreach ($_POST['aSupp'] as $aSupp) {
+                Utilisateur::getUtilisateur($aSupp)->deleteBD();
+            }
+        }
+        
+        $this->menu = 'AdminMembre'; // TODO inutile
+        
+        header('Location: /Administration/');
+    }
 
     /**
      * Méthode lancée pour supprimer un administrateur

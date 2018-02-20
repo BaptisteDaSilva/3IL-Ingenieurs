@@ -92,7 +92,8 @@
 			"Utilisateurs": "",
 			"FichierProperties": "",
 			"ARemplir": "",
-			"Ajouter": ""
+			"Ajouter": "",
+			"SupprimerUtilisateurs" : ""
 		},
 		"Placeholder": {
 			"CodeLangue": "",

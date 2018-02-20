@@ -54,11 +54,13 @@
                                 <i class="fa fa-cog"></i><?= self::get('MonCompte', 'Titre') ?>
                             </a>
                         </li>
+                        <?php if (self::isAdminConnect()) { ?>
                         <li>
                             <a href="/Administration">
                                 <i class="fa fa-gears"></i><?= self::get('Administration', 'Titre') ?>
                             </a>
                         </li>
+                        <?php } ?>
                         <li>
                             <a href="/Deconnexion">
                                 <i class="fa fa-power-off"></i><?= self::get('Deconnexion', 'Titre') ?>

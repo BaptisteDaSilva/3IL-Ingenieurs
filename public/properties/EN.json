@@ -99,18 +99,19 @@
 	"Administration": {
 		"Titre": "Administration",
 		"Menu": {
-			"Avatar": "Avatar Admin",
-			"Langue": "Language Admin",
-			"Membre": "Administrator",
-			"Photo": "Photo Admin",
-			"DescriptionPhoto": "Administrator's Description Photo"
+			"Avatar": "Avatar admin",
+			"Langue": "Language admin",
+			"Membre": "Member admin",
+			"Photo": "Photo admin",
+			"DescriptionPhoto": "Photo description admin"
 		},
 		"Libelle": {
-			"Administrateurs": "Directors:",
+			"Administrateurs": "Administrators:",
 			"Utilisateurs": "Users:",
 			"FichierProperties": "File Properties:",
 			"ARemplir": "To fill",
-			"Ajouter": "Add:"
+			"Ajouter": "Add:",
+			"SupprimerUtilisateurs" : "Delete users :"
 		},
 		"Placeholder": {
 			"CodeLangue": "Code of the language (Ex: FR)",
