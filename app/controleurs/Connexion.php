@@ -17,6 +17,8 @@ class Connexion extends Controleur
      */
     public function index()
     {
+        $this->setTitre($this->get('SeConnecter', 'Titre'));
+        
         // Si le pseudo et le mot de passe transmit existent.
         if (isset($_POST['login']) && isset($_POST['mdp'])) {
             

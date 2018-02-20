@@ -20,6 +20,8 @@ class Inscription extends Controleur
      */
     public function index()
     {
+        $this->setTitre($this->get('SInscrire', 'Titre'));
+        
         if (isset($_POST['login']) && isset($_POST['mdp']) && isset($_POST['email'])) {
             $util = new Utilisateur($_POST['login'], Utilisateur::hashMdp($_POST['mdp']), $_POST['email']);
             
