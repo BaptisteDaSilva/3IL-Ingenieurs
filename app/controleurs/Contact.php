@@ -11,6 +11,9 @@ use Rodez_3IL_Ingenieurs\Core\Controleur;
  */
 class Contact extends Controleur
 {
+    /**  @var boolean Statut de l'envoie du mail */
+    private $statutEnvoie;
+    
     /**
      * Créé un nouveau contrôleur de la page de contact.
      */
@@ -74,6 +77,8 @@ class Contact extends Controleur
         $mail->Body    = $_POST['message'];
         //$mail->AltBody = 'This is the body in plain text for non-HTML mail clients';
 
-        $mail->send();
+        $this->statutEnvoie = $mail->send();
+        
+        $this->index();
     }
 }
