@@ -417,7 +417,7 @@ class SMTP
      * @param string $username The user name
      * @param string $password The password
      * @param string $authtype The auth type (CRAM-MD5, PLAIN, LOGIN, XOAUTH2)
-     * @param OAuth  $OAuth    An optional OAuth instance for XOAUTH2 authentication
+    // * @param OAuth  $OAuth    An optional OAuth instance for XOAUTH2 authentication
      *
      * @return bool True if successfully authenticated
      */

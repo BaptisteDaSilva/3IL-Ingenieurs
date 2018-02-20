@@ -1,8 +1,8 @@
 <?php
 namespace Rodez_3IL_Ingenieurs\Controleurs;
 
-use PHPMailer\PHPMailer\PHPMailer;
 use Rodez_3IL_Ingenieurs\Core\Controleur;
+use Rodez_3IL_Ingenieurs\lib\PHPMailer;
 
 /**
  * Contrôleur de la page de contact.
@@ -11,9 +11,6 @@ use Rodez_3IL_Ingenieurs\Core\Controleur;
  */
 class Contact extends Controleur
 {
-    /** @var boolean Statut de l'envoie du mail */
-    private $statutEnvoie = null;
-    
     /**
      * Créé un nouveau contrôleur de la page de contact.
      */
@@ -35,29 +32,21 @@ class Contact extends Controleur
     }
     
     public function sendMail() {        
-        $mail = new PHPMailer(true);                        // Passing `true` enables exceptions
+        $mail = new PHPMailer(true);                              // Passing `true` enables exceptions
 
         //Server settings
-        $mail->SMTPDebug = 0; // 2 debug                    // Enable verbose debug output
-        $mail->isSMTP();                                    // Set mailer to use SMTP
-        $mail->Host = 'smtp.gmail.com';                     // Specify main and backup SMTP servers
-        $mail->SMTPAuth = true;                             // Enable SMTP authentication
-        $mail->Username = 'site.3il.ingenieurs@gmail.com';  // SMTP username
-        $mail->Password = 'Azerty123+';                     // SMTP password
-        $mail->SMTPSecure = 'ssl';                          // Enable TLS encryption, `ssl` also accepted
-        $mail->Port = 465;                                  // TCP port to connect to
-        
-        $mail->SMTPOptions = array(
-            'ssl' => array(
-                'verify_peer' => false,
-                'verify_peer_name' => false,
-                'allow_self_signed' => true
-            )
-        );
-        
+        $mail->SMTPDebug = 2;                                 // Enable verbose debug output
+        $mail->isSMTP();                                      // Set mailer to use SMTP
+        $mail->Host = 'smtp.gmail.com';  // Specify main and backup SMTP servers
+        $mail->SMTPAuth = true;                               // Enable SMTP authentication
+        $mail->Username = 'site.3il.ingenieurs@gmail.com';                 // SMTP username
+        $mail->Password = 'Azerty123+';                           // SMTP password
+        $mail->SMTPSecure = 'tls';                            // Enable TLS encryption, `ssl` also accepted
+        $mail->Port = 465;                                    // TCP port to connect to
+
         //Recipients
         $mail->setFrom($_SESSION['util']->getEmail(), $_SESSION['util']->getLogin());
-        $mail->addAddress('site.3il.ingenieurs@gmail.com', 'Site 3iL-Ingenieurs');     // Add a recipient
+        $mail->addAddress('site.3il.ingenieurs@gmail.com', 'Site 3iL-Ingénieurs');     // Add a recipient
         //$mail->addAddress('ellen@example.com');               // Name is optional
         //$mail->addReplyTo('info@example.com', 'Information');
         $mail->addCC($_SESSION['util']->getEmail());
@@ -68,13 +57,11 @@ class Contact extends Controleur
         //$mail->addAttachment('/tmp/image.jpg', 'new.jpg');    // Optional name
 
         //Content
-        $mail->isHTML(false);                                  // Set email format to HTML
+        $mail->isHTML(true);                                  // Set email format to HTML
         $mail->Subject = $_POST['objet'];
         $mail->Body    = $_POST['message'];
         //$mail->AltBody = 'This is the body in plain text for non-HTML mail clients';
 
-        $this->statutEnvoie = $mail->send();
-        
-        require_once VUES . 'Contact/VueContact.php';
+        $mail->send();
     }
 }
