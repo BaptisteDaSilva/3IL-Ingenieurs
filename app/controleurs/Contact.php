@@ -36,16 +36,26 @@ class Contact extends Controleur
         
         $mail = new PHPMailer(true);                              // Passing `true` enables exceptions
 
+        $mail->CharSet = 'UTF-8';
+        
         //Server settings
-        $mail->SMTPDebug = 2;                                 // Enable verbose debug output
+        $mail->SMTPDebug = 0;   // 2 debug                               // Enable verbose debug output
         $mail->isSMTP();                                      // Set mailer to use SMTP
         $mail->Host = 'smtp.gmail.com';  // Specify main and backup SMTP servers
         $mail->SMTPAuth = true;                               // Enable SMTP authentication
         $mail->Username = 'site.3il.ingenieurs@gmail.com';                 // SMTP username
         $mail->Password = 'Azerty123+';                           // SMTP password
-        $mail->SMTPSecure = 'tls';                            // Enable TLS encryption, `ssl` also accepted
+        $mail->SMTPSecure = 'ssl';                            // Enable TLS encryption, `ssl` also accepted
         $mail->Port = 465;                                    // TCP port to connect to
 
+        $mail->SMTPOptions = array(
+            'ssl' => array(
+                'verify_peer' => false,
+                'verify_peer_name' => false,
+                'allow_self_signed' => true
+            )
+        );
+        
         //Recipients
         $mail->setFrom($_SESSION['util']->getEmail(), $_SESSION['util']->getLogin());
         $mail->addAddress('site.3il.ingenieurs@gmail.com', 'Site 3iL-Ingénieurs');     // Add a recipient
