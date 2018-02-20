@@ -1,8 +1,8 @@
 <?php
 namespace Rodez_3IL_Ingenieurs\Controleurs;
 
+use PHPMailer\PHPMailer\PHPMailer;
 use Rodez_3IL_Ingenieurs\Core\Controleur;
-use Rodez_3IL_Ingenieurs\lib\PHPMailer;
 
 /**
  * Contrôleur de la page de contact.
