@@ -12,6 +12,33 @@ require_once TEMPLATES . 'menu.php';
                 </div>
                 <div class="panel-body">
                     <div class="row">
+                        <?php if (isset($this->statutEnvoie)) { ?>
+                            <?php if ($this->statutEnvoie) { ?>
+                            <div class="col-md-12">
+                                <?php if (self::isAdminConnect()) { ?>
+                                <form method="post" action="/Administration/modifierTexte/Contact/EnvoieOK">
+                                    <div class="form-group">
+                                        <textarea name="new" class="form-control" onchange="this.form.submit();"><?= self::get('Contact', 'EnvoieOK') ?></textarea>
+                                    </div>
+                                </form>
+                                <?php } else { ?>
+                                <?= self::get('Contact', 'EnvoieOK') ?>
+                                <?php }?>
+                            </div>
+                            <?php } else { ?>
+                                <div class="col-md-12">
+                                    <?php if (self::isAdminConnect()) { ?>
+                                    <form method="post" action="/Administration/modifierTexte/Contact/EnvoieKO">
+                                        <div class="form-group">
+                                            <textarea name="new" class="form-control" onchange="this.form.submit();"><?= self::get('Contact', 'EnvoieKO') ?></textarea>
+                                        </div>
+                                    </form>
+                                    <?php } else { ?>
+                                    <?= self::get('Contact', 'EnvoieKO') ?>
+                                    <?php }?>
+                                </div>
+                            <?php } ?>
+                        <?php } ?>
                         <?php if (!isset($_SESSION['util'])) { ?>
                         <div class="col-md-12">
                             <?php if (self::isAdminConnect()) { ?>

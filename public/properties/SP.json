@@ -34,6 +34,8 @@
 	"Contact": {
 		"Titre": "",
 		"Texte": "",
+		"EnvoieOK": "",
+		"EnvoieKO": "",
 		"Libelle": {
 			"Expediteur": "",
 			"Objet": "",

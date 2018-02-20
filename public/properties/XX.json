@@ -34,6 +34,8 @@
 	"Contact": {
 		"Titre": "Contact",
 		"Texte": "Afin de pouvoir nous contacter, veuiller vous identifier.",
+		"EnvoieOK": "Le message a bien été envoyé.",
+		"EnvoieKO": "Erreur lors de l'envoie du message, vous pouvez nous contacter a l'adresse suivante : <a href='mailto:'site.3il.ingenieurs@gmail.com'>site.3il.ingenieurs@gmail.com</a>",
 		"Libelle": {
 			"Expediteur": "Expediteur :",
 			"Objet": "Objet :",
