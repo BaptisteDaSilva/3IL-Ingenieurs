@@ -1,6 +1,8 @@
 <?php
 namespace Rodez_3IL_Ingenieurs\Libs;
 
+use Rodez_3IL_Ingenieurs\Core\Controleur;
+
 /**
  * Classe des fonctions de gestion des fichiers
  *
@@ -26,7 +28,7 @@ class Properties
     {
         $properties = DEFAUT_ID_LANGUE . EXTENSION_PROPERTIES;
         
-        if ($_SESSION != null && $_SESSION['util'] != null) {
+        if (Controleur::isMemberConnect()) {
             $langue = $_SESSION['util']->getLangue();
             
             if ($langue != null) {
@@ -50,6 +52,8 @@ class Properties
         }
         
         self::$site = json_decode(file_get_contents(PROPERTIES . $name));
+        
+        return isset(self::$site);
     }
 
     /**
@@ -57,7 +61,7 @@ class Properties
      */
     private static function setFile()
     {
-        file_put_contents(self::$PROPERTIES_PATH . self::getFileName(), json_encode(self::$site, JSON_UNESCAPED_UNICODE));
+        return file_put_contents(self::$PROPERTIES_PATH . self::getFileName(), json_encode(self::$site, JSON_UNESCAPED_UNICODE));
     }
 
     /**
@@ -93,6 +97,6 @@ class Properties
         
         $valeur->{$args[$i]} = $new;
         
-        self::setFile();
+        return self::setFile();
     }
 }

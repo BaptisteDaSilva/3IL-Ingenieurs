@@ -4,7 +4,7 @@ require_once TEMPLATES . 'menu.php';
 ?>
 <script>
 window.onload = function() {	
-	loadMenu('<?= $this->menu; ?>');
+	loadMenu('<?= isset($_SESSION['menuAdmin']) ? $_SESSION['menuAdmin'] : $this->MENU_DEFAUT ?>');
 };
 
 function loadMenu(Page) {	
@@ -44,6 +44,27 @@ $(function(){
                     <input type="button" value="<?= self::get('Administration', 'Menu', 'Photo') ?>" onclick="loadMenu('Photo')" />
                     <input type="button" value="<?= self::get('Administration', 'Menu', 'DescriptionPhoto') ?>" onclick="loadMenu('DescriptionPhoto')" />
                 </div>
+                <?php if (isset($this->modifOK)) { ?>
+                    <?php if ($this->modifOK) { ?>
+                    <div class="panel panel-success bigPanel">
+                        <div class="panel-heading">
+                            <h3 class="panel-title"><?= self::get('Administration', 'TitreOK') ?></h3>
+                        </div>
+                        <div class="panel-body">
+                            <?= self::get('Administration', 'TexteOK') ?>
+                        </div>
+                    </div>
+                    <?php } else { ?>
+                    <div class="panel panel-danger bigPanel">
+                        <div class="panel-heading">
+                            <h3 class="panel-title"><?= self::get('Administration', 'TitreKO') ?></h3>
+                        </div>
+                        <div class="panel-body">
+                            <?= self::get('Administration', 'TexteKO') ?>
+                        </div>
+                    </div>
+                    <?php }?>
+                <?php }?>
                 <div id="contentAdministration"></div>
             </div>
         </div>

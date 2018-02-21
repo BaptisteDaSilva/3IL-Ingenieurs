@@ -98,6 +98,10 @@
 	},
 	"Administration": {
 		"Titre": "Administration",
+		"TitreOK": "Modification Réussie !",
+		"TitreKO": "Un Problème est survenue",
+		"TexteOK": "<p>Les modifications que vos avez effectué ont bien été prises en compte.</p>",
+		"TexteKO": "<p>Un problème est survenu lors de la modification des données. <br> Merci de réessayer.</p>",
 		"Menu": {
 			"Avatar": "Admin avatar",
 			"Langue": "Admin langue",
@@ -129,7 +133,7 @@
 	"Deconnexion": {
 		"Titre": "Se déconnecter",
 		"TitreOk": "Déconnexion Réussie !",
-		"Texte": "<p>Vous avez été déconnecté avec succès ! <br> Redirection sur la page d'accueil dans 5 secondes !</p>"
+		"Texte": "<p>Vous avez été déconnecté avec succès ! <br> Redirection sur la page d'accueil dans <span id='compteur'></span> secondes !</p>"
 	},
 	"Footer": {
 		"Phrase1": "Nathan RIBAS et Baptiste RIBEIRO DA SILVA",

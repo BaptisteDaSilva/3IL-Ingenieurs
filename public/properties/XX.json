@@ -19,7 +19,7 @@
 		},
 		"Annee3": {
 			"Titre": "Année 3",
-			"Texte": "<div class=\"vue-cours\">\r\n    <h4>Réaliser une mobilité internationale<\/h4>\r\n    <p>Liste non exhaustive des partenaires :<\/p>\r\n    <ul>\r\n        <li>\r\n            Canada :\r\n            <ul>\r\n                <li>UQO (Ottawa)<\/li>\r\n                <li>UQAC (Chicoutimie)<\/li>\r\n                <li>Laval<\/li>\r\n            <\/ul>\r\n        <\/li>\r\n        <li>Bulgarie<\/li>\r\n        <li>Erasmus +<\/li>\r\n        <li>...<\/li>\r\n    <\/ul>\r\n<\/div>"
+			"Texte": "<div class=\"vue-cours-only\">\r\n    <h4>RÉALISER UNE MOBILITÉ INTERNATIONALE<\/h4>\r\n    <p>Liste non exhaustive des partenaires :<\/p>\r\n    <ul>\r\n        <li>\r\n            Canada :\r\n            <ul>\r\n                <li>UQO (Ottawa)<\/li>\r\n                <li>UQAC (Chicoutimie)<\/li>\r\n                <li>Laval<\/li>\r\n            <\/ul>\r\n        <\/li>\r\n        <li>Bulgarie<\/li>\r\n        <li>Erasmus +<\/li>\r\n        <li>...<\/li>\r\n    <\/ul>\r\n<\/div>"
 		}
 	},
 	"Apprentissage": {
@@ -98,6 +98,10 @@
 	},
 	"Administration": {
 		"Titre": "Administration",
+		"TitreOK": "Modification Réussie !",
+		"TitreKO": "Un Problème est survenue",
+		"TexteOK": "<p>Les modifications que vos avez effectué ont bien été prises en compte.</p>",
+		"TexteKO": "<p>Un problème est survenu lors de la modification des données. <br> Merci de réessayer.</p>",
 		"Menu": {
 			"Avatar": "Admin avatar",
 			"Langue": "Admin langue",
@@ -129,7 +133,7 @@
 	"Deconnexion": {
 		"Titre": "Se déconnecter",
 		"TitreOk": "Déconnexion Réussie !",
-		"Texte": "<p>Vous avez été déconnecté avec succès ! <br> Redirection sur la page d'accueil dans 5 secondes !</p>"
+		"Texte": "<p>Vous avez été déconnecté avec succès ! <br> Redirection sur la page d'accueil dans <span id='compteur'></span> secondes !</p>"
 	},
 	"Footer": {
 		"Phrase1": "Nathan RIBAS et Baptiste RIBEIRO DA SILVA",

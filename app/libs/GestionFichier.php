@@ -30,7 +30,7 @@ class GestionFichier
      */
     public static function telecharger($type, $oldName, $newName)
     {
-        move_uploaded_file($oldName, $type . $newName);
+        return move_uploaded_file($oldName, $type . $newName);
     }
 
     /**
@@ -43,6 +43,6 @@ class GestionFichier
      */
     public static function supprimer($type, $name)
     {
-        unlink($type . $name);
+        return unlink($type . $name);
     }
 }

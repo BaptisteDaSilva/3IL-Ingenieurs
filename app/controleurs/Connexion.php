@@ -17,8 +17,6 @@ class Connexion extends Controleur
      */
     public function index()
     {
-        $this->setTitre($this->get('SeConnecter', 'Titre'));
-        
         // Si le pseudo et le mot de passe transmit existent.
         if (isset($_POST['login']) && isset($_POST['mdp'])) {
             
@@ -56,6 +54,8 @@ class Connexion extends Controleur
                  */
                 require_once VUES . 'Connexion/VueConnexionEchec.php';
             }
+        } else {
+            header('Location: ' . $_SERVER['HTTP_REFERER']);
         }
     }
 }

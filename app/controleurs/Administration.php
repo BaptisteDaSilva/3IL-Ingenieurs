@@ -35,9 +35,8 @@ class Administration extends Controleur
     public $descriptions;
 
     /** @var string Menu a affiché dans mon compte */
-    public $menu = 'Avatar';
- // TODO marche mais change pas
-    
+    public $MENU_DEFAUT = 'Avatar';
+
     /**
      * Méthode lancée par défaut sur un contrôleur.
      */
@@ -61,22 +60,28 @@ class Administration extends Controleur
     public function SousMenu($nom)
     {
         if (self::isAdminConnect()) {
-            if ($nom == "Langue") {
-                $this->langues = Langue::getLangues();
-            } else if ($nom == "Avatar") {
-                $this->avatars = Avatar::getAvatars();
-            } else if ($nom == "Membre") {
-                $this->administrateurs = Utilisateur::getAdministateurs();
-                $this->utilisateurs = Utilisateur::getUtilisateurs();
-            } else if ($nom == "Photo") {
-                $this->photos = Photo::getNamePhotos();
-            } else if ($nom == "DescriptionPhoto") {
-                foreach (Langue::getLangues() as $langue) {
-                    $this->descriptions[] = array(
-                        "langue" => $langue,
-                        "photos" => Photo::getNameAndDescriptionPhotos($langue->getId())
-                    );
-                }
+            switch ($nom) {
+                case "Langue":
+                    $this->langues = Langue::getLangues();
+                    break;
+                case "Avatar":
+                    $this->avatars = Avatar::getAvatars();
+                    break;
+                case "Membre":
+                    $this->administrateurs = Utilisateur::getAdministateurs();
+                    $this->utilisateurs = Utilisateur::getUtilisateurs();
+                    break;
+                case "Photo":
+                    $this->photos = Photo::getNamePhotos();
+                    break;
+                case "DescriptionPhoto":
+                    foreach (Langue::getLangues() as $langue) {
+                        $this->descriptions[] = array(
+                            "langue" => $langue,
+                            "photos" => Photo::getNameAndDescriptionPhotos($langue->getId())
+                        );
+                    }
+                    break;
             }
             
             require VUES . 'Administration/SousMenu/' . $nom . '.php';
@@ -91,14 +96,20 @@ class Administration extends Controleur
     public function ajouterAvatar()
     {
         if (self::isAdminConnect()) {
-            $avatar = new Avatar(null, $_FILES['avatar']['name']);
+            $this->modifOK = false;
             
-            $avatar->ajouter($_FILES['avatar']['tmp_name']);
+            if (isset($_FILES['avatar'])) {
+                $avatar = new Avatar(null, $_FILES['avatar']['name']);
+                
+                $this->modifOK = $avatar->ajouter($_FILES['avatar']['tmp_name']);
+            }
+            
+            $_SESSION['menuAdmin'] = 'Avatar';
+            
+            $this->index();
+        } else {
+            header('Location: /MonCompte/');
         }
-        
-        $this->menu = 'AdminAvatar'; // TODO inutile
-        
-        header('Location: /Administration/');
     }
 
     /**
@@ -107,14 +118,25 @@ class Administration extends Controleur
     public function supprimerAvatar()
     {
         if (self::isAdminConnect()) {
-            foreach ($_POST['aSupp'] as $aSupp) {
-                Avatar::getAvatar($aSupp)->supprimer();
+            $this->modifOK = true;
+            
+            if (isset($_POST['aSupp'])) {
+                foreach ($_POST['aSupp'] as $aSupp) {
+                    $avatar = Avatar::getAvatar($aSupp);
+                    
+                    if ($avatar == null || !$avatar->supprimer())
+                    {
+                        $this->modifOK = false;
+                    }
+                }                
             }
+            
+            $_SESSION['menuAdmin'] = 'Avatar';
+            
+            $this->index();
+        } else {
+            header('Location: /MonCompte/');
         }
-        
-        $this->menu = 'AdminAvatar'; // TODO inutile
-        
-        header('Location: /Administration/');
     }
 
     /**
@@ -123,14 +145,20 @@ class Administration extends Controleur
     public function ajouterLangue()
     {
         if (self::isAdminConnect()) {
-            $langue = new Langue($_POST['id'], $_POST['nom']);
+            $this->modifOK = false;
             
-            $langue->ajouter($_FILES['drapeau']['tmp_name'], $_FILES['propertie']['tmp_name']);
+            if (isset($_POST['id']) && isset($_POST['nom']) && isset($_FILES['drapeau'])) {
+                $langue = new Langue($_POST['id'], $_POST['nom']);
+                
+                $this->modifOK = $langue->ajouter($_FILES['drapeau']['tmp_name'], $_FILES['propertie']['tmp_name']);
+            }
+            
+            $_SESSION['menuAdmin'] = 'Langue';
+            
+            $this->index();
+        } else {
+            header('Location: /MonCompte/');
         }
-        
-        $this->menu = 'AdminLangue'; // TODO inutile
-        
-        header('Location: /Administration/');
     }
 
     /**
@@ -139,14 +167,25 @@ class Administration extends Controleur
     public function supprimerLangue()
     {
         if (self::isAdminConnect()) {
-            foreach ($_POST['aSupp'] as $aSupp) {
-                Langue::getLangue($aSupp)->supprimer();
+            $this->modifOK = true;
+            
+            if (isset($_POST['aSupp'])) {
+                foreach ($_POST['aSupp'] as $aSupp) {
+                    $langue = Langue::getLangue($aSupp);
+                    
+                    if ($langue == null || !$langue->supprimer())
+                    {
+                        $this->modifOK = false;
+                    }
+                }
             }
+            
+            $_SESSION['menuAdmin'] = 'Langue';
+            
+            $this->index();
+        } else {
+            header('Location: /MonCompte/');
         }
-        
-        $this->menu = 'AdminLangue'; // TODO inutile
-        
-        header('Location: /Administration/');
     }
 
     /**
@@ -155,30 +194,52 @@ class Administration extends Controleur
     public function ajouterAdmin()
     {
         if (self::isAdminConnect()) {
-            foreach ($_POST['aUp'] as $aUp) {
-                Utilisateur::getUtilisateur($aUp)->modifierType('A');
+            $this->modifOK = true;
+            
+            if (isset($_POST['aUp'])) {
+                foreach ($_POST['aUp'] as $aUp) {                    
+                    $util = Utilisateur::getUtilisateur($aUp);
+                    
+                    if ($util == null || !$util->modifierType('A'))
+                    {
+                        $this->modifOK = false;
+                    }
+                }
             }
+            
+            $_SESSION['menuAdmin'] = 'Membre';
+            
+            $this->index();
+        } else {
+            header('Location: /MonCompte/');
         }
-        
-        $this->menu = 'AdminMembre'; // TODO inutile
-        
-        header('Location: /Administration/');
     }
-    
+
     /**
      * Méthode lancée pour supprimer un administrateur
      */
     public function supprimerMembre()
     {
         if (self::isAdminConnect()) {
-            foreach ($_POST['aSupp'] as $aSupp) {
-                Utilisateur::getUtilisateur($aSupp)->deleteBD();
+            $this->modifOK = true;
+            
+            if (isset($_POST['aSupp'])) {
+                foreach ($_POST['aSupp'] as $aSupp) {
+                    $util = Utilisateur::getUtilisateur($aSupp);
+                    
+                    if ($util == null || !$util->deleteBD())
+                    {
+                        $this->modifOK = false;
+                    }
+                }
             }
+            
+            $_SESSION['menuAdmin'] = 'Membre';
+            
+            $this->index();
+        } else {
+            header('Location: /MonCompte/');
         }
-        
-        $this->menu = 'AdminMembre'; // TODO inutile
-        
-        header('Location: /Administration/');
     }
 
     /**
@@ -187,14 +248,25 @@ class Administration extends Controleur
     public function supprimerAdmin()
     {
         if (self::isAdminConnect()) {
-            foreach ($_POST['aDown'] as $aDown) {
-                Utilisateur::getUtilisateur($aDown)->modifierType('U');
+            $this->modifOK = true;
+            
+            if (isset($_POST['aDown'])) {
+                foreach ($_POST['aDown'] as $aDown) {                    
+                    $util = Utilisateur::getUtilisateur($aDown);
+                    
+                    if ($util == null || !$util->modifierType('U'))
+                    {
+                        $this->modifOK = false;
+                    }
+                }
             }
+            
+            $_SESSION['menuAdmin'] = 'Membre';
+            
+            $this->index();
+        } else {
+            header('Location: /MonCompte/');
         }
-        
-        $this->menu = 'AdminMembre'; // TODO inutile
-        
-        header('Location: /Administration/');
     }
 
     /**
@@ -213,7 +285,7 @@ class Administration extends Controleur
             header("Pragma: no-cache");
             readfile(Properties::$PROPERTIES_PATH . Properties::$PROPERTIES_NAME);
         } else {
-            header('Location: /Administration/');
+            header('Location: /MonCompte/');
         }
     }
 
@@ -223,16 +295,21 @@ class Administration extends Controleur
     public function ajouterPhoto()
     {
         if (self::isAdminConnect()) {
-            $name = str_replace(' ', '', $_FILES['photo']['name']);
+            $this->modifOK = false;
             
-            move_uploaded_file($_FILES['photo']['tmp_name'], '../public/img/photos/' . $name);
+            if (isset($_FILES['photo'])) {
+                $name = str_replace(' ', '', $_FILES['photo']['name']);
+                
+                $this->modifOK = move_uploaded_file($_FILES['photo']['tmp_name'], '../public/img/photos/' . $name)
+                        && Photo::addPhoto($name);
+            }
             
-            Photo::addPhoto($name);
+            $_SESSION['menuAdmin'] = 'Photo';
+            
+            $this->index();
+        } else {
+            header('Location: /MonCompte/');
         }
-        
-        $this->menu = 'AdminPhoto'; // TODO inutile
-        
-        header('Location: /Administration/');
     }
 
     /**
@@ -241,17 +318,24 @@ class Administration extends Controleur
     public function supprimerPhoto()
     {
         if (self::isAdminConnect()) {
+            $this->modifOK = true;
             
-            foreach ($_POST['aSupp'] as $aSupp) {
-                unlink('../public/img/photos/' . $aSupp);
+            if (isset($_POST['aSupp'])) {
                 
-                Photo::deletePhoto($aSupp);
+                foreach ($_POST['aSupp'] as $aSupp) {                    
+                    if (!unlink('../public/img/photos/' . $aSupp) || !Photo::deletePhoto($aSupp))
+                    {
+                        $this->modifOK = false;
+                    }
+                }
             }
+            
+            $_SESSION['menuAdmin'] = 'Photo';
+            
+            $this->index();
+        } else {
+            header('Location: /MonCompte/');
         }
-        
-        $this->menu = 'AdminPhoto'; // TODO inutile
-        
-        header('Location: /Administration/');
     }
 
     /**
@@ -260,14 +344,23 @@ class Administration extends Controleur
     public function modifierDescriptionPhoto()
     {
         if (self::isAdminConnect()) {
-            foreach ($_POST['photos'] as $cle => $value) {
-                Photo::updateDescription($cle, $_POST['idLangue'], $value);
+            $this->modifOK = true;
+            
+            if (isset($_POST['photos']) && isset($_POST['idLangue'])) {
+                foreach ($_POST['photos'] as $cle => $value) {
+                    if (!Photo::updateDescription($cle, $_POST['idLangue'], $value))
+                    {
+                        $this->modifOK = false;
+                    }
+                }
             }
+            
+            $_SESSION['menuAdmin'] = 'DescriptionPhoto';
+            
+            $this->index();
+        } else {
+            header('Location: /MonCompte/');
         }
-        
-        $this->menu = 'AdminDescriptionPhoto'; // TODO inutile
-        
-        header('Location: /Administration/');
     }
 
     /**
@@ -276,9 +369,13 @@ class Administration extends Controleur
     public function modifierTexte()
     {
         if (self::isAdminConnect()) {
-            Properties::set(func_get_args(), $_POST['new']);
+            if (isset($_POST['new'])) {
+                Properties::set(func_get_args(), $_POST['new']);
+            }
+            
+            header('Location: ' . $_SERVER['HTTP_REFERER']);
+        } else {
+            header('Location: /MonCompte/');
         }
-        
-        header('Location: ' . $_SERVER['HTTP_REFERER']);
     }
 }

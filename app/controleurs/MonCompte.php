@@ -15,7 +15,7 @@ class MonCompte extends Controleur
 {
 
     /** @var bool */
-    private $modifOK;
+    private $modifOK = null;
 
     /** @var resource Listes des langues du site */
     public $langues;
@@ -24,16 +24,14 @@ class MonCompte extends Controleur
     public $avatars;
 
     /** @var string Menu a affiché dans mon compte */
-    public $menu = 'Compte';
+    public $MENU_DEFAUT = 'Compte';
 
-    // TODO marche mais change pas
-    
     /**
      * Méthode lancée par défaut sur un contrôleur.
      */
     public function index()
     {
-        if (isset($_SESSION['util'])) {
+        if (self::isMemberConnect()) {
             $this->setTitre($this->get('MonCompte', 'Titre'));
             
             require_once VUES . 'MonCompte/VueMonCompte.php';
@@ -50,13 +48,17 @@ class MonCompte extends Controleur
      */
     public function SousMenu($nom)
     {
-        if ($nom == "Langue") {
-            $this->langues = Langue::getLangues();
-        } else if ($nom == "Avatar") {
-            $this->avatars = Avatar::getAvatars();
+        if (self::isMemberConnect()) {
+            if ($nom == "Langue") {
+                $this->langues = Langue::getLangues();
+            } else if ($nom == "Avatar") {
+                $this->avatars = Avatar::getAvatars();
+            }
+            
+            require VUES . 'MonCompte/SousMenu/' . $nom . '.php';
+        } else {
+            header('Location: /');
         }
-        
-        require VUES . 'MonCompte/SousMenu/' . $nom . '.php';
     }
 
     /**
@@ -64,29 +66,32 @@ class MonCompte extends Controleur
      */
     public function modifier()
     {
-        if (isset($_POST['email']) && isset($_POST['mdp'])) {
-            $this->modifOK = true;
+        if (self::isMemberConnect()) {
+            $this->modifOK = false;
             
-            $email = $_POST['email'];
-            $mdp = $_POST['mdp'];
-            
-            if (! empty($mdp)) {
-                $mdp = Utilisateur::hashMdp($mdp);
+            if (isset($_POST['email']) && isset($_POST['mdp'])) {
                 
-                if ($_SESSION['util']->getMdp() != $mdp) {
-                    $this->modifOK = $_SESSION['util']->modifierMDP($mdp);
+                $email = $_POST['email'];
+                $mdp = $_POST['mdp'];
+                
+                if (! empty($mdp)) {
+                    $mdp = Utilisateur::hashMdp($mdp);
+                    
+                    if ($_SESSION['util']->getMdp() != $mdp) {
+                        $this->modifOK = $_SESSION['util']->modifierMDP($mdp);
+                    }
+                }
+                
+                if (! empty($email) && $_SESSION['util']->getEmail() != $email) {
+                    $this->modifOK = $_SESSION['util']->modifierEMail($email);
                 }
             }
             
-            if (! empty($email) && $_SESSION['util']->getEmail() != $email) {
-                $this->modifOK = $_SESSION['util']->modifierEMail($email);
-            }
+            $_SESSION['menu'] = "Compte";
             
-            $this->setTitre($this->get('MonCompte', $this->modifOK ? "TitreOK" : "TitreKO"));
-            
-            require_once VUES . 'MonCompte/VueCompteModifie.php';
+            $this->index();
         } else {
-            header('Location: /MonCompte/');
+            header('Location: /');
         }
     }
 
@@ -95,16 +100,20 @@ class MonCompte extends Controleur
      */
     public function modifierAvatar()
     {
-        if (isset($_POST['nomAvatar'])) {
-            $nomAvatar = $_POST['nomAvatar'];
+        if (self::isMemberConnect()) {
+            $this->modifOK = false;
             
-            $this->modifOK = $_SESSION['util']->modifierAvatar($nomAvatar);
+            if (isset($_POST['nomAvatar'])) {
+                $nomAvatar = $_POST['nomAvatar'];
+                
+                $this->modifOK = $_SESSION['util']->modifierAvatar($nomAvatar);
+            }
             
-            $this->setTitre($this->get('MonCompte', $this->modifOK ? "TitreOK" : "TitreKO"));
+            $_SESSION['menu'] = "Avatar";
             
-            require_once VUES . 'MonCompte/VueCompteModifie.php';
+            $this->index();
         } else {
-            header('Location: /MonCompte/');
+            header('Location: /');
         }
     }
 
@@ -113,16 +122,20 @@ class MonCompte extends Controleur
      */
     public function modifierLangue()
     {
-        if (isset($_POST['nomLangue'])) {
-            $maLangue = $_POST['nomLangue'];
+        if (self::isMemberConnect()) {
+            $this->modifOK = false;
             
-            $this->modifOK = $_SESSION['util']->modifierLangue($maLangue);
+            if (isset($_POST['nomLangue'])) {
+                $maLangue = $_POST['nomLangue'];
+                
+                $this->modifOK = $_SESSION['util']->modifierLangue($maLangue);
+            }
             
-            $this->setTitre($this->get('MonCompte', $this->modifOK ? "TitreOK" : "TitreKO"));
+            $_SESSION['menu'] = "Langue";
             
-            require_once VUES . 'MonCompte/VueCompteModifie.php';
+            $this->index();
         } else {
-            header('Location: /MonCompte/');
+            header('Location: /');
         }
     }
 }

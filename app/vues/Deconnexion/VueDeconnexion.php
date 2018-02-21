@@ -2,6 +2,21 @@
 require_once TEMPLATES . 'enTete.php';
 require_once TEMPLATES . 'menu.php';
 ?>
+<script type="text/javascript">
+var sec = 6;
+
+$(document).ready(function() {
+	document.getElementById("compteur").innerHTML=sec;
+	setTimeout("compt()", 950);
+});
+
+function compt()
+{
+	sec -= 1;
+    document.getElementById("compteur").innerHTML=sec;
+    setTimeout("compt()", 950);
+}
+</script>
 <div class="container-fluid">
     <div class="row">
         <div class="col-md-2"></div>
@@ -18,7 +33,7 @@ require_once TEMPLATES . 'menu.php';
                         </div>
                     </form>
                     <?php } else { ?>
-                    <p><?= self::get('Deconnexion', 'Texte') ?></p>
+                    <?= self::get('Deconnexion', 'Texte') ?>
                     <?php }?>
                 </div>
             </div>

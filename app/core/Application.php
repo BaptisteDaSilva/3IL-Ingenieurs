@@ -68,7 +68,7 @@ class Application
             
             Properties::getFile();
             
-            self::connexionUtilCookie();
+            self::connectUtilWithCookie();
             
             // Vérifie que le contrôleur a appeler est bien un contrôleur.
             if (! ($this->controleur instanceof Controleur)) {
@@ -152,7 +152,7 @@ class Application
     /**
      * Connecte un utilisateur à partir des cookies
      */
-    private function connexionUtilCookie()
+    private function connectUtilWithCookie()
     {
         if (! isset($_SESSION['util']) && isset($_COOKIE['3il-Ingenieurs-Util-nom']) && isset($_COOKIE['3il-Ingenieurs-Util-mdp'])) {
             $util = Utilisateur::getConnexion($_COOKIE['3il-Ingenieurs-Util-nom'], $_COOKIE['3il-Ingenieurs-Util-mdp']);

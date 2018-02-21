@@ -5,7 +5,7 @@ use Rodez_3IL_Ingenieurs\Libs\GestionFichier;
 use Rodez_3IL_Ingenieurs\Libs\Photo;
 
 /**
- * Représente un utilisateur du site connecté.
+ * Représente une langue.
  *
  * @package Rodez_3IL_Ingenieurs\Modeles
  */
@@ -151,11 +151,9 @@ class Langue extends Modele
      */
     public function ajouter($drapeau, $properties)
     {
-        if (self::insererBD()) {
-            self::ajouterFichiers($drapeau, $properties);
-            
-            Photo::addDescriptions($this->getId());
-        }
+        return self::insererBD()
+            && self::ajouterFichiers($drapeau, $properties)
+            && Photo::addDescriptions($this->getId());
     }
 
     /**
@@ -188,32 +186,24 @@ class Langue extends Modele
      */
     private function ajouterFichiers($drapeau, $properties)
     {
-        move_uploaded_file($drapeau, '../public/img/drapeau/' . $this->idLangue . EXTENSION_DRAPEAU);
-        
-        move_uploaded_file($properties, '../public/properties/' . $this->idLangue . EXTENSION_PROPERTIES);
+        return move_uploaded_file($drapeau, '../public/img/drapeau/' . $this->idLangue . EXTENSION_DRAPEAU)
+            && move_uploaded_file($properties, '../public/properties/' . $this->idLangue . EXTENSION_PROPERTIES);
     }
 
     /**
      * Supprime une langue
      */
     public function supprimer()
-    {
-        $err = self::supprimerBD();
-        
-        if ($err == null) {
-            self::supprimerFichiers();
-            
-            Photo::deleteDescription($this->getId());
-        } else {
-            echo "\nPDO::errorInfo():\n";
-            print_r($err->errorInfo());
-        }
+    {        
+        return self::supprimerBD()
+            && self::supprimerFichiers()
+            && Photo::deleteDescription($this->getId());
     }
 
     /**
      * Supprime la langue de la BD
      *
-     * @return array|NULL Tableau d'erreur si problème, null sinon
+     * @return boolean True si OK, false sinon
      */
     private function supprimerBD()
     {
@@ -227,11 +217,7 @@ class Langue extends Modele
         $requete->bindParam(':idLangue', $this->idLangue, \PDO::PARAM_INT);
         
         // Exécution de la requête.
-        if (! $requete->execute()) {
-            return $requete->errorInfo();
-        }
-        
-        return null;
+        return $requete->execute();
     }
 
     /**
@@ -239,8 +225,8 @@ class Langue extends Modele
      */
     private function supprimerFichiers()
     {
-        GestionFichier::supprimer(GestionFichier::$TYPE_DRAPEAU, $this->idLangue . EXTENSION_DRAPEAU);
-        GestionFichier::supprimer(GestionFichier::$TYPE_PROPERTIES, $this->idLangue . EXTENSION_PROPERTIES);
+        return GestionFichier::supprimer(GestionFichier::$TYPE_DRAPEAU, $this->idLangue . EXTENSION_DRAPEAU)
+            && GestionFichier::supprimer(GestionFichier::$TYPE_PROPERTIES, $this->idLangue . EXTENSION_PROPERTIES);
     }
 
     /**

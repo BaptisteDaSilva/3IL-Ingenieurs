@@ -143,9 +143,8 @@ class Avatar extends Modele
      */
     public function ajouter($avatar)
     {
-        if (self::insererBD()) {
-            self::ajouterImage($avatar);
-        }
+        return self::insererBD()
+            && self::ajouterImage($avatar);
     }
 
     /**
@@ -176,28 +175,22 @@ class Avatar extends Modele
      */
     private function ajouterImage($avatar)
     {
-        GestionFichier::telecharger(GestionFichier::$TYPE_AVATAR, $avatar, $this->nom);
+        return GestionFichier::telecharger(GestionFichier::$TYPE_AVATAR, $avatar, $this->nom);
     }
 
     /**
      * Supprime un avatar
      */
     public function supprimer()
-    {
-        $err = self::supprimerBD();
-        
-        if ($err == null) {
-            self::supprimerFichiers();
-        } else {
-            echo "\nPDO::errorInfo():\n";
-            print_r($err->errorInfo());
-        }
+    {        
+        return self::supprimerBD()
+            && self::supprimerFichiers();
     }
 
     /**
      * Supprime l'avatar de la BD
      *
-     * @return NULL|array Tableau d'erreur si problème, null sinon
+     * @return boolean True si requete OK, false sinon
      */
     private function supprimerBD()
     {
@@ -211,11 +204,7 @@ class Avatar extends Modele
         $requete->bindParam(':idAvatar', $this->idAvatar, \PDO::PARAM_INT);
         
         // Exécution de la requête.
-        if (! $requete->execute()) {
-            return $requete->errorInfo();
-        }
-        
-        return null;
+        return $requete->execute();
     }
 
     /**
@@ -223,7 +212,7 @@ class Avatar extends Modele
      */
     private function supprimerFichiers()
     {
-        GestionFichier::supprimer(GestionFichier::$TYPE_AVATAR, $this->nom);
+        return GestionFichier::supprimer(GestionFichier::$TYPE_AVATAR, $this->nom);
     }
 
     /**

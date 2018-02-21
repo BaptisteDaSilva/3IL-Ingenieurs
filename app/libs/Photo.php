@@ -38,10 +38,12 @@ class Photo
 
     /**
      * Sauvegarde le document XML qui contient les informations pour le slider
+     *
+     * @return boolean True si sauvegarde OK, false sinon
      */
     private static function save()
     {
-        self::getDoc()->save(self::$XML_SLIDER_SAVE);
+        return self::getDoc()->save(self::$XML_SLIDER_SAVE);
     }
 
     /**
@@ -174,8 +176,7 @@ class Photo
             $ePhoto->appendChild($eDesc);
         }
         
-        if ($save)
-            self::save();
+        return self::save();
     }
 
     /**
@@ -183,6 +184,7 @@ class Photo
      *
      * @param string $idSangue
      *            Identifiant de la langue
+     * @return boolean True si sauvegarde OK, false sinon
      */
     public static function deleteDescription($idSangue)
     {
@@ -194,7 +196,7 @@ class Photo
             self::getPhotoE($name)->removeChild($descriptionE);
         }
         
-        self::save();
+        return self::save();
     }
 
     /**
@@ -206,12 +208,13 @@ class Photo
      *            Identifiant de la langue
      * @param string $value
      *            Nouvelle description
+     * @return boolean True si sauvegarde OK, false sinon
      */
     public static function updateDescription($name, $idSangue, $newDescrition)
     {
         self::getDescriptionE($name, $idSangue)->nodeValue = $newDescrition;
         
-        self::save();
+        return self::save();
     }
 
     /**
@@ -219,6 +222,7 @@ class Photo
      *
      * @param string $name
      *            Nom de la photo
+     * @return boolean True si sauvegarde OK, false sinon
      */
     public static function addPhoto($name)
     {
@@ -237,7 +241,7 @@ class Photo
         
         self::getSlider()->appendChild($ePhoto);
         
-        self::save();
+        return self::save();
     }
 
     /**
@@ -245,6 +249,7 @@ class Photo
      *
      * @param string $name
      *            Nom de la photo
+     * @return boolean True si sauvegarde OK, false sinon
      */
     public static function deletePhoto($name)
     {
@@ -254,6 +259,6 @@ class Photo
             }
         }
         
-        self::save();
+        return self::save();
     }
 }

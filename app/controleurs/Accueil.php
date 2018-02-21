@@ -34,7 +34,7 @@ class Accueil extends Controleur
         
         $idLangueUtil = DEFAUT_ID_LANGUE;
         
-        if ($_SESSION != null && $_SESSION['util'] != null) {
+        if (self::isMemberConnect()) {
             $langueUtil = $_SESSION['util']->getLangue();
             
             if ($langueUtil != null) {

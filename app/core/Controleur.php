@@ -2,6 +2,7 @@
 namespace Rodez_3IL_Ingenieurs\Core;
 
 use Rodez_3IL_Ingenieurs\Libs\Properties;
+use Rodez_3IL_Ingenieurs\Modeles\Utilisateur;
 
 /**
  * Classe du contrôleur par défaut, tous les contrôleurs doivent hériter
@@ -70,13 +71,21 @@ abstract class Controleur
     {
         $this->active = $activePage;
     }
+    
+    /**
+     * Fonction permettant de savoir si un adminstrateur est connecté
+     */
+    public static function isMemberConnect()
+    {
+        return isset($_SESSION['util']) && $_SESSION['util'] instanceof Utilisateur;
+    }
 
     /**
      * Fonction permettant de savoir si un adminstrateur est connecté
      */
     public static function isAdminConnect()
     {
-        return isset($_SESSION['util']) && $_SESSION['util']->isAdmin();
+        return self::isMemberConnect() && $_SESSION['util']->isAdmin();
     }
 
     /**

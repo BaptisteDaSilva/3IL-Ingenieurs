@@ -40,7 +40,7 @@
                 </li>
             </ul>
             <ul class="nav navbar-nav navbar-right">
-                <?php if (isset($_SESSION['util'])) { ?>
+                <?php if (self::isMemberConnect()) { ?>
                 <li class="dropdown">
                     <a href="#" class="dropdown-toggle login" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
                         <img class="profil <?php if ($_SESSION['util']->isAdmin()) { echo 'admin'; } ?>"

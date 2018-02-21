@@ -80,6 +80,10 @@
 	},
 	"Administration": {
 		"Titre": "",
+		"TitreOK": "",
+		"TitreKO": "",
+		"TexteOK": "",
+		"TexteKO": "",
 		"Menu": {
 			"Avatar": "",
 			"Langue": "",

@@ -68,7 +68,7 @@
 	},
 	"MonCompte": {
 		"Titre": "My account",
-		"TitreOK": "Successful Modification!",
+		"TitreOK": "Successful modification!",
 		"TitreKO": "A problem has occurred",
 		"TexteOK": "<p>The changes you made to your account have been taken into account.<\/p>",
 		"TexteKO": "<p>There was a problem changing your data. <br> Please try again.<\/p>",
@@ -98,6 +98,10 @@
 	},
 	"Administration": {
 		"Titre": "Administration",
+		"TitreOK": "Successful modification!",
+		"TitreKO": "A problem has occurred",
+		"TexteOK": "<p>The changes you made have been taken into account.<\/p>",
+		"TexteKO": "<p>There was a problem changing the data. <br> Please try again.<\/p>",
 		"Menu": {
 			"Avatar": "Avatar admin",
 			"Langue": "Language admin",
@@ -129,7 +133,7 @@
 	"Deconnexion": {
 		"Titre": "Disconnect",
 		"TitreOk": "Successful logout!",
-		"Texte": "<p>You have been successfully disconnected! <br> Redirection on the homepage in 5 seconds!<\/p>"
+		"Texte": "<p>You have been successfully disconnected! <br> Redirection on the homepage in <span id='compteur'></span> seconds!<\/p>"
 	},
 	"Footer": {
 		"Phrase1": "Nathan RIBAS et Baptiste RIBEIRO DA SILVA",
