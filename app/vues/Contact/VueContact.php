@@ -29,10 +29,10 @@ require_once TEMPLATES . 'menu.php';
                                 <div class="col-md-12">
                                     <?php if (self::isAdminConnect()) { ?>
                                     <form method="post" action="/Administration/modifierTexte/Contact/EnvoieKO">
-                                        <div class="form-group">
-                                            <textarea name="new" class="form-control" onchange="this.form.submit();"><?= self::get('Contact', 'EnvoieKO') ?></textarea>
-                                        </div>
-                                    </form>
+                                <div class="form-group">
+                                    <textarea name="new" class="form-control" onchange="this.form.submit();"><?= self::get('Contact', 'EnvoieKO') ?></textarea>
+                                </div>
+                            </form>
                                     <?php } else { ?>
                                     <?= self::get('Contact', 'EnvoieKO') ?>
                                     <?php }?>

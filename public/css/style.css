@@ -57,65 +57,10 @@ html, body {
 	background-color: rgba(255, 255, 255, 0.9);
 }
 
-.panel
-
-
-
-
-:not
-
-
- 
-
-
-(
-.bigPanel
-
-
- 
-
-
-)
-{
-box-shadow
-
-
-
-
-:
-
-
- 
-
-
-1
-px
-
-
- 
-
-
-1
-px
-
-
- 
-
-
-1
-px
-
-
- 
-
-
-#c8c8c8
-
-
-
-
-;
+.panel :not (.bigPanel) {
+	box-shadow: 1px 1px 1px #c8c8c8;
 }
+
 .panel .panel-heading {
 	background-color: rgba(231, 231, 231, 0.8);
 	text-align: center;
@@ -151,10 +96,6 @@ thead {
 
 .mon-btn, .mon-btn:hover, .mon-btn-success, .mon-btn-success:hover {
 	color: #fff;
-}
-
-.map {
-	height: 350px;
 }
 
 .has-success>.fa, .has-error .fa {
@@ -322,15 +263,14 @@ footer {
 	height: 50%;
 }
 
-.vue-presentation
-{
+.vue-presentation {
 	text-align: left;
 }
 
-.vue-presentation img
-{
-	width: 100%;
-	margin: 1%;
+.vue-presentation img {
+	max-width: 100%;
+	padding: 0px 10px 10px 0px;
+	float: left;
 }
 
 .vue-cours {
@@ -341,10 +281,16 @@ footer {
 }
 
 .vue-cours-only {
-	width: 90%;
+	width: 95%;
 	vertical-align: top;
 	text-align: left;
 	padding-left: 5%;
+}
+
+.vue-cours-only img {
+	max-width: 75%;
+	padding: 0px 0px 10px 10px;
+	float: right;
 }
 
 @media ( max-width :767px) {

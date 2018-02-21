@@ -71,7 +71,7 @@ abstract class Controleur
     {
         $this->active = $activePage;
     }
-    
+
     /**
      * Fonction permettant de savoir si un adminstrateur est connecté
      */

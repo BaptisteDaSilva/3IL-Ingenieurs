@@ -151,9 +151,7 @@ class Langue extends Modele
      */
     public function ajouter($drapeau, $properties)
     {
-        return self::insererBD()
-            && self::ajouterFichiers($drapeau, $properties)
-            && Photo::addDescriptions($this->getId());
+        return self::insererBD() && self::ajouterFichiers($drapeau, $properties) && Photo::addDescriptions($this->getId());
     }
 
     /**
@@ -186,18 +184,15 @@ class Langue extends Modele
      */
     private function ajouterFichiers($drapeau, $properties)
     {
-        return move_uploaded_file($drapeau, '../public/img/drapeau/' . $this->idLangue . EXTENSION_DRAPEAU)
-            && move_uploaded_file($properties, '../public/properties/' . $this->idLangue . EXTENSION_PROPERTIES);
+        return move_uploaded_file($drapeau, '../public/img/drapeau/' . $this->idLangue . EXTENSION_DRAPEAU) && move_uploaded_file($properties, '../public/properties/' . $this->idLangue . EXTENSION_PROPERTIES);
     }
 
     /**
      * Supprime une langue
      */
     public function supprimer()
-    {        
-        return self::supprimerBD()
-            && self::supprimerFichiers()
-            && Photo::deleteDescription($this->getId());
+    {
+        return self::supprimerBD() && self::supprimerFichiers() && Photo::deleteDescription($this->getId());
     }
 
     /**
@@ -225,8 +220,7 @@ class Langue extends Modele
      */
     private function supprimerFichiers()
     {
-        return GestionFichier::supprimer(GestionFichier::$TYPE_DRAPEAU, $this->idLangue . EXTENSION_DRAPEAU)
-            && GestionFichier::supprimer(GestionFichier::$TYPE_PROPERTIES, $this->idLangue . EXTENSION_PROPERTIES);
+        return GestionFichier::supprimer(GestionFichier::$TYPE_DRAPEAU, $this->idLangue . EXTENSION_DRAPEAU) && GestionFichier::supprimer(GestionFichier::$TYPE_PROPERTIES, $this->idLangue . EXTENSION_PROPERTIES);
     }
 
     /**

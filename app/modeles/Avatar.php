@@ -143,8 +143,7 @@ class Avatar extends Modele
      */
     public function ajouter($avatar)
     {
-        return self::insererBD()
-            && self::ajouterImage($avatar);
+        return self::insererBD() && self::ajouterImage($avatar);
     }
 
     /**
@@ -182,9 +181,8 @@ class Avatar extends Modele
      * Supprime un avatar
      */
     public function supprimer()
-    {        
-        return self::supprimerBD()
-            && self::supprimerFichiers();
+    {
+        return self::supprimerBD() && self::supprimerFichiers();
     }
 
     /**

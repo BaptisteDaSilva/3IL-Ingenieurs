@@ -47,22 +47,22 @@ $(function(){
                 <?php if (isset($this->modifOK)) { ?>
                     <?php if ($this->modifOK) { ?>
                     <div class="panel panel-success bigPanel">
-                        <div class="panel-heading">
-                            <h3 class="panel-title"><?= self::get('Administration', 'TitreOK') ?></h3>
-                        </div>
-                        <div class="panel-body">
+                    <div class="panel-heading">
+                        <h3 class="panel-title"><?= self::get('Administration', 'TitreOK') ?></h3>
+                    </div>
+                    <div class="panel-body">
                             <?= self::get('Administration', 'TexteOK') ?>
                         </div>
-                    </div>
+                </div>
                     <?php } else { ?>
                     <div class="panel panel-danger bigPanel">
-                        <div class="panel-heading">
-                            <h3 class="panel-title"><?= self::get('Administration', 'TitreKO') ?></h3>
-                        </div>
-                        <div class="panel-body">
+                    <div class="panel-heading">
+                        <h3 class="panel-title"><?= self::get('Administration', 'TitreKO') ?></h3>
+                    </div>
+                    <div class="panel-body">
                             <?= self::get('Administration', 'TexteKO') ?>
                         </div>
-                    </div>
+                </div>
                     <?php }?>
                 <?php }?>
                 <div id="contentAdministration"></div>

@@ -124,11 +124,10 @@ class Administration extends Controleur
                 foreach ($_POST['aSupp'] as $aSupp) {
                     $avatar = Avatar::getAvatar($aSupp);
                     
-                    if ($avatar == null || !$avatar->supprimer())
-                    {
+                    if ($avatar == null || ! $avatar->supprimer()) {
                         $this->modifOK = false;
                     }
-                }                
+                }
             }
             
             $_SESSION['menuAdmin'] = 'Avatar';
@@ -173,8 +172,7 @@ class Administration extends Controleur
                 foreach ($_POST['aSupp'] as $aSupp) {
                     $langue = Langue::getLangue($aSupp);
                     
-                    if ($langue == null || !$langue->supprimer())
-                    {
+                    if ($langue == null || ! $langue->supprimer()) {
                         $this->modifOK = false;
                     }
                 }
@@ -197,11 +195,10 @@ class Administration extends Controleur
             $this->modifOK = true;
             
             if (isset($_POST['aUp'])) {
-                foreach ($_POST['aUp'] as $aUp) {                    
+                foreach ($_POST['aUp'] as $aUp) {
                     $util = Utilisateur::getUtilisateur($aUp);
                     
-                    if ($util == null || !$util->modifierType('A'))
-                    {
+                    if ($util == null || ! $util->modifierType('A')) {
                         $this->modifOK = false;
                     }
                 }
@@ -227,8 +224,7 @@ class Administration extends Controleur
                 foreach ($_POST['aSupp'] as $aSupp) {
                     $util = Utilisateur::getUtilisateur($aSupp);
                     
-                    if ($util == null || !$util->deleteBD())
-                    {
+                    if ($util == null || ! $util->deleteBD()) {
                         $this->modifOK = false;
                     }
                 }
@@ -251,11 +247,10 @@ class Administration extends Controleur
             $this->modifOK = true;
             
             if (isset($_POST['aDown'])) {
-                foreach ($_POST['aDown'] as $aDown) {                    
+                foreach ($_POST['aDown'] as $aDown) {
                     $util = Utilisateur::getUtilisateur($aDown);
                     
-                    if ($util == null || !$util->modifierType('U'))
-                    {
+                    if ($util == null || ! $util->modifierType('U')) {
                         $this->modifOK = false;
                     }
                 }
@@ -300,8 +295,7 @@ class Administration extends Controleur
             if (isset($_FILES['photo'])) {
                 $name = str_replace(' ', '', $_FILES['photo']['name']);
                 
-                $this->modifOK = move_uploaded_file($_FILES['photo']['tmp_name'], '../public/img/photos/' . $name)
-                        && Photo::addPhoto($name);
+                $this->modifOK = move_uploaded_file($_FILES['photo']['tmp_name'], '../public/img/photos/' . $name) && Photo::addPhoto($name);
             }
             
             $_SESSION['menuAdmin'] = 'Photo';
@@ -322,9 +316,8 @@ class Administration extends Controleur
             
             if (isset($_POST['aSupp'])) {
                 
-                foreach ($_POST['aSupp'] as $aSupp) {                    
-                    if (!unlink('../public/img/photos/' . $aSupp) || !Photo::deletePhoto($aSupp))
-                    {
+                foreach ($_POST['aSupp'] as $aSupp) {
+                    if (! unlink('../public/img/photos/' . $aSupp) || ! Photo::deletePhoto($aSupp)) {
                         $this->modifOK = false;
                     }
                 }
@@ -348,8 +341,7 @@ class Administration extends Controleur
             
             if (isset($_POST['photos']) && isset($_POST['idLangue'])) {
                 foreach ($_POST['photos'] as $cle => $value) {
-                    if (!Photo::updateDescription($cle, $_POST['idLangue'], $value))
-                    {
+                    if (! Photo::updateDescription($cle, $_POST['idLangue'], $value)) {
                         $this->modifOK = false;
                     }
                 }

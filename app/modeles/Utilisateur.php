@@ -49,7 +49,7 @@ class Utilisateur extends Modele
 
     /** @var string Requête SQL permettant de modifier le type d'un utilisateur */
     const RQT_MODIFIER_TYPE_UTIL = 'UPDATE t_utils SET type = :type WHERE login = :login';
-    
+
     /** @var string Requête SQL permettant de modifier le type d'un utilisateur */
     const RQT_DELETE_UTIL = 'DELETE FROM t_utils WHERE login = :login';
 
@@ -277,7 +277,7 @@ class Utilisateur extends Modele
             ':type' => $this->type
         ));
     }
-    
+
     /**
      * Ajoute un nouvelle utilisateur dans la BD
      *
