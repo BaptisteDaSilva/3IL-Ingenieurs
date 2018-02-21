@@ -20,9 +20,7 @@ require_once TEMPLATES . 'menu.php';
                                 </div>
                             </form>
                             <?php } else { ?>
-                            <div class="modif-texte">
-                                <?= self::get('Apprentissage', 'Texte') ?>
-                            </div>
+                            <?= self::get('Apprentissage', 'Texte') ?>
                             <?php }?>
                         </div>
                     </div>

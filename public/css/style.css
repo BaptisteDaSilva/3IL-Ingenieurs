@@ -318,36 +318,55 @@ footer {
 	height: 60px;
 }
 
-.modif-texte
-{
-	text-align: left;
-	padding: 1%;
+#map {
+	height: 50%;
 }
 
-.modif-texte img
+.vue-presentation
+{
+	text-align: left;
+}
+
+.vue-presentation img
 {
 	width: 100%;
 	margin: 1%;
 }
 
-#map {
-	height: 50%;
+.vue-cours {
+	display: inline-block;
+	vertical-align: top;
+	text-align: left;
+	padding-left: 5%;
 }
 
-.modif-texte .vue-table {
-	display: tabel;
+.vue-cours-only {
+	width: 90%;
+	vertical-align: top;
+	text-align: left;
+	padding-left: 5%;
 }
 
-.modif-texte .row {
-	padding: 5px;
-	display: table-row;
+@media ( max-width :767px) {
+	.vue-cours {
+		width: 90%;
+	}
 }
 
-.modif-texte .cell {
-	width: 33%;
-	display: table-cell;
+@media ( min-width :768px) and (max-width:991px) {
+	.vue-cours {
+		width: 49%;
+	}
 }
 
-.panel_contact {
-	padding: 4%;
+@media ( min-width :992px) and (max-width:1199px) {
+	.vue-cours {
+		width: 49%;
+	}
+}
+
+@media ( min-width :1200px) {
+	.vue-cours {
+		width: 33%;
+	}
 }

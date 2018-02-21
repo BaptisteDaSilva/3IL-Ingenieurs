@@ -51,9 +51,7 @@ service.getDetails({
                                 </div>
                             </form>
                             <?php } else { ?>
-                            <div class="modif-texte">
-                                <?= self::get('Rodez', 'Texte') ?>
-                            </div>
+                            <?= self::get('Rodez', 'Texte') ?>
                             <?php }?>
                         </div>
                     </div>

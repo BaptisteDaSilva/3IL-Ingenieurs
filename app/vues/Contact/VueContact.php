@@ -52,7 +52,7 @@ require_once TEMPLATES . 'menu.php';
                             <?php }?>
                         </div>
                         <?php } else { ?>
-                        <div id="panel_contact" class="panel-body panel_contact">
+                        <div class="panel-body">
                             <div class="col-md-2"></div>
                             <div class="col-md-8">
                                 <form method="post" action="Contact/sendMail">
@@ -68,7 +68,8 @@ require_once TEMPLATES . 'menu.php';
                                     </div>
                                     <div class="form-group">
                                         <label for="message"><?= self::get('Contact', 'Libelle', 'Message') ?></label>
-                                        <textarea id="message" class="form-control" name="message" required><?= self::get('Contact', 'Placeholder', 'Message') ?></textarea>
+                                        <textarea id="message" class="form-control" name="message"
+                                            placeholder="<?= self::get('Contact', 'Placeholder', 'Message') ?>" required></textarea>
                                     </div>
                                     <div>
                                         <input type="submit" name="submit" value="<?= self::get('Contact', 'Bouton', 'Envoyer') ?>"

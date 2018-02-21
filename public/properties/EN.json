@@ -11,20 +11,20 @@
 		"Titre": "Training",
 		"Annee1": {
 			"Titre": "Year 1",
-			"Texte": "<div class=\"vue-table\">\r\n    <div class=\"cell\">\r\n        <h4>COMPUTER<\/h4>\r\n        <ul>\r\n            <li>Computer Architecture<\/li>\r\n            <li>System Base<\/li>\r\n            <li>Algorithms (java)<\/li>\r\n            <li>ACSI Project - Databases<\/li>\r\n            <li>Networks: standards and protocols<\/li>\r\n            <li>Language C<\/li>\r\n        <\/ul>\r\n    <\/div>\r\n    <div class=\"cell\">\r\n        <h4>HUMAN, ECONOMIC AND SOCIAL SCIENCES<\/h4>\r\n        <ul>\r\n            <li>Project Management<\/li>\r\n            <li>Communication \/ English<\/li>\r\n            <li>Economic and financial management<\/li>\r\n            <li>International culture (Chinese)<\/li>\r\n            <li>Personal commitment<\/li>\r\n        <\/ul>\r\n    <\/div>\r\n    <div class=\"cell\">\r\n        <h4>ENGINEERING SCIENCE<\/h4>\r\n        <ul>\r\n            <li>Signal Mathematics<\/li>\r\n            <li>Linear programming<\/li>\r\n            <li>Electricity<\/li>\r\n            <li>Electronics<\/li>\r\n            <li>Probability and Statistics<\/li>\r\n        <\/ul>\r\n    <\/div>\r\n<\/div>"
+			"Texte": "<div class=\"vue-cours\">\r\n    <h4>COMPUTER<\/h4>\r\n    <ul>\r\n        <li>Computer Architecture<\/li>\r\n        <li>System Base<\/li>\r\n        <li>Algorithms (java)<\/li>\r\n        <li>ACSI Project - Databases<\/li>\r\n        <li>Networks: standards and protocols<\/li>\r\n        <li>Language C<\/li>\r\n    <\/ul>\r\n<\/div>\r\n<div class=\"vue-cours\">\r\n    <h4>HUMAN, ECONOMIC AND SOCIAL SCIENCES<\/h4>\r\n    <ul>\r\n        <li>Project Management<\/li>\r\n        <li>Communication \/ English<\/li>\r\n        <li>Economic and financial management<\/li>\r\n        <li>International culture (Chinese)<\/li>\r\n        <li>Personal commitment<\/li>\r\n    <\/ul>\r\n<\/div>\r\n<div class=\"vue-cours\">\r\n    <h4>ENGINEERING SCIENCE<\/h4>\r\n    <ul>\r\n        <li>Signal Mathematics<\/li>\r\n        <li>Linear programming<\/li>\r\n        <li>Electricity<\/li>\r\n        <li>Electronics<\/li>\r\n        <li>Probability and Statistics<\/li>\r\n    <\/ul>\r\n<\/div>"
 		},
 		"Annee2": {
 			"Titre": "Year 2",
-			"Texte": "<div class=\"vue-table\">\r\n    <div class=\"row\">\r\n        <div class=\"cell\">\r\n            <h4>COMPUTER<\/h4>\r\n            <ul>\r\n                <li>Computer Security<\/li>\r\n                <li>System programming<\/li>\r\n                <li>Unix<\/li>\r\n                <li>Networks: standards and protocols<\/li>\r\n                <li>Networks: implementation<\/li>\r\n            <\/ul>\r\n        <\/div>\r\n        <div class=\"cell\">\r\n            <h4>DEVELOPMENT<\/h4>\r\n            <ul>\r\n                <li>Object-oriented analysis<\/li>\r\n                <li>Advanced Java<\/li>\r\n                <li>Databases<\/li>\r\n                <li>Web Development<\/li>\r\n            <\/ul>\r\n        <\/div>\r\n        <div class=\"cell\">\r\n            <h4>ENGINEERING SCIENCE<\/h4>\r\n            <ul>\r\n                <li>Numerical Analysis<\/li>\r\n                <li>Graph Theory<\/li>\r\n                <li>Modeling \/ Systems Analysis<\/li>\r\n                <li>Signal processing<\/li>\r\n                <li>Propagation \/ Modulation<\/li>\r\n                <li>Modulation<\/li>\r\n            <\/ul>\r\n        <\/div>\r\n    <\/div>\r\n    <div class=\"row\">\r\n        <div class=\"cell\">\r\n            <h4>HUMAN, ECONOMIC AND SOCIAL SCIENCES<\/h4>\r\n            <ul>\r\n                <li>English<\/li>\r\n                <li>International culture (Chinese)<\/li>\r\n                <li>Project management<\/li>\r\n            <\/ul>\r\n        <\/div>\r\n        <div class=\"cell\">\r\n            <h4>PROJECTS<\/h4>\r\n            <ul>\r\n                <li>Technological Project<\/li>\r\n                <li>Management Research Work<\/li>\r\n            <\/ul>\r\n        <\/div>\r\n    <\/div>\r\n<\/div>"
+			"Texte": "<div class=\"vue-cours\">\r\n    <h4>COMPUTER<\/h4>\r\n    <ul>\r\n        <li>Computer Security<\/li>\r\n        <li>System programming<\/li>\r\n        <li>Unix<\/li>\r\n        <li>Networks: standards and protocols<\/li>\r\n        <li>Networks: implementation<\/li>\r\n    <\/ul>\r\n<\/div>\r\n<div class=\"vue-cours\">\r\n    <h4>DEVELOPMENT<\/h4>\r\n    <ul>\r\n        <li>Object-oriented analysis<\/li>\r\n        <li>Advanced Java<\/li>\r\n        <li>Databases<\/li>\r\n        <li>Web Development<\/li>\r\n    <\/ul>\r\n<\/div>\r\n<div class=\"vue-cours\">\r\n    <h4>ENGINEERING SCIENCE<\/h4>\r\n    <ul>\r\n        <li>Numerical Analysis<\/li>\r\n        <li>Graph Theory<\/li>\r\n        <li>Modeling \/ Systems Analysis<\/li>\r\n        <li>Signal processing<\/li>\r\n        <li>Propagation \/ Modulation<\/li>\r\n        <li>Modulation<\/li>\r\n    <\/ul>\r\n<\/div>\r\n<div class=\"vue-cours\">\r\n    <h4>HUMAN, ECONOMIC AND SOCIAL SCIENCES<\/h4>\r\n    <ul>\r\n        <li>English<\/li>\r\n        <li>International culture (Chinese)<\/li>\r\n        <li>Project management<\/li>\r\n    <\/ul>\r\n<\/div>\r\n<div class=\"vue-cours\">\r\n    <h4>PROJECTS<\/h4>\r\n    <ul>\r\n        <li>Technological Project<\/li>\r\n        <li>Management Research Work<\/li>\r\n    <\/ul>\r\n<\/div>"
 		},
 		"Annee3": {
 			"Titre": "Year 3",
-			"Texte": "<h4>Achieve international mobility<\/h4>\r\n<p>Non-exhaustive list of partners:<\/p>\r\n<ul>\r\n     <li>\r\n         Canada:\r\n         <ul>\r\n             <li>UQO (Ottawa)<\/li>\r\n             <li>UQAC (Chicoutimie)<\/li>\r\n             <li>Laval<\/li>\r\n         <\/ul>\r\n    <\/li>\r\n     <li>Bulgaria<\/li>\r\n     <li>Erasmus +<\/li>\r\n     <li>...<\/li>\r\n<\/ul>"
+			"Texte": "<div class=\"vue-cours-only\">\r\n    <h4>ACHIEVE INTERNATIONAL MOBILITY<\/h4>\r\n    <p>Non-exhaustive list of partners:<\/p>\r\n    <ul>\r\n        <li>\r\n            Canada:\r\n            <ul>\r\n                <li>UQO (Ottawa)<\/li>\r\n                <li>UQAC (Chicoutimie)<\/li>\r\n                <li>Laval<\/li>\r\n            <\/ul>\r\n        <\/li>\r\n        <li>Bulgaria<\/li>\r\n        <li>Erasmus +<\/li>\r\n        <li>...<\/li>\r\n    <\/ul>\r\n<\/div>"
 		}
 	},
 	"Apprentissage": {
 		"Titre": "Learning",
-		"Texte": "The apprentice engineer alternates periods in the company and within the school. Each mission in a company is close to a field of teaching that it can validate. If the pace of study is different from that of a student in formal education, the diploma awarded at the end of the course is the same. He is qualified by the Commission of the Titles of Engineer and confers a rank Master. TOEIC with 785 points minimum and must achieve a mandatory international mobility. The latter is designed to take into account the professional rhythm imposed on the apprentice. This obligation is provided for under the apprenticeship contract signed at the beginning of the course. The educational project is similar to that of the initial training. The program followed at the school is the same as the student engineers in classical training. The number of hours and credits allocated to each is different for the pace of school \/ business alternation. The validation of the materials follows the same procedures. The options of specialization to choose for the 3rd year are accessible to all the apprentices."
+		"Texte": "<div class=\"vue-presentation\">\r\n    <p>The apprentice engineer alternates periods in the company and within the school. Each mission in a company is close to a field of teaching that\r\n        it can validate. If the pace of study is different from that of a student in formal education, the diploma awarded at the end of the course is\r\n        the same. He is qualified by the Commission of the Titles of Engineer and confers a rank Master. TOEIC with 785 points minimum and must\r\n        achieve a mandatory international mobility. The latter is designed to take into account the professional rhythm imposed on the apprentice.\r\n        This obligation is provided for under the apprenticeship contract signed at the beginning of the course. The educational project is similar to\r\n        that of the initial training. The program followed at the school is the same as the student engineers in classical training. The number of\r\n        hours and credits allocated to each is different for the pace of school \\\/ business alternation. The validation of the materials follows the\r\n        same procedures. The options of specialization to choose for the 3rd year are accessible to all the apprentices.<\/p>\r\n    <img src=\"http:\/\/www.3il-ingenieurs.fr\/ingenieurs\/wp-content\/uploads\/2015\/12\/tableau-apprentissage.jpg\" alt=\"Photo alternance\">\r\n<\/div>"
 	},
 	"Rodez": {
 		"Titre": "Rodez",
@@ -32,9 +32,9 @@
 	},
 	"Contact": {
 		"Titre": "Contact",
-		"Texte": "In order to contact us, please identify yourself.",
-		"EnvoieOK": "The message has been sent.",
-		"EnvoieKO": "Error while sending the message, you can contact us at the following address: <a href='mailto:'site.3il.ingenieurs@gmail.com'>site.3il.ingenieurs@gmail.com<\/a>",
+		"Texte": "<p>In order to contact us, please identify yourself.<\/p>",
+		"EnvoieOK": "<p>The message has been sent.<\/p>",
+		"EnvoieKO": "<p>Error while sending the message, you can contact us at the following address: <a href='mailto:'site.3il.ingenieurs@gmail.com'>site.3il.ingenieurs@gmail.com<\/a><\/p>",
 		"Libelle": {
 			"Expediteur": "Sender :",
 			"Objet": "Object :",
@@ -52,15 +52,15 @@
 		"Titre": "Register",
 		"TitreOK": "Registration: Successful!",
 		"TitreKO": "Registration: Failed!",
-		"TexteOK": "Your registration was successful. <br>, You can now log in with your login details. <br> Thank you.",
-		"TexteKO": "There was a problem registering. <br> Please try signing up again with different credentials.",
+		"TexteOK": "<p>Your registration was successful. <br>, You can now log in with your login details. <br> Thank you.<\/p>",
+		"TexteKO": "<p>There was a problem registering. <br> Please try signing up again with different credentials.<\/p>",
 		"Bouton": "Register",
 		"Texte": "You have been successfully disconnected! <br> Redirection on the homepage in 5 seconds!"
 	},
 	"SeConnecter": {
 		"Titre": "Connect",
 		"TitreKO": "Error during connection!",
-		"TexteKO": "The credentials you provided do not allow you to login. <br> Please try to log in again with good credentials. ",
+		"TexteKO": "<p>The credentials you provided do not allow you to login. <br> Please try to log in again with good credentials.<\/p>",
 		"Bouton": "Connect",
 		"SeSouvenirDeMoi": "Remember Me",
 		"TitreOk": "Successful logout!",
@@ -70,8 +70,8 @@
 		"Titre": "My account",
 		"TitreOK": "Successful Modification!",
 		"TitreKO": "A problem has occurred",
-		"TexteOK": "The changes you made to your account have been taken into account.",
-		"TexteKO": "There was a problem changing your data. <br> Please try again.",
+		"TexteOK": "<p>The changes you made to your account have been taken into account.<\/p>",
+		"TexteKO": "<p>There was a problem changing your data. <br> Please try again.<\/p>",
 		"Menu": {
 			"Avatar": "My avatar",
 			"Langue": "My language",
@@ -111,7 +111,7 @@
 			"FichierProperties": "File Properties:",
 			"ARemplir": "To fill",
 			"Ajouter": "Add:",
-			"SupprimerUtilisateurs" : "Delete users :"
+			"SupprimerUtilisateurs": "Delete users :"
 		},
 		"Placeholder": {
 			"CodeLangue": "Code of the language (Ex: FR)",
@@ -129,7 +129,7 @@
 	"Deconnexion": {
 		"Titre": "Disconnect",
 		"TitreOk": "Successful logout!",
-		"Texte": "You have been successfully disconnected! <br> Redirection on the homepage in 5 seconds!"
+		"Texte": "<p>You have been successfully disconnected! <br> Redirection on the homepage in 5 seconds!<\/p>"
 	},
 	"Footer": {
 		"Phrase1": "Nathan RIBAS et Baptiste RIBEIRO DA SILVA",
