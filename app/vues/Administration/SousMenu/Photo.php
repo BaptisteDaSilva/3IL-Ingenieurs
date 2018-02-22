@@ -19,7 +19,7 @@ $("#photo").change(function() {
     <div class="row">
         <div class="col-md-2"></div>
         <div class="col-md-8">
-            <?php if ($this->photos != null) { ?>
+            <?php if ($this->photos == null) { ?>
             <p><?= self::get('Administration', 'Erreur', 'AucunePhoto') ?></p>
             <?php } else { ?>
             <form method="post" action="/Administration/supprimerPhoto/">

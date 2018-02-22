@@ -70,7 +70,7 @@ class Utilisateur extends Modele
 
     /** @var string Identifiant de la langue de l'utilisateur */
     private $idLangue;
-    
+
     /** @var string Type des utilisateurs de type root (super-admin) */
     private static $TYPE_SUPER_ADMIN = 'R';
 
@@ -530,7 +530,7 @@ class Utilisateur extends Modele
     {
         return $this->type == self::$TYPE_ADMIN || $this->type == self::$TYPE_SUPER_ADMIN;
     }
-    
+
     /**
      *
      * @return string Retourne true si l'Utilisateur est un amdin, false sinon

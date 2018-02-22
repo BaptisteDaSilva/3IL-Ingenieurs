@@ -49,7 +49,7 @@
             </form>
             <div class="panel-heading">
                 <h3 class="panel-title"><?= self::get('Administration', 'Libelle', 'SupprimerUtilisateurs') ?></h3>
-            </div> 
+            </div>
             <form method="post" action="/Administration/supprimerMembre/" enctype="multipart/form-data">
                 <div class="avatars"> 
                     <?php foreach ($this->utilisateurs as &$util) { ?>
