@@ -128,6 +128,14 @@
 			"Supprimer": "Delete",
 			"Retrograder": "Downgrade",
 			"Upgrader": "Upgrade"
+		},
+		"Erreur": {
+			"AucunAvatar": "No avatar has been set",
+			"AucuneLangue": "No language has been defined",
+			"AucunePhoto": "No photos are available",
+			"AucunMembre": "No members registered on the site",
+			"AucunAdmin": "No members have administrator status",
+			"Slider": "No photo is available or no language has been defined"
 		}
 	},
 	"Deconnexion": {

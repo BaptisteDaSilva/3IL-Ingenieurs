@@ -187,9 +187,9 @@ class Administration extends Controleur
     }
 
     /**
-     * Méthode lancée pour ajouter un administrateur
+     * Méthode lancée pour upgrader un membre en administrateur du site
      */
-    public function ajouterAdmin()
+    public function ajouterSuperAdmin()
     {
         if (self::isAdminConnect()) {
             $this->modifOK = true;
@@ -213,11 +213,11 @@ class Administration extends Controleur
     }
 
     /**
-     * Méthode lancée pour supprimer un administrateur
+     * Méthode lancée pour retorgrader un administrateur à membre
      */
     public function supprimerMembre()
     {
-        if (self::isAdminConnect()) {
+        if (self::isSuperAdminConnect()) {
             $this->modifOK = true;
             
             if (isset($_POST['aSupp'])) {
@@ -241,7 +241,7 @@ class Administration extends Controleur
     /**
      * Méthode lancée pour supprimer un administrateur
      */
-    public function supprimerAdmin()
+    public function supprimerSuperAdmin()
     {
         if (self::isAdminConnect()) {
             $this->modifOK = true;

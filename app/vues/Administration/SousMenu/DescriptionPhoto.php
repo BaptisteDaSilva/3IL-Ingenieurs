@@ -2,6 +2,9 @@
     <div class="row">
         <div class="col-md-2"></div>
         <div class="col-md-8">
+            <?php if ($this->descriptions == null) { ?>
+            <p><?= self::get('Administration', 'Erreur', 'Slider') ?></p>
+            <?php } else { ?>
             <?php foreach ($this->descriptions as $description) { ?>
             <div class="panel-heading">
                 <h3 class="panel-title"><?= $description['langue']->getNom() ?></h3>
@@ -21,6 +24,7 @@
                     <input type="submit" name="submitLangue" value="<?= self::get('Administration', 'Bouton', 'Modifier') ?>" class="btn mon-btn">
                 </div>
             </form>
+            <?php } ?>
             <?php } ?>
         </div>
     </div>

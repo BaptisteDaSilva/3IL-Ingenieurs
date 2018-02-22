@@ -19,7 +19,9 @@ $("#avatar").change(function() {
     <div class="row">
         <div class="col-md-2"></div>
         <div class="col-md-8">
-            <?php if ($this->avatars != null) { ?>
+            <?php if ($this->avatars == null) { ?>
+            <p><?= self::get('Administration', 'Erreur', 'AucunAvatar') ?></p>
+            <?php } else { ?>
             <form method="post" action="/Administration/supprimerAvatar/">
                 <div class="avatars"> 
                     <?php foreach ($this->avatars as $avatar) { ?>

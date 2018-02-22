@@ -87,6 +87,14 @@ abstract class Controleur
     {
         return self::isMemberConnect() && $_SESSION['util']->isAdmin();
     }
+    
+    /**
+     * Fonction permettant de savoir si un adminstrateur est connecté
+     */
+    public static function isSuperAdminConnect()
+    {
+        return self::isMemberConnect() && $_SESSION['util']->isSuperAdmin();
+    }
 
     /**
      * Fonction permettant de savoir si un adminstrateur est connecté

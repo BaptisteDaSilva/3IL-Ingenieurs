@@ -70,6 +70,9 @@ class Utilisateur extends Modele
 
     /** @var string Identifiant de la langue de l'utilisateur */
     private $idLangue;
+    
+    /** @var string Type des utilisateurs de type root (super-admin) */
+    private static $TYPE_SUPER_ADMIN = 'R';
 
     /** @var string Type des utilisateurs de type Admin */
     private static $TYPE_ADMIN = 'A';
@@ -525,7 +528,16 @@ class Utilisateur extends Modele
      */
     public function isAdmin()
     {
-        return $this->type == self::$TYPE_ADMIN;
+        return $this->type == self::$TYPE_ADMIN || $this->type == self::$TYPE_SUPER_ADMIN;
+    }
+    
+    /**
+     *
+     * @return string Retourne true si l'Utilisateur est un amdin, false sinon
+     */
+    public function isSuperAdmin()
+    {
+        return $this->type == self::$TYPE_SUPER_ADMIN;
     }
 
     /**

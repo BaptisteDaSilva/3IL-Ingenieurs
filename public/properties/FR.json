@@ -103,11 +103,11 @@
 		"TexteOK": "<p>Les modifications que vos avez effectué ont bien été prises en compte.<\/p>",
 		"TexteKO": "<p>Un problème est survenu lors de la modification des données. <br> Merci de réessayer.<\/p>",
 		"Menu": {
-			"Avatar": "Admin avatar",
-			"Langue": "Admin langue",
-			"Membre": "Admin membre",
-			"Photo": "Admin photo",
-			"DescriptionPhoto": "Admin description photo"
+			"Avatar": "Avatar",
+			"Langue": "Langue",
+			"Membre": "Membre",
+			"Photo": "Photo",
+			"DescriptionPhoto": "Slider"
 		},
 		"Libelle": {
 			"Administrateurs": "Administrateurs :",
@@ -128,6 +128,14 @@
 			"Supprimer": "Supprimer",
 			"Retrograder": "Retrograder",
 			"Upgrader": "Upgrader"
+		},
+		"Erreur": {
+			"AucunAvatar": "Aucun avatar n'a été définis",
+			"AucuneLangue": "Aucune langue n'a été définis",
+			"AucunePhoto": "Aucune photos n'est disponible",
+			"AucunMembre": "Aucun membre ne s'est inscrit sur le site",
+			"AucunAdmin": "Aucun membre n'a le status administrateur",
+			"Slider": "Aucune photo n'est disponible ou aucune langue n'a été définis"
 		}
 	},
 	"Deconnexion": {

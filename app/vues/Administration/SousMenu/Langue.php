@@ -19,8 +19,10 @@ $("#drapeau").change(function() {
     <div class="row">
         <div class="col-md-2"></div>
         <div class="col-md-8"> 
-        <?php if ($this->langues != null) { ?>
-        <form method="post" action="/Administration/supprimerLangue/">
+            <?php if ($this->langues == null) { ?>
+            <p><?= self::get('Administration', 'Erreur', 'AucuneLangue') ?></p>
+            <?php } else { ?>
+            <form method="post" action="/Administration/supprimerLangue/">
                 <div class="drapeaux"> 
                 <?php foreach ($this->langues as &$langue) { ?>
                 <div class="drapeau">

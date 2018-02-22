@@ -110,6 +110,14 @@
 			"Supprimer": "",
 			"Retrograder": "",
 			"Upgrader": ""
+		},
+		"Erreur": {
+			"AucunAvatar": "",
+			"AucuneLangue": "",
+			"AucunePhoto": "",
+			"AucunMembre": "",
+			"AucunAdmin": "",
+			"Slider": ""
 		}
 	},
 	"SeConnecter": {

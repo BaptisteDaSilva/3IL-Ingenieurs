@@ -5,7 +5,9 @@
             <div class="panel-heading">
                 <h3 class="panel-title"><?= self::get('Administration', 'Libelle', 'Administrateurs') ?></h3>
             </div>
-            <?php if ($this->administrateurs != null) { ?>
+            <?php if ($this->administrateurs == null) { ?>
+            <p><?= self::get('Administration', 'Erreur', 'AucunAdministrateur') ?></p>
+            <?php } else { ?>
             <form method="post" action="/Administration/supprimerAdmin/">
                 <div class="avatars"> 
                     <?php foreach ($this->administrateurs as &$admin) { ?>
@@ -26,7 +28,9 @@
             <div class="panel-heading">
                 <h3 class="panel-title"><?= self::get('Administration', 'Libelle', 'Utilisateurs') ?></h3>
             </div> 
-            <?php if ($this->utilisateurs != null) { ?>
+            <?php if ($this->utilisateurs == null) { ?>
+            <p><?= self::get('Administration', 'Erreur', 'AucunMembre') ?></p>
+            <?php } else { ?>
             <form method="post" action="/Administration/ajouterAdmin/" enctype="multipart/form-data">
                 <div class="avatars"> 
                     <?php foreach ($this->utilisateurs as &$util) { ?>
@@ -43,11 +47,9 @@
                     <input type="submit" name="submitLangue" value="<?= self::get('Administration', 'Bouton', 'Upgrader') ?>" class="btn mon-btn">
                 </div>
             </form>
-            <?php } ?>
             <div class="panel-heading">
                 <h3 class="panel-title"><?= self::get('Administration', 'Libelle', 'SupprimerUtilisateurs') ?></h3>
             </div> 
-            <?php if ($this->utilisateurs != null) { ?>
             <form method="post" action="/Administration/supprimerMembre/" enctype="multipart/form-data">
                 <div class="avatars"> 
                     <?php foreach ($this->utilisateurs as &$util) { ?>
