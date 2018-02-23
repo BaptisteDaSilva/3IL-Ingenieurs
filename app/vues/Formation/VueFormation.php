@@ -2,13 +2,13 @@
 require_once TEMPLATES . 'enTete.php';
 require_once TEMPLATES . 'menu.php';
 ?>
-<div class="container-fluid">
+<div class="container-page">
     <div class="row">
         <div class="col-md-2"></div>
         <div class="col-md-8">
             <div class="panel panel-default bigPanel">
                 <div class="panel-heading">
-                    <h3 class="panel-title"><?= self::get('Formation', 'Annee1', 'Titre') ?></h3>
+                    <h2 class="panel-title"><?= self::get('Formation', 'Annee1', 'Titre') ?></h2>
                 </div>
                 <div class="panel-body">
                     <div class="row">
@@ -28,7 +28,7 @@ require_once TEMPLATES . 'menu.php';
             </div>
             <div class="panel panel-default bigPanel">
                 <div class="panel-heading">
-                    <h3 class="panel-title"><?= self::get('Formation', 'Annee2', 'Titre') ?></h3>
+                    <h2 class="panel-title"><?= self::get('Formation', 'Annee2', 'Titre') ?></h2>
                 </div>
                 <div class="panel-body">
                     <div class="row">
@@ -48,7 +48,7 @@ require_once TEMPLATES . 'menu.php';
             </div>
             <div class="panel panel-default bigPanel">
                 <div class="panel-heading">
-                    <h3 class="panel-title"><?= self::get('Formation', 'Annee3', 'Titre') ?></h3>
+                    <h2 class="panel-title"><?= self::get('Formation', 'Annee3', 'Titre') ?></h2>
                 </div>
                 <div class="panel-body">
                     <div class="row">

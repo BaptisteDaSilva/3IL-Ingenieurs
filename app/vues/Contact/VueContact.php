@@ -2,13 +2,13 @@
 require_once TEMPLATES . 'enTete.php';
 require_once TEMPLATES . 'menu.php';
 ?>
-<div class="container-fluid">
+<div class="container-page">
     <div class="row">
         <div class="col-md-2"></div>
         <div class="col-md-8">
             <div class="panel panel-default bigPanel">
                 <div class="panel-heading">
-                    <h3 class="panel-title"><?= self::get('Contact', 'Titre') ?></h3>
+                    <h2 class="panel-title"><?= self::get('Contact', 'Titre') ?></h2>
                 </div>
                 <div class="panel-body">
                     <div class="row">

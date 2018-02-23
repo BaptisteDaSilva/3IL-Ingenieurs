@@ -57,12 +57,8 @@ html, body {
 	background-color: rgba(255, 255, 255, 0.9);
 }
 
-.panel:not (.bigPanel ){
-	box-shadow: 1 px 1 px 1 px #c8c8c8;
-}
-
 .panel .panel-heading {
-	background-color: rgba(231, 231, 231, 0.8);
+	background-color: rgba(253, 220, 206, 0.8);
 	text-align: center;
 }
 
@@ -71,14 +67,10 @@ html, body {
 }
 
 .mon-btn {
-	background-color: #337AB7;
+	background-color: #005067;
 }
 
-.mon-btn-success {
-	background-color: #4CAE4C;
-}
-
-.mon-btn, .mon-btn:hover, .mon-btn-success, .mon-btn-success:hover {
+.mon-btn, .mon-btn:hover {
 	color: #fff;
 }
 
@@ -98,7 +90,7 @@ html, body {
 }
 
 .admin {
-	border: 1px solid #777;
+	border: 2px solid #e84e0e;
 }
 
 .profilAdmin {
@@ -149,8 +141,7 @@ textarea {
 	font-size: 20px;
 	width: 33%;
 	text-align: center;
-	color: #555;
-	background: #e7e7e7;
+	color: #e84e0e;;
 	border-radius: 10px;
 }
 

@@ -40,7 +40,7 @@ $("#avatar").change(function() {
             </form>
             <?php } ?> 
             <div class="panel-heading">
-                <h3 class="panel-title"><?= self::get('Administration', 'Libelle', 'Ajouter') ?></h3>
+                <h2 class="panel-title"><?= self::get('Administration', 'Libelle', 'Ajouter') ?></h2>
             </div>
             <form method="post" action="/Administration/ajouterAvatar/" enctype="multipart/form-data">
                 <div class="form-group">

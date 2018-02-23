@@ -30,13 +30,13 @@ service.getDetails({
 });
 }
 </script>
-<div class="container-fluid">
+<div class="container-page">
     <div class="row">
         <div class="col-md-2"></div>
         <div class="col-md-8">
             <div class="panel panel-default bigPanel">
                 <div class="panel-heading panel-navigation">
-                    <h3 class="panel-title"><?= self::get('Rodez', 'Titre') ?></h3>
+                    <h2 class="panel-title"><?= self::get('Rodez', 'Titre') ?></h2>
                 </div>
                 <div class="panel-body">
                     <div class="row">

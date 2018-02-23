@@ -41,7 +41,7 @@
             </ul>
             <ul class="nav navbar-nav navbar-right">
                 <?php if (self::isMemberConnect()) { ?>
-                <li class="dropdown">
+                <li class="dropdown <?php if ($this->getActivePage() == 'MonCompte') { echo 'active'; } ?>">
                     <a href="#" class="dropdown-toggle login" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
                         <img class="profil <?php if ($_SESSION['util']->isAdmin()) { echo 'admin'; } ?>"
                             src="<?= $_SESSION['util']->getLienAvatar() ?>">

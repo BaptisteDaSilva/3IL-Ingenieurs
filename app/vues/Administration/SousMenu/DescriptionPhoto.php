@@ -7,7 +7,7 @@
             <?php } else { ?>
             <?php foreach ($this->descriptions as $description) { ?>
             <div class="panel-heading">
-                <h3 class="panel-title"><?= $description['langue']->getNom() ?></h3>
+                <h2 class="panel-title"><?= $description['langue']->getNom() ?></h2>
             </div>
             <form method="post" action="/Administration/modifierDescriptionPhoto/">
                 <input type="hidden" name="idLangue" value="<?= $description['langue']->getId() ?>" />

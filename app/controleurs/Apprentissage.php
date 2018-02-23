@@ -12,7 +12,7 @@ class Apprentissage extends Controleur
 {
 
     /**
-     * Créé un nouveau contrôleur de la page d'accueil.
+     * Créé un nouveau contrôleur de la page d'apprentissage.
      */
     public function __construct()
     {

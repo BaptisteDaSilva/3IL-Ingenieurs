@@ -36,7 +36,17 @@ class Administration extends Controleur
 
     /** @var string Menu a affiché dans mon compte */
     public $MENU_DEFAUT = 'Avatar';
-
+    
+    /**
+     * Créé un nouveau contrôleur de la page d'accueil.
+     */
+    public function __construct()
+    {
+        parent::__construct();
+        
+        $this->setActivePage('MonCompte');
+    }
+    
     /**
      * Méthode lancée par défaut sur un contrôleur.
      */

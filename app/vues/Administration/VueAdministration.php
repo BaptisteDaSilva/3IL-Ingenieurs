@@ -29,13 +29,13 @@ $(function(){
 	});
 });
 </script>
-<div class="container-fluid">
+<div class="container-page">
     <div class="row">
         <div class="col-md-2"></div>
         <div class="col-md-8">
             <div class="panel panel-default bigPanel">
                 <div class="panel-heading">
-                    <h3 class="panel-title"><?= self::get('Administration', 'Titre') ?></h3>
+                    <h2 class="panel-title"><?= self::get('Administration', 'Titre') ?></h2>
                 </div>
                 <div class="panel-heading panel-navigation">
                     <input type="button" value="<?= self::get('Administration', 'Menu', 'Avatar') ?>" onclick="loadMenu('Avatar')" />
@@ -50,7 +50,7 @@ $(function(){
                     <?php if ($this->modifOK) { ?>
                     <div class="panel panel-success bigPanel">
                     <div class="panel-heading">
-                        <h3 class="panel-title"><?= self::get('Administration', 'TitreOK') ?></h3>
+                        <h2 class="panel-title"><?= self::get('Administration', 'TitreOK') ?></h2>
                     </div>
                     <div class="panel-body">
                             <?= self::get('Administration', 'TexteOK') ?>
@@ -59,7 +59,7 @@ $(function(){
                     <?php } else { ?>
                     <div class="panel panel-danger bigPanel">
                     <div class="panel-heading">
-                        <h3 class="panel-title"><?= self::get('Administration', 'TitreKO') ?></h3>
+                        <h2 class="panel-title"><?= self::get('Administration', 'TitreKO') ?></h2>
                     </div>
                     <div class="panel-body">
                             <?= self::get('Administration', 'TexteKO') ?>
