@@ -70,13 +70,14 @@ html, body {
 	background-color: #005067;
 }
 
-.mon-btn, .mon-btn:hover {
-	color: #fff;
+@media ( max-width :768px) {
+	.mon-btn {
+		background-color: #e84e0e;
+	}
 }
 
-.has-success>.fa, .has-error .fa {
-	margin-top: 30px;
-	margin-right: 20px;
+.mon-btn, .mon-btn:hover {
+	color: #fff;
 }
 
 .jumbotron {

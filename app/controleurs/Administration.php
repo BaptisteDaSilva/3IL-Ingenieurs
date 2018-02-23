@@ -199,7 +199,7 @@ class Administration extends Controleur
     /**
      * Méthode lancée pour upgrader un membre en administrateur du site
      */
-    public function ajouterSuperAdmin()
+    public function ajouterAdmin()
     {
         if (self::isAdminConnect()) {
             $this->modifOK = true;
@@ -251,7 +251,7 @@ class Administration extends Controleur
     /**
      * Méthode lancée pour supprimer un administrateur
      */
-    public function supprimerSuperAdmin()
+    public function supprimerAdmin()
     {
         if (self::isAdminConnect()) {
             $this->modifOK = true;
