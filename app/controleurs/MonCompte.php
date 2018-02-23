@@ -27,7 +27,7 @@ class MonCompte extends Controleur
     public $MENU_DEFAUT = 'Compte';
     
     /**
-     * Créé un nouveau contrôleur de la page d'accueil.
+     * Créé un nouveau contrôleur de la page d'e mon compte.
      */
     public function __construct()
     {

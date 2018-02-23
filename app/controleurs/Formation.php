@@ -12,7 +12,7 @@ class Formation extends Controleur
 {
 
     /**
-     * Créé un nouveau contrôleur de la page d'accueil.
+     * Créé un nouveau contrôleur de la page de formation.
      */
     public function __construct()
     {

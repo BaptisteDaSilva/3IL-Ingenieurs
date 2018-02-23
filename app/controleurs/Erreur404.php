@@ -12,7 +12,7 @@ class Erreur404 extends Controleur
 {
 
     /**
-     * Créé un nouveau contrôleur de la page d'accueil.
+     * Créé un nouveau contrôleur de la page d'erreur.
      */
     public function __construct()
     {

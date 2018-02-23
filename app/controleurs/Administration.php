@@ -38,7 +38,7 @@ class Administration extends Controleur
     public $MENU_DEFAUT = 'Avatar';
     
     /**
-     * Créé un nouveau contrôleur de la page d'accueil.
+     * Créé un nouveau contrôleur de la page d'administration.
      */
     public function __construct()
     {
