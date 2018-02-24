@@ -344,6 +344,9 @@ footer {
 	.panel-photo img {
 		height: 16vw;
 	}
+	.nav > li {
+		position: relative;
+	}
 }
 
 @media ( min-width :992px) and (max-width:1199px) {
@@ -358,6 +361,9 @@ footer {
 	}
 	.panel-photo img {
 		height: 13vw;
+	}
+	.nav > li {
+		position: relative;
 	}
 }
 
