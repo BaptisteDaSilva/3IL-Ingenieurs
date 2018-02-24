@@ -41,7 +41,7 @@ $(function(){
         </div>
         <?php if (isset($this->modifOK)) { ?>
             <?php if ($this->modifOK) { ?>
-            <div class="panel panel-success bigPanel">
+            <div class="panel panel-default panel-success bigPanel">
             <div class="panel-heading">
                 <h2 class="panel-title"><?= self::get('MonCompte', 'TitreOK') ?></h2>
             </div>
@@ -50,7 +50,7 @@ $(function(){
                 </div>
         </div>
             <?php } else { ?>
-            <div class="panel panel-danger bigPanel">
+            <div class="panel panel-default panel-danger bigPanel">
             <div class="panel-heading">
                 <h2 class="panel-title"><?= self::get('MonCompte', 'TitreKO') ?></h2>
             </div>

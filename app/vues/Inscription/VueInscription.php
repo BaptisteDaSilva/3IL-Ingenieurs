@@ -4,7 +4,7 @@ require_once TEMPLATES . 'menu.php';
 ?>
 <div class="container">
     <?php if ($this->inscriptionOK) { ?>
-    <div class="panel panel-success bigPanel">
+    <div class="panel panel-default panel-success bigPanel">
         <div class="panel-heading">
             <h2 class="panel-title"><?= self::get('SInscrire', 'TitreOK') ?></h2>
         </div>
@@ -13,7 +13,7 @@ require_once TEMPLATES . 'menu.php';
         </div>
     </div>
     <?php } else { ?>
-    <div class="panel panel-danger bigPanel">
+    <div class="panel panel-default panel-danger bigPanel">
         <div class="panel-heading">
             <h2 class="panel-title"><?= self::get('SInscrire', 'TitreKO') ?></h2>
         </div>

@@ -333,8 +333,8 @@ textarea.input-group-sm>.form-control {
 	display: table-cell
 }
 
-.input-group .form-control:not(:first-child):not(:last-child){
-	border-radius:0
+.input-group .form-control:not (:first-child ):not (:last-child ){
+	border-radius: 0
 }
 
 .input-group .form-control:first-child {

@@ -329,6 +329,11 @@ footer {
 	.panel-photo img {
 		height: 14vw;
 	}
+	.form-control-feedback {
+		position: relative;
+		left: 186px;
+		bottom: 33px;
+	}
 }
 
 @media ( min-width :768px) and (max-width:991px) {
@@ -344,8 +349,13 @@ footer {
 	.panel-photo img {
 		height: 16vw;
 	}
-	.nav > li {
+	.nav>li {
 		position: relative;
+	}
+	.form-control-feedback {
+		position: absolute;
+		top: 26px;
+		right: 15px;
 	}
 }
 
@@ -362,8 +372,13 @@ footer {
 	.panel-photo img {
 		height: 13vw;
 	}
-	.nav > li {
+	.nav>li {
 		position: relative;
+	}
+	.form-control-feedback {
+		position: absolute;
+		top: 26px;
+		right: 15px;
 	}
 }
 
@@ -380,7 +395,30 @@ footer {
 	.panel-photo img {
 		height: 10vw;
 	}
-	.nav > li {
+	.nav>li {
 		position: relative;
 	}
+	.form-control-feedback {
+		position: absolute;
+		top: 26px;
+		right: 15px;
+	}
+}
+
+.form-control-feedback {
+	z-index: 2;
+	display: block;
+	width: 34px;
+	height: 34px;
+	line-height: 34px;
+	text-align: center;
+	pointer-events: none
+}
+
+.has-success .form-control-feedback {
+	color: #3c763d;
+}
+
+.has-error .form-control-feedback {
+	color: #a94442;
 }
