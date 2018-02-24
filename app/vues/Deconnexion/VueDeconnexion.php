@@ -17,26 +17,21 @@ function compt()
     setTimeout("compt()", 950);
 }
 </script>
-<div class="container-page">
-    <div class="row">
-        <div class="col-md-2"></div>
-        <div class="col-md-8">
-            <div class="panel panel-success bigPanel">
-                <div class="panel-heading">
-                    <h2 class="panel-title"><?= self::get('Deconnexion', 'TitreOk') ?></h2>
+<div class="container">
+    <div class="panel panel-success bigPanel">
+        <div class="panel-heading">
+            <h2 class="panel-title"><?= self::get('Deconnexion', 'TitreOk') ?></h2>
+        </div>
+        <div class="panel-body">
+            <?php if (self::isAdminConnect()) { ?>
+            <form method="post" action="/Administration/modifierTexte/Deconnexion/Texte">
+                <div class="form-group">
+                    <textarea name="new" class="form-control" onchange="this.form.submit();"><?= self::get('Contact', 'Texte') ?></textarea>
                 </div>
-                <div class="panel-body">
-                    <?php if (self::isAdminConnect()) { ?>
-                    <form method="post" action="/Administration/modifierTexte/Deconnexion/Texte">
-                        <div class="form-group">
-                            <textarea name="new" class="form-control" onchange="this.form.submit();"><?= self::get('Contact', 'Texte') ?></textarea>
-                        </div>
-                    </form>
-                    <?php } else { ?>
-                    <?= self::get('Deconnexion', 'Texte') ?>
-                    <?php }?>
-                </div>
-            </div>
+            </form>
+            <?php } else { ?>
+            <?= self::get('Deconnexion', 'Texte') ?>
+            <?php }?>
         </div>
     </div>
 </div>

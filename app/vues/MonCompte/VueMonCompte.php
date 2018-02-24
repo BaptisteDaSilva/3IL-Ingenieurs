@@ -29,43 +29,38 @@ $(function(){
 	});
 });
 </script>
-<div class="container-page">
-    <div class="row">
-        <div class="col-md-2"></div>
-        <div class="col-md-8">
-            <div class="panel panel-default bigPanel">
-                <div class="panel-heading">
-                    <h2 class="panel-title"><?= self::get('MonCompte', 'Titre') ?></h2>
-                </div>
-                <div class="panel-heading panel-navigation">
-                    <input type="button" value="<?= self::get('MonCompte', 'Menu', 'Compte') ?>" onclick="loadMenu('Compte')" />
-                    <input type="button" value="<?= self::get('MonCompte', 'Menu', 'Avatar') ?>" onclick="loadMenu('Avatar')" />
-                    <input type="button" value="<?= self::get('MonCompte', 'Menu', 'Langue') ?>" onclick="loadMenu('Langue')" />
-                </div>
-                <?php if (isset($this->modifOK)) { ?>
-                    <?php if ($this->modifOK) { ?>
-                    <div class="panel panel-success bigPanel">
-                    <div class="panel-heading">
-                        <h2 class="panel-title"><?= self::get('MonCompte', 'TitreOK') ?></h2>
-                    </div>
-                    <div class="panel-body">
-                            <?= self::get('MonCompte', 'TexteOK') ?>
-                        </div>
-                </div>
-                    <?php } else { ?>
-                    <div class="panel panel-danger bigPanel">
-                    <div class="panel-heading">
-                        <h2 class="panel-title"><?= self::get('MonCompte', 'TitreKO') ?></h2>
-                    </div>
-                    <div class="panel-body">
-                            <?= self::get('MonCompte', 'TexteKO') ?>
-                        </div>
-                </div>
-                    <?php }?>
-                <?php }?>
-                <div id="contentMonCompte"></div>
-            </div>
+<div class="container">
+    <div class="panel panel-default bigPanel">
+        <div class="panel-heading">
+            <h2 class="panel-title"><?= self::get('MonCompte', 'Titre') ?></h2>
         </div>
+        <div class="panel-heading panel-navigation">
+            <input type="button" value="<?= self::get('MonCompte', 'Menu', 'Compte') ?>" onclick="loadMenu('Compte')" />
+            <input type="button" value="<?= self::get('MonCompte', 'Menu', 'Avatar') ?>" onclick="loadMenu('Avatar')" />
+            <input type="button" value="<?= self::get('MonCompte', 'Menu', 'Langue') ?>" onclick="loadMenu('Langue')" />
+        </div>
+        <?php if (isset($this->modifOK)) { ?>
+            <?php if ($this->modifOK) { ?>
+            <div class="panel panel-success bigPanel">
+            <div class="panel-heading">
+                <h2 class="panel-title"><?= self::get('MonCompte', 'TitreOK') ?></h2>
+            </div>
+            <div class="panel-body">
+                    <?= self::get('MonCompte', 'TexteOK') ?>
+                </div>
+        </div>
+            <?php } else { ?>
+            <div class="panel panel-danger bigPanel">
+            <div class="panel-heading">
+                <h2 class="panel-title"><?= self::get('MonCompte', 'TitreKO') ?></h2>
+            </div>
+            <div class="panel-body">
+                    <?= self::get('MonCompte', 'TexteKO') ?>
+                </div>
+        </div>
+            <?php }?>
+        <?php }?>
+        <div id="contentMonCompte"></div>
     </div>
 </div>
 <?php

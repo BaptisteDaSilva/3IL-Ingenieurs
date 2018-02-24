@@ -120,7 +120,7 @@ class Application
         require_once CONTROLEURS . 'Erreur404.php';
         $this->controleur = new Controleurs\Erreur404();
         
-        self::setPropertiesFile();
+        Properties::getFile();
         
         $this->controleur->index();
     }
