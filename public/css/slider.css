@@ -23,10 +23,9 @@
 
 a.control_prev, a.control_next {
 	position: absolute;
-	top: 40%;
 	z-index: 2;
-	padding: 2.5% 2%;
-	background: #ccf3ff;
+	padding: 1.5% 1%;
+	background: #005067;;
 	font-weight: 600;
 	opacity: 0.8;
 	cursor: pointer;
@@ -48,7 +47,7 @@ a.control_next {
 }
 
 .caption {
-	color: #777;
+	color: #005067;;
 	position: absolute;
 	z-index: 2;
 	background: rgba(232, 78, 14, .8);
@@ -68,7 +67,8 @@ a.control_next {
 		font-size: 10px;
 	}
 	a.control_prev, a.control_next {
-		font-size: 9px;
+		font-size: 20px;
+		top: 38%;
 	}
 }
 
@@ -80,7 +80,8 @@ a.control_next {
 		font-size: 12px;
 	}
 	a.control_prev, a.control_next {
-		font-size: 12px;
+		font-size: 23px;
+		top: 40%;
 	}
 }
 
@@ -92,7 +93,8 @@ a.control_next {
 		font-size: 16px;
 	}
 	a.control_prev, a.control_next {
-		font-size: 15px;
+		font-size: 26px;
+		top: 45%;
 	}
 }
 
@@ -104,6 +106,7 @@ a.control_next {
 		font-size: 20px;
 	}
 	a.control_prev, a.control_next {
-		font-size: 18px;
+		font-size: 30px;
+		top: 40%;
 	}
 }
