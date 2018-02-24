@@ -270,6 +270,7 @@ textarea.form-control {
 	right: auto;
 	left: 0
 }
+
 .btn .caret {
 	margin-left: 0
 }
@@ -332,26 +333,10 @@ textarea.input-group-sm>.form-control {
 	display: table-cell
 }
 
-.input-group
- 
-.form-control
-:not
- 
-(
-:first-child
- 
-)
-:not
- 
-(
-:last-child
- 
-){
-border-radius
-:
- 
-0
+.input-group .form-control:not(:first-child):not(:last-child){
+	border-radius:0
 }
+
 .input-group .form-control:first-child {
 	border-top-right-radius: 0;
 	border-bottom-right-radius: 0
@@ -381,11 +366,9 @@ border-radius
 
 .nav>li>a:focus, .nav>li>a:hover {
 	text-decoration: none;
-	background-color: #eee
 }
 
 .nav .open>a, .nav .open>a:focus, .nav .open>a:hover {
-	background-color: #eee;
 	border-color: #337ab7
 }
 
@@ -426,6 +409,7 @@ border-radius
 	margin-right: -15px;
 	margin-left: -15px
 }
+
 .navbar-fixed-top {
 	position: fixed;
 	right: 0;
@@ -540,7 +524,6 @@ border-radius
 	padding-bottom: 30px;
 	margin-bottom: 30px;
 	color: inherit;
-	background-color: #eee
 }
 
 .jumbotron p {
@@ -640,7 +623,7 @@ border-radius
 	.container>.navbar-header {
 		margin-right: 0;
 		margin-left: 0
-	}	
+	}
 	.navbar {
 		border-radius: 4px
 	}

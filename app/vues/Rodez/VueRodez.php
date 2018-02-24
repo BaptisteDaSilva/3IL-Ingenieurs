@@ -53,7 +53,7 @@ service.getDetails({
                 </div>
             </div>
         </div>
-    </div>>
+    </div>
 </div>
 <?php
 require_once TEMPLATES . 'pied.php';

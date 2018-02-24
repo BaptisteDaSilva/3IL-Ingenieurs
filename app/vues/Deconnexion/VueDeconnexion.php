@@ -18,7 +18,7 @@ function compt()
 }
 </script>
 <div class="container">
-    <div class="panel panel-success bigPanel">
+    <div class="panel panel-default panel-success bigPanel">
         <div class="panel-heading">
             <h2 class="panel-title"><?= self::get('Deconnexion', 'TitreOk') ?></h2>
         </div>

@@ -216,7 +216,8 @@ textarea {
 	width: 33%;
 	text-align: center;
 	color: #e84e0e;;
-	border-radius: 10px;margin: 5px;
+	border-radius: 10px;
+	margin: 5px;
 	padding: 2px;
 }
 
@@ -324,7 +325,7 @@ footer {
 	}
 	.panel-langue img {
 		height: 20vw;
-	}	
+	}
 	.panel-photo img {
 		height: 14vw;
 	}
@@ -339,7 +340,7 @@ footer {
 	}
 	.panel-langue img {
 		height: 16vw;
-	}	
+	}
 	.panel-photo img {
 		height: 16vw;
 	}
@@ -354,7 +355,7 @@ footer {
 	}
 	.panel-langue img {
 		height: 13vw;
-	}	
+	}
 	.panel-photo img {
 		height: 13vw;
 	}
@@ -369,7 +370,7 @@ footer {
 	}
 	.panel-langue img {
 		height: 10vw;
-	}	
+	}
 	.panel-photo img {
 		height: 10vw;
 	}

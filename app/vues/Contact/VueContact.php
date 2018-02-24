@@ -55,8 +55,8 @@ require_once TEMPLATES . 'menu.php';
                         <form method="post" action="Contact/sendMail">
                             <div class="form-group">
                                 <label for="login"><?= self::get('Contact', 'Libelle', 'Expediteur') ?></label>
-                                <input id="login" type="text" class="form-control" name="login" value="<?=$_SESSION['util']->getEmail()?>"
-                                    disabled required>
+                                <input id="login" type="text" class="form-control" name="login" value="<?=$_SESSION['util']->getEmail()?>" disabled
+                                    required>
                             </div>
                             <div class="form-group">
                                 <label for="objet"><?= self::get('Contact', 'Libelle', 'Objet') ?></label>
@@ -69,8 +69,7 @@ require_once TEMPLATES . 'menu.php';
                                     placeholder="<?= self::get('Contact', 'Placeholder', 'Message') ?>" required></textarea>
                             </div>
                             <div>
-                                <input type="submit" name="submit" value="<?= self::get('Contact', 'Bouton', 'Envoyer') ?>"
-                                    class="btn mon-btn">
+                                <input type="submit" name="submit" value="<?= self::get('Contact', 'Bouton', 'Envoyer') ?>" class="btn mon-btn">
                             </div>
                         </form>
                     </div>

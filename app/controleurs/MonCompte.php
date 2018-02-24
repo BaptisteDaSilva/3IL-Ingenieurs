@@ -25,7 +25,7 @@ class MonCompte extends Controleur
 
     /** @var string Menu a affiché dans mon compte */
     public $MENU_DEFAUT = 'Compte';
-    
+
     /**
      * Créé un nouveau contrôleur de la page d'e mon compte.
      */
