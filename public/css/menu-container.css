@@ -354,8 +354,7 @@ textarea.input-group-sm>.form-control {
 }
 
 .nav>li {
-	position: relative;
-	display: block
+	display: block;
 }
 
 .nav>li>a {

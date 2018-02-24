@@ -374,4 +374,7 @@ footer {
 	.panel-photo img {
 		height: 10vw;
 	}
+	.nav > li {
+		position: relative;
+	}
 }
