@@ -34,7 +34,7 @@ class Administration extends Controleur
 
     /** @var resource Liste des noms et descriptions des photos du site */
     public $descriptions;
-    
+
     /** @var resource Liste des noms des photos du slider */
     public $photosSlider;
 
@@ -313,7 +313,7 @@ class Administration extends Controleur
             
             if (isset($_FILES['photo'])) {
                 $name = str_replace(' ', '', $_FILES['photo']['name']);
-
+                
                 $this->modifOK = GestionFichier::telecharger(GestionFichier::$TYPE_PHOTO_SLIDER, $_FILES['photo']['tmp_name'], $name) && PhotoSlider::add($name);
             }
             
