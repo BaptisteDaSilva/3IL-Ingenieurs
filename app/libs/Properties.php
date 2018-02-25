@@ -65,7 +65,11 @@ class Properties
     }
 
     /**
-     * Sauvegarde le fichier des propriétés.
+     * Retourne la valeur de l'élément souahité
+     *
+     * @param String $args
+     *            Elément à chercher
+     * @return String Valeur de l'élément
      */
     public static function get($args)
     {
@@ -81,7 +85,13 @@ class Properties
     }
 
     /**
-     * Sauvegarde le fichier des propriétés.
+     * Met à jour un élément
+     * 
+     * @param String $args
+     *            Elément à modifier
+     * @param String $new
+     *            Nouvelle valeur de l'élément
+     * @return boolean True si sauvegarde OK, false sinon
      */
     public static function set($args, $new)
     {

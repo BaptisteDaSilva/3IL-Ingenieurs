@@ -53,12 +53,11 @@ class GestionFichier
     }
 
     /**
-     * Supprime un fichier du serveur
+     * Retourne la liste des fichiers d'une type donnée
      *
-     * @param string $type
-     *            Type de fichier
-     * @param string $name
-     *            Nom du fichier
+     * @param String $type
+     *            Chemin du dossier à parcourir
+     * @return array Lister des fichiers trouvés
      */
     public static function lister($type)
     {
