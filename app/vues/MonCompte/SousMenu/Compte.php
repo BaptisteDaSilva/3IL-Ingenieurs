@@ -2,7 +2,7 @@
     <form method="post" action="/MonCompte/modifier/">
         <div class="form-group">
             <label for="login"><?= self::get('MonCompte', 'Libelle', 'NomDeCompte') ?></label>
-            <input id="login" type="text" class="form-control" name="login" value="<?=$_SESSION['util']->getLogin()?>" readonly="readonly">
+            <input id="login" type="text" class="form-control" name="login" value="<?=$_SESSION['util']->getLogin()?>" disabled="disabled">
         </div>
         <div class="form-group">
             <label for="mdp"><?= self::get('MonCompte', 'Libelle', 'MotDePasse') ?></label>
