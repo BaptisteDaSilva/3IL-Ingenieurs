@@ -58,7 +58,7 @@ class MonCompte extends Controleur
      */
     public function SousMenu($nom)
     {
-        if (self::isMemberConnect()) {           
+        if (self::isMemberConnect()) {
             
             $_SESSION['menu'] = $nom;
             

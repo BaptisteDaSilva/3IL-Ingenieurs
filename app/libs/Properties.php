@@ -95,7 +95,7 @@ class Properties
             $i = 0;
         }
         
-        $valeur->{$args[$i]} = str_replace ( 'PHOTO/' , PHOTO, $new);
+        $valeur->{$args[$i]} = str_replace('PHOTO/', PHOTO, $new);
         
         return self::setFile();
     }

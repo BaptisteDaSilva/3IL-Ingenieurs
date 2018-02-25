@@ -55,8 +55,8 @@ require_once TEMPLATES . 'menu.php';
                     </div>
                     <div class="form-group">
                         <label for="message"><?= self::get('Contact', 'Libelle', 'Message') ?></label>
-                        <textarea rows="4" id="message" class="form-control" name="message" placeholder="<?= self::get('Contact', 'Placeholder', 'Message') ?>"
-                            required></textarea>
+                        <textarea rows="4" id="message" class="form-control" name="message"
+                            placeholder="<?= self::get('Contact', 'Placeholder', 'Message') ?>" required></textarea>
                     </div>
                     <div>
                         <input type="submit" name="submit" value="<?= self::get('Contact', 'Bouton', 'Envoyer') ?>" class="btn mon-btn">

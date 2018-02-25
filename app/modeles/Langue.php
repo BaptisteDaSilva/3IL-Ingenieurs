@@ -184,8 +184,7 @@ class Langue extends Modele
      */
     private function ajouterFichiers($drapeau, $properties)
     {
-        return GestionFichier::telecharger(GestionFichier::$TYPE_DRAPEAU, $drapeau, $this->idLangue . EXTENSION_DRAPEAU)
-            && GestionFichier::telecharger(GestionFichier::$TYPE_PROPERTIES, $properties, $this->idLangue . EXTENSION_PROPERTIES);
+        return GestionFichier::telecharger(GestionFichier::$TYPE_DRAPEAU, $drapeau, $this->idLangue . EXTENSION_DRAPEAU) && GestionFichier::telecharger(GestionFichier::$TYPE_PROPERTIES, $properties, $this->idLangue . EXTENSION_PROPERTIES);
     }
 
     /**

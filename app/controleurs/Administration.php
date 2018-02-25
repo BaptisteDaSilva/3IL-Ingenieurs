@@ -34,7 +34,7 @@ class Administration extends Controleur
 
     /** @var resource Liste des noms et descriptions des photos du site */
     public $descriptions;
-    
+
     /** @var resource Liste des noms des photos du site */
     public $photosSite;
 
@@ -88,8 +88,8 @@ class Administration extends Controleur
                     $this->administrateurs = Utilisateur::getAdministateurs();
                     $this->utilisateurs = Utilisateur::getUtilisateurs();
                     break;
-                case "Photo":                    
-                    $this->photosSite = GestionFichier::lister(GestionFichier::$TYPE_PHOTO_SITE);                    
+                case "Photo":
+                    $this->photosSite = GestionFichier::lister(GestionFichier::$TYPE_PHOTO_SITE);
                     break;
                 case "Slider":
                     $this->photosSlider = PhotoSlider::getNamePhotos();
@@ -312,9 +312,8 @@ class Administration extends Controleur
             
             if (isset($_FILES['photo'])) {
                 $name = str_replace(' ', '', $_FILES['photo']['name']);
-                                
-                $this->modifOK = GestionFichier::telecharger(GestionFichier::$TYPE_PHOTO_SLIDER, $_FILES['photo']['tmp_name'], $name)
-                && PhotoSlider::add($name);
+                
+                $this->modifOK = GestionFichier::telecharger(GestionFichier::$TYPE_PHOTO_SLIDER, $_FILES['photo']['tmp_name'], $name) && PhotoSlider::add($name);
             }
             
             $_SESSION['menuAdmin'] = 'Slider';
@@ -335,9 +334,8 @@ class Administration extends Controleur
             
             if (isset($_POST['aSupp'])) {
                 
-                foreach ($_POST['aSupp'] as $aSupp) {                    
-                    if (! GestionFichier::supprimer(GestionFichier::$TYPE_PHOTO_SLIDER, $aSupp)
-                        || ! PhotoSlider::delete($aSupp)) {
+                foreach ($_POST['aSupp'] as $aSupp) {
+                    if (! GestionFichier::supprimer(GestionFichier::$TYPE_PHOTO_SLIDER, $aSupp) || ! PhotoSlider::delete($aSupp)) {
                         $this->modifOK = false;
                     }
                 }
@@ -374,7 +372,7 @@ class Administration extends Controleur
             header('Location: /MonCompte/');
         }
     }
-    
+
     /**
      * Méthode lancée pour ajouter des photos au slider
      */
@@ -396,7 +394,7 @@ class Administration extends Controleur
             header('Location: /MonCompte/');
         }
     }
-    
+
     /**
      * Méthode lancée pour supprimer des photos du slider
      */
@@ -409,7 +407,7 @@ class Administration extends Controleur
                 
                 foreach ($_POST['aSupp'] as $aSupp) {
                     if (! GestionFichier::supprimer(GestionFichier::$TYPE_PHOTO_SITE, $aSupp)) {
-                            $this->modifOK = false;
+                        $this->modifOK = false;
                     }
                 }
             }

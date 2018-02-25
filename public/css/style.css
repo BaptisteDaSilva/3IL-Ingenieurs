@@ -216,7 +216,7 @@ textarea {
 
 .panel-avatar {
 	width: 75%;
-	margin : auto;
+	margin: auto;
 }
 
 .panel-avatar .selected, .panel-langue .selected {
@@ -231,7 +231,7 @@ textarea {
 
 .panel-langue {
 	width: 75%;
-	margin : auto;
+	margin: auto;
 }
 
 .panel-langue img {
@@ -247,7 +247,7 @@ textarea {
 
 .panel-photo {
 	width: 75%;
-	margin : auto;
+	margin: auto;
 }
 
 .panel-photo img {
@@ -257,12 +257,12 @@ textarea {
 
 .panel-compte {
 	width: 75%;
-	margin : auto;
+	margin: auto;
 }
 
 .panel-contact {
 	width: 75%;
-	margin : auto;
+	margin: auto;
 }
 
 .panel-navigation input[type="button"] {
@@ -326,7 +326,6 @@ textarea {
 	width: 48%;
 	height: 10.5vw;
 }
-
 
 .container {
 	padding-right: 15px;
