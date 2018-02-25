@@ -2,8 +2,12 @@
     <div class="panel-heading">
         <h2 class="panel-title"><?= self::get('Administration', 'Libelle', 'Administrateurs') ?></h2>
     </div>
-    <?php if ($this->administrateurs == null) { ?>
-    <p><?= self::get('Administration', 'Erreur', 'AucunAdministrateur') ?></p>
+    <?php if ($this->administrateurs == null) { ?>    
+    <div class="panel-danger bigPanel">
+        <div class="panel-heading">
+            <h2 class="panel-title"><?= self::get('Administration', 'Erreur', 'AucunAdmin') ?></h2>
+        </div>
+    </div>
     <?php } else { ?>
     <form method="post" action="/Administration/supprimerAdmin/">
         <div class="avatars"> 
@@ -25,8 +29,12 @@
     <div class="panel-heading">
         <h2 class="panel-title"><?= self::get('Administration', 'Libelle', 'Utilisateurs') ?></h2>
     </div> 
-    <?php if ($this->utilisateurs == null) { ?>
-    <p><?= self::get('Administration', 'Erreur', 'AucunMembre') ?></p>
+    <?php if ($this->utilisateurs == null) { ?>    
+    <div class="panel-danger bigPanel">
+        <div class="panel-heading">
+            <h2 class="panel-title"><?= self::get('Administration', 'Erreur', 'AucunMembre') ?></h2>
+        </div>
+    </div>
     <?php } else { ?>
     <form method="post" action="/Administration/ajouterAdmin/" enctype="multipart/form-data">
         <div class="avatars"> 

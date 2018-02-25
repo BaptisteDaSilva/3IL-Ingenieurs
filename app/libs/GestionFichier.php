@@ -61,6 +61,8 @@ class GestionFichier
      */
     public static function lister($type)
     {
+        $fichiers = null;
+        
         foreach (scandir($type) as $fichier) {
             if ($fichier != '.' && $fichier != '..') {
                 $fichiers[] = $fichier;

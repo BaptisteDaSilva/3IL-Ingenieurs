@@ -9,7 +9,11 @@ $('#panel_monAvatar img').click(function(){
 </script>
 <div id="panel_monAvatar" class="panel-body panel-avatar">
     <?php if ($this->avatars == null) { ?>
-    <p><?= self::get('MonCompte', 'Erreur', 'AucunAvatar') ?></p>
+    <div class="panel panel-default panel-danger bigPanel">
+        <div class="panel-heading">
+            <h2 class="panel-title"><?= self::get('MonCompte', 'Erreur', 'AucunAvatar') ?></h2>
+        </div>
+    </div>
     <?php } else { ?>
     <form method="post" action="/MonCompte/modifierAvatar/">
         <input type="hidden" name="nomAvatar" id="nomAvatar" value="<?= $_SESSION['util']->getNomAvatar() ?>" />

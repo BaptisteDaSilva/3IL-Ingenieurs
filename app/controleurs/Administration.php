@@ -94,11 +94,13 @@ class Administration extends Controleur
                 case "Slider":
                     $this->photosSlider = PhotoSlider::getNamePhotos();
                     
-                    foreach (Langue::getLangues() as $langue) {
-                        $this->descriptions[] = array(
-                            "langue" => $langue,
-                            "photos" => PhotoSlider::getNameAndDescriptionPhotos($langue->getId())
-                        );
+                    if (Langue::getLangues() != null) {
+                        foreach (Langue::getLangues() as $langue) {
+                            $this->descriptions[] = array(
+                                "langue" => $langue,
+                                "photos" => PhotoSlider::getNameAndDescriptionPhotos($langue->getId())
+                            );
+                        }
                     }
                     break;
             }

@@ -8,7 +8,11 @@ $('#panel_maLangue img').click(function(){
 </script>
 <div id="panel_maLangue" class="panel-body panel-langue">					
     <?php if ($this->langues == null) { ?>
-    <p><?= self::get('MonCompte', 'Erreur', 'AucuneLangue') ?></p>
+    <div class="panel panel-default panel-danger bigPanel">
+        <div class="panel-heading">
+            <h2 class="panel-title"><?= self::get('MonCompte', 'Erreur', 'AucuneLangue') ?></h2>
+        </div>
+    </div>
     <?php } else { ?>
     <form method="post" action="/MonCompte/modifierLangue/">
         <input type="hidden" name="nomLangue" id="nomLangue" value="<?= $_SESSION['util']->getNomLangue() ?>" />
