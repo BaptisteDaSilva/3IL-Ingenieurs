@@ -42,16 +42,16 @@ $(function(){
         <?php if (isset($this->modifOK)) { ?>
             <?php if ($this->modifOK) { ?>
             <div class="panel-success bigPanel">
-            <div class="panel-heading">
-                <h2 class="panel-title"><?= self::get('MonCompte', 'TitreOK') ?></h2>
+                <div class="panel-heading">
+                    <h2 class="panel-title"><?= self::get('MonCompte', 'TitreOK') ?></h2>
+                </div>
             </div>
-        </div>
             <?php } else { ?>
             <div class="panel-danger bigPanel">
-            <div class="panel-heading">
-                <h2 class="panel-title"><?= self::get('MonCompte', 'TitreKO') ?></h2>
+                <div class="panel-heading">
+                    <h2 class="panel-title"><?= self::get('MonCompte', 'TitreKO') ?></h2>
+                </div>
             </div>
-        </div>
             <?php }?>
         <?php }?>
         <div id="contentMonCompte"></div>

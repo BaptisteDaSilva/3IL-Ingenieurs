@@ -3,7 +3,7 @@ require_once TEMPLATES . 'enTete.php';
 require_once TEMPLATES . 'menu.php';
 ?>
 <div class="container">
-    <div class="panel panel-danger bigPanel">
+    <div class="panel panel-default panel-danger bigPanel">
         <div class="panel-heading">
             <h2 class="panel-title"><?= self::get('SeConnecter', 'TitreKO') ?></h2>
         </div>

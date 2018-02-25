@@ -51,7 +51,7 @@ $(function(){
             </div>
         </div>
             <?php } else { ?>
-            <div class="panel panel-default panel-danger bigPanel">
+            <div class="panel-danger bigPanel">
             <div class="panel-heading">
                 <h2 class="panel-title"><?= self::get('Administration', 'TitreKO') ?></h2>
             </div>
