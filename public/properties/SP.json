@@ -52,8 +52,6 @@
 		"Titre": "",
 		"TitreOK": "",
 		"TitreKO": "",
-		"TexteOK": "",
-		"TexteKO": "",
 		"Menu": {
 			"Avatar": "",
 			"Langue": "",
@@ -82,21 +80,23 @@
 		"Titre": "",
 		"TitreOK": "",
 		"TitreKO": "",
-		"TexteOK": "",
-		"TexteKO": "",
 		"Menu": {
 			"Avatar": "",
 			"Langue": "",
 			"Membre": "",
 			"Photo": "",
-			"DescriptionPhoto": ""
+			"Slider": ""
 		},
 		"Libelle": {
 			"Administrateurs": "",
 			"Utilisateurs": "",
+			"Avatars": "",
+			"Langues": "",
+			"Photos": "",
 			"FichierProperties": "",
 			"ARemplir": "",
 			"Ajouter": "",
+			"Description": "",
 			"SupprimerUtilisateurs": ""
 		},
 		"Placeholder": {
@@ -115,6 +115,7 @@
 			"AucunAvatar": "",
 			"AucuneLangue": "",
 			"AucunePhoto": "",
+			"AucunePhotoSlider": "",
 			"AucunMembre": "",
 			"AucunAdmin": "",
 			"Slider": ""

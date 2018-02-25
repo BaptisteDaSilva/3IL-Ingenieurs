@@ -11,7 +11,7 @@ require_once TEMPLATES . 'menu.php';
             <?php if (self::isAdminConnect()) { ?>
             <form method="post" action="/Administration/modifierTexte/Formation/Annee1/Texte">
                 <div class="form-group">
-                    <textarea name="new" class="form-control" onchange="this.form.submit();"><?= self::get('Formation', 'Annee1', 'Texte') ?></textarea>
+                    <textarea rows="10" name="new" class="form-control" onchange="this.form.submit();"><?= self::get('Formation', 'Annee1', 'Texte') ?></textarea>
                 </div>
             </form>
             <?php } else { ?>
@@ -27,7 +27,7 @@ require_once TEMPLATES . 'menu.php';
             <?php if (self::isAdminConnect()) { ?>
             <form method="post" action="/Administration/modifierTexte/Formation/Annee2/Texte">
                 <div class="form-group">
-                    <textarea name="new" class="form-control" onchange="this.form.submit();"><?= self::get('Formation', 'Annee2', 'Texte') ?></textarea>
+                    <textarea rows="10" name="new" class="form-control" onchange="this.form.submit();"><?= self::get('Formation', 'Annee2', 'Texte') ?></textarea>
                 </div>
             </form>
             <?php } else { ?>
@@ -43,7 +43,7 @@ require_once TEMPLATES . 'menu.php';
             <?php if (self::isAdminConnect()) { ?>
             <form method="post" action="/Administration/modifierTexte/Formation/Annee3/Texte">
                 <div class="form-group">
-                    <textarea name="new" class="form-control" onchange="this.form.submit();"><?= self::get('Formation', 'Annee3', 'Texte') ?></textarea>
+                    <textarea rows="10" name="new" class="form-control" onchange="this.form.submit();"><?= self::get('Formation', 'Annee3', 'Texte') ?></textarea>
                 </div>
             </form>
             <?php } else { ?>

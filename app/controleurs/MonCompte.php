@@ -58,7 +58,10 @@ class MonCompte extends Controleur
      */
     public function SousMenu($nom)
     {
-        if (self::isMemberConnect()) {
+        if (self::isMemberConnect()) {           
+            
+            $_SESSION['menu'] = $nom;
+            
             if ($nom == "Langue") {
                 $this->langues = Langue::getLangues();
             } else if ($nom == "Avatar") {

@@ -36,22 +36,18 @@ service.getDetails({
             <h2 class="panel-title"><?= self::get('Rodez', 'Titre') ?></h2>
         </div>
         <div class="panel-body">
-            <div class="row">
-                <div class="col-md-12">
-                    <div id="map"></div>
-                    <script async defer
-                        src="https://maps.googleapis.com/maps/api/js?key= AIzaSyBh1og4fND2nSzGd_zg1YOY6EubODBmdAI&libraries=places&callback=initMap"></script>
-                    <?php if (self::isAdminConnect()) { ?>
-                    <form method="post" action="/Administration/modifierTexte/Rodez/Texte">
-                        <div class="form-group">
-                            <textarea name="new" class="form-control" onchange="this.form.submit();"><?= self::get('Rodez', 'Texte') ?></textarea>
-                        </div>
-                    </form>
-                    <?php } else { ?>
-                    <?= self::get('Rodez', 'Texte') ?>
-                    <?php }?>
+            <div id="map"></div>
+            <script async defer
+                src="https://maps.googleapis.com/maps/api/js?key= AIzaSyBh1og4fND2nSzGd_zg1YOY6EubODBmdAI&libraries=places&callback=initMap"></script>
+            <?php if (self::isAdminConnect()) { ?>
+            <form method="post" action="/Administration/modifierTexte/Rodez/Texte">
+                <div class="form-group">
+                    <textarea rows="10" name="new" class="form-control" onchange="this.form.submit();"><?= self::get('Rodez', 'Texte') ?></textarea>
                 </div>
-            </div>
+            </form>
+            <?php } else { ?>
+            <?= self::get('Rodez', 'Texte') ?>
+            <?php }?>
         </div>
     </div>
 </div>

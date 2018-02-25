@@ -17,6 +17,12 @@ class GestionFichier
 
     /** @var string Fichier de type properties */
     public static $TYPE_PROPERTIES = '../public/properties/';
+    
+    /** @var string Fichier de type photo slider */
+    public static $TYPE_PHOTO_SLIDER = '../public/img/slider/';
+    
+    /** @var string Fichier de type photo site */
+    public static $TYPE_PHOTO_SITE = '../public/img/photo/';
 
     /**
      * Télécharge un fichier sur le serveur
@@ -44,5 +50,24 @@ class GestionFichier
     public static function supprimer($type, $name)
     {
         return unlink($type . $name);
+    }
+    
+    /**
+     * Supprime un fichier du serveur
+     *
+     * @param string $type
+     *            Type de fichier
+     * @param string $name
+     *            Nom du fichier
+     */
+    public static function lister($type)
+    {                
+        foreach(scandir($type) as $fichier){
+            if($fichier != '.' && $fichier != '..') {
+                $fichiers[] = $fichier;
+            }
+        }
+        
+        return $fichiers;
     }
 }

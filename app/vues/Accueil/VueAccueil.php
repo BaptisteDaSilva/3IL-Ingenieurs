@@ -7,7 +7,7 @@ require_once TEMPLATES . 'menu.php';
     <?php if (self::isAdminConnect()) { ?>
     <form method="post" action="/Administration/modifierTexte/Accueil/Presentation/Titre">
             <div class="form-group">
-                <textarea name="new" class="form-control" onchange="this.form.submit();"><?= self::get('Accueil', 'Presentation', 'Titre') ?></textarea>
+                <textarea rows="2" name="new" class="form-control" onchange="this.form.submit();"><?= self::get('Accueil', 'Presentation', 'Titre') ?></textarea>
             </div>
         </form>
         <form method="post" action="/Administration/modifierTexte/Accueil/Presentation/Texte">
@@ -27,7 +27,7 @@ require_once TEMPLATES . 'menu.php';
         <ul>
         <?php foreach (self::$photos as $photo) { ?>
         <li>
-                <img src="<?= PHOTOS . $photo['name'] ?>" alt="<?= $photo['name'] ?>">
+                <img src="<?= SLIDER . $photo['name'] ?>" alt="<?= $photo['name'] ?>">
                 <p class="caption"><?= $photo['desc'] ?></p>
             </li>
         <?php } ?>

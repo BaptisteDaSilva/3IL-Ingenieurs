@@ -34,34 +34,31 @@ $(function(){
         <div class="panel-heading">
             <h2 class="panel-title"><?= self::get('Administration', 'Titre') ?></h2>
         </div>
-        <div class="panel-heading panel-navigation">
+        <div class="panel-navigation">
             <input type="button" value="<?= self::get('Administration', 'Menu', 'Avatar') ?>" onclick="loadMenu('Avatar')" />
             <input type="button" value="<?= self::get('Administration', 'Menu', 'Langue') ?>" onclick="loadMenu('Langue')" />
             <input type="button" value="<?= self::get('Administration', 'Menu', 'Photo') ?>" onclick="loadMenu('Photo')" />
-            <input type="button" value="<?= self::get('Administration', 'Menu', 'DescriptionPhoto') ?>" onclick="loadMenu('DescriptionPhoto')" />
+            <input type="button" value="<?= self::get('Administration', 'Menu', 'Slider') ?>" onclick="loadMenu('Slider')" />
             <?php if (self::isSuperAdminConnect()) { ?>
             <input type="button" value="<?= self::get('Administration', 'Menu', 'Membre') ?>" onclick="loadMenu('Membre')" />
             <?php } ?>
         </div>
         <?php if (isset($this->modifOK)) { ?>
             <?php if ($this->modifOK) { ?>
-            <div class="panel panel-default panel-success bigPanel">
+            <div class="panel-success bigPanel">
             <div class="panel-heading">
                 <h2 class="panel-title"><?= self::get('Administration', 'TitreOK') ?></h2>
             </div>
-            <div class="panel-body">
-                    <?= self::get('Administration', 'TexteOK') ?>
-                </div>
         </div>
             <?php } else { ?>
             <div class="panel panel-default panel-danger bigPanel">
-            <div class="panel-heading">
-                <h2 class="panel-title"><?= self::get('Administration', 'TitreKO') ?></h2>
-            </div>
-            <div class="panel-body">
-                    <?= self::get('Administration', 'TexteKO') ?>
+                <div class="panel-heading">
+                    <h2 class="panel-title"><?= self::get('Administration', 'TitreKO') ?></h2>
                 </div>
-        </div>
+                <div class="panel-body">
+                        <?= self::get('Administration', 'TexteKO') ?>
+                </div>
+            </div>
             <?php }?>
         <?php }?>
         <div id="contentAdministration"></div>

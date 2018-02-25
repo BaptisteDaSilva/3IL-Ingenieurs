@@ -26,7 +26,7 @@ function compt()
             <?php if (self::isAdminConnect()) { ?>
             <form method="post" action="/Administration/modifierTexte/Deconnexion/Texte">
                 <div class="form-group">
-                    <textarea name="new" class="form-control" onchange="this.form.submit();"><?= self::get('Contact', 'Texte') ?></textarea>
+                    <textarea name="new" class="form-control" onchange="this.form.submit();"><?= self::get('Deconnexion', 'Texte') ?></textarea>
                 </div>
             </form>
             <?php } else { ?>

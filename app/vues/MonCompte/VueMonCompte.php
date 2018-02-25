@@ -34,29 +34,23 @@ $(function(){
         <div class="panel-heading">
             <h2 class="panel-title"><?= self::get('MonCompte', 'Titre') ?></h2>
         </div>
-        <div class="panel-heading panel-navigation">
+        <div class="panel-navigation">
             <input type="button" value="<?= self::get('MonCompte', 'Menu', 'Compte') ?>" onclick="loadMenu('Compte')" />
             <input type="button" value="<?= self::get('MonCompte', 'Menu', 'Avatar') ?>" onclick="loadMenu('Avatar')" />
             <input type="button" value="<?= self::get('MonCompte', 'Menu', 'Langue') ?>" onclick="loadMenu('Langue')" />
         </div>
         <?php if (isset($this->modifOK)) { ?>
             <?php if ($this->modifOK) { ?>
-            <div class="panel panel-default panel-success bigPanel">
+            <div class="panel-success bigPanel">
             <div class="panel-heading">
                 <h2 class="panel-title"><?= self::get('MonCompte', 'TitreOK') ?></h2>
             </div>
-            <div class="panel-body">
-                    <?= self::get('MonCompte', 'TexteOK') ?>
-                </div>
         </div>
             <?php } else { ?>
-            <div class="panel panel-default panel-danger bigPanel">
+            <div class="panel-danger bigPanel">
             <div class="panel-heading">
                 <h2 class="panel-title"><?= self::get('MonCompte', 'TitreKO') ?></h2>
             </div>
-            <div class="panel-body">
-                    <?= self::get('MonCompte', 'TexteKO') ?>
-                </div>
         </div>
             <?php }?>
         <?php }?>

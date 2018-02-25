@@ -8,7 +8,7 @@ error_reporting(E_ALL);
 require_once '../app/core/Application.php';
 require_once '../app/core/Controleur.php';
 require_once '../app/libs/BaseDeDonnees.php';
-require_once '../app/libs/Photo.php';
+require_once '../app/libs/PhotoSlider.php';
 require_once '../app/libs/GestionFichier.php';
 require_once '../app/libs/Properties.php';
 require_once '../app/libs/PHPMailer/src/PHPMailer.php';
@@ -36,23 +36,31 @@ define('XML_SLIDER', VUES . 'Accueil/slider.xml');
 // Le fichier de configuration.
 define('CONFIG', '../app/configs/config.ini');
 
-define('IMAGES', URL . 'img/');
-define('PHOTOS', IMAGES . 'photos/');
-define('AVATAR', IMAGES . 'avatar/');
-define('DRAPEAU', IMAGES . 'drapeau/');
-
 // Les ressources.
 define('CSS', URL . 'css/');
 define('JS', URL . 'js/');
 define('PROPERTIES', URL . 'properties/');
+define('IMAGES', URL . 'img/');
 
+// Les images du site
+define('SLIDER', IMAGES . 'slider/');
+define('PHOTO', IMAGES . 'photo/');
+define('AVATAR', IMAGES . 'avatar/');
+define('DRAPEAU', IMAGES . 'drapeau/');
+
+// LES valeurs par defaut du site
 define('DEFAUT_IMAGE', IMAGES . 'XX.png');
 define('DEFAUT_AVATAR', AVATAR . 'defaut.png');
 
-define('EXTENSION_DRAPEAU', '.png');
+define('DEFAUT_ID_LANGUE', 'FR');
+
+// Les extension de fichier accepté
+define('EXTENSION_IMAGE', 'image/*');
+define('EXTENSION_PNG', 'image/png');
 define('EXTENSION_PROPERTIES', '.json');
 
-define('DEFAUT_ID_LANGUE', 'FR');
+// Extension des images pour les drapeaus
+define('EXTENSION_DRAPEAU', '.png');
 
 // Lance le routage
 $app = new Application();

@@ -2,7 +2,7 @@
 namespace Rodez_3IL_Ingenieurs\Modeles;
 
 use Rodez_3IL_Ingenieurs\Libs\GestionFichier;
-use Rodez_3IL_Ingenieurs\Libs\Photo;
+use Rodez_3IL_Ingenieurs\Libs\PhotoSlider;
 
 /**
  * Représente une langue.
@@ -151,7 +151,7 @@ class Langue extends Modele
      */
     public function ajouter($drapeau, $properties)
     {
-        return self::insererBD() && self::ajouterFichiers($drapeau, $properties) && Photo::addDescriptions($this->getId());
+        return self::insererBD() && self::ajouterFichiers($drapeau, $properties) && PhotoSlider::addDescriptions($this->getId());
     }
 
     /**
@@ -184,7 +184,8 @@ class Langue extends Modele
      */
     private function ajouterFichiers($drapeau, $properties)
     {
-        return move_uploaded_file($drapeau, '../public/img/drapeau/' . $this->idLangue . EXTENSION_DRAPEAU) && move_uploaded_file($properties, '../public/properties/' . $this->idLangue . EXTENSION_PROPERTIES);
+        return GestionFichier::telecharger(GestionFichier::$TYPE_DRAPEAU, $drapeau, $this->idLangue . EXTENSION_DRAPEAU)
+            && GestionFichier::telecharger(GestionFichier::$TYPE_PROPERTIES, $properties, $this->idLangue . EXTENSION_PROPERTIES);
     }
 
     /**
@@ -192,7 +193,7 @@ class Langue extends Modele
      */
     public function supprimer()
     {
-        return self::supprimerBD() && self::supprimerFichiers() && Photo::deleteDescription($this->getId());
+        return self::supprimerBD() && self::supprimerFichiers() && PhotoSlider::deleteDescription($this->getId());
     }
 
     /**

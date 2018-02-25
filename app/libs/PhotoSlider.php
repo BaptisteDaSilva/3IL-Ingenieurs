@@ -8,7 +8,7 @@ use Rodez_3IL_Ingenieurs\Modeles\Langue;
  *
  * @package Rodez_3IL_Ingenieurs\Libs
  */
-class Photo
+class PhotoSlider
 {
 
     /**
@@ -224,7 +224,7 @@ class Photo
      *            Nom de la photo
      * @return boolean True si sauvegarde OK, false sinon
      */
-    public static function addPhoto($name)
+    public static function add($name)
     {
         $doc = self::getDoc();
         
@@ -251,7 +251,7 @@ class Photo
      *            Nom de la photo
      * @return boolean True si sauvegarde OK, false sinon
      */
-    public static function deletePhoto($name)
+    public static function delete($name)
     {
         foreach (self::getPhotos() as $photo) {
             if (self::getName($photo) == $name) {

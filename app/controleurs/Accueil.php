@@ -2,7 +2,7 @@
 namespace Rodez_3IL_Ingenieurs\Controleurs;
 
 use Rodez_3IL_Ingenieurs\Core\Controleur;
-use Rodez_3IL_Ingenieurs\Libs\Photo;
+use Rodez_3IL_Ingenieurs\Libs\PhotoSlider;
 
 /**
  * Contrôleur de la page d'accueil du site.
@@ -42,7 +42,7 @@ class Accueil extends Controleur
             }
         }
         
-        self::$photos = Photo::getNameAndDescriptionPhotos($idLangueUtil);
+        self::$photos = PhotoSlider::getNameAndDescriptionPhotos($idLangueUtil);
         
         require_once VUES . 'Accueil/VueAccueil.php';
     }

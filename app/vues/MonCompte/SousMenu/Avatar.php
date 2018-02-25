@@ -8,30 +8,25 @@ $('#panel_monAvatar img').click(function(){
 });
 </script>
 <div id="panel_monAvatar" class="panel-body panel-avatar">
-    <div class="row">
-        <div class="col-md-2"></div>
-        <div class="col-md-8">
-            <?php if ($this->avatars == null) { ?>
-            <p><?= self::get('MonCompte', 'Erreur', 'AucunAvatar') ?></p>
-            <?php } else { ?>
-            <form method="post" action="/MonCompte/modifierAvatar/">
-                <input type="hidden" name="nomAvatar" id="nomAvatar" value="<?= $_SESSION['util']->getNomAvatar() ?>" />
-                <div class="avatars"> 
-                    <?php foreach ($this->avatars as &$avatar) { ?> 
-                        <div class="avatar">
-                        <?php if ($avatar->getNom() == $_SESSION['util']->getNomAvatar()) { ?>
-                            <img class="selected" src="<?= AVATAR . $avatar->getNom() ?>" alt="<?= $avatar->getNom() ?>" />
-                        <?php } else { ?>
-                            <img src="<?= AVATAR . $avatar->getNom() ?>" alt="<?= $avatar->getNom() ?>" />
-                        <?php } ?>
-                        </div>
-                    <?php } ?> 
+    <?php if ($this->avatars == null) { ?>
+    <p><?= self::get('MonCompte', 'Erreur', 'AucunAvatar') ?></p>
+    <?php } else { ?>
+    <form method="post" action="/MonCompte/modifierAvatar/">
+        <input type="hidden" name="nomAvatar" id="nomAvatar" value="<?= $_SESSION['util']->getNomAvatar() ?>" />
+        <div class="avatars"> 
+            <?php foreach ($this->avatars as &$avatar) { ?> 
+                <div class="avatar">
+                <?php if ($avatar->getNom() == $_SESSION['util']->getNomAvatar()) { ?>
+                    <img class="selected" src="<?= AVATAR . $avatar->getNom() ?>" alt="<?= $avatar->getNom() ?>" />
+                <?php } else { ?>
+                    <img src="<?= AVATAR . $avatar->getNom() ?>" alt="<?= $avatar->getNom() ?>" />
+                <?php } ?>
                 </div>
-                <div>
-                    <input type="submit" name="submitAvatar" value="<?= self::get('MonCompte', 'Bouton', 'Modifier') ?>" class="btn mon-btn">
-                </div>
-            </form>
-            <?php } ?>
+            <?php } ?> 
         </div>
-    </div>
+        <div>
+            <input type="submit" name="submitAvatar" value="<?= self::get('MonCompte', 'Bouton', 'Modifier') ?>" class="btn mon-btn">
+        </div>
+    </form>
+    <?php } ?>
 </div>

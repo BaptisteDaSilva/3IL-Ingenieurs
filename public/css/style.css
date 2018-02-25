@@ -1,3 +1,15 @@
+@font-face {
+	font-family: 'Glyphicons Halflings';
+	src: url(../fonts/glyphicons-halflings-regular.eot);
+	src: url(../fonts/glyphicons-halflings-regular.eot?#iefix)
+		format('embedded-opentype'),
+		url(../fonts/glyphicons-halflings-regular.woff2) format('woff2'),
+		url(../fonts/glyphicons-halflings-regular.woff) format('woff'),
+		url(../fonts/glyphicons-halflings-regular.ttf) format('truetype'),
+		url(../fonts/glyphicons-halflings-regular.svg#glyphicons_halflingsregular)
+		format('svg')
+}
+
 html, body {
 	width: 100%;
 	padding-top: 50px;
@@ -22,6 +34,20 @@ a {
 
 a:focus, a:hover {
 	color: #913108;
+}
+
+label {
+	display: inline-block;
+	max-width: 100%;
+	margin-bottom: 5px;
+	font-weight: 700;
+	color: #005067;
+}
+
+input[type=checkbox] {
+	margin: 4px 0 0;
+	margin-top: -1px;
+	line-height: normal
 }
 
 img {
@@ -133,7 +159,7 @@ ul {
 .panel .panel-heading {
 	background-color: rgba(253, 220, 206, 0.8);
 	text-align: center;
-	border-color: #005067;
+	border: 1px solid #005067;
 }
 
 .bigPanel>.panel-heading>.panel-title {
@@ -188,6 +214,11 @@ textarea {
 	max-width: 100%;
 }
 
+.panel-avatar {
+	width: 75%;
+	margin : auto;
+}
+
 .panel-avatar .selected, .panel-langue .selected {
 	box-shadow: 0px 0px 20px 10px #777;
 }
@@ -198,22 +229,45 @@ textarea {
 	width: 100%;
 }
 
+.panel-langue {
+	width: 75%;
+	margin : auto;
+}
+
 .panel-langue img {
 	padding: 1%;
 	width: 90%;
-	height: 10vw;
 	margin: 2%;
+}
+
+.panel-langue p {
+	color: #005067;
+	margin: 2px;
+}
+
+.panel-photo {
+	width: 75%;
+	margin : auto;
 }
 
 .panel-photo img {
 	padding: 2%;
 	width: 90%;
-	height: 10vw;
+}
+
+.panel-compte {
+	width: 75%;
+	margin : auto;
+}
+
+.panel-contact {
+	width: 75%;
+	margin : auto;
 }
 
 .panel-navigation input[type="button"] {
 	font-size: 20px;
-	width: 33%;
+	width: 30%;
 	text-align: center;
 	color: #e84e0e;;
 	border-radius: 10px;
@@ -273,6 +327,15 @@ textarea {
 	height: 10.5vw;
 }
 
+
+.container {
+	padding-right: 15px;
+	padding-left: 15px;
+	margin-right: auto;
+	margin-left: auto;
+	min-height: calc(100% - 60px);
+}
+
 footer {
 	text-align: center;
 	bottom: 0;
@@ -321,13 +384,13 @@ footer {
 		width: 90%;
 	}
 	.panel-avatar img {
-		height: 14vw;
+		height: 10vw;
 	}
 	.panel-langue img {
-		height: 20vw;
+		height: 15vw;
 	}
 	.panel-photo img {
-		height: 14vw;
+		height: 15vw;
 	}
 	.form-control-feedback {
 		position: relative;
@@ -341,13 +404,13 @@ footer {
 		width: 49%;
 	}
 	.panel-avatar img {
-		height: 12vw;
+		height: 8vw;
 	}
 	.panel-langue img {
-		height: 16vw;
+		height: 14vw;
 	}
 	.panel-photo img {
-		height: 16vw;
+		height: 14vw;
 	}
 	.nav>li {
 		position: relative;
@@ -387,13 +450,13 @@ footer {
 		width: 33%;
 	}
 	.panel-avatar img {
-		height: 7vw;
+		height: 8vw;
 	}
 	.panel-langue img {
-		height: 10vw;
+		height: 12vw;
 	}
 	.panel-photo img {
-		height: 10vw;
+		height: 12vw;
 	}
 	.nav>li {
 		position: relative;

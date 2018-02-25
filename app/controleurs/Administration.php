@@ -5,8 +5,9 @@ use Rodez_3IL_Ingenieurs\Core\Controleur;
 use Rodez_3IL_Ingenieurs\Modeles\Langue;
 use Rodez_3IL_Ingenieurs\Modeles\Avatar;
 use Rodez_3IL_Ingenieurs\Modeles\Utilisateur;
-use Rodez_3IL_Ingenieurs\Libs\Photo;
 use Rodez_3IL_Ingenieurs\Libs\Properties;
+use Rodez_3IL_Ingenieurs\Libs\GestionFichier;
+use Rodez_3IL_Ingenieurs\Libs\PhotoSlider;
 
 /**
  * Contrôleur de la page des pages d'administration du site.
@@ -28,11 +29,14 @@ class Administration extends Controleur
     /** @var resource Liste des administrateurs du site */
     public $administrateurs;
 
-    /** @var resource Liste des noms des photos du site */
-    public $photos;
+    /** @var resource Liste des noms des photos du slider */
+    public $photosSlider;
 
     /** @var resource Liste des noms et descriptions des photos du site */
     public $descriptions;
+    
+    /** @var resource Liste des noms des photos du site */
+    public $photosSite;
 
     /** @var string Menu a affiché dans mon compte */
     public $MENU_DEFAUT = 'Avatar';
@@ -70,6 +74,9 @@ class Administration extends Controleur
     public function SousMenu($nom)
     {
         if (self::isAdminConnect()) {
+            
+            $_SESSION['menuAdmin'] = $nom;
+            
             switch ($nom) {
                 case "Langue":
                     $this->langues = Langue::getLangues();
@@ -81,14 +88,15 @@ class Administration extends Controleur
                     $this->administrateurs = Utilisateur::getAdministateurs();
                     $this->utilisateurs = Utilisateur::getUtilisateurs();
                     break;
-                case "Photo":
-                    $this->photos = Photo::getNamePhotos();
+                case "Photo":                    
+                    $this->photosSite = GestionFichier::lister(GestionFichier::$TYPE_PHOTO_SITE);                    
                     break;
-                case "DescriptionPhoto":
+                case "Slider":
+                    $this->photosSlider = PhotoSlider::getNamePhotos();
                     foreach (Langue::getLangues() as $langue) {
                         $this->descriptions[] = array(
                             "langue" => $langue,
-                            "photos" => Photo::getNameAndDescriptionPhotos($langue->getId())
+                            "photos" => PhotoSlider::getNameAndDescriptionPhotos($langue->getId())
                         );
                     }
                     break;
@@ -297,18 +305,19 @@ class Administration extends Controleur
     /**
      * Méthode lancée pour ajouter des photos au slider
      */
-    public function ajouterPhoto()
+    public function ajouterPhotoSlider()
     {
         if (self::isAdminConnect()) {
             $this->modifOK = false;
             
             if (isset($_FILES['photo'])) {
                 $name = str_replace(' ', '', $_FILES['photo']['name']);
-                
-                $this->modifOK = move_uploaded_file($_FILES['photo']['tmp_name'], '../public/img/photos/' . $name) && Photo::addPhoto($name);
+                                
+                $this->modifOK = GestionFichier::telecharger(GestionFichier::$TYPE_PHOTO_SLIDER, $_FILES['photo']['tmp_name'], $name)
+                && PhotoSlider::add($name);
             }
             
-            $_SESSION['menuAdmin'] = 'Photo';
+            $_SESSION['menuAdmin'] = 'Slider';
             
             $this->index();
         } else {
@@ -319,21 +328,22 @@ class Administration extends Controleur
     /**
      * Méthode lancée pour supprimer des photos du slider
      */
-    public function supprimerPhoto()
+    public function supprimerPhotoSlider()
     {
         if (self::isAdminConnect()) {
             $this->modifOK = true;
             
             if (isset($_POST['aSupp'])) {
                 
-                foreach ($_POST['aSupp'] as $aSupp) {
-                    if (! unlink('../public/img/photos/' . $aSupp) || ! Photo::deletePhoto($aSupp)) {
+                foreach ($_POST['aSupp'] as $aSupp) {                    
+                    if (! GestionFichier::supprimer(GestionFichier::$TYPE_PHOTO_SLIDER, $aSupp)
+                        || ! PhotoSlider::delete($aSupp)) {
                         $this->modifOK = false;
                     }
                 }
             }
             
-            $_SESSION['menuAdmin'] = 'Photo';
+            $_SESSION['menuAdmin'] = 'Slider';
             
             $this->index();
         } else {
@@ -351,13 +361,60 @@ class Administration extends Controleur
             
             if (isset($_POST['photos']) && isset($_POST['idLangue'])) {
                 foreach ($_POST['photos'] as $cle => $value) {
-                    if (! Photo::updateDescription($cle, $_POST['idLangue'], $value)) {
+                    if (! PhotoSlider::updateDescription($cle, $_POST['idLangue'], $value)) {
                         $this->modifOK = false;
                     }
                 }
             }
             
-            $_SESSION['menuAdmin'] = 'DescriptionPhoto';
+            $_SESSION['menuAdmin'] = 'Slider';
+            
+            $this->index();
+        } else {
+            header('Location: /MonCompte/');
+        }
+    }
+    
+    /**
+     * Méthode lancée pour ajouter des photos au slider
+     */
+    public function ajouterPhoto()
+    {
+        if (self::isAdminConnect()) {
+            $this->modifOK = false;
+            
+            if (isset($_FILES['photo'])) {
+                $name = str_replace(' ', '', $_FILES['photo']['name']);
+                
+                $this->modifOK = GestionFichier::telecharger(GestionFichier::$TYPE_PHOTO_SITE, $_FILES['photo']['tmp_name'], $name);
+            }
+            
+            $_SESSION['menuAdmin'] = 'Photo';
+            
+            $this->index();
+        } else {
+            header('Location: /MonCompte/');
+        }
+    }
+    
+    /**
+     * Méthode lancée pour supprimer des photos du slider
+     */
+    public function supprimerPhoto()
+    {
+        if (self::isAdminConnect()) {
+            $this->modifOK = true;
+            
+            if (isset($_POST['aSupp'])) {
+                
+                foreach ($_POST['aSupp'] as $aSupp) {
+                    if (! GestionFichier::supprimer(GestionFichier::$TYPE_PHOTO_SITE, $aSupp)) {
+                            $this->modifOK = false;
+                    }
+                }
+            }
+            
+            $_SESSION['menuAdmin'] = 'Photo';
             
             $this->index();
         } else {
