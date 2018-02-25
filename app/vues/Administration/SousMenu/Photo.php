@@ -37,6 +37,7 @@ $("#photo").change(function() {
     <?php } else { ?>
     <div class="panel-heading">
         <h2 class="panel-title"><?= self::get('Administration', 'Libelle', 'Photos') ?></h2>
+        <h4><?= self::get('Administration', 'AidePhoto') ?></h4>
     </div>
     <form method="post" action="/Administration/supprimerPhoto/">
         <div class="photos"> 

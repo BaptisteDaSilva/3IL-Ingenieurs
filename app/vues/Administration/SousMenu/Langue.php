@@ -15,18 +15,18 @@ $("#drapeau").change(function() {
     readURL(this);
 });
 </script>
-<div id="panel_adminLangue" class="panel-body panel-langue">
+<div id="panel_adminLangue" class="panel-body panel-langue"> 
     <div class="panel-heading">
         <h2 class="panel-title"><?= self::get('Administration', 'Libelle', 'Ajouter') ?></h2>
     </div>
     <form method="post" action="/Administration/ajouterLangue/" enctype="multipart/form-data">
         <div class="form-group">
-            <input id="id" type="text" class="form-control" name="id" placeholder="<?= self::get('Administration', 'Placeholder', 'CodeLangue') ?>"
-                maxlength="2" required>
+            <input id="id" type="text" class="form-control" name="id"
+                placeholder="<?= self::get('Administration', 'Placeholder', 'CodeLangue') ?>" maxlength="2" required>
         </div>
         <div class="form-group">
-            <input id="nom" type="text" class="form-control" name="nom" placeholder="<?= self::get('Administration', 'Placeholder', 'NomLangue') ?>"
-                maxlength="20" required>
+            <input id="nom" type="text" class="form-control" name="nom"
+                placeholder="<?= self::get('Administration', 'Placeholder', 'NomLangue') ?>" maxlength="20" required>
         </div>
         <div class="form-group">
             <div class="drapeauView">
@@ -35,9 +35,10 @@ $("#drapeau").change(function() {
             <input id="drapeau" type="file" class="form-control" name="drapeau" accept="<?= EXTENSION_PNG ?>" required>
         </div>
         <div class="form-group">
-            <label for="propertie"><?= self::get('Administration', 'Libelle', 'FichierProperties') ?><a href="/Administration/defaultProperties/"><?= self::get('Administration', 'Libelle', 'ARemplir') ?></a>
+            <label for="propertie"><?= self::get('Administration', 'Libelle', 'FichierProperties') ?><a
+                    href="/Administration/defaultProperties/"><?= self::get('Administration', 'Libelle', 'ARemplir') ?></a>
             </label>
-            <input id="propertie" type="file" class="form-control" name="propertie" accept="<?= EXTENSION_PROPERTIES ?>">
+            <input id="propertie" type="file" class="form-control" name="propertie" accept="<?= EXTENSION_PROPERTIES ?>" >
         </div>
         <input type="submit" name="submit" value="<?= self::get('Administration', 'Bouton', 'Ajouter') ?>" class="btn mon-btn">
     </form>

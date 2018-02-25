@@ -98,6 +98,7 @@
 		"Titre": "Administration",
 		"TitreOK": "Modification Réussie !",
 		"TitreKO": "Un Problème est survenue",
+		"AidePhoto": "<strong>Aide : </strong>Pour inserer une photo du site, utiliser la balise img avec src='PHOTO/nom.ext' et alt='nom'.",
 		"Menu": {
 			"Avatar": "Avatar",
 			"Langue": "Langue",

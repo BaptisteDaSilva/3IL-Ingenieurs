@@ -55,9 +55,6 @@ $(function(){
             <div class="panel-heading">
                 <h2 class="panel-title"><?= self::get('Administration', 'TitreKO') ?></h2>
             </div>
-            <div class="panel-body">
-                        <?= self::get('Administration', 'TexteKO') ?>
-                </div>
         </div>
             <?php }?>
         <?php }?>

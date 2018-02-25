@@ -98,6 +98,7 @@
 		"Titre": "Administration",
 		"TitreOK": "Successful modification!",
 		"TitreKO": "A problem has occurred",
+		"AidePhoto": "<strong>Aide : </strong>To insert a photo of the site, use the tag img with src='PHOTO/name.ext' and alt='name'.",
 		"Menu": {
 			"Avatar": "Avatar",
 			"Langue": "Language",
