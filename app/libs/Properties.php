@@ -86,7 +86,7 @@ class Properties
 
     /**
      * Met à jour un élément
-     * 
+     *
      * @param String $args
      *            Elément à modifier
      * @param String $new
